@@ -1,0 +1,2370 @@
+{
+ "tiers": [
+  {
+   "tier": 0,
+   "name": "Foundations",
+   "count": 6
+  },
+  {
+   "tier": 1,
+   "name": "Age of Blackpowder",
+   "count": 22
+  },
+  {
+   "tier": 2,
+   "name": "Age of Steam",
+   "count": 32
+  },
+  {
+   "tier": 3,
+   "name": "Age of Iron",
+   "count": 38
+  },
+  {
+   "tier": 4,
+   "name": "Age of War Machines",
+   "count": 35
+  },
+  {
+   "tier": 5,
+   "name": "Age of Colossi",
+   "count": 27
+  }
+ ],
+ "tier_stage_gate": {
+  "1": "s002",
+  "2": "s015",
+  "3": "s030",
+  "4": "s075",
+  "5": "s105"
+ },
+ "doctrines": [
+  {
+   "id": "blackpowder_drill",
+   "name": "Blackpowder Drill",
+   "tier": 1,
+   "branch": "A",
+   "requires": [],
+   "cost": 30,
+   "desc": "Standardized powder charges. Opens T1 infantry.",
+   "implemented": true
+  },
+  {
+   "id": "field_engineering",
+   "name": "Field Engineering",
+   "tier": 1,
+   "branch": "B",
+   "requires": [],
+   "cost": 30,
+   "desc": "Wrenches, crates and stubbornness. Opens T1 engineers.",
+   "implemented": true
+  },
+  {
+   "id": "rifled_ordnance",
+   "name": "Rifled Ordnance",
+   "tier": 1,
+   "branch": "C",
+   "requires": [],
+   "cost": 35,
+   "desc": "Rifled barrels for the artillery corps. Opens T1 artillery.",
+   "implemented": true
+  },
+  {
+   "id": "coal_engines",
+   "name": "Coal Engines",
+   "tier": 1,
+   "branch": "D",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 45,
+   "desc": "Compact coal engines for wheeled vehicles.",
+   "implemented": true
+  },
+  {
+   "id": "mechanical_frames",
+   "name": "Mechanical Frames",
+   "tier": 1,
+   "branch": "E",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 50,
+   "desc": "Articulated walking frames from mining rigs.",
+   "implemented": true
+  },
+  {
+   "id": "rotor_aeronautics",
+   "name": "Rotor Aeronautics",
+   "tier": 1,
+   "branch": "F",
+   "requires": [],
+   "cost": 40,
+   "desc": "Reliable rotor hubs. Opens T1 aircraft.",
+   "implemented": true
+  },
+  {
+   "id": "age_of_steam",
+   "name": "Age of Steam",
+   "tier": 2,
+   "branch": null,
+   "requires": [
+    "blackpowder_drill",
+    "coal_engines"
+   ],
+   "cost": 80,
+   "desc": "High-pressure boilers. Opens T2 across all branches.",
+   "implemented": true
+  },
+  {
+   "id": "armored_engineering",
+   "name": "Armored Engineering",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "coal_engines",
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "desc": "Riveted plate and tracked running gear.",
+   "implemented": true
+  },
+  {
+   "id": "heavy_gunnery",
+   "name": "Heavy Gunnery",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance",
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "desc": "Larger calibers and recoil systems.",
+   "implemented": true
+  },
+  {
+   "id": "boiler_walkers",
+   "name": "Boiler Walkers",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "mechanical_frames",
+    "age_of_steam"
+   ],
+   "cost": 75,
+   "desc": "Boiler-driven heavy walking frames.",
+   "implemented": true
+  },
+  {
+   "id": "aerial_ordnance",
+   "name": "Aerial Ordnance",
+   "tier": 2,
+   "branch": "F",
+   "requires": [
+    "rotor_aeronautics",
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "desc": "Bomb racks and release gear for gyros.",
+   "implemented": true
+  },
+  {
+   "id": "anti_air_technology",
+   "name": "Anti-Air Technology",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance",
+    "rotor_aeronautics"
+   ],
+   "cost": 60,
+   "desc": "Fused flak shells and skyward mounts.",
+   "implemented": true
+  },
+  {
+   "id": "lift_gas_envelopes",
+   "name": "Lift-Gas Envelopes",
+   "tier": 2,
+   "branch": "G",
+   "requires": [
+    "rotor_aeronautics",
+    "age_of_steam"
+   ],
+   "cost": 80,
+   "desc": "Rigid gas cells for airships.",
+   "implemented": true
+  },
+  {
+   "id": "age_of_iron",
+   "name": "Age of Iron",
+   "tier": 3,
+   "branch": null,
+   "requires": [
+    "age_of_steam",
+    "armored_engineering"
+   ],
+   "cost": 120,
+   "desc": "Industrial iron. Opens T3.",
+   "implemented": true
+  },
+  {
+   "id": "heavy_artillery",
+   "name": "Heavy Artillery",
+   "tier": 3,
+   "branch": "C",
+   "requires": [
+    "heavy_gunnery",
+    "age_of_iron"
+   ],
+   "cost": 100,
+   "desc": "Siege-calibre ordnance.",
+   "implemented": true
+  },
+  {
+   "id": "aircraft_logistics",
+   "name": "Aircraft Logistics",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "aerial_ordnance",
+    "age_of_iron"
+   ],
+   "cost": 100,
+   "desc": "Rearming and recovery of aircraft at scale.",
+   "implemented": true
+  },
+  {
+   "id": "airship_engineering",
+   "name": "Airship Engineering",
+   "tier": 3,
+   "branch": "G",
+   "requires": [
+    "lift_gas_envelopes",
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "desc": "Armored gondolas and broadside mounts.",
+   "implemented": true
+  },
+  {
+   "id": "age_of_war_machines",
+   "name": "Age of War Machines",
+   "tier": 4,
+   "branch": null,
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery"
+   ],
+   "cost": 180,
+   "desc": "Opens T4.",
+   "implemented": true
+  },
+  {
+   "id": "advanced_rune_engineering",
+   "name": "Advanced Rune Engineering",
+   "tier": 4,
+   "branch": "B",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "desc": "Runes etched into pressure systems.",
+   "implemented": true
+  },
+  {
+   "id": "age_of_colossi",
+   "name": "Age of Colossi",
+   "tier": 5,
+   "branch": null,
+   "requires": [
+    "age_of_war_machines",
+    "advanced_rune_engineering"
+   ],
+   "cost": 260,
+   "desc": "Opens T5.",
+   "implemented": true
+  },
+  {
+   "id": "colossal_mechanical_frames",
+   "name": "Colossal Mechanical Frames",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "heavy_war_frames",
+    "age_of_colossi"
+   ],
+   "cost": 220,
+   "desc": "Frames the size of keeps.",
+   "implemented": true
+  },
+  {
+   "id": "dedicated_war_frames",
+   "name": "Dedicated War Frames",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "boiler_walkers",
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "desc": "Purpose-built humanoid combat frames (Ironclad Walker pattern).",
+   "implemented": true
+  },
+  {
+   "id": "heavy_war_frames",
+   "name": "Heavy War Frames",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "dedicated_war_frames",
+    "age_of_war_machines"
+   ],
+   "cost": 170,
+   "desc": "Massive frames carrying siege-scale weapons.",
+   "implemented": true
+  }
+ ],
+ "units": [
+  {
+   "id": "unit_tunnel_militia",
+   "unit": "tunnel_militia",
+   "tier": 0,
+   "branch": "A",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_ironhold_rifleman",
+   "unit": "ironhold_rifleman",
+   "tier": 0,
+   "branch": "A",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_shieldbearer",
+   "unit": "shieldbearer",
+   "tier": 0,
+   "branch": "A",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_blunderbussier",
+   "unit": "blunderbussier",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_grenadier",
+   "unit": "grenadier",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_hammer_guard",
+   "unit": "hammer_guard",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_sapper",
+   "unit": "sapper",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_longrifle_scout",
+   "unit": "longrifle_scout",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_bayonet_fusilier",
+   "unit": "bayonet_fusilier",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_shotgun_breacher",
+   "unit": "shotgun_breacher",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_powder_loader",
+   "unit": "powder_loader",
+   "tier": 1,
+   "branch": "A",
+   "requires": [
+    "blackpowder_drill"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_flame_trooper",
+   "unit": "flame_trooper",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steamgunner",
+   "unit": "steamgunner",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rune_cartridge_rifleman",
+   "unit": "rune_cartridge_rifleman",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_trench_guard",
+   "unit": "trench_guard",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_repeater_fusilier",
+   "unit": "repeater_fusilier",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_bombardier",
+   "unit": "bombardier",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_armor_piercer",
+   "unit": "armor_piercer",
+   "tier": 2,
+   "branch": "A",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_veteran_rifleman",
+   "unit": "veteran_rifleman",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_hammerer",
+   "unit": "heavy_hammerer",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyguard_marksman",
+   "unit": "skyguard_marksman",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rolling_shield_trooper",
+   "unit": "rolling_shield_trooper",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_incendiary_grenadier",
+   "unit": "incendiary_grenadier",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mortar_spotter",
+   "unit": "mortar_spotter",
+   "tier": 3,
+   "branch": "A",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_royal_iron_guard",
+   "unit": "royal_iron_guard",
+   "tier": 4,
+   "branch": "A",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunder_rifleman",
+   "unit": "thunder_rifleman",
+   "tier": 4,
+   "branch": "A",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_furnace_assault_trooper",
+   "unit": "furnace_assault_trooper",
+   "tier": 4,
+   "branch": "A",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_runebreaker_infantry",
+   "unit": "runebreaker_infantry",
+   "tier": 4,
+   "branch": "A",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_gatling_dwarf",
+   "unit": "heavy_gatling_dwarf",
+   "tier": 4,
+   "branch": "A",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_colossus_guard",
+   "unit": "colossus_guard",
+   "tier": 5,
+   "branch": "A",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_arc_lance_gunner",
+   "unit": "arc_lance_gunner",
+   "tier": 5,
+   "branch": "A",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_kingsguard_bulwark",
+   "unit": "kingsguard_bulwark",
+   "tier": 5,
+   "branch": "A",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_field_mechanic",
+   "unit": "field_mechanic",
+   "tier": 1,
+   "branch": "B",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ammunition_porter",
+   "unit": "ammunition_porter",
+   "tier": 1,
+   "branch": "B",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_boiler_tender",
+   "unit": "boiler_tender",
+   "tier": 1,
+   "branch": "B",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_salvage_crew",
+   "unit": "salvage_crew",
+   "tier": 1,
+   "branch": "B",
+   "requires": [
+    "field_engineering"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_repair_wagon",
+   "unit": "repair_wagon",
+   "tier": 2,
+   "branch": "B",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steam_sapper",
+   "unit": "steam_sapper",
+   "tier": 2,
+   "branch": "B",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_field_barricade_crew",
+   "unit": "field_barricade_crew",
+   "tier": 2,
+   "branch": "B",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mine_layer",
+   "unit": "mine_layer",
+   "tier": 2,
+   "branch": "B",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_spotter_balloon_crew",
+   "unit": "spotter_balloon_crew",
+   "tier": 2,
+   "branch": "B",
+   "requires": [
+    "age_of_steam"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_armored_recovery_team",
+   "unit": "armored_recovery_team",
+   "tier": 3,
+   "branch": "B",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_turret_engineer",
+   "unit": "turret_engineer",
+   "tier": 3,
+   "branch": "B",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_pressure_regulator",
+   "unit": "pressure_regulator",
+   "tier": 3,
+   "branch": "B",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_runic_mechanic",
+   "unit": "runic_mechanic",
+   "tier": 3,
+   "branch": "B",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_battlefield_surveyors",
+   "unit": "battlefield_surveyors",
+   "tier": 3,
+   "branch": "B",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_recovery_crawler",
+   "unit": "heavy_recovery_crawler",
+   "tier": 4,
+   "branch": "B",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mobile_forge_crew",
+   "unit": "mobile_forge_crew",
+   "tier": 4,
+   "branch": "B",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_counter_curse_technician",
+   "unit": "counter_curse_technician",
+   "tier": 4,
+   "branch": "B",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_automated_turret_crew",
+   "unit": "automated_turret_crew",
+   "tier": 4,
+   "branch": "B",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_master_fabricator_team",
+   "unit": "master_fabricator_team",
+   "tier": 5,
+   "branch": "B",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_titan_maintenance_crew",
+   "unit": "titan_maintenance_crew",
+   "tier": 5,
+   "branch": "B",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_light_field_cannon",
+   "unit": "light_field_cannon",
+   "tier": 0,
+   "branch": "C",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_flak_crew",
+   "unit": "flak_crew",
+   "tier": 0,
+   "branch": "C",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_organ_gun",
+   "unit": "organ_gun",
+   "tier": 1,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_portable_mortar",
+   "unit": "portable_mortar",
+   "tier": 1,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_grapeshot_culverin",
+   "unit": "grapeshot_culverin",
+   "tier": 1,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyhook_rocket_rack",
+   "unit": "skyhook_rocket_rack",
+   "tier": 1,
+   "branch": "C",
+   "requires": [
+    "rifled_ordnance"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steam_mortar",
+   "unit": "steam_mortar",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "age_of_steam",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_bombard",
+   "unit": "heavy_bombard",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "age_of_steam",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rocket_battery",
+   "unit": "rocket_battery",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "age_of_steam",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_shrapnel_howitzer",
+   "unit": "shrapnel_howitzer",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "age_of_steam",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_twin_flak_mount",
+   "unit": "twin_flak_mount",
+   "tier": 2,
+   "branch": "C",
+   "requires": [
+    "age_of_steam",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siege_howitzer",
+   "unit": "siege_howitzer",
+   "tier": 3,
+   "branch": "C",
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_piston_cannon",
+   "unit": "piston_cannon",
+   "tier": 3,
+   "branch": "C",
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_counterbattery_mortar",
+   "unit": "counterbattery_mortar",
+   "tier": 3,
+   "branch": "C",
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_multi_barrel_flak",
+   "unit": "multi_barrel_flak",
+   "tier": 3,
+   "branch": "C",
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_skybreaker",
+   "unit": "heavy_skybreaker",
+   "tier": 4,
+   "branch": "C",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rune_cannon",
+   "unit": "rune_cannon",
+   "tier": 4,
+   "branch": "C",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunder_rocket_battery",
+   "unit": "thunder_rocket_battery",
+   "tier": 4,
+   "branch": "C",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mountain_siege_cannon",
+   "unit": "mountain_siege_cannon",
+   "tier": 5,
+   "branch": "C",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_celestial_flak_array",
+   "unit": "celestial_flak_array",
+   "tier": 5,
+   "branch": "C",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_brasshound_armored_car",
+   "unit": "brasshound_armored_car",
+   "tier": 1,
+   "branch": "D",
+   "requires": [
+    "coal_engines",
+    "rifled_ordnance"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_coalrunner_scout_tank",
+   "unit": "coalrunner_scout_tank",
+   "tier": 1,
+   "branch": "D",
+   "requires": [
+    "coal_engines"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steamwheel_apc",
+   "unit": "steamwheel_apc",
+   "tier": 1,
+   "branch": "D",
+   "requires": [
+    "coal_engines"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_copperback_light_tank",
+   "unit": "copperback_light_tank",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "age_of_steam",
+    "armored_engineering",
+    "coal_engines"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironrunner_light_tank",
+   "unit": "ironrunner_light_tank",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "age_of_steam",
+    "armored_engineering"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_flamebelcher_medium_tank",
+   "unit": "flamebelcher_medium_tank",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "age_of_steam",
+    "armored_engineering"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironclad_medium_tank",
+   "unit": "ironclad_medium_tank",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "age_of_steam",
+    "armored_engineering"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyshield_aa_tank",
+   "unit": "skyshield_aa_tank",
+   "tier": 2,
+   "branch": "D",
+   "requires": [
+    "age_of_steam",
+    "armored_engineering",
+    "anti_air_technology"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunderback_heavy_tank",
+   "unit": "thunderback_heavy_tank",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_bastion_heavy_tank",
+   "unit": "bastion_heavy_tank",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siege_sapper_tank",
+   "unit": "siege_sapper_tank",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron",
+    "heavy_artillery",
+    "armored_engineering"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_boiler_ram",
+   "unit": "boiler_ram",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_twin_cannon_ironclad",
+   "unit": "twin_cannon_ironclad",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_sniper_tank_hunter",
+   "unit": "sniper_tank_hunter",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steamtread_heavy_carrier",
+   "unit": "steamtread_heavy_carrier",
+   "tier": 3,
+   "branch": "D",
+   "requires": [
+    "age_of_iron",
+    "armored_engineering",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siegecrawler",
+   "unit": "siegecrawler",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_artillery",
+    "armored_engineering"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mountainshield_heavy_tank",
+   "unit": "mountainshield_heavy_tank",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunderrail_tank_destroyer",
+   "unit": "thunderrail_tank_destroyer",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_firestorm_assault_tank",
+   "unit": "firestorm_assault_tank",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_dreadplate_breaker",
+   "unit": "dreadplate_breaker",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mobile_flak_fortress",
+   "unit": "mobile_flak_fortress",
+   "tier": 4,
+   "branch": "D",
+   "requires": [
+    "age_of_war_machines",
+    "armored_engineering",
+    "anti_air_technology"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mountainbreaker",
+   "unit": "mountainbreaker",
+   "tier": 5,
+   "branch": "D",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_worldhammer_siege_tank",
+   "unit": "worldhammer_siege_tank",
+   "tier": 5,
+   "branch": "D",
+   "requires": [
+    "age_of_colossi",
+    "heavy_artillery",
+    "armored_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_brass_leviathan",
+   "unit": "brass_leviathan",
+   "tier": 5,
+   "branch": "D",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_iron_bastion_prime",
+   "unit": "iron_bastion_prime",
+   "tier": 5,
+   "branch": "D",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_dreadnought_landship",
+   "unit": "dreadnought_landship",
+   "tier": 5,
+   "branch": "D",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_miner_rig",
+   "unit": "miner_rig",
+   "tier": 1,
+   "branch": "E",
+   "requires": [
+    "mechanical_frames"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_boiler_stomper",
+   "unit": "boiler_stomper",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "age_of_steam",
+    "boiler_walkers"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_drillwalker",
+   "unit": "drillwalker",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "age_of_steam",
+    "boiler_walkers"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_steam_loader",
+   "unit": "steam_loader",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "age_of_steam",
+    "boiler_walkers"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_piston_brawler",
+   "unit": "piston_brawler",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "age_of_steam",
+    "boiler_walkers"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_copper_sentinel",
+   "unit": "copper_sentinel",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "age_of_steam",
+    "boiler_walkers"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironclad_walker",
+   "unit": "ironclad_walker",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyguard_walker",
+   "unit": "skyguard_walker",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames",
+    "mechanical_frames",
+    "anti_air_technology"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thundercoil_frame",
+   "unit": "thundercoil_frame",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_cannon_strider",
+   "unit": "cannon_strider",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_shieldframe",
+   "unit": "shieldframe",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_claw_harvester",
+   "unit": "claw_harvester",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mortar_walker",
+   "unit": "mortar_walker",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_furnace_stalker",
+   "unit": "furnace_stalker",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "age_of_iron",
+    "dedicated_war_frames"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_anvilbreaker",
+   "unit": "anvilbreaker",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siegebellow",
+   "unit": "siegebellow",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_furnace_guardian",
+   "unit": "furnace_guardian",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siege_hammer_walker",
+   "unit": "siege_hammer_walker",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_flak_colossus",
+   "unit": "flak_colossus",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames",
+    "boiler_walkers",
+    "anti_air_technology"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunderstep_bruiser",
+   "unit": "thunderstep_bruiser",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_shredder_walker",
+   "unit": "shredder_walker",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_riftshield_walker",
+   "unit": "riftshield_walker",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "age_of_war_machines",
+    "heavy_war_frames"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_deepforge_titan",
+   "unit": "deepforge_titan",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "advanced_rune_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mountain_colossus",
+   "unit": "mountain_colossus",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "advanced_rune_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_kings_anvil",
+   "unit": "kings_anvil",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "advanced_rune_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_colossal_skybreaker",
+   "unit": "colossal_skybreaker",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "anti_air_technology"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_hammerfall_goliath",
+   "unit": "hammerfall_goliath",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "advanced_rune_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_embercore_titan",
+   "unit": "embercore_titan",
+   "tier": 5,
+   "branch": "E",
+   "requires": [
+    "age_of_colossi",
+    "colossal_mechanical_frames",
+    "advanced_rune_engineering"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_dwarven_flying_machine",
+   "unit": "dwarven_flying_machine",
+   "tier": 0,
+   "branch": "F",
+   "requires": [],
+   "cost": 0,
+   "implemented": true,
+   "starting": true
+  },
+  {
+   "id": "unit_scout_gyro",
+   "unit": "scout_gyro",
+   "tier": 1,
+   "branch": "F",
+   "requires": [
+    "rotor_aeronautics"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rotary_interceptor",
+   "unit": "rotary_interceptor",
+   "tier": 1,
+   "branch": "F",
+   "requires": [
+    "rotor_aeronautics"
+   ],
+   "cost": 40,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_bombard_gyro",
+   "unit": "bombard_gyro",
+   "tier": 2,
+   "branch": "F",
+   "requires": [
+    "age_of_steam",
+    "aerial_ordnance"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_twin_rotor_interceptor",
+   "unit": "twin_rotor_interceptor",
+   "tier": 2,
+   "branch": "F",
+   "requires": [
+    "age_of_steam",
+    "aerial_ordnance"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyspotter_scout",
+   "unit": "skyspotter_scout",
+   "tier": 2,
+   "branch": "F",
+   "requires": [
+    "age_of_steam",
+    "aerial_ordnance"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_coalwing_strafing_craft",
+   "unit": "coalwing_strafing_craft",
+   "tier": 2,
+   "branch": "F",
+   "requires": [
+    "age_of_steam",
+    "aerial_ordnance"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironwing_gunship",
+   "unit": "ironwing_gunship",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics",
+    "rotor_aeronautics",
+    "heavy_gunnery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunderwing",
+   "unit": "thunderwing",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_sky_mender",
+   "unit": "sky_mender",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_gyro_bomber",
+   "unit": "heavy_gyro_bomber",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_flak_chaser",
+   "unit": "flak_chaser",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rune_sight_scout",
+   "unit": "rune_sight_scout",
+   "tier": 3,
+   "branch": "F",
+   "requires": [
+    "age_of_iron",
+    "aircraft_logistics"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_forge_bomber",
+   "unit": "forge_bomber",
+   "tier": 4,
+   "branch": "F",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_twin_flame_gunship",
+   "unit": "twin_flame_gunship",
+   "tier": 4,
+   "branch": "F",
+   "requires": [
+    "age_of_war_machines",
+    "aerial_ordnance",
+    "heavy_gunnery"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_heavy_interceptor",
+   "unit": "heavy_interceptor",
+   "tier": 4,
+   "branch": "F",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rocketwing",
+   "unit": "rocketwing",
+   "tier": 4,
+   "branch": "F",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_siege_breaker_bomber",
+   "unit": "siege_breaker_bomber",
+   "tier": 4,
+   "branch": "F",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_stormforge_bomber",
+   "unit": "stormforge_bomber",
+   "tier": 5,
+   "branch": "F",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_royal_skyguard",
+   "unit": "royal_skyguard",
+   "tier": 5,
+   "branch": "F",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyhammer_assault_craft",
+   "unit": "skyhammer_assault_craft",
+   "tier": 5,
+   "branch": "F",
+   "requires": [
+    "age_of_colossi",
+    "aircraft_logistics",
+    "heavy_artillery"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_arcwing_superiority_craft",
+   "unit": "arcwing_superiority_craft",
+   "tier": 5,
+   "branch": "F",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_scout_blimp",
+   "unit": "scout_blimp",
+   "tier": 2,
+   "branch": "G",
+   "requires": [
+    "age_of_steam",
+    "lift_gas_envelopes"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironcloud",
+   "unit": "ironcloud",
+   "tier": 3,
+   "branch": "G",
+   "requires": [
+    "age_of_iron",
+    "airship_engineering",
+    "heavy_gunnery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyshield_airship",
+   "unit": "skyshield_airship",
+   "tier": 3,
+   "branch": "G",
+   "requires": [
+    "age_of_iron",
+    "airship_engineering"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_bombard_zeppelin",
+   "unit": "bombard_zeppelin",
+   "tier": 4,
+   "branch": "G",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_thunderbarge",
+   "unit": "thunderbarge",
+   "tier": 4,
+   "branch": "G",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_ironhold_carrier",
+   "unit": "ironhold_carrier",
+   "tier": 4,
+   "branch": "G",
+   "requires": [
+    "age_of_war_machines",
+    "airship_engineering",
+    "aircraft_logistics"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_forgewatch_frigate",
+   "unit": "forgewatch_frigate",
+   "tier": 4,
+   "branch": "G",
+   "requires": [
+    "age_of_war_machines"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyforge_dreadnought",
+   "unit": "skyforge_dreadnought",
+   "tier": 5,
+   "branch": "G",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_mountain_ark",
+   "unit": "mountain_ark",
+   "tier": 5,
+   "branch": "G",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_skyhammer_battleship",
+   "unit": "skyhammer_battleship",
+   "tier": 5,
+   "branch": "G",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_rune_citadel_airship",
+   "unit": "rune_citadel_airship",
+   "tier": 5,
+   "branch": "G",
+   "requires": [
+    "age_of_colossi"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "unit_grand_forge_carrier",
+   "unit": "grand_forge_carrier",
+   "tier": 5,
+   "branch": "G",
+   "requires": [
+    "age_of_colossi",
+    "airship_engineering",
+    "aircraft_logistics"
+   ],
+   "cost": 230,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "variant_copper_sentinel_breacher",
+   "variant_of": "copper_sentinel",
+   "variant": "breacher",
+   "name": "Breacher Configuration",
+   "tier": 2,
+   "branch": "E",
+   "requires": [
+    "unit_copper_sentinel",
+    "heavy_gunnery"
+   ],
+   "cost": 70,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "variant_furnace_stalker_thunderjaw",
+   "variant_of": "furnace_stalker",
+   "variant": "thunderjaw",
+   "name": "Thunderjaw Configuration",
+   "tier": 3,
+   "branch": "E",
+   "requires": [
+    "unit_furnace_stalker",
+    "heavy_gunnery"
+   ],
+   "cost": 110,
+   "implemented": true,
+   "starting": false
+  },
+  {
+   "id": "variant_thunderstep_bruiser_breach_cannon",
+   "variant_of": "thunderstep_bruiser",
+   "variant": "breach_cannon",
+   "name": "Breach Cannon Configuration",
+   "tier": 4,
+   "branch": "E",
+   "requires": [
+    "unit_thunderstep_bruiser",
+    "heavy_gunnery"
+   ],
+   "cost": 160,
+   "implemented": true,
+   "starting": false
+  }
+ ]
+}

@@ -1,0 +1,1711 @@
+{
+ "version": 1,
+ "count": 15,
+ "bosses": [
+  {
+   "id": "mine_maw",
+   "name": "Mine Maw",
+   "stage": 10,
+   "act": 1,
+   "identity": "Burrowing ground monster",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss_burrower",
+    "hp": 6200,
+    "armor": "hulk",
+    "speed": 30,
+    "radius": 44,
+    "bounty": 200,
+    "threat": 40,
+    "behavior": "boss_mine_maw",
+    "art": "mine_maw",
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "maw_bite",
+      "range": 74,
+      "damage": 70,
+      "dtype": "melee",
+      "reload": 1.7,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "splash": 40,
+      "mount": [
+       60,
+       -40
+      ],
+      "windup": 0.6
+     }
+    ],
+    "boss": {
+     "surface_time": 9.0,
+     "burrow_telegraph": 1.5,
+     "underground_max": 6.0,
+     "underground_speed": 95,
+     "erupt_telegraph": 1.7,
+     "erupt_damage": 125,
+     "erupt_radius": 95,
+     "exposed_time": 5.0,
+     "exposed_mult": 1.5,
+     "enrage_below": 0.35,
+     "support": {
+      "interval": 19.0,
+      "cap": 10,
+      "waves": [
+       [
+        "zombie_miner",
+        2
+       ],
+       [
+        "grave_crawler",
+        2
+       ]
+      ],
+      "erupt_spawn": [
+       "rotter",
+       2
+      ]
+     },
+     "seals_citadel": true
+    }
+   },
+   "desc": "A colossal burrowing maw that swallowed Deepvein Mine. It tunnels beneath your army and erupts under the densest formation.",
+   "counter": "Watch for the cracking ground and spread out. Pound it while it is exposed after erupting. Scout Gyros reveal its tunnel; aircraft are safe from eruptions. Its death breaks the citadel's seal."
+  },
+  {
+   "id": "bellringer",
+   "name": "The Bellringer",
+   "stage": 20,
+   "act": 1,
+   "identity": "Undead summoner using terrifying bell attacks",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 6400,
+    "armor": "bone",
+    "speed": 18,
+    "radius": 46,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "bellringer",
+    "art_scale": 2.931,
+    "arm": 0.3,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "great_bell_swing",
+      "range": 70,
+      "damage": 90,
+      "dtype": "blast",
+      "reload": 2.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       50,
+       -60
+      ],
+      "splash": 70,
+      "windup": 0.7
+     },
+     {
+      "id": "toll_wave",
+      "range": 320,
+      "damage": 30,
+      "dtype": "necro",
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "air",
+      "proj": "bolt",
+      "splash": 40,
+      "mount": [
+       30,
+       -180
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "funeral_toll",
+      "name": "Funeral Toll",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 16,
+      "windup": 1.2,
+      "radius": 180,
+      "damage": 60,
+      "dtype": "necro",
+      "stun": 1.3,
+      "telegraph": true,
+      "min_targets": 3
+     },
+     {
+      "id": "call_the_dead",
+      "name": "Call the Dead",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.0,
+      "enemy": "ossuary_skeleton",
+      "count": 3,
+      "cap": 8
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 26,
+      "cap": 8,
+      "waves": [
+       [
+        "rotter",
+        3
+       ],
+       [
+        "bone_archer",
+        2
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    }
+   },
+   "desc": "A towering bell-bearer. Each toll freezes the line; each call raises skeletons.",
+   "counter": "Spread out when the ground glows; kill the skeletons it calls; pound it with artillery."
+  },
+  {
+   "id": "ossuary_matron",
+   "name": "Ossuary Matron",
+   "stage": 30,
+   "act": 1,
+   "identity": "Necromantic support boss with periodic aerial escorts",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 8000,
+    "armor": "bone",
+    "speed": 16,
+    "radius": 48,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "ossuary_matron",
+    "art_scale": 2.836,
+    "arm": 0.3,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "matron_bolt",
+      "range": 360,
+      "damage": 40,
+      "dtype": "necro",
+      "reload": 2.0,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "splash": 30,
+      "mount": [
+       30,
+       -170
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "raise_ossuary",
+      "name": "Raise the Ossuary",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 14,
+      "windup": 1.2,
+      "enemy": "ossuary_skeleton",
+      "count": 5,
+      "cap": 12
+     },
+     {
+      "id": "aerial_escort",
+      "name": "Aerial Escort",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.0,
+      "enemy": "skeletal_vulture",
+      "count": 4,
+      "cap": 8,
+      "air": true
+     },
+     {
+      "id": "bone_ward",
+      "name": "Bone Ward",
+      "kind": "ward",
+      "steam": 0,
+      "cooldown": 26,
+      "windup": 0.6,
+      "radius": 200,
+      "mult": 0.5,
+      "dur": 7
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 22,
+      "cap": 10,
+      "waves": [
+       [
+        "skeletal_vulture",
+        3
+       ],
+       [
+        "ossuary_skeleton",
+        3
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    }
+   },
+   "desc": "Necromantic matriarch wrapped in bone. Raises skeletons and sends vultures at your aircraft.",
+   "counter": "Flak for the escorts; burst her down while the ward is down."
+  },
+  {
+   "id": "blightroot_behemoth",
+   "name": "Blightroot Behemoth",
+   "stage": 40,
+   "act": 2,
+   "identity": "Massive corrupted ground monster",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 7500,
+    "armor": "hulk",
+    "speed": 12,
+    "radius": 56,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "blightroot_behemoth",
+    "art_scale": 3.309,
+    "arm": 0.15,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "behemoth_roots",
+      "range": 110,
+      "damage": 90.0,
+      "dtype": "melee",
+      "reload": 3.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       60,
+       -80
+      ],
+      "splash": 70,
+      "windup": 0.6
+     },
+     {
+      "id": "thorn_storm",
+      "range": 320,
+      "damage": 9.6,
+      "dtype": "pierce",
+      "reload": 1.4,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "shard",
+      "burst": 4,
+      "burst_gap": 0.1,
+      "mount": [
+       0,
+       -220
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "blight_snare",
+      "name": "Blight Snare",
+      "kind": "zone",
+      "steam": 0,
+      "cooldown": 14,
+      "windup": 1.0,
+      "radius": 130,
+      "dps": 50,
+      "dur": 8,
+      "offset": 160,
+      "dtype": "necro",
+      "slow": 0.4,
+      "look": "roots"
+     },
+     {
+      "id": "root_quake",
+      "name": "Root Quake",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 20,
+      "windup": 1.3,
+      "radius": 230,
+      "damage": 120,
+      "dtype": "blast",
+      "knock": 40,
+      "telegraph": true,
+      "min_targets": 2
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "root_eruption",
+     "interval": 20.0,
+     "count": 3,
+     "damage": 90,
+     "radius": 60,
+     "delay": 1.6,
+     "slow": 0.5,
+     "alert": "Roots tear up the ground under your guns!"
+    },
+    "weak": {
+     "fire": 1.3
+    },
+    "fixed_hp": true
+   },
+   "desc": "A corrupted forest walking on a giant's bones.",
+   "counter": "Fire and range; stay out of the snares."
+  },
+  {
+   "id": "plague_regent",
+   "name": "Plague Regent",
+   "stage": 50,
+   "act": 2,
+   "identity": "Elite plague commander",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 5800,
+    "armor": "hulk",
+    "speed": 10,
+    "radius": 50,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "plague_regent",
+    "art_scale": 3.025,
+    "arm": 0.15,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "regent_scepter",
+      "range": 80,
+      "damage": 88.0,
+      "dtype": "acid",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       50,
+       -80
+      ],
+      "splash": 60
+     },
+     {
+      "id": "plague_volley",
+      "range": 360,
+      "damage": 20.0,
+      "dtype": "acid",
+      "reload": 2.2,
+      "targets": "both",
+      "priority": "armored",
+      "proj": "spit",
+      "splash": 40,
+      "mount": [
+       40,
+       -170
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "plague_court",
+      "name": "Plague Court",
+      "kind": "rally",
+      "steam": 0,
+      "cooldown": 26,
+      "windup": 0.8,
+      "radius": 320,
+      "dur": 8,
+      "mods": {
+       "fire": 1.25,
+       "speed": 1.15,
+       "dr": 0.9
+      }
+     },
+     {
+      "id": "pestilence",
+      "name": "Pestilence",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.2,
+      "radius": 220,
+      "damage": 70,
+      "dtype": "acid",
+      "telegraph": true,
+      "min_targets": 2,
+      "pool": {
+       "dps": 22,
+       "dur": 6
+      }
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 32,
+      "cap": 6,
+      "waves": [
+       [
+        "plague_mauler",
+        1
+       ],
+       [
+        "pestilent_soldier",
+        2
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "court_heralds",
+     "spawn": [
+      [
+       "plague_herald",
+       2
+      ]
+     ],
+     "respawn": 60.0,
+     "miasma_boost": 1.5,
+     "alert": "The Court summons its heralds \u2014 the miasma thickens!"
+    },
+    "fixed_hp": true
+   },
+   "desc": "An elite plague commander whose court fights harder near him.",
+   "counter": "Shock and fire; kill the court."
+  },
+  {
+   "id": "gravewing_matriarch",
+   "name": "Gravewing Matriarch",
+   "stage": 60,
+   "act": 2,
+   "identity": "Major flying undead boss",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "air",
+    "role": "boss",
+    "hp": 9000,
+    "armor": "flesh",
+    "speed": 70,
+    "radius": 50,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss_air",
+    "art": "gravewing_matriarch",
+    "art_scale": 2.836,
+    "arm": 0.2,
+    "blocks": false,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "matriarch_screech",
+      "range": 340,
+      "damage": 34,
+      "dtype": "necro",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "air",
+      "proj": "bolt",
+      "splash": 40,
+      "mount": [
+       40,
+       0
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "brood",
+      "name": "Brood",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 14,
+      "windup": 0.8,
+      "enemy": "carrion_bat",
+      "count": 6,
+      "cap": 14,
+      "air": true
+     },
+     {
+      "id": "screech_dive",
+      "name": "Screech Dive",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 18,
+      "windup": 1.0,
+      "radius": 180,
+      "damage": 90,
+      "dtype": "necro",
+      "stun": 1.0,
+      "telegraph": true,
+      "min_targets": 1
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "altitude": [
+     200,
+     260
+    ],
+    "standoff": 160,
+    "phase": {
+     "at": 0.5,
+     "kind": "perch",
+     "perch_time": 8.0,
+     "interval": 26.0,
+     "nest_x": 2250,
+     "wake": [
+      [
+       "blight_bat",
+       5
+      ],
+      [
+       "skeletal_vulture",
+       2
+      ]
+     ],
+     "alert": "The Matriarch lands on her nest \u2014 hit her from the ground!"
+    },
+    "fixed_hp": true,
+    "band": "high"
+   },
+   "desc": "A colossal bat-mother that fills the sky with her brood.",
+   "counter": "Flak, flak, flak."
+  },
+  {
+   "id": "bone_wyrm",
+   "name": "Bone Wyrm",
+   "stage": 70,
+   "act": 3,
+   "identity": "Flying and burrowing monster",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "air",
+    "role": "boss",
+    "hp": 9500,
+    "armor": "bone",
+    "speed": 60,
+    "radius": 56,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss_air",
+    "art": "bone_wyrm",
+    "art_scale": 3.12,
+    "arm": 0.2,
+    "blocks": false,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "wyrm_breath",
+      "range": 320,
+      "damage": 16,
+      "dtype": "necro",
+      "reload": 0.35,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "bolt",
+      "splash": 26,
+      "mount": [
+       60,
+       10
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "burrow_strike",
+      "name": "Burrow Strike",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 16,
+      "windup": 1.4,
+      "radius": 200,
+      "damage": 150,
+      "dtype": "blast",
+      "knock": 40,
+      "telegraph": true,
+      "min_targets": 1
+     },
+     {
+      "id": "bone_rain",
+      "name": "Bone Rain",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.0,
+      "radius": 260,
+      "damage": 80,
+      "dtype": "pierce",
+      "telegraph": true,
+      "min_targets": 2
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "altitude": [
+     200,
+     260
+    ],
+    "standoff": 140,
+    "phase": {
+     "at": 0.5,
+     "kind": "wyrm_dive",
+     "interval": 22.0,
+     "under": 2.6,
+     "exposed": 6.0,
+     "damage": 120,
+     "radius": 95,
+     "alert": "The Wyrm dives into the chasm \u2014 watch the ground!"
+    },
+    "fixed_hp": true,
+    "band": "high"
+   },
+   "desc": "A skeletal wyrm that dives into the earth and erupts beneath your army.",
+   "counter": "Spread out at the telegraph; heavy flak."
+  },
+  {
+   "id": "hollow_admiral",
+   "name": "The Hollow Admiral",
+   "stage": 80,
+   "act": 3,
+   "identity": "Commander of an undead aerial formation",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "air",
+    "role": "boss",
+    "hp": 9000,
+    "armor": "machine",
+    "speed": 22,
+    "radius": 70,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss_air",
+    "art": "hollow_admiral",
+    "art_scale": 1.607,
+    "arm": 0.25,
+    "blocks": false,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "ghost_broadside",
+      "range": 460,
+      "min_range": 60,
+      "damage": 90,
+      "dtype": "blast",
+      "reload": 3.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 40,
+      "ap": true,
+      "mount": [
+       40,
+       50
+      ],
+      "arc": [
+       0,
+       170
+      ]
+     },
+     {
+      "id": "ghost_broadside_aft",
+      "range": 460,
+      "min_range": 60,
+      "damage": 90,
+      "dtype": "blast",
+      "reload": 3.4,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 40,
+      "ap": true,
+      "mount": [
+       -40,
+       50
+      ],
+      "arc": [
+       0,
+       170
+      ]
+     },
+     {
+      "id": "ghost_flak",
+      "range": 360,
+      "damage": 20,
+      "dtype": "necro",
+      "reload": 0.6,
+      "targets": "air",
+      "priority": "air",
+      "proj": "flak",
+      "splash": 36,
+      "mount": [
+       0,
+       -70
+      ],
+      "arc": [
+       -180,
+       180
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "boarding_party",
+      "name": "Boarding Party",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 18,
+      "windup": 1.0,
+      "enemy": "haunted_flying_machine",
+      "count": 3,
+      "cap": 8,
+      "air": true
+     },
+     {
+      "id": "ghost_salvo",
+      "name": "Ghost Salvo",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 20,
+      "windup": 1.2,
+      "radius": 240,
+      "damage": 110,
+      "dtype": "blast",
+      "telegraph": true,
+      "min_targets": 2
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "altitude": [
+     170,
+     190
+    ],
+    "hold_range": 380,
+    "phase": {
+     "at": 0.5,
+     "kind": "escort_shield",
+     "spawn": [
+      [
+       "infected_airbarge",
+       2
+      ]
+     ],
+     "alert": "Escort barges close in \u2014 the Admiral is shielded until one falls!"
+    },
+    "fixed_hp": true,
+    "band": "high"
+   },
+   "desc": "A drowned airship admiral and his ghost fleet.",
+   "counter": "Gunships and flak batteries."
+  },
+  {
+   "id": "dread_sky_tyrant",
+   "name": "Dread Sky Tyrant",
+   "stage": 90,
+   "act": 3,
+   "identity": "Colossal aerial boss",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "air",
+    "role": "boss",
+    "hp": 10000,
+    "armor": "bone",
+    "speed": 50,
+    "radius": 70,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss_air",
+    "art": "dread_sky_tyrant",
+    "art_scale": 3.309,
+    "arm": 0.15,
+    "blocks": false,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "tyrant_breath",
+      "range": 360,
+      "damage": 14.0,
+      "dtype": "necro",
+      "reload": 0.35,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "bolt",
+      "splash": 34,
+      "mount": [
+       70,
+       10
+      ],
+      "reach": "high"
+     },
+     {
+      "id": "tyrant_tail",
+      "range": 200,
+      "damage": 72.0,
+      "dtype": "blast",
+      "reload": 3.0,
+      "targets": "air",
+      "priority": "air",
+      "proj": "bolt",
+      "splash": 40,
+      "mount": [
+       -60,
+       0
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "sky_terror",
+      "name": "Sky Terror",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.2,
+      "radius": 260,
+      "damage": 90,
+      "dtype": "necro",
+      "stun": 1.2,
+      "telegraph": true,
+      "min_targets": 2
+     },
+     {
+      "id": "drake_escort",
+      "name": "Drake Escort",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 26,
+      "windup": 1.0,
+      "enemy": "bone_wyvern",
+      "count": 2,
+      "cap": 4,
+      "air": true
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "altitude": [
+     190,
+     250
+    ],
+    "standoff": 170,
+    "phase": {
+     "at": 0.5,
+     "kind": "storm_tyrant",
+     "storm_boost": 1.8,
+     "air_bias": 0.7,
+     "land_at": 0.25,
+     "land_time": 8.0,
+     "alert": "The storm answers its Tyrant \u2014 lightning hunts your aircraft!",
+     "land_alert": "The Tyrant lands to breathe on your line \u2014 hit it from the ground!"
+    },
+    "fixed_hp": true,
+    "band": "high"
+   },
+   "desc": "A colossal bone tyrant of the skies.",
+   "counter": "Every flak gun you own."
+  },
+  {
+   "id": "fallen_titan",
+   "name": "The Fallen Titan",
+   "stage": 100,
+   "act": 4,
+   "identity": "Corrupted colossal dwarven mech",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 11000,
+    "armor": "mech",
+    "speed": 10,
+    "radius": 56,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "fallen_titan",
+    "art_scale": 3.025,
+    "arm": 0.3,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "fallen_cannon",
+      "range": 420,
+      "min_range": 60,
+      "damage": 195.0,
+      "dtype": "blast",
+      "reload": 6.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 60,
+      "ap": true,
+      "mount": [
+       110,
+       -170
+      ]
+     },
+     {
+      "id": "fallen_aa",
+      "range": 300,
+      "damage": 40,
+      "dtype": "pierce",
+      "reload": 1.6,
+      "targets": "air",
+      "priority": "air",
+      "proj": "bullet",
+      "burst": 4,
+      "burst_gap": 0.08,
+      "mount": [
+       40,
+       -280
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "corrupted_overdrive",
+      "name": "Corrupted Overdrive",
+      "kind": "buff",
+      "steam": 0,
+      "cooldown": 26,
+      "windup": 0.6,
+      "dur": 8,
+      "mods": {
+       "fire": 1.6
+      },
+      "cond": "target"
+     },
+     {
+      "id": "titan_stomp",
+      "name": "Titan Stomp",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 18,
+      "windup": 1.2,
+      "radius": 220,
+      "damage": 180,
+      "dtype": "blast",
+      "knock": 46,
+      "telegraph": true,
+      "min_targets": 2
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "titan_reclaim",
+     "interval": 18.0,
+     "exposed": 8.0,
+     "exposed_mult": 1.25,
+     "escort": "cursed_ironclad",
+     "alert": "The Titan tears a wreck from the ground \u2014 its plates fall away from the core!"
+    },
+    "fixed_hp": true
+   },
+   "desc": "A Deepforge Titan that fell to the rift and was raised.",
+   "counter": "Shock, rail guns, and your own colossi."
+  },
+  {
+   "id": "ashen_forge_tyrant",
+   "name": "Ashen Forge Tyrant",
+   "stage": 110,
+   "act": 4,
+   "identity": "Undead industrial warlord",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 13000,
+    "armor": "hulk",
+    "speed": 12,
+    "radius": 58,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "ashen_forge_tyrant",
+    "art_scale": 3.215,
+    "arm": 0.2,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "ashen_hammer",
+      "range": 90,
+      "damage": 182.0,
+      "dtype": "fire",
+      "reload": 3.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       60,
+       -80
+      ],
+      "splash": 80,
+      "windup": 0.8
+     },
+     {
+      "id": "slag_volley",
+      "range": 380,
+      "damage": 36.0,
+      "dtype": "fire",
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "armored",
+      "proj": "arc",
+      "splash": 50,
+      "mount": [
+       30,
+       -200
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "ash_storm",
+      "name": "Ash Storm",
+      "kind": "zone",
+      "steam": 0,
+      "cooldown": 14,
+      "windup": 1.0,
+      "radius": 150,
+      "dps": 60,
+      "dur": 8,
+      "offset": 170,
+      "dtype": "fire",
+      "look": "fire"
+     },
+     {
+      "id": "forge_fury",
+      "name": "Forge Fury",
+      "kind": "buff",
+      "steam": 0,
+      "cooldown": 24,
+      "windup": 0.6,
+      "dur": 8,
+      "mods": {
+       "fire": 1.5,
+       "dr": 0.8
+      }
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "vent_sequence",
+     "interval": 16.0,
+     "step": 0.55,
+     "warn": 1.0,
+     "damage": 110,
+     "radius": 46,
+     "vents": [
+      2140,
+      1960,
+      1780,
+      1600,
+      1420,
+      1240,
+      1060,
+      880
+     ],
+     "alert": "The furnace answers its Tyrant \u2014 the vents fire in sequence!"
+    },
+    "fixed_hp": true
+   },
+   "desc": "An undead warlord wearing a captured forge.",
+   "counter": "Shock and cold iron: AP cannons and rail guns."
+  },
+  {
+   "id": "corpse_colossus",
+   "name": "Corpse Colossus",
+   "stage": 120,
+   "act": 4,
+   "identity": "Enormous ground siege boss",
+   "implemented": true,
+   "milestone": "M005",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 15000,
+    "armor": "hulk",
+    "speed": 8,
+    "radius": 66,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "corpse_colossus",
+    "art_scale": 3.498,
+    "arm": 0.2,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "colossus_slam",
+      "range": 100,
+      "damage": 196.0,
+      "dtype": "blast",
+      "reload": 3.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       70,
+       -60
+      ],
+      "splash": 100,
+      "windup": 0.9
+     }
+    ],
+    "abilities": [
+     {
+      "id": "disgorge_horde",
+      "name": "Disgorge Horde",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 12,
+      "windup": 1.0,
+      "enemy": "rotter",
+      "count": 5,
+      "cap": 14
+     },
+     {
+      "id": "siege_slam",
+      "name": "Siege Slam",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 20,
+      "windup": 1.4,
+      "radius": 260,
+      "damage": 140,
+      "dtype": "blast",
+      "knock": 50,
+      "telegraph": true,
+      "min_targets": 1
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 16,
+      "cap": 16,
+      "waves": [
+       [
+        "shambler",
+        4
+       ],
+       [
+        "fungal_host",
+        2
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "corpse_throw",
+     "interval": 11.0,
+     "damage": 260,
+     "warn": 1.6,
+     "machine_at": 0.25,
+     "machines": [
+      [
+       "gravegun_tank",
+       1
+      ],
+      [
+       "risen_copperback",
+       1
+      ]
+     ],
+     "alert": "The Colossus hurls the dead at your stronghold!",
+     "machine_alert": "The Colossus disgorges a corrupted war machine!"
+    },
+    "fixed_hp": true
+   },
+   "desc": "A siege-mountain of the dead that spills hordes as it walks.",
+   "counter": "Massed artillery; flame for the horde."
+  },
+  {
+   "id": "hollow_king",
+   "name": "The Hollow King",
+   "stage": 130,
+   "act": 5,
+   "identity": "Elite undead ruler and summoner",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 28000,
+    "armor": "heavy",
+    "speed": 14,
+    "radius": 52,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "hollow_king",
+    "art_scale": 2.931,
+    "arm": 0.3,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "hollow_blade",
+      "range": 80,
+      "damage": 200,
+      "dtype": "necro",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       50,
+       -80
+      ],
+      "splash": 60
+     },
+     {
+      "id": "king_bolt",
+      "range": 380,
+      "damage": 50,
+      "dtype": "necro",
+      "reload": 1.8,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "splash": 30,
+      "mount": [
+       30,
+       -180
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "royal_summons",
+      "name": "Royal Summons",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 14,
+      "windup": 1.2,
+      "enemy": "ossuary_champion",
+      "count": 2,
+      "cap": 6
+     },
+     {
+      "id": "hollow_crown",
+      "name": "Hollow Crown",
+      "kind": "ward",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 0.6,
+      "radius": 260,
+      "mult": 0.5,
+      "dur": 8
+     },
+     {
+      "id": "kings_doom",
+      "name": "King's Doom",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 24,
+      "windup": 1.4,
+      "radius": 240,
+      "damage": 160,
+      "dtype": "necro",
+      "stun": 1.5,
+      "telegraph": true,
+      "min_targets": 2
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 20,
+      "cap": 12,
+      "waves": [
+       [
+        "hollow_guard",
+        2
+       ],
+       [
+        "dread_executioner",
+        1
+       ],
+       [
+        "crypt_hexer",
+        2
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    }
+   },
+   "desc": "The undead ruler and summoner, guarded by champions.",
+   "counter": "Break the champions, then focus the King when the ward falls."
+  },
+  {
+   "id": "gravewing_sovereign",
+   "name": "Gravewing Sovereign",
+   "stage": 140,
+   "act": 5,
+   "identity": "Massive airborne undead creature",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "boss",
+    "domain": "air",
+    "role": "boss",
+    "hp": 30000,
+    "armor": "flesh",
+    "speed": 55,
+    "radius": 70,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss_air",
+    "art": "gravewing_sovereign",
+    "art_scale": 3.404,
+    "arm": 0.3,
+    "blocks": false,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "sovereign_screech",
+      "range": 380,
+      "damage": 50,
+      "dtype": "necro",
+      "reload": 1.4,
+      "targets": "both",
+      "priority": "air",
+      "proj": "bolt",
+      "splash": 50,
+      "mount": [
+       60,
+       0
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "sovereign_brood",
+      "name": "Sovereign's Brood",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 12,
+      "windup": 0.8,
+      "enemy": "rotwing",
+      "count": 4,
+      "cap": 10,
+      "air": true
+     },
+     {
+      "id": "wing_storm",
+      "name": "Wing Storm",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 16,
+      "windup": 1.2,
+      "radius": 300,
+      "damage": 150,
+      "dtype": "necro",
+      "stun": 1.0,
+      "telegraph": true,
+      "min_targets": 1
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {},
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    },
+    "altitude": [
+     190,
+     250
+    ],
+    "standoff": 170,
+    "band": "high"
+   },
+   "desc": "A sky-darkening winged sovereign.",
+   "counter": "Flak arrays and superiority craft."
+  },
+  {
+   "id": "rift_lich",
+   "name": "The Rift Lich",
+   "stage": 150,
+   "act": 5,
+   "identity": "Final boss commanding a simultaneous ground and air assault",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "boss",
+    "domain": "ground",
+    "role": "boss",
+    "hp": 34000,
+    "armor": "light",
+    "speed": 14,
+    "radius": 56,
+    "bounty": 250,
+    "threat": 40,
+    "behavior": "boss",
+    "art": "rift_lich",
+    "art_scale": 3.215,
+    "arm": 0.3,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "lich_rift_beam",
+      "range": 420,
+      "damage": 70,
+      "dtype": "necro",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "splash": 40,
+      "mount": [
+       40,
+       -200
+      ],
+      "reach": "high"
+     },
+     {
+      "id": "lich_lightning",
+      "range": 360,
+      "damage": 40,
+      "dtype": "shock",
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "zap",
+      "chain": 5,
+      "chain_range": 70,
+      "mount": [
+       30,
+       -180
+      ],
+      "reach": "high"
+     }
+    ],
+    "abilities": [
+     {
+      "id": "rift_legion",
+      "name": "Rift Legion",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 12,
+      "windup": 1.0,
+      "enemy": "riftbound_legionary",
+      "count": 4,
+      "cap": 12
+     },
+     {
+      "id": "rift_storm",
+      "name": "Rift Storm",
+      "kind": "summon",
+      "steam": 0,
+      "cooldown": 16,
+      "windup": 1.0,
+      "enemy": "rift_crow",
+      "count": 6,
+      "cap": 14,
+      "air": true
+     },
+     {
+      "id": "annihilate",
+      "name": "Annihilate",
+      "kind": "aoe",
+      "steam": 0,
+      "cooldown": 22,
+      "windup": 1.6,
+      "radius": 280,
+      "damage": 220,
+      "dtype": "necro",
+      "telegraph": true,
+      "min_targets": 2
+     },
+     {
+      "id": "lich_ward",
+      "name": "Lich Ward",
+      "kind": "ward",
+      "steam": 0,
+      "cooldown": 28,
+      "windup": 0.6,
+      "radius": 260,
+      "mult": 0.4,
+      "dur": 7
+     }
+    ],
+    "mech_class": "colossal",
+    "death_time": 3.2,
+    "boss": {
+     "seals_citadel": true,
+     "support": {
+      "interval": 16,
+      "cap": 16,
+      "waves": [
+       [
+        "riftbound_legionary",
+        2
+       ],
+       [
+        "rift_crow",
+        4
+       ],
+       [
+        "night_seer",
+        1
+       ]
+      ]
+     },
+     "enrage_below": 0.35,
+     "enrage_mult": 1.35
+    }
+   },
+   "desc": "The final enemy: commands a ground legion and a sky storm at once.",
+   "counter": "Everything you have, on both fronts."
+  }
+ ]
+}

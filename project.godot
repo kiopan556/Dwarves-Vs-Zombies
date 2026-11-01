@@ -1,0 +1,43 @@
+; Engine configuration file.
+; Dwarves vs Zombies — M001 "The First Flame"
+
+config_version=5
+
+[application]
+
+config/name="Dwarves vs Zombies"
+config/description="2D air-and-ground tug-of-war strategy defense. One Kingdom. One Great Forge. Two Fronts. No Heroes."
+config/version="0.7.0-M007"
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Registry="*res://scripts/autoload/registry.gd"
+GameState="*res://scripts/autoload/game_state.gd"
+Audio="*res://scripts/autoload/audio_manager.gd"
+PoseCache="*res://scripts/core/pose_cache.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=0
+window/vsync/vsync_mode=1
+
+
+[physics]
+
+common/physics_ticks_per_second=60
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.07, 0.06, 0.06, 1)
+2d/snap/snap_2d_transforms_to_pixel=false
+anti_aliasing/quality/msaa_2d=0

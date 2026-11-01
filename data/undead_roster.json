@@ -1,0 +1,5804 @@
+{
+ "version": 1,
+ "count": 110,
+ "units": [
+  {
+   "id": "rotter",
+   "name": "Rotter",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "horde_fodder",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 72,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 10,
+    "bounty": 4,
+    "threat": 1,
+    "behavior": "melee",
+    "art": "rotter",
+    "blocks": true,
+    "weapons": [
+     {
+      "id": "claw",
+      "range": 22,
+      "damage": 7,
+      "dtype": "melee",
+      "reload": 1.1,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       12,
+       -22
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "rotter"
+   },
+   "desc": "Miserable shambling corpse. Alone, pitiful. In hundreds, an avalanche.",
+   "counter": "Anything. Riflemen, Militia, Organ Guns."
+  },
+  {
+   "id": "zombie_miner",
+   "name": "Zombie Miner",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "burrower",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 115,
+    "armor": "light",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 2,
+    "behavior": "burrower",
+    "art": "zombie_miner",
+    "blocks": true,
+    "burrow_until": 0.55,
+    "weapons": [
+     {
+      "id": "rusted_pick",
+      "range": 24,
+      "damage": 11,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -24
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "zombie_miner"
+   },
+   "desc": "Dead miners who still dig. They tunnel under the front and erupt near your line.",
+   "counter": "Keep militia and blunderbusses near the rear line; Scout Gyros reveal tunnels."
+  },
+  {
+   "id": "shambler",
+   "name": "Shambler",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 95,
+    "armor": "flesh",
+    "speed": 18,
+    "radius": 11,
+    "bounty": 4,
+    "threat": 1,
+    "behavior": "melee",
+    "art": "shambler",
+    "weapons": [
+     {
+      "id": "shamble_claw",
+      "range": 24,
+      "damage": 9,
+      "dtype": "melee",
+      "reload": 1.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "shambler"
+   },
+   "desc": "Slow, sturdy corpse. Takes a lot of shot to drop.",
+   "counter": "Anything with volume."
+  },
+  {
+   "id": "grave_crawler",
+   "name": "Grave Crawler",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "flanker",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 48,
+    "armor": "flesh",
+    "speed": 36,
+    "radius": 8,
+    "bounty": 5,
+    "threat": 1.5,
+    "behavior": "crawler",
+    "art": "grave_crawler",
+    "blocks": false,
+    "low_profile": true,
+    "weapons": [
+     {
+      "id": "crawler_bite",
+      "range": 18,
+      "damage": 7,
+      "dtype": "melee",
+      "reload": 0.6,
+      "targets": "ground",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       10,
+       -6
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "grave_crawler"
+   },
+   "desc": "Legless horror that slips beneath the battle line to gnaw on crews and mechanics. Halved blast damage.",
+   "counter": "Riflemen and militia guarding artillery; brass MG fire."
+  },
+  {
+   "id": "plague_runner",
+   "name": "Plague Runner",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "suicide_rusher",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 55,
+    "armor": "flesh",
+    "speed": 62,
+    "radius": 9,
+    "bounty": 5,
+    "threat": 1.5,
+    "behavior": "melee",
+    "art": "plague_runner",
+    "blocks": true,
+    "death_burst": {
+     "damage": 20,
+     "radius": 55,
+     "dtype": "acid"
+    },
+    "weapons": [
+     {
+      "id": "runner_claw",
+      "range": 20,
+      "damage": 6,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       12,
+       -22
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "plague_runner"
+   },
+   "desc": "Bloated sprinter. Bursts in a plague cloud when killed \u2014 kill it before it reaches your line.",
+   "counter": "Long-range rifles and cannons; don't let it die in your formation."
+  },
+  {
+   "id": "ossuary_skeleton",
+   "name": "Ossuary Skeleton",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 90,
+    "armor": "bone",
+    "speed": 30,
+    "radius": 10,
+    "bounty": 6,
+    "threat": 2,
+    "behavior": "melee",
+    "art": "skeleton",
+    "blocks": true,
+    "weapons": [
+     {
+      "id": "rusted_blade",
+      "range": 24,
+      "damage": 10,
+      "dtype": "melee",
+      "reload": 0.9,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -26
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "skeleton"
+   },
+   "desc": "Rattling bone soldier. Bullets pass through the gaps; blasts and hammers shatter it.",
+   "counter": "Grenadiers, cannons, Miner Rig drills."
+  },
+  {
+   "id": "rusted_legionary",
+   "name": "Rusted Legionary",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 180,
+    "armor": "heavy",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "rusted_legionary",
+    "weapons": [
+     {
+      "id": "rusted_gladius",
+      "range": 24,
+      "damage": 14,
+      "dtype": "melee",
+      "reload": 1.1,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "rusted_legionary"
+   },
+   "desc": "Skeletal legionary in rusted mail and shield.",
+   "counter": "Blast and hammers; AP rifles."
+  },
+  {
+   "id": "bone_shieldbearer",
+   "name": "Bone Shieldbearer",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "shield_wall",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 210,
+    "armor": "bone_shield",
+    "speed": 24,
+    "radius": 13,
+    "bounty": 9,
+    "threat": 3,
+    "taunt": true,
+    "behavior": "melee",
+    "art": "bone_shield",
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "shield_edge",
+      "range": 24,
+      "damage": 9,
+      "dtype": "melee",
+      "reload": 1.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -24
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "bone_shield"
+   },
+   "desc": "Coffin-lid shield turns aside rifle fire (-70% pierce). Screens archers behind it.",
+   "counter": "Arcing grenades, cannon shells, bombs."
+  },
+  {
+   "id": "bone_pikeman",
+   "name": "Bone Pikeman",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "bone",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 6,
+    "threat": 2,
+    "behavior": "melee",
+    "art": "bone_pikeman",
+    "weapons": [
+     {
+      "id": "bone_pike",
+      "range": 40,
+      "damage": 13,
+      "dtype": "melee",
+      "reload": 1.3,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "bone_pikeman"
+   },
+   "desc": "Long pikes strike before swords can reply.",
+   "counter": "Grenades and cannons."
+  },
+  {
+   "id": "ossuary_axeman",
+   "name": "Ossuary Axeman",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 130,
+    "armor": "bone",
+    "speed": 28,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 2.5,
+    "behavior": "melee",
+    "art": "ossuary_axeman",
+    "weapons": [
+     {
+      "id": "ossuary_axe",
+      "range": 24,
+      "damage": 18,
+      "dtype": "melee",
+      "reload": 1.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 16
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "ossuary_axeman"
+   },
+   "desc": "Cleaving axes that bite into shield walls.",
+   "counter": "Out-range it."
+  },
+  {
+   "id": "grave_knight",
+   "name": "Grave Knight",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "elite_melee",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 440,
+    "armor": "heavy",
+    "speed": 26,
+    "radius": 14,
+    "bounty": 18,
+    "threat": 5,
+    "behavior": "melee",
+    "art": "grave_knight",
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "grave_greatsword",
+      "range": 30,
+      "damage": 26,
+      "dtype": "melee",
+      "reload": 1.5,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "splash": 28,
+      "mount": [
+       18,
+       -30
+      ],
+      "windup": 0.3
+     }
+    ]
+   },
+   "assets": {
+    "art": "grave_knight"
+   },
+   "desc": "Armored revenant with a cleaving greatsword. Shrugs off bullets.",
+   "counter": "Armor-piercing cannons, tank shells, Miner Rig."
+  },
+  {
+   "id": "barrow_spearman",
+   "name": "Barrow Spearman",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 90,
+    "armor": "bone",
+    "speed": 28,
+    "radius": 11,
+    "bounty": 6,
+    "threat": 2,
+    "behavior": "ranged",
+    "art": "barrow_spearman",
+    "weapons": [
+     {
+      "id": "thrown_spear",
+      "range": 160,
+      "damage": 14,
+      "dtype": "pierce",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "arrow",
+      "mount": [
+       16,
+       -28
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "barrow_spearman"
+   },
+   "desc": "Hurls barrow-spears from behind the front.",
+   "counter": "Shotguns and grenades."
+  },
+  {
+   "id": "blight_marauder",
+   "name": "Blight Marauder",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 140,
+    "armor": "flesh",
+    "speed": 34,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 2.5,
+    "behavior": "melee",
+    "art": "blight_marauder",
+    "weapons": [
+     {
+      "id": "blight_cleaver",
+      "range": 24,
+      "damage": 15,
+      "dtype": "melee",
+      "reload": 0.9,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "bonus": {
+       "flesh": 1.2
+      }
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "blight_marauder"
+   },
+   "desc": "Fast raider swinging a blighted cleaver.",
+   "counter": "Shieldbearers and rifles."
+  },
+  {
+   "id": "rotting_berserker",
+   "name": "Rotting Berserker",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 170,
+    "armor": "flesh",
+    "speed": 40,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "rotting_berserker",
+    "weapons": [
+     {
+      "id": "frenzy_claws",
+      "range": 24,
+      "damage": 20,
+      "dtype": "melee",
+      "reload": 0.8,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "death_burst": {
+     "damage": 14,
+     "radius": 40,
+     "dtype": "acid"
+    }
+   },
+   "assets": {
+    "art": "rotting_berserker"
+   },
+   "desc": "Frenzied runner that keeps swinging until it bursts.",
+   "counter": "Kill it at range."
+  },
+  {
+   "id": "fungal_host",
+   "name": "Fungal Host",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 160,
+    "armor": "flesh",
+    "speed": 18,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 2.5,
+    "behavior": "melee",
+    "art": "fungal_host",
+    "weapons": [
+     {
+      "id": "spore_grasp",
+      "range": 24,
+      "damage": 10,
+      "dtype": "melee",
+      "reload": 1.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "death_spawn": {
+     "unit": "rotter",
+     "count": 2
+    }
+   },
+   "assets": {
+    "art": "fungal_host"
+   },
+   "desc": "Riddled with fungus; two Rotters burst from it when it falls.",
+   "counter": "Fire and blast."
+  },
+  {
+   "id": "pestilent_soldier",
+   "name": "Pestilent Soldier",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 150,
+    "armor": "light",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 2.5,
+    "behavior": "melee",
+    "art": "pestilent_soldier",
+    "weapons": [
+     {
+      "id": "pestilent_blade",
+      "range": 24,
+      "damage": 13,
+      "dtype": "melee",
+      "reload": 1.1,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "death_burst": {
+     "damage": 16,
+     "radius": 46,
+     "dtype": "acid"
+    }
+   },
+   "assets": {
+    "art": "pestilent_soldier"
+   },
+   "desc": "Plague-soaked soldier; bursts in a toxic cloud.",
+   "counter": "Range."
+  },
+  {
+   "id": "crypt_halberdier",
+   "name": "Crypt Halberdier",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 200,
+    "armor": "heavy",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 9,
+    "threat": 3.5,
+    "behavior": "melee",
+    "art": "crypt_halberdier",
+    "weapons": [
+     {
+      "id": "crypt_halberd",
+      "range": 40,
+      "damage": 22,
+      "dtype": "melee",
+      "reload": 1.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 22,
+      "windup": 0.3
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "crypt_halberdier"
+   },
+   "desc": "Armored skeleton sweeping a long halberd.",
+   "counter": "AP rounds, hammers."
+  },
+  {
+   "id": "tomb_stalker",
+   "name": "Tomb Stalker",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "flesh",
+    "speed": 44,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 3,
+    "behavior": "crawler",
+    "art": "tomb_stalker",
+    "weapons": [
+     {
+      "id": "stalker_claws",
+      "range": 24,
+      "damage": 16,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "ground",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": false,
+    "low_profile": true
+   },
+   "assets": {
+    "art": "tomb_stalker"
+   },
+   "desc": "Slips under the front line to tear at crews and casters.",
+   "counter": "Escort artillery with infantry."
+  },
+  {
+   "id": "hollow_guard",
+   "name": "Hollow Guard",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 260,
+    "armor": "heavy",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 10,
+    "threat": 4,
+    "behavior": "melee",
+    "art": "hollow_guard",
+    "weapons": [
+     {
+      "id": "hollow_mace",
+      "range": 24,
+      "damage": 14,
+      "dtype": "melee",
+      "reload": 1.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "taunt": true,
+    "frontline": true
+   },
+   "assets": {
+    "art": "hollow_guard"
+   },
+   "desc": "Black-armored shield bearer that draws fire.",
+   "counter": "Arcing fire behind it."
+  },
+  {
+   "id": "risen_bomb_carrier",
+   "name": "Risen Bomb Carrier",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 70,
+    "armor": "flesh",
+    "speed": 46,
+    "radius": 11,
+    "bounty": 6,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "risen_bomb_carrier",
+    "weapons": [
+     {
+      "id": "bomb_claw",
+      "range": 24,
+      "damage": 4,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "death_burst": {
+     "damage": 70,
+     "radius": 70,
+     "dtype": "blast"
+    }
+   },
+   "assets": {
+    "art": "risen_bomb_carrier"
+   },
+   "desc": "Carries a lit powder keg. Kill it before it reaches you.",
+   "counter": "Long-range rifles."
+  },
+  {
+   "id": "wretched_climber",
+   "name": "Wretched Climber",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 80,
+    "armor": "flesh",
+    "speed": 40,
+    "radius": 11,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "crawler",
+    "art": "wretched_climber",
+    "weapons": [
+     {
+      "id": "climber_claws",
+      "range": 24,
+      "damage": 11,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "ground",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": false,
+    "low_profile": true
+   },
+   "assets": {
+    "art": "wretched_climber"
+   },
+   "desc": "Scrambles past the front to reach artillery.",
+   "counter": "Militia guarding the guns."
+  },
+  {
+   "id": "carcass_devourer",
+   "name": "Carcass Devourer",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 190,
+    "armor": "flesh",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "carcass_devourer",
+    "weapons": [
+     {
+      "id": "devour_bite",
+      "range": 24,
+      "damage": 16,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "heal_on_hit": 0.5
+   },
+   "assets": {
+    "art": "carcass_devourer"
+   },
+   "desc": "Eats as it fights, healing from every bite.",
+   "counter": "Burst damage."
+  },
+  {
+   "id": "bone_vanguard",
+   "name": "Bone Vanguard",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 160,
+    "armor": "bone_shield",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "bone_vanguard",
+    "weapons": [
+     {
+      "id": "vanguard_blade",
+      "range": 24,
+      "damage": 13,
+      "dtype": "melee",
+      "reload": 1.1,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "frontline": true
+   },
+   "assets": {
+    "art": "bone_vanguard"
+   },
+   "desc": "Bone shield and blade at the very front.",
+   "counter": "Grenades, cannons."
+  },
+  {
+   "id": "grave_warden",
+   "name": "Grave Warden",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 230,
+    "armor": "heavy",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 10,
+    "threat": 4,
+    "behavior": "melee",
+    "art": "grave_warden",
+    "weapons": [
+     {
+      "id": "warden_lantern_mace",
+      "range": 24,
+      "damage": 20,
+      "dtype": "melee",
+      "reload": 1.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 18
+     }
+    ],
+    "blocks": true,
+    "aura": {
+     "radius": 140,
+     "mods": {
+      "dr": 0.85
+     },
+     "dur": 1.5
+    }
+   },
+   "assets": {
+    "art": "grave_warden"
+   },
+   "desc": "Its lantern hardens nearby undead (-15% damage taken).",
+   "counter": "Kill the Warden first."
+  },
+  {
+   "id": "black_rot_infantry",
+   "name": "Black Rot Infantry",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 180,
+    "armor": "light",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "melee",
+    "art": "black_rot_infantry",
+    "weapons": [
+     {
+      "id": "black_rot_blade",
+      "range": 24,
+      "damage": 15,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "bonus": {
+       "flesh": 1.3,
+       "light": 1.2
+      }
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "black_rot_infantry"
+   },
+   "desc": "Rot-black soldiers whose blades fester.",
+   "counter": "Rifles, flame."
+  },
+  {
+   "id": "cursed_dwarf_thrall",
+   "name": "Cursed Dwarf Thrall",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 160,
+    "armor": "light",
+    "speed": 30,
+    "radius": 11,
+    "bounty": 9,
+    "threat": 3.5,
+    "behavior": "ranged",
+    "art": "cursed_dwarf_thrall",
+    "weapons": [
+     {
+      "id": "cursed_rifle",
+      "range": 240,
+      "damage": 16,
+      "dtype": "pierce",
+      "reload": 1.9,
+      "targets": "ground",
+      "priority": "threat",
+      "proj": "bullet",
+      "mount": [
+       20,
+       -24
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "cursed_dwarf_thrall"
+   },
+   "desc": "A fallen dwarf, still holding his rifle. The undead turned our own.",
+   "counter": "Out-range and out-gun."
+  },
+  {
+   "id": "plague_mauler",
+   "name": "Plague Mauler",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 280,
+    "armor": "light",
+    "speed": 24,
+    "radius": 14,
+    "bounty": 11,
+    "threat": 4,
+    "behavior": "melee",
+    "art": "plague_mauler",
+    "weapons": [
+     {
+      "id": "mauler_fists",
+      "range": 24,
+      "damage": 26,
+      "dtype": "blast",
+      "reload": 1.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 24,
+      "windup": 0.3
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "plague_mauler"
+   },
+   "desc": "Bloated bruiser with fists like barrels.",
+   "counter": "AP and cannons."
+  },
+  {
+   "id": "dread_executioner",
+   "name": "Dread Executioner",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 320,
+    "armor": "heavy",
+    "speed": 22,
+    "radius": 14,
+    "bounty": 14,
+    "threat": 5,
+    "behavior": "melee",
+    "art": "dread_executioner",
+    "weapons": [
+     {
+      "id": "executioner_axe",
+      "range": 24,
+      "damage": 40,
+      "dtype": "melee",
+      "reload": 2.2,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 24,
+      "windup": 0.5
+     }
+    ],
+    "blocks": true,
+    "frontline": true
+   },
+   "assets": {
+    "art": "dread_executioner"
+   },
+   "desc": "Executioner's axe; picks the toughest target.",
+   "counter": "Kill it at range."
+  },
+  {
+   "id": "ossuary_champion",
+   "name": "Ossuary Champion",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 420,
+    "armor": "heavy",
+    "speed": 26,
+    "radius": 15,
+    "bounty": 18,
+    "threat": 6,
+    "behavior": "melee",
+    "art": "ossuary_champion",
+    "weapons": [
+     {
+      "id": "champion_blade",
+      "range": 24,
+      "damage": 30,
+      "dtype": "melee",
+      "reload": 1.3,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 24
+     }
+    ],
+    "blocks": true,
+    "frontline": true,
+    "art_scale": 1.15
+   },
+   "assets": {
+    "art": "ossuary_champion"
+   },
+   "desc": "Champion of the ossuaries in gilded bone plate.",
+   "counter": "Concentrated AP fire."
+  },
+  {
+   "id": "riftbound_legionary",
+   "name": "Riftbound Legionary",
+   "faction": "undead",
+   "category": "melee",
+   "category_name": "Undead Melee Infantry",
+   "role": "melee_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 300,
+    "armor": "heavy",
+    "speed": 30,
+    "radius": 11,
+    "bounty": 14,
+    "threat": 5,
+    "behavior": "melee",
+    "art": "riftbound_legionary",
+    "weapons": [
+     {
+      "id": "rift_blade",
+      "range": 24,
+      "damage": 24,
+      "dtype": "necro",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "riftbound_legionary"
+   },
+   "desc": "Legionary bound to the rift; violet blade ignores some armor.",
+   "counter": "Shock weapons."
+  },
+  {
+   "id": "bone_archer",
+   "name": "Bone Archer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_infantry",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 60,
+    "armor": "bone",
+    "speed": 26,
+    "radius": 9,
+    "bounty": 6,
+    "threat": 2,
+    "behavior": "ranged",
+    "art": "bone_archer",
+    "hold_behind": true,
+    "blocks": true,
+    "weapons": [
+     {
+      "id": "bone_bow",
+      "range": 245,
+      "damage": 10,
+      "dtype": "pierce",
+      "reload": 1.8,
+      "targets": "ground",
+      "priority": "threat",
+      "proj": "arrow",
+      "mount": [
+       18,
+       -28
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "bone_archer"
+   },
+   "desc": "Skeletal archer behind the shield wall. Fragile, but picks off riflemen.",
+   "counter": "Grenadiers, aircraft strafing, cannons."
+  },
+  {
+   "id": "grave_slinger",
+   "name": "Grave Slinger",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 70,
+    "armor": "bone",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "ranged",
+    "art": "grave_slinger",
+    "weapons": [
+     {
+      "id": "bone_sling",
+      "range": 210,
+      "damage": 10,
+      "dtype": "blast",
+      "reload": 1.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "arc",
+      "splash": 16,
+      "mount": [
+       14,
+       -30
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "grave_slinger"
+   },
+   "desc": "Slings bone fragments over the front.",
+   "counter": "Rifles."
+  },
+  {
+   "id": "rot_spitter",
+   "name": "Rot Spitter",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "anti_armor",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 95,
+    "armor": "flesh",
+    "speed": 24,
+    "radius": 10,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "ranged",
+    "art": "rot_spitter",
+    "hold_behind": true,
+    "blocks": true,
+    "weapons": [
+     {
+      "id": "acid_spit",
+      "range": 220,
+      "min_range": 40,
+      "damage": 15,
+      "dtype": "acid",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "spit",
+      "splash": 26,
+      "mount": [
+       14,
+       -30
+      ]
+     }
+    ]
+   },
+   "assets": {
+    "art": "rot_spitter"
+   },
+   "desc": "Swollen corpse that arcs corrosive bile. Acid eats through dwarven armor plate.",
+   "counter": "Kill it before tanks close in \u2014 rifles, organ guns, bombers."
+  },
+  {
+   "id": "plague_sprayer",
+   "name": "Plague Sprayer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 7,
+    "threat": 3,
+    "behavior": "ranged",
+    "art": "plague_sprayer",
+    "weapons": [
+     {
+      "id": "plague_spray",
+      "range": 100,
+      "damage": 6,
+      "dtype": "acid",
+      "reload": 0.5,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "flame",
+      "splash": 4,
+      "mount": [
+       22,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "plague_sprayer"
+   },
+   "desc": "Sprays acid in a short cone. Machines hate it.",
+   "counter": "Range."
+  },
+  {
+   "id": "crypt_hexer",
+   "name": "Crypt Hexer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 100,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 9,
+    "threat": 3.5,
+    "behavior": "ranged",
+    "art": "crypt_hexer",
+    "weapons": [
+     {
+      "id": "hex_bolt",
+      "range": 240,
+      "damage": 10,
+      "dtype": "necro",
+      "reload": 2.0,
+      "targets": "ground",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ],
+      "bonus": {
+       "_slow": [
+        0.6,
+        2.5
+       ]
+      }
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "crypt_hexer"
+   },
+   "desc": "Hexes slow their victims to a crawl.",
+   "counter": "Counter-Curse Technicians; kill fast."
+  },
+  {
+   "id": "corpse_priest",
+   "name": "Corpse Priest",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 120,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 12,
+    "threat": 4,
+    "behavior": "repair",
+    "art": "corpse_priest",
+    "weapons": [
+     {
+      "id": "grave_bolt",
+      "range": 200,
+      "damage": 8,
+      "dtype": "necro",
+      "reload": 2.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "repair": {
+     "rate": 16,
+     "range": 160,
+     "pool": 1200,
+     "classes": [
+      "infantry",
+      "monster"
+     ]
+    },
+    "reclaims": true
+   },
+   "assets": {
+    "art": "corpse_priest"
+   },
+   "desc": "Mends the dead around it.",
+   "counter": "Priority target."
+  },
+  {
+   "id": "necromancer",
+   "name": "Necromancer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "summoner",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "infantry",
+    "hp": 150,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 25,
+    "threat": 6,
+    "behavior": "necromancer",
+    "art": "necromancer",
+    "hold_behind": true,
+    "blocks": true,
+    "raise_dead": {
+     "interval": 7.0,
+     "count": 2,
+     "range": 220,
+     "cap": 6,
+     "windup": 1.1,
+     "enemy": "rotter"
+    },
+    "weapons": [
+     {
+      "id": "necro_bolt",
+      "range": 235,
+      "damage": 12,
+      "dtype": "necro",
+      "reload": 2.0,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ],
+      "reach": "mid"
+     }
+    ]
+   },
+   "assets": {
+    "art": "necromancer"
+   },
+   "desc": "Raises fresh Rotters from nearby corpses every few seconds (glowing green telegraph). Bolts hit air and ground.",
+   "counter": "Priority target: cannons, bombers, gunships. Fewer corpses = fewer risen."
+  },
+  {
+   "id": "ossuary_caller",
+   "name": "Ossuary Caller",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 140,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 18,
+    "threat": 5,
+    "behavior": "necromancer",
+    "art": "ossuary_caller",
+    "weapons": [
+     {
+      "id": "caller_bolt",
+      "range": 220,
+      "damage": 10,
+      "dtype": "necro",
+      "reload": 2.2,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "raise_dead": {
+     "interval": 8.0,
+     "count": 2,
+     "range": 230,
+     "cap": 6,
+     "windup": 1.0,
+     "enemy": "ossuary_skeleton"
+    }
+   },
+   "assets": {
+    "art": "ossuary_caller"
+   },
+   "desc": "Calls skeletons up out of the corpses.",
+   "counter": "Kill it first."
+  },
+  {
+   "id": "cinder_wraith",
+   "name": "Cinder Wraith",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "light",
+    "speed": 30,
+    "radius": 11,
+    "bounty": 9,
+    "threat": 3.5,
+    "behavior": "ranged",
+    "art": "cinder_wraith",
+    "weapons": [
+     {
+      "id": "cinder_bolt",
+      "range": 230,
+      "damage": 14,
+      "dtype": "fire",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "splash": 18,
+      "mount": [
+       16,
+       -36
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "cinder_wraith"
+   },
+   "desc": "Burning ghost hurling cinders at air and ground.",
+   "counter": "Flak, rifles."
+  },
+  {
+   "id": "spirit_binder",
+   "name": "Spirit Binder",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 120,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 11,
+    "threat": 4,
+    "behavior": "ranged",
+    "art": "spirit_binder",
+    "weapons": [
+     {
+      "id": "binding_chain",
+      "range": 200,
+      "damage": 8,
+      "dtype": "necro",
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ],
+      "bonus": {
+       "_stun": 1.0
+      },
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "spirit_binder"
+   },
+   "desc": "Spirit chains stun what they hit.",
+   "counter": "Kill quickly; cleanse."
+  },
+  {
+   "id": "plague_herald",
+   "name": "Plague Herald",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 130,
+    "armor": "flesh",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 12,
+    "threat": 4,
+    "behavior": "ranged",
+    "art": "plague_herald",
+    "weapons": [
+     {
+      "id": "herald_spit",
+      "range": 220,
+      "damage": 12,
+      "dtype": "acid",
+      "reload": 2.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "spit",
+      "splash": 20,
+      "mount": [
+       14,
+       -32
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "aura": {
+     "radius": 180,
+     "mods": {
+      "speed": 1.2,
+      "fire": 1.15
+     },
+     "dur": 1.5
+    }
+   },
+   "assets": {
+    "art": "plague_herald"
+   },
+   "desc": "Its horn drives the horde: +20% speed, +15% attack rate nearby.",
+   "counter": "Kill the Herald."
+  },
+  {
+   "id": "bone_lancer",
+   "name": "Bone Lancer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 100,
+    "armor": "bone",
+    "speed": 26,
+    "radius": 11,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "ranged",
+    "art": "bone_lancer",
+    "weapons": [
+     {
+      "id": "bone_lance",
+      "range": 260,
+      "damage": 26,
+      "dtype": "pierce",
+      "reload": 2.6,
+      "targets": "both",
+      "priority": "air",
+      "proj": "shard",
+      "mount": [
+       16,
+       -34
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "bone_lancer"
+   },
+   "desc": "Hurls bone lances that can spear aircraft.",
+   "counter": "Grenades, cannons."
+  },
+  {
+   "id": "grave_dart_thrower",
+   "name": "Grave Dart Thrower",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 70,
+    "armor": "flesh",
+    "speed": 30,
+    "radius": 11,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "ranged",
+    "art": "grave_dart_thrower",
+    "weapons": [
+     {
+      "id": "grave_darts",
+      "range": 200,
+      "damage": 6,
+      "dtype": "acid",
+      "reload": 0.9,
+      "targets": "ground",
+      "priority": "support",
+      "proj": "arrow",
+      "mount": [
+       14,
+       -28
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true
+   },
+   "assets": {
+    "art": "grave_dart_thrower"
+   },
+   "desc": "Poison darts aimed at crews and support.",
+   "counter": "Rifles."
+  },
+  {
+   "id": "funeral_bell_keeper",
+   "name": "Funeral Bell Keeper",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 160,
+    "armor": "light",
+    "speed": 20,
+    "radius": 11,
+    "bounty": 14,
+    "threat": 5,
+    "behavior": "ranged",
+    "art": "funeral_bell_keeper",
+    "weapons": [
+     {
+      "id": "dirge_wave",
+      "range": 180,
+      "damage": 10,
+      "dtype": "necro",
+      "reload": 2.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "bolt",
+      "splash": 30,
+      "mount": [
+       12,
+       -40
+      ]
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "aura": {
+     "radius": 200,
+     "mods": {
+      "dr": 0.85,
+      "fire": 1.1
+     },
+     "dur": 1.5
+    }
+   },
+   "assets": {
+    "art": "funeral_bell_keeper"
+   },
+   "desc": "Tolls a funeral bell: undead nearby take less damage and strike faster.",
+   "counter": "Kill the keeper."
+  },
+  {
+   "id": "rot_channeler",
+   "name": "Rot Channeler",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 120,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 11,
+    "threat": 4,
+    "behavior": "ranged",
+    "art": "rot_channeler",
+    "weapons": [
+     {
+      "id": "rot_beam",
+      "range": 220,
+      "damage": 5,
+      "dtype": "acid",
+      "reload": 0.35,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -40
+      ],
+      "bonus": {
+       "machine": 1.5
+      }
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "reclaims": true
+   },
+   "assets": {
+    "art": "rot_channeler"
+   },
+   "desc": "Channels a rot beam that eats machinery.",
+   "counter": "Keep tanks back; kill it with infantry."
+  },
+  {
+   "id": "ash_hexer",
+   "name": "Ash Hexer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "flesh",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 10,
+    "threat": 4,
+    "behavior": "ranged",
+    "art": "ash_hexer",
+    "weapons": [
+     {
+      "id": "ash_hex",
+      "range": 250,
+      "damage": 14,
+      "dtype": "fire",
+      "reload": 2.2,
+      "targets": "ground",
+      "priority": "threat",
+      "proj": "bolt",
+      "splash": 24,
+      "mount": [
+       16,
+       -40
+      ],
+      "bonus": {
+       "_slow": [
+        0.7,
+        2.0
+       ]
+      }
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "reclaims": true
+   },
+   "assets": {
+    "art": "ash_hexer"
+   },
+   "desc": "Burning hexes that slow and scorch.",
+   "counter": "Cleanse, range."
+  },
+  {
+   "id": "night_seer",
+   "name": "Night Seer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 110,
+    "armor": "flesh",
+    "speed": 24,
+    "radius": 11,
+    "bounty": 12,
+    "threat": 4.5,
+    "behavior": "ranged",
+    "art": "night_seer",
+    "weapons": [
+     {
+      "id": "seer_bolt",
+      "range": 320,
+      "damage": 16,
+      "dtype": "necro",
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "support",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -42
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "hold_behind": true,
+    "reveal_aura": true
+   },
+   "assets": {
+    "art": "night_seer"
+   },
+   "desc": "Sees far: snipes support units and aircraft.",
+   "counter": "Fast aircraft, artillery."
+  },
+  {
+   "id": "rift_conjurer",
+   "name": "Rift Conjurer",
+   "faction": "undead",
+   "category": "ranged",
+   "category_name": "Undead Ranged Units & Necromancers",
+   "role": "ranged_support",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "infantry",
+    "hp": 150,
+    "armor": "flesh",
+    "speed": 22,
+    "radius": 11,
+    "bounty": 18,
+    "threat": 6,
+    "behavior": "necromancer",
+    "art": "rift_conjurer",
+    "weapons": [
+     {
+      "id": "rift_bolt_small",
+      "range": 260,
+      "damage": 18,
+      "dtype": "necro",
+      "reload": 2.2,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       16,
+       -42
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": true,
+    "raise_dead": {
+     "interval": 9.0,
+     "count": 2,
+     "range": 260,
+     "cap": 6,
+     "windup": 1.2,
+     "enemy": "riftbound_legionary"
+    }
+   },
+   "assets": {
+    "art": "rift_conjurer"
+   },
+   "desc": "Opens small rifts that spit out Riftbound Legionaries.",
+   "counter": "Kill it before the rift opens."
+  },
+  {
+   "id": "flesh_hulk",
+   "name": "Flesh Hulk",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "breakthrough_monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "monster",
+    "hp": 1450,
+    "armor": "hulk",
+    "speed": 16,
+    "radius": 26,
+    "bounty": 45,
+    "threat": 12,
+    "behavior": "melee",
+    "art": "flesh_hulk",
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "hulk_slam",
+      "range": 50,
+      "damage": 62,
+      "dtype": "blast",
+      "reload": 2.7,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "splash": 50,
+      "mount": [
+       34,
+       -10
+      ],
+      "windup": 0.85
+     }
+    ]
+   },
+   "assets": {
+    "art": "flesh_hulk"
+   },
+   "desc": "Stitched mountain of flesh. Slow, telegraphed ground slams crush whole squads. Bullets sink in.",
+   "counter": "Armor-piercing shells, tanks, Miner Rig; spread infantry when it rears back."
+  },
+  {
+   "id": "bone_golem",
+   "name": "Bone Golem",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_brute",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 950,
+    "arm": 0.25,
+    "armor": "bone",
+    "speed": 22,
+    "radius": 22,
+    "bounty": 45,
+    "threat": 11,
+    "behavior": "giant",
+    "art": "bone_golem",
+    "art_scale": 0.945,
+    "giant_class": "brute",
+    "mech_class": "light",
+    "death_time": 1.4,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "ossuary_clubs",
+      "range": 40.0,
+      "damage": 58,
+      "reload": 2.0,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 40,
+      "windup": 0.45,
+      "family": "club",
+      "mount": [
+       19.8,
+       -26.5
+      ]
+     }
+    ],
+    "ability": {
+     "id": "bonequake",
+     "name": "Bonequake",
+     "kind": "aoe",
+     "cooldown": 16,
+     "windup": 0.7,
+     "radius": 110,
+     "damage": 75,
+     "dtype": "blast",
+     "knock": 24,
+     "telegraph": true,
+     "min_targets": 2,
+     "steam": 0
+    },
+    "weakness": "Bone frame: weak to blasts, drills and hammers."
+   },
+   "assets": {
+    "art": "bone_golem"
+   },
+   "desc": "Thousands of bones fused around a necrotic core. Bullets rattle through it; hammers and shells break it apart.",
+   "counter": "Grenadiers, Drillwalkers, field cannons."
+  },
+  {
+   "id": "plague_beast",
+   "name": "Plague Beast",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_brute",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 880,
+    "arm": 0.1,
+    "armor": "hulk",
+    "speed": 24,
+    "radius": 22,
+    "bounty": 42,
+    "threat": 10,
+    "behavior": "giant",
+    "art": "plague_beast",
+    "art_scale": 0.945,
+    "giant_class": "brute",
+    "mech_class": "light",
+    "death_time": 1.4,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "bile_spew",
+      "range": 115.0,
+      "damage": 10,
+      "reload": 0.5,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "cone",
+      "dtype": "acid",
+      "splash": 5,
+      "family": "spew",
+      "mount": [
+       28.3,
+       -83.2
+      ]
+     },
+     {
+      "id": "plague_claws",
+      "range": 36.0,
+      "damage": 30,
+      "reload": 1.3,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "dtype": "melee",
+      "family": "claws",
+      "mount": [
+       19.8,
+       -26.5
+      ]
+     }
+    ],
+    "ability": {
+     "id": "plague_pool",
+     "name": "Plague Pool",
+     "kind": "zone",
+     "cooldown": 15,
+     "windup": 0.5,
+     "radius": 80,
+     "dps": 30,
+     "dur": 6,
+     "offset": 125,
+     "dtype": "acid",
+     "look": "plague",
+     "steam": 0
+    },
+    "weakness": "Short reach; dies fast to concentrated rifle and cannon fire before it closes."
+   },
+   "assets": {
+    "art": "plague_beast"
+   },
+   "desc": "A swollen beast that vomits corrosive bile in a wide cone and leaves boiling plague pools behind.",
+   "counter": "Range: Riflemen, Organ Guns, Cannon Striders. Keep machines out of its pools."
+  },
+  {
+   "id": "burrow_horror",
+   "name": "Burrow Horror",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 520,
+    "armor": "hulk",
+    "speed": 30,
+    "radius": 20,
+    "bounty": 30,
+    "threat": 9,
+    "behavior": "burrower",
+    "art": "burrow_horror",
+    "weapons": [
+     {
+      "id": "horror_mandibles",
+      "range": 40,
+      "damage": 34,
+      "dtype": "melee",
+      "reload": 1.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 24
+     }
+    ],
+    "blocks": true,
+    "burrow_until": 0.5
+   },
+   "assets": {
+    "art": "burrow_horror"
+   },
+   "desc": "Tunnels beneath the line and erupts among the guns.",
+   "counter": "Scout Gyros reveal it; militia by the artillery."
+  },
+  {
+   "id": "corpse_mound",
+   "name": "Corpse Mound",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_abomination",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 2100,
+    "arm": 0.1,
+    "armor": "hulk",
+    "speed": 14,
+    "radius": 29,
+    "bounty": 75,
+    "threat": 16,
+    "behavior": "giant",
+    "art": "corpse_mound",
+    "art_scale": 1.347,
+    "giant_class": "abomination",
+    "mech_class": "medium",
+    "death_time": 1.8,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "corpse_slam",
+      "range": 50.0,
+      "damage": 60,
+      "reload": 2.6,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 55,
+      "windup": 0.7,
+      "family": "slam",
+      "mount": [
+       26.1,
+       -37.7
+      ]
+     }
+    ],
+    "ability": {
+     "id": "disgorge",
+     "name": "Disgorge",
+     "kind": "summon",
+     "cooldown": 12,
+     "windup": 0.8,
+     "enemy": "rotter",
+     "count": 3,
+     "cap": 9,
+     "steam": 0
+    },
+    "weakness": "Very slow. Kill it quickly or the Rotters it spawns keep piling up."
+   },
+   "assets": {
+    "art": "corpse_mound"
+   },
+   "desc": "A walking heap of the dead. Every few seconds it heaves and fresh Rotters crawl out of it.",
+   "counter": "Focus fire: cannons, Thundercoil arcs, flame frames."
+  },
+  {
+   "id": "rot_hound",
+   "name": "Rot Hound",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 120,
+    "armor": "flesh",
+    "speed": 62,
+    "radius": 12,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "melee",
+    "art": "rot_hound",
+    "weapons": [
+     {
+      "id": "hound_bite",
+      "range": 24,
+      "damage": 12,
+      "dtype": "melee",
+      "reload": 0.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "rot_hound"
+   },
+   "desc": "Fast packs of rotting hounds.",
+   "counter": "Shotguns, MGs."
+  },
+  {
+   "id": "grave_spider",
+   "name": "Grave Spider",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 260,
+    "armor": "light",
+    "speed": 34,
+    "radius": 16,
+    "bounty": 14,
+    "threat": 4,
+    "behavior": "melee",
+    "art": "grave_spider",
+    "weapons": [
+     {
+      "id": "spider_fangs",
+      "range": 34,
+      "damage": 16,
+      "dtype": "melee",
+      "reload": 0.9,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "bonus": {
+       "_slow": [
+        0.6,
+        2.0
+       ]
+      }
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "grave_spider"
+   },
+   "desc": "Webs and venom slow its prey.",
+   "counter": "Flame, MGs."
+  },
+  {
+   "id": "tomb_centipede",
+   "name": "Tomb Centipede",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 420,
+    "armor": "heavy",
+    "speed": 30,
+    "radius": 20,
+    "bounty": 22,
+    "threat": 6,
+    "behavior": "melee",
+    "art": "tomb_centipede",
+    "weapons": [
+     {
+      "id": "centipede_mandibles",
+      "range": 36,
+      "damage": 22,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 20
+     }
+    ],
+    "blocks": true
+   },
+   "assets": {
+    "art": "tomb_centipede"
+   },
+   "desc": "Armored segments and crushing mandibles.",
+   "counter": "AP, blast."
+  },
+  {
+   "id": "flesh_charger",
+   "name": "Flesh Charger",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 600,
+    "armor": "hulk",
+    "speed": 40,
+    "radius": 22,
+    "bounty": 30,
+    "threat": 8,
+    "behavior": "giant",
+    "art": "flesh_charger",
+    "weapons": [
+     {
+      "id": "charger_horns",
+      "range": 40,
+      "damage": 30,
+      "dtype": "blast",
+      "reload": 1.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 24
+     }
+    ],
+    "blocks": true,
+    "ability": {
+     "id": "flesh_charge",
+     "name": "Charge",
+     "kind": "charge",
+     "steam": 0,
+     "cooldown": 12,
+     "windup": 0.6,
+     "dist": 200,
+     "radius": 46,
+     "damage": 70,
+     "dtype": "blast",
+     "knock": 30
+    },
+    "mech_class": "light",
+    "death_time": 1.4
+   },
+   "assets": {
+    "art": "flesh_charger"
+   },
+   "desc": "A stitched charger that bowls through infantry.",
+   "counter": "Shields and cannons."
+  },
+  {
+   "id": "bone_devourer",
+   "name": "Bone Devourer",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 800,
+    "armor": "bone",
+    "speed": 24,
+    "radius": 24,
+    "bounty": 34,
+    "threat": 9,
+    "behavior": "melee",
+    "art": "bone_devourer",
+    "weapons": [
+     {
+      "id": "devourer_jaws",
+      "range": 44,
+      "damage": 40,
+      "dtype": "melee",
+      "reload": 1.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 30
+     }
+    ],
+    "blocks": true,
+    "heal_on_hit": 0.4
+   },
+   "assets": {
+    "art": "bone_devourer"
+   },
+   "desc": "A walking ossuary that grinds bodies and heals from them.",
+   "counter": "Blast, hammers."
+  },
+  {
+   "id": "stitchback_giant",
+   "name": "Stitchback Giant",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_abomination",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 1600,
+    "arm": 0.2,
+    "armor": "hulk",
+    "speed": 22,
+    "radius": 29,
+    "bounty": 70,
+    "threat": 16,
+    "behavior": "giant",
+    "art": "stitchback_giant",
+    "art_scale": 1.347,
+    "giant_class": "abomination",
+    "mech_class": "medium",
+    "death_time": 1.8,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "butcher_cleavers",
+      "range": 48.0,
+      "damage": 70,
+      "reload": 2.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "dtype": "melee",
+      "splash": 36,
+      "windup": 0.4,
+      "family": "cleaver",
+      "mount": [
+       26.1,
+       -37.7
+      ]
+     }
+    ],
+    "ability": {
+     "id": "butchers_flurry",
+     "name": "Butcher's Flurry",
+     "kind": "strike",
+     "cooldown": 14,
+     "windup": 0.5,
+     "mult": 1.1,
+     "hits": 3,
+     "steam": 0
+    },
+    "weakness": "Pure melee: artillery and frames with reach wear it down before it arrives."
+   },
+   "assets": {
+    "art": "stitchback_giant"
+   },
+   "desc": "A giant sewn together from the fallen of three wars, swinging a pair of slaughterhouse cleavers.",
+   "counter": "Mortar Walkers, Cannon Striders, Anvilbreaker."
+  },
+  {
+   "id": "carrion_bull",
+   "name": "Carrion Bull",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_brute",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 820,
+    "arm": 0.1,
+    "armor": "hulk",
+    "speed": 34,
+    "radius": 22,
+    "bounty": 40,
+    "threat": 10,
+    "behavior": "giant",
+    "art": "carrion_bull",
+    "art_scale": 0.945,
+    "giant_class": "brute",
+    "mech_class": "light",
+    "death_time": 1.4,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "gore_horns",
+      "range": 40.0,
+      "damage": 48,
+      "reload": 1.6,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "dtype": "melee",
+      "splash": 30,
+      "windup": 0.3,
+      "family": "horns",
+      "mount": [
+       19.8,
+       -33.1
+      ]
+     }
+    ],
+    "ability": {
+     "id": "stampede",
+     "name": "Stampede",
+     "kind": "charge",
+     "cooldown": 14,
+     "windup": 0.6,
+     "dist": 230,
+     "radius": 50,
+     "damage": 110,
+     "dtype": "blast",
+     "knock": 40,
+     "steam": 0
+    },
+    "weakness": "Charges in straight lines; once it stops it is slow to turn. Shieldbearers and armor absorb the hit."
+   },
+   "assets": {
+    "art": "carrion_bull"
+   },
+   "desc": "A rotting bull the size of a war frame, crowned with grave-iron horns. It lowers its head and stampedes through a firing line.",
+   "counter": "Light Field Cannons and Copperbacks; keep infantry spread when it scrapes the ground."
+  },
+  {
+   "id": "ghoul_matriarch",
+   "name": "Ghoul Matriarch",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_abomination",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 1350,
+    "arm": 0.15,
+    "armor": "hulk",
+    "speed": 30,
+    "radius": 29,
+    "bounty": 70,
+    "threat": 16,
+    "behavior": "giant",
+    "art": "ghoul_matriarch",
+    "art_scale": 1.347,
+    "giant_class": "abomination",
+    "mech_class": "medium",
+    "death_time": 1.8,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "matriarch_claws",
+      "range": 46.0,
+      "damage": 44,
+      "reload": 1.1,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "dtype": "melee",
+      "family": "claws",
+      "mount": [
+       26.1,
+       -37.7
+      ]
+     },
+     {
+      "id": "carrion_shriek",
+      "range": 190.0,
+      "damage": 22,
+      "reload": 1.8,
+      "targets": "both",
+      "priority": "air",
+      "proj": "spit",
+      "dtype": "necro",
+      "splash": 16,
+      "family": "shriek",
+      "mount": [
+       40.4,
+       -118.5
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "mid"
+     }
+    ],
+    "ability": {
+     "id": "feeding_call",
+     "name": "Feeding Call",
+     "kind": "rally",
+     "cooldown": 20,
+     "windup": 0.6,
+     "radius": 240,
+     "dur": 7,
+     "mods": {
+      "fire": 1.35,
+      "speed": 1.3
+     },
+     "steam": 0
+    },
+    "weakness": "Lightly armored for her size; her rally is strongest in a crowd, so thin the horde first."
+   },
+   "assets": {
+    "art": "ghoul_matriarch"
+   },
+   "desc": "A long-limbed ghoul queen. Her shriek knocks aircraft out of the sky and whips the undead around her into a frenzy.",
+   "counter": "Organ Guns and Flak against her escorts; Ironclad Walkers to pin her."
+  },
+  {
+   "id": "oozing_horror",
+   "name": "Oozing Horror",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 700,
+    "armor": "hulk",
+    "speed": 18,
+    "radius": 22,
+    "bounty": 26,
+    "threat": 7,
+    "behavior": "melee",
+    "art": "oozing_horror",
+    "weapons": [
+     {
+      "id": "ooze_slam",
+      "range": 36,
+      "damage": 22,
+      "dtype": "acid",
+      "reload": 1.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "splash": 30
+     }
+    ],
+    "blocks": true,
+    "death_spawn": {
+     "unit": "rotter",
+     "count": 3
+    }
+   },
+   "assets": {
+    "art": "oozing_horror"
+   },
+   "desc": "A heaving mass of rot. Splits into Rotters when it dies.",
+   "counter": "Fire and blast."
+  },
+  {
+   "id": "ossuary_juggernaut",
+   "name": "Ossuary Juggernaut",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_abomination",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 1900,
+    "arm": 0.35,
+    "armor": "bone",
+    "speed": 20,
+    "radius": 29,
+    "bounty": 80,
+    "threat": 18,
+    "behavior": "giant",
+    "art": "ossuary_juggernaut",
+    "art_scale": 1.347,
+    "giant_class": "abomination",
+    "mech_class": "medium",
+    "death_time": 1.8,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "bone_maul",
+      "range": 46.0,
+      "damage": 66,
+      "reload": 2.2,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 40,
+      "windup": 0.5,
+      "family": "maul",
+      "mount": [
+       26.1,
+       -37.7
+      ]
+     }
+    ],
+    "ability": {
+     "id": "coffin_rush",
+     "name": "Coffin Rush",
+     "kind": "charge",
+     "cooldown": 18,
+     "windup": 0.6,
+     "dist": 200,
+     "radius": 55,
+     "damage": 130,
+     "dtype": "blast",
+     "knock": 50,
+     "steam": 0
+    },
+    "weakness": "The shield only covers its front. Mortars, bombers and drills get around it.",
+    "taunt": true,
+    "front_guard": 0.3
+   },
+   "assets": {
+    "art": "ossuary_juggernaut"
+   },
+   "desc": "A skeletal knight-giant behind a coffin-lid shield. Frontal shots splinter on the lid; it draws your fire and then rushes.",
+   "counter": "Mortar Walkers, Bombard Gyros, Drillwalkers."
+  },
+  {
+   "id": "cathedral_ghast",
+   "name": "Cathedral Ghast",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_behemoth",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 2600,
+    "arm": 0.3,
+    "armor": "bone",
+    "speed": 17,
+    "radius": 37,
+    "bounty": 120,
+    "threat": 24,
+    "behavior": "giant",
+    "art": "cathedral_ghast",
+    "art_scale": 1.891,
+    "giant_class": "behemoth",
+    "mech_class": "heavy",
+    "death_time": 2.2,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "bell_flail",
+      "range": 70.0,
+      "damage": 110,
+      "reload": 3.0,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 60,
+      "windup": 0.8,
+      "family": "flail",
+      "mount": [
+       33.3,
+       -52.9
+      ]
+     },
+     {
+      "id": "dirge",
+      "range": 300.0,
+      "damage": 38,
+      "reload": 1.6,
+      "targets": "air",
+      "priority": "air",
+      "proj": "bolt",
+      "dtype": "necro",
+      "splash": 30,
+      "family": "dirge",
+      "mount": [
+       18.9,
+       -196.7
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "high"
+     }
+    ],
+    "ability": {
+     "id": "funeral_toll",
+     "name": "Funeral Toll",
+     "kind": "aoe",
+     "cooldown": 22,
+     "windup": 1.1,
+     "radius": 170,
+     "damage": 80,
+     "dtype": "necro",
+     "stun": 1.6,
+     "telegraph": true,
+     "min_targets": 3,
+     "steam": 0
+    },
+    "weakness": "Slow wind-up on the Toll. Pull your infantry back when the ground glows."
+   },
+   "assets": {
+    "art": "cathedral_ghast"
+   },
+   "desc": "A robed horror carrying the bell tower of a fallen cathedral. Its dirge blasts aircraft; when the bell tolls, everything near it freezes.",
+   "counter": "Cannon Striders and Siegebellows from range; Skyguard escorts for your aircraft."
+  },
+  {
+   "id": "plague_colossus",
+   "name": "Plague Colossus",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_colossus",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 6200,
+    "arm": 0.3,
+    "armor": "hulk",
+    "speed": 11,
+    "radius": 52,
+    "bounty": 300,
+    "threat": 45,
+    "behavior": "giant",
+    "art": "plague_colossus",
+    "art_scale": 2.647,
+    "giant_class": "colossus",
+    "mech_class": "colossal",
+    "death_time": 3.0,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "colossal_fist",
+      "range": 60.0,
+      "damage": 280,
+      "reload": 4.5,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 75,
+      "windup": 0.9,
+      "family": "fist",
+      "mount": [
+       46.8,
+       -74.1
+      ]
+     },
+     {
+      "id": "spore_geyser",
+      "range": 320.0,
+      "damage": 60,
+      "reload": 2.2,
+      "targets": "air",
+      "priority": "air",
+      "proj": "spit",
+      "dtype": "acid",
+      "splash": 40,
+      "family": "geyser",
+      "mount": [
+       26.5,
+       -275.3
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "high"
+     },
+     {
+      "id": "bile_mortar",
+      "range": 380.0,
+      "min_range": 140,
+      "damage": 90,
+      "reload": 5.0,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "spit",
+      "dtype": "acid",
+      "splash": 55,
+      "family": "mortar",
+      "mount": [
+       79.4,
+       -232.9
+      ]
+     }
+    ],
+    "ability": {
+     "id": "plague_nova",
+     "name": "Plague Nova",
+     "kind": "aoe",
+     "cooldown": 30,
+     "windup": 1.4,
+     "radius": 200,
+     "damage": 160,
+     "dtype": "acid",
+     "telegraph": true,
+     "min_targets": 3,
+     "pool": {
+      "dps": 35,
+      "dur": 6
+     },
+     "steam": 0
+    },
+    "weakness": "Acid-proof hide but very slow. Shock and fire hurt it; its geysers fire up, not down."
+   },
+   "assets": {
+    "art": "plague_colossus"
+   },
+   "desc": "A mountain of plague. Spore geysers on its back hunt aircraft, its belly lobs bile at range and its nova melts frames.",
+   "counter": "Thundercoil Frames, Embercore Titan, massed artillery."
+  },
+  {
+   "id": "blackroot_abomination",
+   "name": "Blackroot Abomination",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_behemoth",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 2900,
+    "arm": 0.25,
+    "armor": "hulk",
+    "speed": 15,
+    "radius": 37,
+    "bounty": 125,
+    "threat": 24,
+    "behavior": "giant",
+    "art": "blackroot_abomination",
+    "art_scale": 1.891,
+    "giant_class": "behemoth",
+    "mech_class": "heavy",
+    "death_time": 2.2,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "root_lash",
+      "range": 95.0,
+      "damage": 85,
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "dtype": "melee",
+      "splash": 45,
+      "windup": 0.6,
+      "family": "roots",
+      "mount": [
+       33.3,
+       -52.9
+      ]
+     },
+     {
+      "id": "thorn_volley",
+      "range": 260.0,
+      "damage": 18,
+      "reload": 1.4,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "shard",
+      "dtype": "pierce",
+      "burst": 3,
+      "burst_gap": 0.12,
+      "family": "thorns",
+      "mount": [
+       18.9,
+       -196.7
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "mid"
+     }
+    ],
+    "ability": {
+     "id": "rootsnare",
+     "name": "Rootsnare",
+     "kind": "zone",
+     "cooldown": 18,
+     "windup": 0.9,
+     "radius": 95,
+     "dps": 40,
+     "dur": 7,
+     "offset": 130,
+     "dtype": "necro",
+     "slow": 0.5,
+     "look": "roots",
+     "steam": 0
+    },
+    "weakness": "Fire. Its roots burn and it cannot outrun anything."
+   },
+   "assets": {
+    "art": "blackroot_abomination"
+   },
+   "desc": "A corrupted forest grown through a giant's corpse. Root lashes reach past your front line and thorn volleys hit air and ground alike.",
+   "counter": "Furnace Stalkers, Embercore Titan, Grenadiers; fight it outside the snare."
+  },
+  {
+   "id": "corpse_burrower",
+   "name": "Corpse Burrower",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "monster",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 360,
+    "armor": "flesh",
+    "speed": 34,
+    "radius": 16,
+    "bounty": 20,
+    "threat": 6,
+    "behavior": "burrower",
+    "art": "corpse_burrower",
+    "weapons": [
+     {
+      "id": "burrower_claws",
+      "range": 24,
+      "damage": 24,
+      "dtype": "melee",
+      "reload": 1.0,
+      "targets": "ground",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ]
+     }
+    ],
+    "blocks": true,
+    "burrow_until": 0.6
+   },
+   "assets": {
+    "art": "corpse_burrower"
+   },
+   "desc": "Tunnels to the guns and digs in.",
+   "counter": "Scouts, militia."
+  },
+  {
+   "id": "rift_maw",
+   "name": "Rift Maw",
+   "faction": "undead",
+   "category": "monster",
+   "category_name": "Undead Monsters & Abominations",
+   "role": "giant_colossus",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 6800,
+    "arm": 0.35,
+    "armor": "hulk",
+    "speed": 12,
+    "radius": 52,
+    "bounty": 320,
+    "threat": 48,
+    "behavior": "giant",
+    "art": "rift_maw",
+    "art_scale": 2.647,
+    "giant_class": "colossus",
+    "mech_class": "colossal",
+    "death_time": 3.0,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "maw_bite",
+      "range": 64.0,
+      "damage": 320,
+      "reload": 4.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "melee",
+      "dtype": "melee",
+      "splash": 60,
+      "windup": 0.8,
+      "family": "maw",
+      "mount": [
+       46.8,
+       -74.1
+      ]
+     },
+     {
+      "id": "rift_bolt",
+      "range": 340.0,
+      "damage": 75,
+      "reload": 2.4,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "dtype": "necro",
+      "family": "rift",
+      "mount": [
+       0.0,
+       -296.5
+      ],
+      "arc": [
+       -178,
+       40
+      ],
+      "reach": "mid"
+     }
+    ],
+    "ability": {
+     "id": "devour",
+     "name": "Devour",
+     "kind": "strike",
+     "cooldown": 22,
+     "windup": 0.7,
+     "mult": 2.5,
+     "heal": 0.6,
+     "steam": 0
+    },
+    "weakness": "Devour needs a target in reach. Keep big frames out of its mouth and hit it from range."
+   },
+   "assets": {
+    "art": "rift_maw"
+   },
+   "desc": "A colossus whose torso is one enormous mouth. Rift bolts hit anything in reach, and when it devours a frame it heals.",
+   "counter": "Siegebellow, Cannon Striders, Deepforge Titan."
+  },
+  {
+   "id": "bone_catapult",
+   "name": "Bone Catapult",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 300,
+    "armor": "structure",
+    "speed": 16,
+    "radius": 18,
+    "bounty": 20,
+    "threat": 5,
+    "behavior": "artillery",
+    "art": "bone_catapult",
+    "weapons": [
+     {
+      "id": "bone_shot",
+      "range": 420,
+      "min_range": 120,
+      "damage": 40,
+      "dtype": "blast",
+      "reload": 4.2,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 44,
+      "mount": [
+       10,
+       -32
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 140
+   },
+   "assets": {
+    "art": "bone_catapult"
+   },
+   "desc": "Lobs bundles of bone over the battle.",
+   "counter": "Bombers, cannons."
+  },
+  {
+   "id": "corpse_lobber",
+   "name": "Corpse Lobber",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 280,
+    "armor": "structure",
+    "speed": 16,
+    "radius": 18,
+    "bounty": 18,
+    "threat": 5,
+    "behavior": "artillery",
+    "art": "corpse_lobber",
+    "weapons": [
+     {
+      "id": "corpse_shot",
+      "range": 380,
+      "min_range": 100,
+      "damage": 30,
+      "dtype": "acid",
+      "reload": 4.0,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 40,
+      "mount": [
+       10,
+       -32
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 140
+   },
+   "assets": {
+    "art": "corpse_lobber"
+   },
+   "desc": "Hurls diseased corpses that splash acid.",
+   "counter": "Bombers."
+  },
+  {
+   "id": "grave_mortar",
+   "name": "Grave Mortar",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 260,
+    "armor": "structure",
+    "speed": 16,
+    "radius": 16,
+    "bounty": 18,
+    "threat": 5,
+    "behavior": "artillery",
+    "art": "grave_mortar",
+    "weapons": [
+     {
+      "id": "grave_mortar_shell",
+      "range": 460,
+      "min_range": 140,
+      "damage": 46,
+      "dtype": "blast",
+      "reload": 4.4,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 50,
+      "mount": [
+       10,
+       -32
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 150
+   },
+   "assets": {
+    "art": "grave_mortar"
+   },
+   "desc": "Bone-tube mortar.",
+   "counter": "Counterbattery, bombers."
+  },
+  {
+   "id": "bone_spire",
+   "name": "Bone Spire",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "defensive_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "structure",
+    "hp": 650,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 18,
+    "bounty": 30,
+    "threat": 6,
+    "behavior": "structure",
+    "art": "bone_spire",
+    "blocks": false,
+    "static": true,
+    "weapons": [
+     {
+      "id": "bone_shard",
+      "range": 330,
+      "damage": 14,
+      "dtype": "pierce",
+      "reload": 1.25,
+      "targets": "both",
+      "priority": "air",
+      "proj": "shard",
+      "mount": [
+       0,
+       -86
+      ],
+      "reach": "high"
+     }
+    ]
+   },
+   "assets": {
+    "art": "bone_spire"
+   },
+   "desc": "Rooted bone tower near undead ground. Flings shards at aircraft first, then infantry.",
+   "counter": "Field cannons and bombers outrange it."
+  },
+  {
+   "id": "grave_flak_spire",
+   "name": "Grave Flak Spire",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 520,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 18,
+    "bounty": 25,
+    "threat": 5,
+    "behavior": "structure",
+    "art": "grave_flak_spire",
+    "weapons": [
+     {
+      "id": "spire_flak",
+      "range": 420,
+      "damage": 16,
+      "dtype": "flak",
+      "reload": 1.1,
+      "targets": "air",
+      "priority": "air",
+      "proj": "flak",
+      "splash": 40,
+      "mount": [
+       0,
+       -90
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "static": true
+   },
+   "assets": {
+    "art": "grave_flak_spire"
+   },
+   "desc": "Bursts of bone shrapnel aimed at aircraft.",
+   "counter": "Artillery."
+  },
+  {
+   "id": "necrotic_beacon",
+   "name": "Necrotic Beacon",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 400,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 16,
+    "bounty": 30,
+    "threat": 6,
+    "behavior": "structure",
+    "art": "necrotic_beacon",
+    "weapons": [],
+    "blocks": false,
+    "static": true,
+    "aura": {
+     "radius": 320,
+     "mods": {
+      "dr": 0.85,
+      "speed": 1.15
+     },
+     "dur": 1.5
+    }
+   },
+   "assets": {
+    "art": "necrotic_beacon"
+   },
+   "desc": "Empowers all undead nearby.",
+   "counter": "Destroy it with artillery."
+  },
+  {
+   "id": "cursed_barricade",
+   "name": "Cursed Barricade",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 700,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 16,
+    "bounty": 15,
+    "threat": 3,
+    "behavior": "structure",
+    "art": "cursed_barricade",
+    "weapons": [],
+    "blocks": true,
+    "static": true,
+    "taunt": true
+   },
+   "assets": {
+    "art": "cursed_barricade"
+   },
+   "desc": "Bone and iron barricade that soaks fire.",
+   "counter": "Sappers, blast."
+  },
+  {
+   "id": "plague_cauldron",
+   "name": "Plague Cauldron",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 300,
+    "armor": "structure",
+    "speed": 14,
+    "radius": 18,
+    "bounty": 20,
+    "threat": 5,
+    "behavior": "artillery",
+    "art": "plague_cauldron",
+    "weapons": [
+     {
+      "id": "cauldron_splash",
+      "range": 340,
+      "min_range": 80,
+      "damage": 20,
+      "dtype": "acid",
+      "reload": 4.0,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 60,
+      "mount": [
+       10,
+       -32
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 120,
+    "ability": {
+     "id": "boil_over",
+     "name": "Boil Over",
+     "kind": "zone",
+     "steam": 0,
+     "cooldown": 18,
+     "windup": 0.8,
+     "radius": 70,
+     "dps": 26,
+     "dur": 6,
+     "offset": 200,
+     "dtype": "acid",
+     "look": "plague"
+    }
+   },
+   "assets": {
+    "art": "plague_cauldron"
+   },
+   "desc": "Splashes boiling plague and leaves pools.",
+   "counter": "Bombers."
+  },
+  {
+   "id": "bone_bolt_thrower",
+   "name": "Bone Bolt Thrower",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 260,
+    "armor": "structure",
+    "speed": 16,
+    "radius": 16,
+    "bounty": 18,
+    "threat": 5,
+    "behavior": "artillery",
+    "art": "bone_bolt_thrower",
+    "weapons": [
+     {
+      "id": "bolt_thrower",
+      "range": 440,
+      "damage": 44,
+      "dtype": "pierce",
+      "reload": 3.2,
+      "targets": "both",
+      "priority": "armored",
+      "proj": "shard",
+      "mount": [
+       16,
+       -26
+      ],
+      "bonus": {
+       "machine": 1.3
+      },
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 140
+   },
+   "assets": {
+    "art": "bone_bolt_thrower"
+   },
+   "desc": "A ballista that hits aircraft and vehicles.",
+   "counter": "Artillery."
+  },
+  {
+   "id": "walking_crypt",
+   "name": "Walking Crypt",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "giant_behemoth",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M002",
+   "stats": {
+    "cls": "monster",
+    "hp": 2700,
+    "arm": 0.35,
+    "armor": "bone",
+    "speed": 14,
+    "radius": 37,
+    "bounty": 120,
+    "threat": 24,
+    "behavior": "giant",
+    "art": "walking_crypt",
+    "art_scale": 1.891,
+    "giant_class": "behemoth",
+    "mech_class": "heavy",
+    "death_time": 2.2,
+    "blocks": true,
+    "frontline": true,
+    "weapons": [
+     {
+      "id": "crypt_lid",
+      "range": 60.0,
+      "damage": 95,
+      "reload": 2.8,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "dtype": "blast",
+      "splash": 55,
+      "windup": 0.7,
+      "family": "slab",
+      "mount": [
+       33.3,
+       -52.9
+      ]
+     },
+     {
+      "id": "bone_catapult",
+      "range": 340.0,
+      "min_range": 120,
+      "damage": 70,
+      "reload": 4.5,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "dtype": "blast",
+      "splash": 45,
+      "family": "catapult",
+      "mount": [
+       18.9,
+       -196.7
+      ]
+     }
+    ],
+    "ability": {
+     "id": "open_the_crypt",
+     "name": "Open the Crypt",
+     "kind": "summon",
+     "cooldown": 16,
+     "windup": 1.0,
+     "enemy": "ossuary_skeleton",
+     "count": 3,
+     "cap": 9,
+     "steam": 0
+    },
+    "weakness": "Its catapult can't hit anything close. Get under it with heavy frames."
+   },
+   "assets": {
+    "art": "walking_crypt"
+   },
+   "desc": "A hunched giant hauling a family crypt. The catapult on top lobs bone; the doors open to let skeletons out.",
+   "counter": "Anvilbreaker, Siege Hammer Walker, bombers."
+  },
+  {
+   "id": "bone_ram",
+   "name": "Bone Ram",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "monster",
+    "hp": 700,
+    "armor": "structure",
+    "speed": 22,
+    "radius": 22,
+    "bounty": 24,
+    "threat": 6,
+    "behavior": "melee",
+    "art": "bone_ram",
+    "weapons": [
+     {
+      "id": "ram_head",
+      "range": 40,
+      "damage": 60,
+      "dtype": "blast",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       14,
+       -22
+      ],
+      "bonus": {
+       "structure": 2.5,
+       "machine": 1.4
+      }
+     }
+    ],
+    "blocks": true,
+    "frontline": true
+   },
+   "assets": {
+    "art": "bone_ram"
+   },
+   "desc": "Battering ram that wrecks barricades and the stronghold gate.",
+   "counter": "Kill it before it reaches the wall."
+  },
+  {
+   "id": "flesh_trebuchet",
+   "name": "Flesh Trebuchet",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 380,
+    "armor": "structure",
+    "speed": 12,
+    "radius": 22,
+    "bounty": 26,
+    "threat": 6,
+    "behavior": "artillery",
+    "art": "flesh_trebuchet",
+    "weapons": [
+     {
+      "id": "trebuchet_load",
+      "range": 540,
+      "min_range": 180,
+      "damage": 80,
+      "dtype": "blast",
+      "reload": 5.5,
+      "targets": "ground",
+      "priority": "structure",
+      "proj": "arc",
+      "splash": 60,
+      "mount": [
+       10,
+       -32
+      ],
+      "bonus": {
+       "structure": 1.5
+      }
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 170
+   },
+   "assets": {
+    "art": "flesh_trebuchet"
+   },
+   "desc": "Long-range engine that hammers the stronghold.",
+   "counter": "Bombers, counterbattery."
+  },
+  {
+   "id": "grave_howitzer",
+   "name": "Grave Howitzer",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 420,
+    "armor": "structure",
+    "speed": 12,
+    "radius": 20,
+    "bounty": 28,
+    "threat": 7,
+    "behavior": "artillery",
+    "art": "grave_howitzer",
+    "weapons": [
+     {
+      "id": "grave_howitzer_shell",
+      "range": 500,
+      "min_range": 150,
+      "damage": 70,
+      "dtype": "blast",
+      "reload": 4.8,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 56,
+      "mount": [
+       10,
+       -32
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 160
+   },
+   "assets": {
+    "art": "grave_howitzer"
+   },
+   "desc": "Heavy bone-cast howitzer.",
+   "counter": "Bombers."
+  },
+  {
+   "id": "plague_spore_cannon",
+   "name": "Plague Spore Cannon",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 340,
+    "armor": "structure",
+    "speed": 14,
+    "radius": 18,
+    "bounty": 24,
+    "threat": 6,
+    "behavior": "artillery",
+    "art": "plague_spore_cannon",
+    "weapons": [
+     {
+      "id": "spore_shell",
+      "range": 440,
+      "damage": 14,
+      "dtype": "acid",
+      "reload": 3.6,
+      "targets": "both",
+      "priority": "air",
+      "proj": "flak",
+      "splash": 60,
+      "mount": [
+       16,
+       -30
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 140
+   },
+   "assets": {
+    "art": "plague_spore_cannon"
+   },
+   "desc": "Spore clouds that choke aircraft and crews.",
+   "counter": "Artillery."
+  },
+  {
+   "id": "rot_launcher",
+   "name": "Rot Launcher",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "artillery",
+    "hp": 300,
+    "armor": "structure",
+    "speed": 16,
+    "radius": 18,
+    "bounty": 22,
+    "threat": 6,
+    "behavior": "artillery",
+    "art": "rot_launcher",
+    "weapons": [
+     {
+      "id": "rot_rockets",
+      "range": 420,
+      "min_range": 100,
+      "damage": 18,
+      "dtype": "acid",
+      "reload": 4.5,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "arc",
+      "splash": 34,
+      "burst": 5,
+      "burst_gap": 0.14,
+      "mount": [
+       16,
+       -28
+      ]
+     }
+    ],
+    "blocks": false,
+    "rear_offset": 150
+   },
+   "assets": {
+    "art": "rot_launcher"
+   },
+   "desc": "Fires salvos of rot-filled bone rockets.",
+   "counter": "Bombers."
+  },
+  {
+   "id": "soul_turret",
+   "name": "Soul Turret",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 600,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 16,
+    "bounty": 30,
+    "threat": 7,
+    "behavior": "structure",
+    "art": "soul_turret",
+    "weapons": [
+     {
+      "id": "soul_beam",
+      "range": 360,
+      "damage": 18,
+      "dtype": "necro",
+      "reload": 0.9,
+      "targets": "both",
+      "priority": "threat",
+      "proj": "bolt",
+      "mount": [
+       0,
+       -60
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "static": true
+   },
+   "assets": {
+    "art": "soul_turret"
+   },
+   "desc": "A bound soul that lashes out at everything in range.",
+   "counter": "Siege guns."
+  },
+  {
+   "id": "rift_obelisk",
+   "name": "Rift Obelisk",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 800,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 18,
+    "bounty": 40,
+    "threat": 8,
+    "behavior": "structure",
+    "art": "rift_obelisk",
+    "weapons": [
+     {
+      "id": "rift_arc",
+      "range": 340,
+      "damage": 30,
+      "dtype": "shock",
+      "reload": 2.2,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "zap",
+      "chain": 3,
+      "chain_range": 70,
+      "mount": [
+       0,
+       -100
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "static": true
+   },
+   "assets": {
+    "art": "rift_obelisk"
+   },
+   "desc": "Rift lightning that leaps between your units.",
+   "counter": "Out-range it."
+  },
+  {
+   "id": "wraith_beacon",
+   "name": "Wraith Beacon",
+   "faction": "undead",
+   "category": "siege",
+   "category_name": "Undead Siege & Structures",
+   "role": "siege_structure",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "structure",
+    "hp": 500,
+    "armor": "structure",
+    "speed": 0,
+    "radius": 16,
+    "bounty": 30,
+    "threat": 7,
+    "behavior": "structure",
+    "art": "wraith_beacon",
+    "weapons": [],
+    "blocks": false,
+    "static": true,
+    "deploys": {
+     "unit": "spectral_wraith",
+     "interval": 12,
+     "cap": 3,
+     "ahead": -40,
+     "air": true
+    }
+   },
+   "assets": {
+    "art": "wraith_beacon"
+   },
+   "desc": "Summons spectral wraiths into the sky.",
+   "counter": "Destroy it fast."
+  },
+  {
+   "id": "carrion_bat",
+   "name": "Carrion Bat",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "swarm_flyer",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "flyer",
+    "hp": 42,
+    "armor": "flesh",
+    "speed": 110,
+    "radius": 9,
+    "bounty": 4,
+    "threat": 1.5,
+    "behavior": "bat",
+    "art": "carrion_bat",
+    "altitude": [
+     260,
+     380
+    ],
+    "weapons": [
+     {
+      "id": "bat_bite",
+      "range": 20,
+      "damage": 6,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "both",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "carrion_bat"
+   },
+   "desc": "Rotting giant bat. Packs dive on crews and aircraft. Infantry rifles cannot hit it.",
+   "counter": "Flak Crews, Flying Machines, Blunderbussiers when they dive low."
+  },
+  {
+   "id": "blight_bat",
+   "name": "Blight Bat",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 60,
+    "armor": "flesh",
+    "speed": 115,
+    "radius": 10,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "bat",
+    "art": "blight_bat",
+    "weapons": [
+     {
+      "id": "blight_bite",
+      "range": 20,
+      "damage": 8,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     260,
+     380
+    ],
+    "death_burst": {
+     "damage": 10,
+     "radius": 36,
+     "dtype": "acid"
+    },
+    "band": "low"
+   },
+   "assets": {
+    "art": "blight_bat"
+   },
+   "desc": "Plague bat that bursts when shot down.",
+   "counter": "Flak."
+  },
+  {
+   "id": "grave_moth",
+   "name": "Grave Moth",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 70,
+    "armor": "flesh",
+    "speed": 90,
+    "radius": 12,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "shrieker",
+    "art": "grave_moth",
+    "weapons": [
+     {
+      "id": "moth_dust",
+      "range": 150,
+      "damage": 6,
+      "dtype": "acid",
+      "reload": 1.0,
+      "targets": "both",
+      "priority": "support",
+      "proj": "spit",
+      "splash": 24,
+      "mount": [
+       10,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     230,
+     320
+    ],
+    "standoff": 120,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "grave_moth"
+   },
+   "desc": "Choking dust from above.",
+   "counter": "Flak."
+  },
+  {
+   "id": "plague_shrieker",
+   "name": "Plague Shrieker",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "anti_aircraft_flyer",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M001",
+   "stats": {
+    "cls": "flyer",
+    "hp": 135,
+    "armor": "flesh",
+    "speed": 70,
+    "radius": 14,
+    "bounty": 10,
+    "threat": 4,
+    "behavior": "shrieker",
+    "art": "plague_shrieker",
+    "altitude": [
+     220,
+     320
+    ],
+    "standoff": 170,
+    "weapons": [
+     {
+      "id": "shriek_spit",
+      "range": 205,
+      "damage": 14,
+      "dtype": "acid",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "air",
+      "proj": "spit",
+      "splash": 18,
+      "mount": [
+       16,
+       0
+      ],
+      "reach": "high"
+     }
+    ],
+    "band": "mid"
+   },
+   "assets": {
+    "art": "plague_shrieker"
+   },
+   "desc": "Screaming winged corpse that hunts aircraft with acid. Hovers out of rifle reach.",
+   "counter": "Flak Crews; massed Flying Machines."
+  },
+  {
+   "id": "bone_wyvern",
+   "name": "Bone Wyvern",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 420,
+    "armor": "bone",
+    "speed": 80,
+    "radius": 20,
+    "bounty": 24,
+    "threat": 7,
+    "behavior": "shrieker",
+    "art": "bone_wyvern",
+    "weapons": [
+     {
+      "id": "wyvern_shards",
+      "range": 230,
+      "damage": 20,
+      "dtype": "pierce",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "air",
+      "proj": "shard",
+      "mount": [
+       20,
+       0
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     230,
+     320
+    ],
+    "standoff": 170,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "bone_wyvern"
+   },
+   "desc": "Skeletal wyvern that duels aircraft.",
+   "counter": "Flak, interceptors."
+  },
+  {
+   "id": "skeletal_vulture",
+   "name": "Skeletal Vulture",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 90,
+    "armor": "bone",
+    "speed": 100,
+    "radius": 12,
+    "bounty": 6,
+    "threat": 2.5,
+    "behavior": "bat",
+    "art": "skeletal_vulture",
+    "weapons": [
+     {
+      "id": "vulture_beak",
+      "range": 20,
+      "damage": 11,
+      "dtype": "melee",
+      "reload": 0.8,
+      "targets": "both",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     260,
+     360
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "skeletal_vulture"
+   },
+   "desc": "Dives on crews and the wounded.",
+   "counter": "Flak."
+  },
+  {
+   "id": "rotwing",
+   "name": "Rotwing",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 140,
+    "armor": "flesh",
+    "speed": 95,
+    "radius": 14,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "bat",
+    "art": "rotwing",
+    "weapons": [
+     {
+      "id": "rotwing_claws",
+      "range": 22,
+      "damage": 14,
+      "dtype": "melee",
+      "reload": 0.8,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     240,
+     360
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "rotwing"
+   },
+   "desc": "Large rotting wing-beast.",
+   "counter": "Flak."
+  },
+  {
+   "id": "tomb_gargoyle",
+   "name": "Tomb Gargoyle",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 320,
+    "armor": "structure",
+    "speed": 70,
+    "radius": 16,
+    "bounty": 14,
+    "threat": 5,
+    "behavior": "bat",
+    "art": "tomb_gargoyle",
+    "weapons": [
+     {
+      "id": "gargoyle_claws",
+      "range": 24,
+      "damage": 22,
+      "dtype": "melee",
+      "reload": 1.2,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     230,
+     320
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "tomb_gargoyle"
+   },
+   "desc": "Stone gargoyle; shrugs off bullets.",
+   "counter": "Flak, cannons."
+  },
+  {
+   "id": "carrion_wasp",
+   "name": "Carrion Wasp",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 45,
+    "armor": "flesh",
+    "speed": 140,
+    "radius": 9,
+    "bounty": 4,
+    "threat": 1.5,
+    "behavior": "bat",
+    "art": "carrion_wasp",
+    "weapons": [
+     {
+      "id": "wasp_sting",
+      "range": 18,
+      "damage": 7,
+      "dtype": "melee",
+      "reload": 0.5,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "bonus": {
+       "_slow": [
+        0.7,
+        1.5
+       ]
+      },
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     240,
+     360
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "carrion_wasp"
+   },
+   "desc": "Fast stinging swarm.",
+   "counter": "Flak, MGs."
+  },
+  {
+   "id": "spectral_wraith",
+   "name": "Spectral Wraith",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 120,
+    "armor": "light",
+    "speed": 90,
+    "radius": 12,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "shrieker",
+    "art": "spectral_wraith",
+    "weapons": [
+     {
+      "id": "wraith_wail",
+      "range": 170,
+      "damage": 12,
+      "dtype": "necro",
+      "reload": 1.4,
+      "targets": "both",
+      "priority": "support",
+      "proj": "bolt",
+      "mount": [
+       10,
+       0
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     220,
+     300
+    ],
+    "standoff": 120,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "spectral_wraith"
+   },
+   "desc": "A drifting ghost that wails at the living.",
+   "counter": "Flak, shock."
+  },
+  {
+   "id": "bone_drake",
+   "name": "Bone Drake",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 900,
+    "armor": "bone",
+    "speed": 60,
+    "radius": 26,
+    "bounty": 40,
+    "threat": 10,
+    "behavior": "shrieker",
+    "art": "bone_drake",
+    "weapons": [
+     {
+      "id": "drake_breath",
+      "range": 240,
+      "damage": 10,
+      "dtype": "necro",
+      "reload": 0.4,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "bolt",
+      "splash": 20,
+      "mount": [
+       30,
+       6
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     220,
+     300
+    ],
+    "standoff": 150,
+    "band": "high"
+   },
+   "assets": {
+    "art": "bone_drake"
+   },
+   "desc": "A bone drake breathing grave-fire on everything below.",
+   "counter": "Heavy flak, interceptors."
+  },
+  {
+   "id": "plague_harpy",
+   "name": "Plague Harpy",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 160,
+    "armor": "flesh",
+    "speed": 95,
+    "radius": 13,
+    "bounty": 9,
+    "threat": 3,
+    "behavior": "shrieker",
+    "art": "plague_harpy",
+    "weapons": [
+     {
+      "id": "harpy_spit",
+      "range": 200,
+      "damage": 14,
+      "dtype": "acid",
+      "reload": 1.5,
+      "targets": "both",
+      "priority": "air",
+      "proj": "spit",
+      "splash": 18,
+      "mount": [
+       14,
+       0
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     220,
+     310
+    ],
+    "standoff": 160,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "plague_harpy"
+   },
+   "desc": "Shrieking harpy that hunts aircraft.",
+   "counter": "Flak."
+  },
+  {
+   "id": "gravewing_stalker",
+   "name": "Gravewing Stalker",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 200,
+    "armor": "flesh",
+    "speed": 120,
+    "radius": 14,
+    "bounty": 10,
+    "threat": 3.5,
+    "behavior": "bat",
+    "art": "gravewing_stalker",
+    "weapons": [
+     {
+      "id": "stalker_talons",
+      "range": 22,
+      "damage": 18,
+      "dtype": "melee",
+      "reload": 0.7,
+      "targets": "both",
+      "priority": "support",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     250,
+     360
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "gravewing_stalker"
+   },
+   "desc": "Silent dive-hunter that targets crews.",
+   "counter": "Flak."
+  },
+  {
+   "id": "rift_crow",
+   "name": "Rift Crow",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 60,
+    "armor": "light",
+    "speed": 150,
+    "radius": 9,
+    "bounty": 5,
+    "threat": 2,
+    "behavior": "bat",
+    "art": "rift_crow",
+    "weapons": [
+     {
+      "id": "crow_peck",
+      "range": 18,
+      "damage": 9,
+      "dtype": "necro",
+      "reload": 0.6,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       8,
+       4
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     240,
+     360
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "rift_crow"
+   },
+   "desc": "Rift-touched crows in flocks.",
+   "counter": "Flak, MGs."
+  },
+  {
+   "id": "ossuary_flier",
+   "name": "Ossuary Flier",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 220,
+    "armor": "bone",
+    "speed": 85,
+    "radius": 14,
+    "bounty": 10,
+    "threat": 3.5,
+    "behavior": "shrieker",
+    "art": "ossuary_flier",
+    "weapons": [
+     {
+      "id": "bone_darts",
+      "range": 220,
+      "damage": 12,
+      "dtype": "pierce",
+      "reload": 1.1,
+      "targets": "both",
+      "priority": "air",
+      "proj": "shard",
+      "mount": [
+       12,
+       0
+      ],
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     230,
+     320
+    ],
+    "standoff": 150,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "ossuary_flier"
+   },
+   "desc": "Bone construct that peppers aircraft with darts.",
+   "counter": "Flak."
+  },
+  {
+   "id": "banshee_wing",
+   "name": "Banshee Wing",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 260,
+    "armor": "light",
+    "speed": 90,
+    "radius": 15,
+    "bounty": 14,
+    "threat": 5,
+    "behavior": "shrieker",
+    "art": "banshee_wing",
+    "weapons": [
+     {
+      "id": "banshee_scream",
+      "range": 200,
+      "damage": 14,
+      "dtype": "necro",
+      "reload": 2.2,
+      "targets": "both",
+      "priority": "swarm",
+      "proj": "bolt",
+      "splash": 40,
+      "mount": [
+       12,
+       0
+      ],
+      "bonus": {
+       "_stun": 0.6
+      },
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     220,
+     300
+    ],
+    "standoff": 140,
+    "band": "mid"
+   },
+   "assets": {
+    "art": "banshee_wing"
+   },
+   "desc": "Its scream stuns crews and pilots.",
+   "counter": "Kill it at range."
+  },
+  {
+   "id": "wraith_swarm",
+   "name": "Wraith Swarm",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 180,
+    "armor": "light",
+    "speed": 110,
+    "radius": 16,
+    "bounty": 8,
+    "threat": 3,
+    "behavior": "bat",
+    "art": "wraith_swarm",
+    "weapons": [
+     {
+      "id": "swarm_chill",
+      "range": 24,
+      "damage": 6,
+      "dtype": "necro",
+      "reload": 0.3,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       0,
+       0
+      ],
+      "splash": 20,
+      "reach": "mid"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     240,
+     340
+    ],
+    "band": "low"
+   },
+   "assets": {
+    "art": "wraith_swarm"
+   },
+   "desc": "A shrieking cloud of lesser spirits.",
+   "counter": "Flak bursts."
+  },
+  {
+   "id": "necrotic_sky_serpent",
+   "name": "Necrotic Sky Serpent",
+   "faction": "undead",
+   "category": "flying",
+   "category_name": "Flying Undead",
+   "role": "air_creature",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 1400,
+    "armor": "hulk",
+    "speed": 55,
+    "radius": 30,
+    "bounty": 60,
+    "threat": 12,
+    "behavior": "shrieker",
+    "art": "necrotic_sky_serpent",
+    "weapons": [
+     {
+      "id": "serpent_breath",
+      "range": 280,
+      "damage": 36,
+      "dtype": "necro",
+      "reload": 1.2,
+      "targets": "both",
+      "priority": "air",
+      "proj": "bolt",
+      "splash": 34,
+      "mount": [
+       40,
+       0
+      ],
+      "reach": "high"
+     },
+     {
+      "id": "serpent_coils",
+      "range": 40,
+      "damage": 40,
+      "dtype": "melee",
+      "reload": 1.6,
+      "targets": "both",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       0,
+       10
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     200,
+     280
+    ],
+    "standoff": 170,
+    "band": "high"
+   },
+   "assets": {
+    "art": "necrotic_sky_serpent"
+   },
+   "desc": "A vast serpent coiling through the sky.",
+   "counter": "Massed flak and interceptors."
+  },
+  {
+   "id": "risen_copperback",
+   "name": "Risen Copperback",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "vehicle",
+    "hp": 900,
+    "armor": "machine",
+    "speed": 32,
+    "radius": 26,
+    "bounty": 40,
+    "threat": 8,
+    "behavior": "vehicle",
+    "art": "risen_copperback",
+    "weapons": [
+     {
+      "id": "risen_cannon",
+      "range": 330,
+      "min_range": 60,
+      "damage": 64,
+      "dtype": "blast",
+      "reload": 4.0,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 26,
+      "ap": true,
+      "mount": [
+       44,
+       -40
+      ]
+     },
+     {
+      "id": "risen_mg",
+      "range": 220,
+      "damage": 5,
+      "dtype": "pierce",
+      "reload": 0.3,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "bullet",
+      "mount": [
+       38,
+       -36
+      ]
+     }
+    ],
+    "blocks": true,
+    "tint": "b8d0a8"
+   },
+   "assets": {
+    "art": "risen_copperback"
+   },
+   "desc": "A dwarven light tank possessed by the dead.",
+   "counter": "AP, Sniper Tank Hunters.",
+   "origin": "copperback_light_tank"
+  },
+  {
+   "id": "cursed_ironclad",
+   "name": "Cursed Ironclad",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "walker",
+    "hp": 1700,
+    "armor": "mech",
+    "speed": 22,
+    "radius": 29,
+    "bounty": 70,
+    "threat": 14,
+    "behavior": "giant",
+    "art": "cursed_ironclad",
+    "weapons": [
+     {
+      "id": "cursed_hammer",
+      "range": 44,
+      "damage": 60,
+      "dtype": "blast",
+      "reload": 2.4,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       26,
+       -60
+      ],
+      "splash": 40,
+      "windup": 0.5
+     },
+     {
+      "id": "cursed_mg",
+      "range": 230,
+      "damage": 8,
+      "dtype": "pierce",
+      "reload": 0.25,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "bullet",
+      "mount": [
+       40,
+       -80
+      ]
+     }
+    ],
+    "blocks": true,
+    "art_scale": 1.347,
+    "arm": 0.3,
+    "mech_class": "medium",
+    "death_time": 1.7,
+    "tint": "b0c8a0",
+    "ability": {
+     "id": "cursed_slam",
+     "name": "Cursed Slam",
+     "kind": "aoe",
+     "steam": 0,
+     "cooldown": 16,
+     "windup": 0.7,
+     "radius": 110,
+     "damage": 80,
+     "dtype": "blast",
+     "knock": 24,
+     "min_targets": 2,
+     "telegraph": true
+    }
+   },
+   "assets": {
+    "art": "cursed_ironclad"
+   },
+   "desc": "An Ironclad Walker possessed by a bound spirit.",
+   "counter": "Shock, AP.",
+   "origin": "ironclad_walker"
+  },
+  {
+   "id": "possessed_drillwalker",
+   "name": "Possessed Drillwalker",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "walker",
+    "hp": 1050,
+    "armor": "mech",
+    "speed": 30,
+    "radius": 22,
+    "bounty": 50,
+    "threat": 10,
+    "behavior": "giant",
+    "art": "possessed_drillwalker",
+    "weapons": [
+     {
+      "id": "possessed_drill",
+      "range": 36,
+      "damage": 30,
+      "dtype": "drill",
+      "reload": 0.5,
+      "targets": "ground",
+      "priority": "nearest",
+      "proj": "melee",
+      "mount": [
+       22,
+       -44
+      ],
+      "bonus": {
+       "structure": 1.6
+      }
+     }
+    ],
+    "blocks": true,
+    "art_scale": 0.945,
+    "arm": 0.2,
+    "mech_class": "light",
+    "death_time": 1.3,
+    "tint": "b0c8a0",
+    "ability": {
+     "id": "possessed_bore",
+     "name": "Frenzied Bore",
+     "kind": "strike",
+     "steam": 0,
+     "cooldown": 12,
+     "windup": 0.4,
+     "mult": 2.5,
+     "hits": 2
+    }
+   },
+   "assets": {
+    "art": "possessed_drillwalker"
+   },
+   "desc": "A drillwalker whose crew never left.",
+   "counter": "Range and shock.",
+   "origin": "drillwalker"
+  },
+  {
+   "id": "gravegun_tank",
+   "name": "Gravegun Tank",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "ground",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "vehicle",
+    "hp": 1300,
+    "armor": "machine",
+    "speed": 26,
+    "radius": 30,
+    "bounty": 60,
+    "threat": 11,
+    "behavior": "vehicle",
+    "art": "gravegun_tank",
+    "weapons": [
+     {
+      "id": "gravegun",
+      "range": 400,
+      "min_range": 60,
+      "damage": 100,
+      "dtype": "necro",
+      "reload": 4.4,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 34,
+      "ap": true,
+      "mount": [
+       50,
+       -46
+      ]
+     },
+     {
+      "id": "grave_mg",
+      "range": 220,
+      "damage": 6,
+      "dtype": "pierce",
+      "reload": 0.28,
+      "targets": "ground",
+      "priority": "swarm",
+      "proj": "bullet",
+      "mount": [
+       44,
+       -38
+      ]
+     }
+    ],
+    "blocks": true,
+    "tint": "c0d8b8"
+   },
+   "assets": {
+    "art": "gravegun_tank"
+   },
+   "desc": "Heavy tank rebuilt from bone and salvaged iron.",
+   "counter": "AP, rail guns.",
+   "origin": "thunderback_heavy_tank"
+  },
+  {
+   "id": "haunted_flying_machine",
+   "name": "Haunted Flying Machine",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "flyer",
+    "hp": 200,
+    "armor": "light",
+    "speed": 120,
+    "radius": 16,
+    "bounty": 10,
+    "threat": 3.5,
+    "behavior": "interceptor",
+    "art": "haunted_flying_machine",
+    "weapons": [
+     {
+      "id": "haunted_mg",
+      "range": 210,
+      "damage": 7,
+      "dtype": "pierce",
+      "reload": 0.28,
+      "targets": "both",
+      "priority": "air",
+      "proj": "bullet",
+      "mount": [
+       22,
+       4
+      ],
+      "ground_mult": 0.5,
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     230,
+     330
+    ],
+    "tint": "a8c8a0",
+    "band": "mid"
+   },
+   "assets": {
+    "art": "haunted_flying_machine"
+   },
+   "desc": "A crashed gyro still flying, crewed by the dead.",
+   "counter": "Flak.",
+   "origin": "dwarven_flying_machine"
+  },
+  {
+   "id": "infected_airbarge",
+   "name": "Infected Airbarge",
+   "faction": "undead",
+   "category": "corrupted",
+   "category_name": "Corrupted Dwarven Machines",
+   "role": "corrupted_machine",
+   "domain": "air",
+   "implemented": true,
+   "milestone": "M003",
+   "stats": {
+    "cls": "airship",
+    "hp": 2800,
+    "armor": "machine",
+    "speed": 16,
+    "radius": 60,
+    "bounty": 120,
+    "threat": 16,
+    "behavior": "airship",
+    "art": "infected_airbarge",
+    "weapons": [
+     {
+      "id": "barge_battery",
+      "range": 420,
+      "min_range": 60,
+      "damage": 60,
+      "dtype": "acid",
+      "reload": 3.4,
+      "targets": "ground",
+      "priority": "armored",
+      "proj": "shell",
+      "splash": 30,
+      "ap": true,
+      "mount": [
+       38,
+       44
+      ],
+      "arc": [
+       0,
+       170
+      ]
+     },
+     {
+      "id": "barge_spores",
+      "range": 320,
+      "damage": 12,
+      "dtype": "acid",
+      "reload": 1.2,
+      "targets": "air",
+      "priority": "air",
+      "proj": "flak",
+      "splash": 36,
+      "mount": [
+       0,
+       -62
+      ],
+      "arc": [
+       -180,
+       180
+      ],
+      "reach": "high"
+     }
+    ],
+    "blocks": false,
+    "altitude": [
+     175,
+     185
+    ],
+    "hold_range": 380,
+    "tint": "a0c890",
+    "band": "high"
+   },
+   "assets": {
+    "art": "infected_airbarge"
+   },
+   "desc": "A captured airship overgrown with plague.",
+   "counter": "Flak batteries, gunships.",
+   "origin": "ironcloud"
+  }
+ ]
+}

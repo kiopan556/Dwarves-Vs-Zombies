@@ -1,0 +1,1718 @@
+{
+ "hammer_guard": {
+  "fam": "inf",
+  "weapon": "hammer",
+  "coat": "8e3a2e",
+  "helmet": "great",
+  "plate": 1,
+  "h": 52
+ },
+ "sapper": {
+  "fam": "inf",
+  "weapon": "satchel",
+  "coat": "7a4b2a",
+  "helmet": "miner",
+  "back": "pack",
+  "h": 52
+ },
+ "longrifle_scout": {
+  "fam": "inf",
+  "weapon": "longrifle",
+  "coat": "4a6a3a",
+  "helmet": "cap",
+  "h": 52
+ },
+ "bayonet_fusilier": {
+  "fam": "inf",
+  "weapon": "bayonet",
+  "coat": "2f4f7a",
+  "helmet": "kettle",
+  "h": 52
+ },
+ "shotgun_breacher": {
+  "fam": "inf",
+  "weapon": "shotgun",
+  "coat": "7a4b2a",
+  "helmet": "kettle",
+  "h": 52
+ },
+ "powder_loader": {
+  "fam": "inf",
+  "weapon": "crate",
+  "coat": "a07a2a",
+  "helmet": "cap",
+  "back": "ammo",
+  "h": 52
+ },
+ "flame_trooper": {
+  "fam": "inf",
+  "weapon": "flamer",
+  "coat": "8e3a2e",
+  "helmet": "great",
+  "back": "tank",
+  "h": 52
+ },
+ "steamgunner": {
+  "fam": "inf",
+  "weapon": "steamgun",
+  "coat": "1f3554",
+  "helmet": "goggle_cap",
+  "back": "boiler",
+  "h": 52
+ },
+ "rune_cartridge_rifleman": {
+  "fam": "inf",
+  "weapon": "rune_rifle",
+  "coat": "5a3f8a",
+  "helmet": "kettle",
+  "glow": "7ad0ff",
+  "h": 52
+ },
+ "trench_guard": {
+  "fam": "inf",
+  "weapon": "spade",
+  "coat": "5d6670",
+  "helmet": "great",
+  "shield": "tower",
+  "plate": 1,
+  "h": 52
+ },
+ "repeater_fusilier": {
+  "fam": "inf",
+  "weapon": "repeater",
+  "coat": "2f4f7a",
+  "helmet": "kettle",
+  "h": 52
+ },
+ "bombardier": {
+  "fam": "inf",
+  "weapon": "mortar_tube",
+  "coat": "a07a2a",
+  "helmet": "miner",
+  "back": "ammo",
+  "h": 52
+ },
+ "armor_piercer": {
+  "fam": "inf",
+  "weapon": "heavy_rifle",
+  "coat": "4a6a3a",
+  "helmet": "goggle_cap",
+  "h": 52
+ },
+ "veteran_rifleman": {
+  "fam": "inf",
+  "weapon": "rifle",
+  "coat": "1f3554",
+  "helmet": "kettle",
+  "plate": 1,
+  "medal": true,
+  "h": 52
+ },
+ "heavy_hammerer": {
+  "fam": "inf",
+  "weapon": "greathammer",
+  "coat": "5d6670",
+  "helmet": "great",
+  "plate": 2,
+  "scale": 1.1,
+  "h": 52
+ },
+ "skyguard_marksman": {
+  "fam": "inf",
+  "weapon": "aa_rifle",
+  "coat": "4a6a3a",
+  "helmet": "goggle_cap",
+  "aim_up": true,
+  "h": 52
+ },
+ "rolling_shield_trooper": {
+  "fam": "inf",
+  "weapon": "rifle",
+  "coat": "5d6670",
+  "helmet": "great",
+  "shield": "rolling",
+  "plate": 1,
+  "h": 52
+ },
+ "incendiary_grenadier": {
+  "fam": "inf",
+  "weapon": "grenade",
+  "coat": "8e3a2e",
+  "helmet": "miner",
+  "h": 52
+ },
+ "mortar_spotter": {
+  "fam": "inf",
+  "weapon": "scope",
+  "coat": "4a6a3a",
+  "helmet": "cap",
+  "back": "flag",
+  "h": 52
+ },
+ "royal_iron_guard": {
+  "fam": "inf",
+  "weapon": "halberd",
+  "coat": "5a3f8a",
+  "helmet": "great",
+  "helm_col": "c9a24a",
+  "plate": 2,
+  "scale": 1.12,
+  "shield": "tower",
+  "h": 52
+ },
+ "thunder_rifleman": {
+  "fam": "inf",
+  "weapon": "thunder_rifle",
+  "coat": "1f3554",
+  "helmet": "goggle_cap",
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "furnace_assault_trooper": {
+  "fam": "inf",
+  "weapon": "flamer",
+  "coat": "b8693a",
+  "helmet": "great",
+  "back": "furnace",
+  "plate": 2,
+  "h": 52
+ },
+ "runebreaker_infantry": {
+  "fam": "inf",
+  "weapon": "lance",
+  "coat": "5a3f8a",
+  "helmet": "kettle",
+  "glow": "c08aff",
+  "h": 52
+ },
+ "heavy_gatling_dwarf": {
+  "fam": "inf",
+  "weapon": "gatling",
+  "coat": "5d6670",
+  "helmet": "great",
+  "back": "ammo",
+  "plate": 1,
+  "scale": 1.1,
+  "h": 52
+ },
+ "colossus_guard": {
+  "fam": "inf",
+  "weapon": "greathammer",
+  "coat": "5d6670",
+  "helmet": "great",
+  "shield": "bulwark",
+  "plate": 2,
+  "scale": 1.25,
+  "h": 52
+ },
+ "arc_lance_gunner": {
+  "fam": "inf",
+  "weapon": "thunder_rifle",
+  "coat": "1f3554",
+  "helmet": "goggle_cap",
+  "back": "coil",
+  "glow": "9ad8ff",
+  "scale": 1.1,
+  "h": 52
+ },
+ "kingsguard_bulwark": {
+  "fam": "inf",
+  "weapon": "sword",
+  "coat": "5a3f8a",
+  "helmet": "great",
+  "helm_col": "c9a24a",
+  "shield": "bulwark",
+  "plate": 2,
+  "scale": 1.25,
+  "h": 52
+ },
+ "ammunition_porter": {
+  "fam": "eng",
+  "tool": "crate",
+  "coat": "a07a2a",
+  "helmet": "cap",
+  "cart": "barrow",
+  "h": 52
+ },
+ "boiler_tender": {
+  "fam": "eng",
+  "tool": "wrench",
+  "coat": "5d6670",
+  "helmet": "goggle_cap",
+  "back": "boiler",
+  "h": 52
+ },
+ "salvage_crew": {
+  "fam": "eng",
+  "tool": "hook",
+  "coat": "7a4b2a",
+  "helmet": "miner",
+  "back": "pack",
+  "h": 52
+ },
+ "repair_wagon": {
+  "fam": "eng",
+  "tool": "wrench",
+  "coat": "7a4b2a",
+  "helmet": "cap",
+  "cart": "wagon",
+  "h": 56
+ },
+ "steam_sapper": {
+  "fam": "inf",
+  "weapon": "satchel",
+  "coat": "5d6670",
+  "helmet": "goggle_cap",
+  "back": "boiler",
+  "h": 52
+ },
+ "field_barricade_crew": {
+  "fam": "eng",
+  "tool": "hammer",
+  "coat": "7a4b2a",
+  "helmet": "kettle",
+  "back": "planks",
+  "h": 52
+ },
+ "mine_layer": {
+  "fam": "eng",
+  "tool": "mine",
+  "coat": "4a6a3a",
+  "helmet": "miner",
+  "back": "pack",
+  "h": 52
+ },
+ "spotter_balloon_crew": {
+  "fam": "eng",
+  "tool": "scope",
+  "coat": "a07a2a",
+  "helmet": "cap",
+  "cart": "balloon",
+  "h": 110
+ },
+ "armored_recovery_team": {
+  "fam": "eng",
+  "tool": "wrench",
+  "coat": "5d6670",
+  "helmet": "great",
+  "cart": "crawler",
+  "h": 60
+ },
+ "turret_engineer": {
+  "fam": "eng",
+  "tool": "welder",
+  "coat": "1f3554",
+  "helmet": "goggle_cap",
+  "back": "pack",
+  "h": 52
+ },
+ "pressure_regulator": {
+  "fam": "eng",
+  "tool": "gauge",
+  "coat": "5d6670",
+  "helmet": "goggle_cap",
+  "back": "boiler",
+  "h": 52
+ },
+ "runic_mechanic": {
+  "fam": "eng",
+  "tool": "rune",
+  "coat": "5a3f8a",
+  "helmet": "kettle",
+  "glow": "7ad0ff",
+  "h": 52
+ },
+ "battlefield_surveyors": {
+  "fam": "eng",
+  "tool": "scope",
+  "coat": "4a6a3a",
+  "helmet": "cap",
+  "back": "tripod",
+  "h": 52
+ },
+ "heavy_recovery_crawler": {
+  "fam": "eng",
+  "tool": "crane",
+  "coat": "5d6670",
+  "helmet": "great",
+  "cart": "crawler",
+  "h": 70
+ },
+ "mobile_forge_crew": {
+  "fam": "eng",
+  "tool": "hammer",
+  "coat": "b8693a",
+  "helmet": "great",
+  "cart": "forge",
+  "h": 64
+ },
+ "counter_curse_technician": {
+  "fam": "eng",
+  "tool": "rune",
+  "coat": "5a3f8a",
+  "helmet": "goggle_cap",
+  "back": "coil",
+  "glow": "c08aff",
+  "h": 52
+ },
+ "automated_turret_crew": {
+  "fam": "eng",
+  "tool": "welder",
+  "coat": "5d6670",
+  "helmet": "great",
+  "back": "pack",
+  "h": 52
+ },
+ "master_fabricator_team": {
+  "fam": "eng",
+  "tool": "crane",
+  "coat": "b8693a",
+  "helmet": "great",
+  "back": "boiler",
+  "cart": "wagon",
+  "h": 60
+ },
+ "titan_maintenance_crew": {
+  "fam": "eng",
+  "tool": "crane",
+  "coat": "5d6670",
+  "helmet": "great",
+  "back": "boiler",
+  "h": 52
+ },
+ "portable_mortar": {
+  "fam": "gun",
+  "barrel": "mortar",
+  "crew": 1,
+  "coat": "7a4b2a",
+  "h": 52
+ },
+ "grapeshot_culverin": {
+  "fam": "gun",
+  "barrel": "culverin",
+  "crew": 1,
+  "coat": "8e3a2e",
+  "h": 52
+ },
+ "skyhook_rocket_rack": {
+  "fam": "gun",
+  "barrel": "rocket_rack",
+  "crew": 1,
+  "coat": "4a6a3a",
+  "aim_up": true,
+  "h": 52
+ },
+ "steam_mortar": {
+  "fam": "gun",
+  "barrel": "mortar_big",
+  "crew": 1,
+  "coat": "5d6670",
+  "boiler": true,
+  "h": 52
+ },
+ "heavy_bombard": {
+  "fam": "gun",
+  "barrel": "bombard",
+  "crew": 2,
+  "coat": "7a4b2a",
+  "h": 52
+ },
+ "rocket_battery": {
+  "fam": "gun",
+  "barrel": "rocket_rack",
+  "crew": 1,
+  "coat": "8e3a2e",
+  "h": 52
+ },
+ "shrapnel_howitzer": {
+  "fam": "gun",
+  "barrel": "howitzer",
+  "crew": 2,
+  "coat": "4a6a3a",
+  "h": 52
+ },
+ "twin_flak_mount": {
+  "fam": "gun",
+  "barrel": "flak2",
+  "crew": 1,
+  "coat": "1f3554",
+  "aim_up": true,
+  "h": 52
+ },
+ "siege_howitzer": {
+  "fam": "gun",
+  "barrel": "howitzer_big",
+  "crew": 2,
+  "coat": "5d6670",
+  "h": 52
+ },
+ "piston_cannon": {
+  "fam": "gun",
+  "barrel": "piston",
+  "crew": 1,
+  "coat": "b8693a",
+  "boiler": true,
+  "h": 52
+ },
+ "counterbattery_mortar": {
+  "fam": "gun",
+  "barrel": "mortar_big",
+  "crew": 2,
+  "coat": "4a6a3a",
+  "h": 52
+ },
+ "multi_barrel_flak": {
+  "fam": "gun",
+  "barrel": "flak4",
+  "crew": 1,
+  "coat": "1f3554",
+  "aim_up": true,
+  "h": 52
+ },
+ "heavy_skybreaker": {
+  "fam": "gun",
+  "barrel": "flak_heavy",
+  "crew": 2,
+  "coat": "5d6670",
+  "aim_up": true,
+  "h": 52
+ },
+ "rune_cannon": {
+  "fam": "gun",
+  "barrel": "rune",
+  "crew": 1,
+  "coat": "5a3f8a",
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "thunder_rocket_battery": {
+  "fam": "gun",
+  "barrel": "rocket_big",
+  "crew": 2,
+  "coat": "8e3a2e",
+  "h": 52
+ },
+ "mountain_siege_cannon": {
+  "fam": "gun",
+  "barrel": "siege",
+  "crew": 3,
+  "coat": "5d6670",
+  "h": 70
+ },
+ "celestial_flak_array": {
+  "fam": "gun",
+  "barrel": "array",
+  "crew": 2,
+  "coat": "1f3554",
+  "aim_up": true,
+  "glow": "9ad8ff",
+  "h": 64
+ },
+ "coalrunner_scout_tank": {
+  "fam": "veh",
+  "hull": "wheeled",
+  "len": 46,
+  "ht": 30,
+  "coat": "4a6a3a",
+  "turrets": [
+   "mg"
+  ],
+  "h": 52
+ },
+ "steamwheel_apc": {
+  "fam": "veh",
+  "hull": "wheeled",
+  "len": 56,
+  "ht": 36,
+  "coat": "7a4b2a",
+  "turrets": [
+   "mg"
+  ],
+  "hatch": true,
+  "h": 52
+ },
+ "ironrunner_light_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 60,
+  "ht": 40,
+  "coat": "4a6a3a",
+  "turrets": [
+   "cannon"
+  ],
+  "h": 52
+ },
+ "flamebelcher_medium_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 66,
+  "ht": 44,
+  "coat": "8e3a2e",
+  "turrets": [
+   "flame"
+  ],
+  "h": 52
+ },
+ "ironclad_medium_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 68,
+  "ht": 46,
+  "coat": "5d6670",
+  "turrets": [
+   "cannon"
+  ],
+  "h": 52
+ },
+ "skyshield_aa_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 62,
+  "ht": 42,
+  "coat": "1f3554",
+  "turrets": [
+   "aa"
+  ],
+  "h": 52
+ },
+ "thunderback_heavy_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 78,
+  "ht": 52,
+  "coat": "5d6670",
+  "turrets": [
+   "heavy"
+  ],
+  "h": 52
+ },
+ "bastion_heavy_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 80,
+  "ht": 54,
+  "coat": "7a4b2a",
+  "turrets": [
+   "cannon"
+  ],
+  "plates": 2,
+  "h": 52
+ },
+ "siege_sapper_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 74,
+  "ht": 48,
+  "coat": "a07a2a",
+  "turrets": [
+   "mortar"
+  ],
+  "h": 52
+ },
+ "boiler_ram": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 72,
+  "ht": 46,
+  "coat": "b8693a",
+  "turrets": [],
+  "ram": true,
+  "h": 52
+ },
+ "twin_cannon_ironclad": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 80,
+  "ht": 52,
+  "coat": "5d6670",
+  "turrets": [
+   "twin"
+  ],
+  "h": 52
+ },
+ "sniper_tank_hunter": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 74,
+  "ht": 40,
+  "coat": "4a6a3a",
+  "turrets": [
+   "long"
+  ],
+  "h": 52
+ },
+ "steamtread_heavy_carrier": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 84,
+  "ht": 50,
+  "coat": "7a4b2a",
+  "turrets": [
+   "mg"
+  ],
+  "hatch": true,
+  "h": 52
+ },
+ "siegecrawler": {
+  "fam": "veh",
+  "hull": "crawler",
+  "len": 96,
+  "ht": 62,
+  "coat": "5d6670",
+  "turrets": [
+   "mortar"
+  ],
+  "h": 52
+ },
+ "mountainshield_heavy_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 90,
+  "ht": 58,
+  "coat": "7a4b2a",
+  "turrets": [
+   "heavy"
+  ],
+  "plates": 3,
+  "h": 52
+ },
+ "thunderrail_tank_destroyer": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 84,
+  "ht": 46,
+  "coat": "1f3554",
+  "turrets": [
+   "rail"
+  ],
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "firestorm_assault_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 86,
+  "ht": 54,
+  "coat": "8e3a2e",
+  "turrets": [
+   "flame",
+   "flame"
+  ],
+  "h": 52
+ },
+ "dreadplate_breaker": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 88,
+  "ht": 56,
+  "coat": "5d6670",
+  "turrets": [
+   "heavy"
+  ],
+  "ram": true,
+  "h": 52
+ },
+ "mobile_flak_fortress": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 92,
+  "ht": 58,
+  "coat": "1f3554",
+  "turrets": [
+   "aa",
+   "aa"
+  ],
+  "h": 52
+ },
+ "mountainbreaker": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 104,
+  "ht": 64,
+  "coat": "5d6670",
+  "turrets": [
+   "long"
+  ],
+  "plates": 2,
+  "h": 70
+ },
+ "worldhammer_siege_tank": {
+  "fam": "veh",
+  "hull": "tracked",
+  "len": 100,
+  "ht": 66,
+  "coat": "b8693a",
+  "turrets": [
+   "hammer"
+  ],
+  "h": 86
+ },
+ "brass_leviathan": {
+  "fam": "veh",
+  "hull": "crawler",
+  "len": 118,
+  "ht": 72,
+  "coat": "b8693a",
+  "turrets": [
+   "heavy",
+   "cannon"
+  ],
+  "h": 86
+ },
+ "iron_bastion_prime": {
+  "fam": "veh",
+  "hull": "crawler",
+  "len": 110,
+  "ht": 72,
+  "coat": "7a4b2a",
+  "turrets": [
+   "heavy"
+  ],
+  "plates": 3,
+  "h": 86
+ },
+ "dreadnought_landship": {
+  "fam": "veh",
+  "hull": "crawler",
+  "len": 136,
+  "ht": 80,
+  "coat": "5d6670",
+  "turrets": [
+   "heavy",
+   "heavy",
+   "aa"
+  ],
+  "h": 100
+ },
+ "rotary_interceptor": {
+  "fam": "air",
+  "frame": "rotary",
+  "len": 44,
+  "coat": "a07a2a",
+  "guns": [
+   "mg"
+  ],
+  "h": 52
+ },
+ "twin_rotor_interceptor": {
+  "fam": "air",
+  "frame": "twin_rotor",
+  "len": 52,
+  "coat": "4a6a3a",
+  "guns": [
+   "mg",
+   "mg"
+  ],
+  "h": 52
+ },
+ "skyspotter_scout": {
+  "fam": "air",
+  "frame": "rotary",
+  "len": 38,
+  "coat": "2f4f7a",
+  "guns": [
+   "mg"
+  ],
+  "scope": true,
+  "h": 52
+ },
+ "coalwing_strafing_craft": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 56,
+  "coat": "2e2a2a",
+  "guns": [
+   "mg",
+   "mg"
+  ],
+  "h": 52
+ },
+ "thunderwing": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 60,
+  "coat": "1f3554",
+  "guns": [
+   "coil"
+  ],
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "sky_mender": {
+  "fam": "air",
+  "frame": "twin_rotor",
+  "len": 50,
+  "coat": "a07a2a",
+  "guns": [
+   "mg"
+  ],
+  "crane": true,
+  "h": 52
+ },
+ "heavy_gyro_bomber": {
+  "fam": "air",
+  "frame": "bomber",
+  "len": 70,
+  "coat": "5d6670",
+  "bombs": true,
+  "h": 52
+ },
+ "flak_chaser": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 54,
+  "coat": "2f4f7a",
+  "guns": [
+   "flak"
+  ],
+  "h": 52
+ },
+ "rune_sight_scout": {
+  "fam": "air",
+  "frame": "rotary",
+  "len": 40,
+  "coat": "5a3f8a",
+  "guns": [
+   "coil"
+  ],
+  "glow": "c08aff",
+  "scope": true,
+  "h": 52
+ },
+ "forge_bomber": {
+  "fam": "air",
+  "frame": "bomber",
+  "len": 78,
+  "coat": "b8693a",
+  "bombs": true,
+  "h": 52
+ },
+ "twin_flame_gunship": {
+  "fam": "air",
+  "frame": "gunship",
+  "len": 74,
+  "coat": "8e3a2e",
+  "guns": [
+   "flame",
+   "mg"
+  ],
+  "h": 52
+ },
+ "heavy_interceptor": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 68,
+  "coat": "5d6670",
+  "guns": [
+   "cannon",
+   "mg"
+  ],
+  "h": 52
+ },
+ "rocketwing": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 66,
+  "coat": "a07a2a",
+  "guns": [
+   "rockets"
+  ],
+  "h": 52
+ },
+ "siege_breaker_bomber": {
+  "fam": "air",
+  "frame": "bomber",
+  "len": 86,
+  "coat": "5d6670",
+  "bombs": true,
+  "h": 52
+ },
+ "stormforge_bomber": {
+  "fam": "air",
+  "frame": "bomber",
+  "len": 92,
+  "coat": "1f3554",
+  "bombs": true,
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "royal_skyguard": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 72,
+  "coat": "5a3f8a",
+  "guns": [
+   "flak",
+   "mg"
+  ],
+  "h": 52
+ },
+ "skyhammer_assault_craft": {
+  "fam": "air",
+  "frame": "gunship",
+  "len": 88,
+  "coat": "5d6670",
+  "guns": [
+   "cannon",
+   "mg"
+  ],
+  "h": 52
+ },
+ "arcwing_superiority_craft": {
+  "fam": "air",
+  "frame": "winged",
+  "len": 74,
+  "coat": "1f3554",
+  "guns": [
+   "coil",
+   "coil"
+  ],
+  "glow": "9ad8ff",
+  "h": 52
+ },
+ "scout_blimp": {
+  "fam": "ship",
+  "len": 120,
+  "coat": "a07a2a",
+  "guns": 1,
+  "h": 60
+ },
+ "skyshield_airship": {
+  "fam": "ship",
+  "len": 150,
+  "coat": "1f3554",
+  "guns": 2,
+  "flak": true,
+  "h": 80
+ },
+ "bombard_zeppelin": {
+  "fam": "ship",
+  "len": 170,
+  "coat": "7a4b2a",
+  "guns": 2,
+  "bombs": true,
+  "h": 88
+ },
+ "thunderbarge": {
+  "fam": "ship",
+  "len": 170,
+  "coat": "1f3554",
+  "guns": 2,
+  "coils": true,
+  "h": 88,
+  "glow": "9ad8ff"
+ },
+ "ironhold_carrier": {
+  "fam": "ship",
+  "len": 190,
+  "coat": "5d6670",
+  "guns": 1,
+  "deck": true,
+  "h": 92
+ },
+ "forgewatch_frigate": {
+  "fam": "ship",
+  "len": 168,
+  "coat": "b8693a",
+  "guns": 3,
+  "h": 88
+ },
+ "skyforge_dreadnought": {
+  "fam": "ship",
+  "len": 220,
+  "coat": "5d6670",
+  "guns": 4,
+  "h": 108
+ },
+ "mountain_ark": {
+  "fam": "ship",
+  "len": 240,
+  "coat": "7a4b2a",
+  "guns": 3,
+  "deck": true,
+  "h": 118
+ },
+ "skyhammer_battleship": {
+  "fam": "ship",
+  "len": 220,
+  "coat": "5d6670",
+  "guns": 2,
+  "hammer": true,
+  "h": 110
+ },
+ "rune_citadel_airship": {
+  "fam": "ship",
+  "len": 230,
+  "coat": "5a3f8a",
+  "guns": 3,
+  "coils": true,
+  "h": 120,
+  "glow": "c08aff"
+ },
+ "grand_forge_carrier": {
+  "fam": "ship",
+  "len": 250,
+  "coat": "b8693a",
+  "guns": 2,
+  "deck": true,
+  "h": 120
+ },
+ "shambler": {
+  "fam": "zom",
+  "weapon": "claw",
+  "flesh": "7f8b6a",
+  "cloth": "4b4541",
+  "h": 52
+ },
+ "rusted_legionary": {
+  "fam": "skel",
+  "weapon": "sword",
+  "helm": "5a5a52",
+  "armor": "rust",
+  "shield": "round",
+  "h": 52
+ },
+ "bone_pikeman": {
+  "fam": "skel",
+  "weapon": "pike",
+  "h": 52
+ },
+ "ossuary_axeman": {
+  "fam": "skel",
+  "weapon": "axe",
+  "h": 52
+ },
+ "barrow_spearman": {
+  "fam": "skel",
+  "weapon": "spear",
+  "h": 52
+ },
+ "blight_marauder": {
+  "fam": "zom",
+  "weapon": "cleaver",
+  "flesh": "6f7a4f",
+  "cloth": "5a3a2a",
+  "h": 52
+ },
+ "rotting_berserker": {
+  "fam": "zom",
+  "weapon": "twin_claws",
+  "flesh": "8a6a5a",
+  "cloth": "3a2a2a",
+  "hunch": true,
+  "h": 52
+ },
+ "fungal_host": {
+  "fam": "zom",
+  "weapon": "claw",
+  "flesh": "8a8f5a",
+  "fungus": true,
+  "h": 52
+ },
+ "pestilent_soldier": {
+  "fam": "zom",
+  "weapon": "sword",
+  "flesh": "7f8b6a",
+  "helmet": true,
+  "cloth": "4a4a3a",
+  "h": 52
+ },
+ "crypt_halberdier": {
+  "fam": "skel",
+  "weapon": "halberd",
+  "helm": "5a5a52",
+  "armor": "rust",
+  "h": 52
+ },
+ "tomb_stalker": {
+  "fam": "zom",
+  "weapon": "twin_claws",
+  "flesh": "5f5f6a",
+  "hunch": true,
+  "cloth": "2a2a33",
+  "h": 52
+ },
+ "hollow_guard": {
+  "fam": "skel",
+  "weapon": "mace",
+  "helm": "3a3a40",
+  "armor": "black",
+  "shield": "tower",
+  "h": 52
+ },
+ "risen_bomb_carrier": {
+  "fam": "zom",
+  "weapon": "bomb",
+  "flesh": "7f8b6a",
+  "h": 52
+ },
+ "wretched_climber": {
+  "fam": "zom",
+  "weapon": "twin_claws",
+  "flesh": "9a9a88",
+  "hunch": true,
+  "h": 52
+ },
+ "carcass_devourer": {
+  "fam": "zom",
+  "weapon": "maw",
+  "flesh": "8a6a5a",
+  "bloat": true,
+  "h": 52
+ },
+ "bone_vanguard": {
+  "fam": "skel",
+  "weapon": "sword",
+  "shield": "kite",
+  "helm": "5a5a52",
+  "h": 52
+ },
+ "grave_warden": {
+  "fam": "skel",
+  "weapon": "mace",
+  "helm": "3a3a40",
+  "armor": "black",
+  "lantern": true,
+  "h": 52
+ },
+ "black_rot_infantry": {
+  "fam": "zom",
+  "weapon": "sword",
+  "flesh": "4a4a3a",
+  "helmet": true,
+  "cloth": "2a2a2a",
+  "h": 52
+ },
+ "cursed_dwarf_thrall": {
+  "fam": "zom",
+  "weapon": "rifle",
+  "flesh": "7a8a7a",
+  "helmet": true,
+  "dwarf": true,
+  "cloth": "2f3f4a",
+  "h": 52
+ },
+ "plague_mauler": {
+  "fam": "zom",
+  "weapon": "fists",
+  "flesh": "7f8a55",
+  "bloat": true,
+  "cloth": "3a3a2a",
+  "h": 52
+ },
+ "dread_executioner": {
+  "fam": "skel",
+  "weapon": "greataxe",
+  "helm": "2a2a2a",
+  "armor": "black",
+  "hood": true,
+  "h": 52
+ },
+ "ossuary_champion": {
+  "fam": "skel",
+  "weapon": "greatsword",
+  "helm": "9a8a4a",
+  "armor": "gild",
+  "shield": "kite",
+  "scale": 1.15,
+  "h": 52
+ },
+ "riftbound_legionary": {
+  "fam": "skel",
+  "weapon": "sword",
+  "helm": "3a2a4a",
+  "armor": "rift",
+  "shield": "round",
+  "glow": "a070ff",
+  "h": 52
+ },
+ "grave_slinger": {
+  "fam": "skel",
+  "weapon": "sling",
+  "h": 52
+ },
+ "plague_sprayer": {
+  "fam": "zom",
+  "weapon": "sprayer",
+  "flesh": "8a955f",
+  "tank": true,
+  "h": 52
+ },
+ "crypt_hexer": {
+  "fam": "cast",
+  "robe": "3a2a4a",
+  "staff": "hex",
+  "glow": "a070ff",
+  "h": 52
+ },
+ "corpse_priest": {
+  "fam": "cast",
+  "robe": "4a3a2a",
+  "staff": "censer",
+  "glow": "43ff8c",
+  "h": 52
+ },
+ "ossuary_caller": {
+  "fam": "cast",
+  "robe": "5a5a52",
+  "staff": "skull",
+  "glow": "e6dfc6",
+  "h": 52
+ },
+ "cinder_wraith": {
+  "fam": "cast",
+  "robe": "2a1a1a",
+  "staff": "none",
+  "glow": "ff8a3a",
+  "wraith": true,
+  "h": 52
+ },
+ "spirit_binder": {
+  "fam": "cast",
+  "robe": "2a3a4a",
+  "staff": "chain",
+  "glow": "7ad0ff",
+  "h": 52
+ },
+ "plague_herald": {
+  "fam": "cast",
+  "robe": "4a5a2a",
+  "staff": "horn",
+  "glow": "c9c45c",
+  "h": 52
+ },
+ "bone_lancer": {
+  "fam": "skel",
+  "weapon": "javelin",
+  "h": 52
+ },
+ "grave_dart_thrower": {
+  "fam": "zom",
+  "weapon": "darts",
+  "flesh": "9a9a88",
+  "hunch": true,
+  "h": 52
+ },
+ "funeral_bell_keeper": {
+  "fam": "cast",
+  "robe": "2a2a2a",
+  "staff": "bell",
+  "glow": "7ad0ff",
+  "h": 52
+ },
+ "rot_channeler": {
+  "fam": "cast",
+  "robe": "3a4a2a",
+  "staff": "orb",
+  "glow": "9adf3a",
+  "h": 52
+ },
+ "ash_hexer": {
+  "fam": "cast",
+  "robe": "3a3030",
+  "staff": "hex",
+  "glow": "ff6a2a",
+  "h": 52
+ },
+ "night_seer": {
+  "fam": "cast",
+  "robe": "1a1a2a",
+  "staff": "eye",
+  "glow": "9a8aff",
+  "h": 52
+ },
+ "rift_conjurer": {
+  "fam": "cast",
+  "robe": "2a1a3a",
+  "staff": "rift",
+  "glow": "a070ff",
+  "h": 52
+ },
+ "burrow_horror": {
+  "fam": "beast",
+  "kind": "burrower",
+  "skin": "6a5a4a",
+  "h": 60
+ },
+ "rot_hound": {
+  "fam": "beast",
+  "kind": "hound",
+  "skin": "7a6a5a",
+  "h": 36
+ },
+ "grave_spider": {
+  "fam": "beast",
+  "kind": "spider",
+  "skin": "3a3a40",
+  "h": 40
+ },
+ "tomb_centipede": {
+  "fam": "beast",
+  "kind": "centipede",
+  "skin": "5a4a3a",
+  "h": 34
+ },
+ "flesh_charger": {
+  "fam": "beast",
+  "kind": "charger",
+  "skin": "8a6a5a",
+  "h": 60
+ },
+ "bone_devourer": {
+  "fam": "beast",
+  "kind": "devourer",
+  "skin": "e2dac0",
+  "h": 70
+ },
+ "oozing_horror": {
+  "fam": "beast",
+  "kind": "ooze",
+  "skin": "7a9a4a",
+  "h": 50
+ },
+ "corpse_burrower": {
+  "fam": "beast",
+  "kind": "burrower",
+  "skin": "7f8b6a",
+  "h": 48
+ },
+ "bone_catapult": {
+  "fam": "siege",
+  "kind": "catapult",
+  "h": 50
+ },
+ "corpse_lobber": {
+  "fam": "siege",
+  "kind": "lobber",
+  "h": 50
+ },
+ "grave_mortar": {
+  "fam": "siege",
+  "kind": "mortar",
+  "h": 44
+ },
+ "grave_flak_spire": {
+  "fam": "siege",
+  "kind": "flak_spire",
+  "h": 110
+ },
+ "necrotic_beacon": {
+  "fam": "siege",
+  "kind": "beacon",
+  "glow": "43ff8c",
+  "h": 100
+ },
+ "cursed_barricade": {
+  "fam": "siege",
+  "kind": "barricade",
+  "h": 40
+ },
+ "plague_cauldron": {
+  "fam": "siege",
+  "kind": "cauldron",
+  "glow": "c9c45c",
+  "h": 50
+ },
+ "bone_bolt_thrower": {
+  "fam": "siege",
+  "kind": "ballista",
+  "h": 44
+ },
+ "bone_ram": {
+  "fam": "siege",
+  "kind": "ram",
+  "h": 50
+ },
+ "flesh_trebuchet": {
+  "fam": "siege",
+  "kind": "trebuchet",
+  "h": 80
+ },
+ "grave_howitzer": {
+  "fam": "siege",
+  "kind": "howitzer",
+  "h": 54
+ },
+ "plague_spore_cannon": {
+  "fam": "siege",
+  "kind": "spore_cannon",
+  "glow": "c9c45c",
+  "h": 50
+ },
+ "rot_launcher": {
+  "fam": "siege",
+  "kind": "launcher",
+  "h": 46
+ },
+ "soul_turret": {
+  "fam": "siege",
+  "kind": "soul_turret",
+  "glow": "7ad0ff",
+  "h": 80
+ },
+ "rift_obelisk": {
+  "fam": "siege",
+  "kind": "obelisk",
+  "glow": "a070ff",
+  "h": 120
+ },
+ "wraith_beacon": {
+  "fam": "siege",
+  "kind": "beacon",
+  "glow": "9ad8ff",
+  "h": 100
+ },
+ "blight_bat": {
+  "fam": "fly",
+  "kind": "bat",
+  "skin": "5a6a3a",
+  "span": 1.0,
+  "h": 30
+ },
+ "grave_moth": {
+  "fam": "fly",
+  "kind": "moth",
+  "skin": "8a8a9a",
+  "h": 34
+ },
+ "bone_wyvern": {
+  "fam": "fly",
+  "kind": "wyvern",
+  "skin": "e2dac0",
+  "span": 1.2,
+  "h": 60
+ },
+ "skeletal_vulture": {
+  "fam": "fly",
+  "kind": "vulture",
+  "skin": "e2dac0",
+  "h": 34
+ },
+ "rotwing": {
+  "fam": "fly",
+  "kind": "bat",
+  "skin": "6a4a4a",
+  "span": 1.4,
+  "h": 40
+ },
+ "tomb_gargoyle": {
+  "fam": "fly",
+  "kind": "gargoyle",
+  "skin": "6a6a6a",
+  "h": 46
+ },
+ "carrion_wasp": {
+  "fam": "fly",
+  "kind": "wasp",
+  "skin": "9a7a2a",
+  "h": 26
+ },
+ "spectral_wraith": {
+  "fam": "fly",
+  "kind": "wraith",
+  "glow": "9ad8ff",
+  "h": 44
+ },
+ "bone_drake": {
+  "fam": "fly",
+  "kind": "drake",
+  "skin": "d8d0b0",
+  "span": 1.6,
+  "h": 70
+ },
+ "plague_harpy": {
+  "fam": "fly",
+  "kind": "harpy",
+  "skin": "8a955f",
+  "h": 44
+ },
+ "gravewing_stalker": {
+  "fam": "fly",
+  "kind": "bat",
+  "skin": "3a3a4a",
+  "span": 1.3,
+  "h": 40
+ },
+ "rift_crow": {
+  "fam": "fly",
+  "kind": "crow",
+  "skin": "2a1a3a",
+  "glow": "a070ff",
+  "h": 26
+ },
+ "ossuary_flier": {
+  "fam": "fly",
+  "kind": "bonebird",
+  "skin": "e2dac0",
+  "h": 40
+ },
+ "banshee_wing": {
+  "fam": "fly",
+  "kind": "wraith",
+  "glow": "dff0ff",
+  "wings": true,
+  "h": 50
+ },
+ "wraith_swarm": {
+  "fam": "fly",
+  "kind": "swarm",
+  "glow": "9ad8ff",
+  "h": 40
+ },
+ "necrotic_sky_serpent": {
+  "fam": "fly",
+  "kind": "serpent",
+  "skin": "4a5a3a",
+  "glow": "43ff8c",
+  "span": 2.4,
+  "h": 60
+ },
+ "risen_copperback": {
+  "fam": "corrupt",
+  "base": "copperback",
+  "h": 72
+ },
+ "cursed_ironclad": {
+  "fam": "corrupt",
+  "base": "ironclad_walker",
+  "h": 110
+ },
+ "possessed_drillwalker": {
+  "fam": "corrupt",
+  "base": "drillwalker",
+  "h": 110
+ },
+ "gravegun_tank": {
+  "fam": "corrupt",
+  "base": "kit:gravegun_hull",
+  "h": 70
+ },
+ "haunted_flying_machine": {
+  "fam": "corrupt",
+  "base": "flying_machine",
+  "h": 40
+ },
+ "infected_airbarge": {
+  "fam": "corrupt",
+  "base": "ironcloud",
+  "h": 92
+ },
+ "bellringer": {
+  "fam": "giant_cfg",
+  "base": "cathedral_ghast",
+  "tint": "9ab0c0",
+  "h": 110
+ },
+ "ossuary_matron": {
+  "fam": "giant_cfg",
+  "base": "ghoul_matriarch",
+  "tint": "e2dac0",
+  "robe": true,
+  "h": 110
+ },
+ "blightroot_behemoth": {
+  "fam": "giant_cfg",
+  "base": "blackroot_abomination",
+  "tint": "b0a080",
+  "h": 110
+ },
+ "plague_regent": {
+  "fam": "giant_cfg",
+  "base": "plague_colossus",
+  "tint": "d0d090",
+  "crown": true,
+  "h": 110
+ },
+ "gravewing_matriarch": {
+  "fam": "fly_cfg",
+  "kind": "bat",
+  "skin": "3a2a3a",
+  "span": 3.2,
+  "crown": true,
+  "h": 50
+ },
+ "bone_wyrm": {
+  "fam": "fly_cfg",
+  "kind": "serpent",
+  "skin": "e2dac0",
+  "span": 2.6,
+  "h": 50
+ },
+ "hollow_admiral": {
+  "fam": "corrupt",
+  "base": "ironcloud",
+  "ghost": true,
+  "h": 110
+ },
+ "dread_sky_tyrant": {
+  "fam": "fly_cfg",
+  "kind": "drake",
+  "skin": "cfc6a8",
+  "span": 3.4,
+  "h": 50
+ },
+ "fallen_titan": {
+  "fam": "corrupt",
+  "base": "deepforge_titan",
+  "h": 110
+ },
+ "ashen_forge_tyrant": {
+  "fam": "giant_cfg",
+  "base": "stitchback_giant",
+  "tint": "a07060",
+  "furnace": true,
+  "h": 110
+ },
+ "corpse_colossus": {
+  "fam": "giant_cfg",
+  "base": "corpse_mound",
+  "tint": "b0a090",
+  "h": 110
+ },
+ "hollow_king": {
+  "fam": "giant_cfg",
+  "base": "ossuary_juggernaut",
+  "tint": "c0b070",
+  "crown": true,
+  "h": 110
+ },
+ "gravewing_sovereign": {
+  "fam": "fly_cfg",
+  "kind": "bat",
+  "skin": "2a2a3a",
+  "span": 4.0,
+  "crown": true,
+  "h": 50
+ },
+ "rift_lich": {
+  "fam": "giant_cfg",
+  "base": "rift_maw",
+  "tint": "b090ff",
+  "robe": true,
+  "crown": true,
+  "h": 110
+ },
+ "dwarf_barricade": {
+  "fam": "prop",
+  "kind": "barricade",
+  "h": 40
+ },
+ "dwarf_gun_turret": {
+  "fam": "prop",
+  "kind": "gun_turret",
+  "h": 44
+ },
+ "dwarf_gatling_turret": {
+  "fam": "prop",
+  "kind": "gatling_turret",
+  "h": 48
+ },
+ "supply_barge": {
+  "fam": "ship",
+  "len": 150,
+  "coat": "6e5a3e",
+  "guns": 0,
+  "cargo": true,
+  "h": 86
+ }
+}

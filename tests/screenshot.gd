@@ -377,6 +377,21 @@ func _ready() -> void:
 		SaveManager.wipe()
 		get_tree().quit()
 		return
+	if shot == "ending" and args.has("ending_clip"):
+		# M008: the whole ending as frames (the sequence runs on real time, so the capture rate sets the frame step;
+		# the wall time is printed so ffmpeg can play it back at real speed)
+		var outd: String = String(args.ending_clip)
+		DirAccess.make_dir_recursive_absolute(outd)
+		var t0 = Time.get_ticks_msec()
+		var f = 0
+		while f < int(args.get("max_frames", "3000")) and inst.part != "done" and inst.part != "credits":
+			await get_tree().process_frame
+			get_viewport().get_texture().get_image().save_png("%s/f%05d.png" % [outd, f])
+			f += 1
+		print("ENDING_CLIP frames=%d wall_ms=%d" % [f, Time.get_ticks_msec() - t0])
+		SaveManager.wipe()
+		get_tree().quit()
+		return
 	if shot == "ending" and args.has("ending_part"):
 		inst._go(String(args.ending_part))
 		for k in int(args.get("ending_frames", "60")):

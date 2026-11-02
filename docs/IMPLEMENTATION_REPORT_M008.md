@@ -545,4 +545,39 @@ Before/after sheets: `docs/screenshots/m008_mechs_t5_before.png` / `m008_mechs_t
 bounds moved, and the mecha suites (41 + 6 scenarios) pass.
 
 ## 9. Deliverables
-FILL_DELIVERABLES
+- `build/android/DwarvesVsZombies-M008.apk` (47.05 MiB): debug build, exported with a stub SDK (no Gradle), then aligned
+  and signed with the debug key by uber-apk-signer. zipalign and the **v1/v2/v3 signatures are verified**. Manifest
+  version 0.8.0-M008, code 11. SHA-256 `80fa9d01a80322dbf1d8a3e7ec59a8559679f750282caefef8975c59f6aca9b8`.
+  **Not installed on a phone.**
+- `build/linux/DwarvesVsZombies.x86_64`: release export. It ran for 300 frames under xvfb and exited with code 0, with
+  0 script errors; the only warnings were the missing audio device, V-Sync, and the usual ObjectDB-at-exit notice.
+- `DwarvesVsZombies_M008_project.zip`: the project without `.godot/`, `build/`, `*.import`, `.git` or `__pycache__`.
+- This report, the README update ("What is new in M008"), the screenshots and clips below, and the balance data
+  (`build/campaign_balance.csv` is generated; rerun `tools/economy.py` to rebuild it from the sweep CSVs).
+
+### 9.1 Screenshots (`docs/screenshots/`)
+| File | Shows |
+|---|---|
+| `m008_env_waste_bright.png`, `m008_env_waste_dark.png` | necro_waste at its brightest and in the eclipse |
+| `m008_env_riftsky.png` | rift_sky: cracked violet sky, floating shards, the causeway |
+| `m008_env_citadel_bright.png`, `m008_env_citadel_dark.png` | ruined_citadel, bright and dark |
+| `m008_env_gate.png` | realm_gate: the Rift and the gate of bone and iron |
+| `m008_hazard_tear.png`, `m008_hazard_souls.png`, `m008_hazard_obelisk.png` | a rift tear opening, soul wisps over the line, obelisk ward threads |
+| `m008_boss_hollow_king.png` | the Hollow King with a crowned elite |
+| `m008_boss_sovereign_gale.png`, `m008_boss_sovereign_pull.png` | the Sovereign's gales and pull |
+| `m008_boss_lich_1.png`, `m008_boss_lich_2_aloft.png`, `m008_boss_lich_3_storm.png` | the Rift Lich's three phases |
+| `m008_realm5_a.png`, `m008_realm5_b.png`, `m008_realm5_rift.png`, `m008_realm5_sealed.png` | the Act V Realm Map, the Black Rift vista, the sealed state |
+| `m008_ending_rift.png`, `_banners`, `_march`, `_coda`, `_epilogue`, `_credits` | the ending, epilogue and credits |
+| `m008_laststand_screen.png`, `m008_laststand_wave21.png` | the Last Stand arena picker and a run at wave 21 |
+| `m008_completion.png` | the completion page |
+| `m008_balance.png` | the full-campaign balance chart (win times, Spark economy, budgets) |
+| `m008_mechs_t5_before.png` / `_after.png` | the six colossal war frames, M007 vs M008 |
+| `m008_mechs_heavy_before.png` / `_after.png` | the eight heavy war frames, M007 vs M008 |
+| `m008_mechs_all_after.png`, `m008_mech_closeup.png` | all 28 war frames after the overhaul; Deepforge Titan and King's Anvil close up |
+
+### 9.2 Clips (`docs/clips/`, 960 px, rendered frame by frame from the screenshot tool)
+`m008_clip_ending.mp4` (the whole ending and the epilogue card, 93 s at real speed), and 5–6 s boss clips:
+`m008_clip_king.mp4` (the crown), `m008_clip_gale.mp4` and `m008_clip_pull.mp4` (the Sovereign), `m008_clip_lich1.mp4`,
+`m008_clip_lich2.mp4`, `m008_clip_lich3.mp4` (the Lich's three phases). The clips use the screenshot tool's default
+army, not the stage army, and a first-encounter hint is on screen in some of them.
+

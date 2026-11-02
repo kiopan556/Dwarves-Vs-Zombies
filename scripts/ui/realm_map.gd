@@ -51,6 +51,9 @@ const PALETTE := {
 		"ground": "4a3a2c", "grass": "5a4a2c", "rock": "2a221c", "strata": "3a2e24", "deep": "140f0c", "fog": "9a6a4a"},
 	5: {"sky0": "0e0818", "sky1": "5a2a6a", "sky_c": "0a0612", "sky_c1": "3a1a4a", "far": "2a1e3a", "mid": "20182e", "snow": "8a6aa8",
 		"ground": "2e2636", "grass": "3a2a4a", "rock": "1e1824", "strata": "2a2232", "deep": "0c0a10", "fog": "8a5ab0"},
+	# M008 "rift sealed": after stage 150 the whole Act V map turns to a cold, clean dawn
+	6: {"sky0": "1e2440", "sky1": "c8906a", "sky_c": "2a2a48", "sky_c1": "9a7a8a", "far": "3e3a52", "mid": "2e2c40", "snow": "c8c0d8",
+		"ground": "3e3a40", "grass": "4a5040", "rock": "26222a", "strata": "322c36", "deep": "100e14", "fog": "b8a8c8"},
 }
 
 
@@ -61,7 +64,12 @@ func _ready() -> void:
 
 
 func pal(k: String) -> Color:
-	return Color(String(PALETTE[act][k]))
+	return Color(String(PALETTE[6 if act == 5 and sealed() else act][k]))
+
+
+## M008: the Black Rift is sealed once the final stage is cleared (the Act V map changes for good).
+func sealed() -> bool:
+	return GameState.is_cleared("s150")
 
 
 func view_scale() -> float:
@@ -105,12 +113,12 @@ func _index_of(id: String) -> int:
 
 const ENV_BUMP := {"high_ridge": -105.0, "ridge": -55.0, "mountain_pass": -35.0, "mountain_gate": 15.0, "mine_entrance": -10.0,
 	"ruined_outpost": -15.0, "foundry_outpost": 10.0, "mine_deep": 5.0, "mine_flooded": 20.0, "broken_ridge": -60.0, "airborne_ruins": -10.0, "open_plains": 12.0,
-	"rift_sky": -80.0, "realm_gate": -20.0, "shattered_fort": -30.0,
+	"rift_sky": -80.0, "realm_gate": -20.0, "shattered_fort": -30.0, "necro_waste": 14.0, "ruined_citadel": -36.0,
 	"plague_marsh": 38.0, "dead_forest": -26.0, "ruined_road": -8.0, "corrupted_mine": 8.0,
 	"industrial_city": 6.0, "destroyed_forge": -22.0, "infested_factory": 14.0, "mech_graveyard": 24.0}
 const UNDERGROUND := ["mine_deep", "mine_flooded", "corrupted_mine"]
 ## M006: landmarks drawn "aloft" on a floating island well above the surface, reached by airship route
-const ALOFT := ["airborne_ruins"]
+const ALOFT := ["airborne_ruins", "rift_sky"]
 const ALOFT_H := 150.0
 
 
@@ -249,8 +257,10 @@ func _paint_sky(ci: CanvasItem) -> void:
 	if act == 1 or act == 3:
 		ci.draw_circle(Vector2(260, 150), 46, Color(1.0, 0.85, 0.55, 0.18))
 		ci.draw_circle(Vector2(260, 150), 26, Color(1.0, 0.9, 0.65, 0.55))
-	if act >= 4:
-		ci.draw_circle(Vector2(WW * 0.82, 120), 60, Color(0.7, 0.3, 0.9, 0.18) if act == 5 else Color(1, 0.4, 0.15, 0.15))
+	if act == 4:
+		ci.draw_circle(Vector2(WW * 0.82, 120), 60, Color(1, 0.4, 0.15, 0.15))
+	if act == 5:
+		_black_rift(ci)
 
 
 func _paint_range(ci: CanvasItem, y_off: float, peak: float, base_y: float, col: Color, snow: bool, seed: int) -> void:
@@ -432,6 +442,8 @@ func _landmark(ci: CanvasItem, i: int) -> void:
 		_act3_landmark(ci, p, env, s, lit, stone)
 	elif env in ["industrial_city", "destroyed_forge", "infested_factory", "mech_graveyard"]:
 		_act4_landmark(ci, p, env, s, lit, stone)
+	elif env in ["necro_waste", "rift_sky", "ruined_citadel", "realm_gate"]:
+		_act5_landmark(ci, p, env, s, lit, stone)
 	else:
 		match env:
 			"mountain_gate", "realm_gate", "shattered_fort", "ruined_citadel":
@@ -756,6 +768,52 @@ func _boss_landmark(ci: CanvasItem, p: Vector2, boss: String, s: String, lit: Co
 			ci.draw_line(p + Vector2(-26, -132), p + Vector2(34, -104), Painter.WOOD, 3.0)
 			ci.draw_circle(p + Vector2(-26, -132), 6.0, flesh.darkened(0.2))
 			ci.draw_circle(p + Vector2(6, -60), 5.0, Color(dread, 0.9))
+		"hollow_king":
+			# the Hollow King's throne hall: a vaulted black hall, its doors open on a throne with an empty crown
+			var blk = Color("201a26") if s != "planned" else stone
+			ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-56, 0), p + Vector2(-56, -70), p + Vector2(-40, -96), p + Vector2(0, -124), p + Vector2(40, -96), p + Vector2(56, -70), p + Vector2(56, 0)]), blk)
+			for sx in [-56.0, 44.0]:
+				ci.draw_rect(Rect2(p.x + sx, p.y - 110, 12, 110), blk.darkened(0.3))
+				ci.draw_colored_polygon(PackedVector2Array([p + Vector2(sx - 2, -110), p + Vector2(sx + 6, -140), p + Vector2(sx + 14, -110)]), blk.darkened(0.3))
+			var door = PackedVector2Array([p + Vector2(-22, 0), p + Vector2(-22, -48), p + Vector2(0, -70), p + Vector2(22, -48), p + Vector2(22, 0)])
+			ci.draw_colored_polygon(door, Color(dread, 0.35) if s != "cleared" else Color(1.0, 0.7, 0.35, 0.55))
+			ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-9, 0), p + Vector2(-9, -30), p + Vector2(0, -40), p + Vector2(9, -30), p + Vector2(9, 0)]), Color("120e14"))
+			var cr = p + Vector2(0, -48)
+			if s != "cleared":
+				ci.draw_colored_polygon(PackedVector2Array([cr + Vector2(-9, 4), cr + Vector2(-9, -3), cr + Vector2(-5, 1), cr + Vector2(0, -7), cr + Vector2(5, 1), cr + Vector2(9, -3), cr + Vector2(9, 4)]), Color("e8c060"))
+				ci.draw_circle(cr + Vector2(0, -1), 1.8, Color(dread, 1.0))
+			_windows(ci, [Rect2(p.x - 44, p.y - 64, 6, 12), Rect2(p.x + 36, p.y - 64, 6, 12)], lit if s == "cleared" else Color(0.55, 1.0, 0.5))
+		"gravewing_sovereign":
+			# a storm eye: a spiral of cloud with a colossal wing silhouette in it
+			var cl = Color("3a3048") if s != "planned" else stone
+			for k in 5:
+				var rr = 66.0 - k * 11.0
+				ci.draw_arc(p + Vector2(0, -96), rr, k * 0.9, k * 0.9 + PI * 1.4, 22, Color(cl.lightened(k * 0.06), 0.9), 7.0 - k)
+			ci.draw_circle(p + Vector2(0, -96), 12.0, Color(dread, 0.25) if s != "cleared" else Color(1.0, 0.85, 0.6, 0.5))
+			if s != "cleared":
+				ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-4, -96), p + Vector2(-60, -132), p + Vector2(-46, -116), p + Vector2(-70, -110), p + Vector2(-48, -100), p + Vector2(-64, -88), p + Vector2(-10, -90)]), Color("14101a"))
+				ci.draw_colored_polygon(PackedVector2Array([p + Vector2(4, -96), p + Vector2(58, -136), p + Vector2(46, -118), p + Vector2(68, -112), p + Vector2(48, -102), p + Vector2(62, -90), p + Vector2(10, -90)]), Color("14101a"))
+				ci.draw_circle(p + Vector2(0, -98), 3.0, Color(dread, 1.0))
+			ci.draw_polyline(PackedVector2Array([p + Vector2(0, -30), p + Vector2(0, 0)]), Painter.WOOD_D, 2.0)
+			Painter.rect(ci, Rect2(p.x - 10, p.y - 30, 20, 30), stone.darkened(0.2), 1.5)
+		"rift_lich":
+			# the gate of the undead realm: bone pillars and a black iron portcullis under the rift
+			var bone = Color("cfc6b0") if s != "planned" else stone
+			for sx2 in [-36.0, 26.0]:
+				Painter.rect(ci, Rect2(p.x + sx2, p.y - 92, 12, 92), bone.darkened(0.15), 1.5)
+				ci.draw_circle(p + Vector2(sx2 + 6, -98), 8.0, bone)
+			var arch = PackedVector2Array()
+			for j in 11:
+				var a2 = PI + PI * float(j) / 10.0
+				arch.append(p + Vector2(-4, -92) + Vector2(cos(a2) * 34.0, sin(a2) * 22.0))
+			ci.draw_polyline(arch, bone, 5.0)
+			for k in 5:
+				ci.draw_line(p + Vector2(-20 + k * 8, -90), p + Vector2(-20 + k * 8, -40 if s != "cleared" else -80), Color("100c14"), 3.0)
+			ci.draw_circle(p + Vector2(-4, -60), 14.0, Color(dread, 0.3) if s != "cleared" else Color(1.0, 0.75, 0.4, 0.4))
+			if s == "cleared":
+				# the army's banners planted on the gate
+				_banner(ci, p + Vector2(-32, -92), Color("2a4a8a"), Painter.BRASS)
+				_banner(ci, p + Vector2(30, -92), Color("8a1a1e"), Color("ffcf5a"))
 		_:
 			# later acts: a dark spire crowned with the boss's sigil
 			ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-30, 0), p + Vector2(-12, -90), p + Vector2(0, -120), p + Vector2(12, -90), p + Vector2(30, 0)]), stone.darkened(0.4))
@@ -970,6 +1028,93 @@ func _act4_landmark(ci: CanvasItem, p: Vector2, env: String, s: String, lit: Col
 			Painter.wheel(ci, p + Vector2(32, -10), 9.0, 0.3, Painter.IRON_D, rust, 8)
 
 
+# ------------------------------------------------------------------ M008 Act V landmarks
+func _act5_landmark(ci: CanvasItem, p: Vector2, env: String, s: String, lit: Color, stone: Color) -> void:
+	var corrupt = s == "locked" or s == "planned"
+	var bone = Color("cfc6b2") if not corrupt else Color("6a6458")
+	var vio = Color(0.72, 0.4, 1.0)
+	match env:
+		"necro_waste":
+			# a bone-dune ribcage with a dwarven watch-fire in its shelter once cleared
+			ci.draw_colored_polygon(Painter.ell_pts(p + Vector2(0, 2), 44, 14, 0.0, 16, PI, TAU), Color("5a5650") if not corrupt else Color("3e3a38"))
+			for k in 5:
+				var rx = p.x - 26 + k * 13
+				var rib = PackedVector2Array()
+				for j in 7:
+					var f = float(j) / 6.0
+					rib.append(Vector2(rx - 10.0 * sin(f * PI) + f * 6.0, p.y - 4 - (44.0 - absf(k - 2.0) * 6.0) * sin(f * PI * 0.5)))
+				ci.draw_polyline(rib, bone.darkened(0.3), 4.0)
+				ci.draw_polyline(rib, bone, 2.0)
+			if not corrupt:
+				ci.draw_circle(p + Vector2(0, -8), 6.0, Color(lit, 0.85))
+				ci.draw_circle(p + Vector2(0, -8), 14.0, Color(lit, 0.18))
+		"rift_sky":
+			# a floating shard (the island is drawn by _isle) with a broken obelisk, violet until cleared
+			Painter.rect(ci, Rect2(p.x - 7, p.y - 58, 14, 58), stone.darkened(0.25), 1.5)
+			ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-9, -58), p + Vector2(0, -76), p + Vector2(9, -58)]), stone.darkened(0.35))
+			ci.draw_circle(p + Vector2(0, -40), 4.0, Color(vio, 0.9) if corrupt else Color(lit, 0.9))
+			if corrupt:
+				ci.draw_circle(p + Vector2(0, -40), 16.0, Color(vio, 0.2))
+		"ruined_citadel":
+			# a tiered black keep
+			var blk = Color("241e2a") if not corrupt else Color("1a1620")
+			for t2 in 3:
+				var w2 = 44.0 - t2 * 12.0
+				var y2 = -t2 * 26.0
+				Painter.rect(ci, Rect2(p.x - w2 * 0.5, p.y + y2 - 26, w2, 26), blk.lightened(t2 * 0.05), 1.5)
+				for k in int(w2 / 8.0):
+					ci.draw_rect(Rect2(p.x - w2 * 0.5 + k * 8, p.y + y2 - 30, 5, 4), blk.lightened(t2 * 0.05))
+			ci.draw_colored_polygon(PackedVector2Array([p + Vector2(-6, -78), p + Vector2(0, -98), p + Vector2(6, -78)]), blk)
+			_windows(ci, [Rect2(p.x - 14, p.y - 18, 5, 8), Rect2(p.x + 9, p.y - 18, 5, 8), Rect2(p.x - 3, p.y - 46, 6, 9)], lit if not corrupt else Color(0.5, 1.0, 0.55))
+		"realm_gate":
+			# sigil stones round a ritual ring
+			ci.draw_arc(p + Vector2(0, -2), 30.0, PI, TAU, 18, Color(vio, 0.6) if corrupt else Color(lit, 0.45), 2.0)
+			for k in 3:
+				var sx3 = p.x - 26 + k * 26
+				var hh = 30.0 + (10.0 if k == 1 else 0.0)
+				ci.draw_colored_polygon(PackedVector2Array([Vector2(sx3 - 7, p.y), Vector2(sx3 - 5, p.y - hh), Vector2(sx3 + 1, p.y - hh - 6), Vector2(sx3 + 7, p.y - hh + 2), Vector2(sx3 + 7, p.y)]), stone.darkened(0.3))
+				ci.draw_circle(Vector2(sx3, p.y - hh * 0.6), 3.0, Color(vio, 0.9) if corrupt else Color(lit, 0.9))
+
+
+## M008: the Black Rift - a vast vertical tear dominating the right end of the Act V sky (far layer, baked).
+## Once stage 150 is cleared it is a healed scar under a clean dawn.
+func _black_rift(ci: CanvasItem) -> void:
+	var rx = WW - 260.0
+	if sealed():
+		ci.draw_circle(Vector2(rx, 120), 90, Color(1.0, 0.8, 0.55, 0.16))
+		ci.draw_polyline(PackedVector2Array([Vector2(rx - 6, 20), Vector2(rx + 4, 120), Vector2(rx - 3, 220), Vector2(rx + 2, 300)]), Color(0.95, 0.9, 1.0, 0.35), 3.0)
+		return
+	for k in 6:
+		var ww = 210.0 - k * 30.0
+		ci.draw_colored_polygon(Painter.ell_pts(Vector2(rx, 200), ww, 260.0 - k * 10.0, 0.0, 24), Color(0.55, 0.25, 0.85, 0.06 + k * 0.03))
+	var el = PackedVector2Array()
+	var er = PackedVector2Array()
+	for j in 18:
+		var f = float(j) / 17.0
+		var y = lerpf(-10.0, 420.0, f)
+		var w = 64.0 * sin(f * PI) * (0.8 + 0.2 * sin(f * 11.0))
+		el.append(Vector2(rx - w + sin(f * 19.0) * 6.0, y))
+		er.append(Vector2(rx + w * 0.85 + sin(f * 15.0) * 6.0, y))
+	var tear = PackedVector2Array(el)
+	var rev = er.duplicate()
+	rev.reverse()
+	tear.append_array(rev)
+	ci.draw_colored_polygon(tear, Color(0.95, 0.88, 1.0))
+	var inner = PackedVector2Array()
+	for q in tear:
+		inner.append(Vector2(rx + (q.x - rx) * 0.5, q.y))
+	ci.draw_colored_polygon(inner, Color(0.22, 0.06, 0.3))
+	ci.draw_polyline(el, Color(1, 1, 1, 0.95), 2.5)
+	ci.draw_polyline(er, Color(1, 1, 1, 0.95), 2.5)
+	# shards of land being pulled toward it
+	_rng.seed = 151
+	for i in 12:
+		var sp = Vector2(rx - 120.0 - _rng.randf() * 700.0, 60.0 + _rng.randf() * 220.0)
+		var sw = _rng.randf_range(6, 16)
+		ci.draw_colored_polygon(PackedVector2Array([sp + Vector2(-sw, 0), sp + Vector2(0, -sw * 0.4), sp + Vector2(sw, 0), sp + Vector2(0, sw * 0.9)]), Color(0.12, 0.09, 0.16))
+		ci.draw_line(sp + Vector2(sw, 0), sp + Vector2(sw + 22.0, 2.0), Color(0.7, 0.5, 0.95, 0.25), 1.5)
+
+
 ## M007: where a landmark's chimneys are, for the live smoke (green on uncleared ground, clean grey with
 ## forge light once cleared).
 func _chimney_tops(i: int) -> Array:
@@ -1106,6 +1251,20 @@ func _draw_live() -> void:
 				draw_circle(top2 + Vector2(0, 20), 60.0, Color(0.8, 0.85, 1.0, 0.08))
 			for k in 3:
 				draw_circle(lp + Vector2(-30 + k * 30, -140 - (k % 2) * 8), 22.0, Color(0.16, 0.15, 0.22, 0.55))
+	# M008 Act V: warm dwarven light pushes into the dark as stages are cleared (a forge-glow band over cleared
+	# ground up to the front line); the rift's violet pulse beyond it until the rift is sealed
+	if act == 5:
+		var lx = pts[mini(frontier, 29)].x - 40.0 if frontier < 30 else WW
+		if frontier > 0:
+			draw_polygon(PackedVector2Array([Vector2(0, 0), Vector2(lx, 0), Vector2(lx, DH), Vector2(0, DH)]),
+				PackedColorArray([Color(1.0, 0.62, 0.3, 0.1), Color(1.0, 0.62, 0.3, 0.0), Color(1.0, 0.62, 0.3, 0.0), Color(1.0, 0.62, 0.3, 0.14)]))
+			for i in mini(frontier, 30):
+				var lp5: Vector2 = pts[i]
+				if lp5.x > vx0 and lp5.x < vx1:
+					draw_circle(lp5 + Vector2(0, -20), 54.0 + 4.0 * sin(_t * 2.0 + i), Color(1.0, 0.7, 0.35, 0.07))
+		if not sealed():
+			var pulse = 0.5 + 0.5 * sin(_t * 1.4)
+			draw_circle(Vector2(WW - 260.0, 200.0), 150.0 + 12.0 * pulse, Color(0.6, 0.3, 0.9, 0.05 + 0.03 * pulse))
 	# M007 Act IV chimneys: green corrupted smoke on uncleared landmarks, clean grey smoke with forge light on cleared
 	if act == 4:
 		for i in 30:

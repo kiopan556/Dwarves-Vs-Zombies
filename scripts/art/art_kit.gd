@@ -1401,6 +1401,24 @@ static func _prop(ci: CanvasItem, a, p: Dictionary) -> void:
 				P.bar(ci, Vector2(4, -26), aim, 20, 3.0, P.IRON_D, 1.2)
 			P.muzzle_flash(ci, Vector2(4, -26) + Vector2.from_angle(aim) * 20.0, aim, 7.0, D._flash_strength(atk))
 			P.rivets(ci, Vector2(-8, -8), Vector2(8, -8), 3)
+		"rift_tear":
+			# M008: the torn edges of a rift: two jagged shards of black glass framing the portal (the portal's
+			# light and swirl are drawn by the hazard layer under the units), with violet cracks along them
+			var hp: float = P.g(a, "hp_frac", 1.0)
+			for sgn in [-1.0, 1.0]:
+				var sh = P.pts([Vector2(sgn * 8, 0), Vector2(sgn * 26, -22), Vector2(sgn * 18, -48), Vector2(sgn * 30, -74), Vector2(sgn * 14, -96), Vector2(sgn * 6, -70), Vector2(sgn * 14, -44)])
+				P.poly(ci, sh, Color("140a1c"), 2.0)
+				ci.draw_polyline(P.pts([Vector2(sgn * 12, -8), Vector2(sgn * 20, -30), Vector2(sgn * 16, -50), Vector2(sgn * 22, -72)]), Color(0.85, 0.6, 1.0, 0.5 + 0.5 * hp), 1.5)
+			for k in 3:
+				ci.draw_circle(Vector2(0, -20 - k * 26), 3.0 - k * 0.6, Color(0.95, 0.85, 1.0, 0.9))
+		"soul_wisp":
+			# M008: a soul torn out by the rift — a pale green-white flame with a hollow, wailing face
+			var fl = sin(t * 7.0) * 2.0
+			P.poly(ci, P.pts([Vector2(-10, 4), Vector2(-12, -6), Vector2(-6, -16 + fl), Vector2(0, -24 - fl), Vector2(6, -14), Vector2(13, -6), Vector2(10, 4), Vector2(0, 8)]), Color(0.72, 1.0, 0.88, 0.85), 1.5)
+			P.poly(ci, P.pts([Vector2(-6, 2), Vector2(-7, -6), Vector2(0, -14), Vector2(6, -6), Vector2(6, 2), Vector2(0, 5)]), Color(0.92, 1.0, 0.96), 0.0)
+			ci.draw_circle(Vector2(-3, -5), 1.8, Color(0.1, 0.2, 0.18))
+			ci.draw_circle(Vector2(3, -5), 1.8, Color(0.1, 0.2, 0.18))
+			P.ell(ci, Vector2(0, 0), 1.8, 2.8, Color(0.1, 0.2, 0.18), 0.0)
 
 
 # ================================================================== undead humanoids

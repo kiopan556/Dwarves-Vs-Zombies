@@ -146,14 +146,15 @@ func _exit_tree() -> void:
 ## Synthesizing every sound in GDScript takes seconds on a low-end phone, so the generated
 ## streams are saved to user:// after the first launch and loaded directly afterwards.
 ## Bump CACHE_VER whenever a sound recipe changes.
-const CACHE_VER := "m007-1"
+const CACHE_VER := "m008-1"
 const CACHE_DIR := "user://sfx_cache"
 # M007: every synthesized loop must be listed here, or it is neither saved to nor restored from the cache
 # (the M006 ambiences were missing, so after the first launch Act III fell back to the mountain wind).
 const AMB_ENVS := ["mountain", "mine", "ridge", "foundry", "forest", "marsh", "road", "fungal", "plains", "highridge", "cloudsea", "fort",
-	"city", "dead_forge", "factory", "graveyard"]
+	"city", "dead_forge", "factory", "graveyard", "waste", "rift", "citadel", "gate"]
 const LOOP_KEYS := ["music_battle", "music_menu", "amb_mountain", "amb_mine", "amb_ridge", "amb_foundry", "amb_forest", "amb_marsh", "amb_road", "amb_fungal",
-	"amb_plains", "amb_highridge", "amb_cloudsea", "amb_fort", "amb_city", "amb_dead_forge", "amb_factory", "amb_graveyard"]
+	"amb_plains", "amb_highridge", "amb_cloudsea", "amb_fort", "amb_city", "amb_dead_forge", "amb_factory", "amb_graveyard",
+	"amb_waste", "amb_rift", "amb_citadel", "amb_gate", "music_lich", "music_ending"]
 
 
 func _load_cache() -> bool:
@@ -274,6 +275,17 @@ func _build_all() -> void:
 	streams["salvage"] = _layer([_ratchet(0.5, 14), _tick(0.12, 340.0)], [1.0, 0.5])
 	streams["corpse_impact"] = _layer([_boom(0.8, 46.0, 1.0), _gurgle(0.6, 12.0)], [1.0, 0.7])
 	streams["pipe_burst"] = _layer([_hiss(0.9), _rumble(0.4, 80.0), _tick(0.1, 200.0)], [1.0, 0.4, 0.5])
+	# M008 Act V: rift tears, the eclipse, the Hollow King's crown, the Sovereign's gales, Last Stand wave horns
+	streams["rift_crack"] = _layer([_electric_sound(), _shimmer(0.7)], [0.6, 0.8])
+	streams["rift_open"] = _layer([_shimmer(1.2), _choir(1.2, 82.0), _boom(0.8, 40.0, 0.7)], [0.8, 0.7, 0.6])
+	streams["rift_close"] = _layer([_shimmer(0.6), _boom(0.5, 70.0, 0.6)], [0.8, 0.7])
+	streams["rift_spill"] = _layer([_choir(1.0, 65.0), _voice(0.9, 70.0, true), _boom(0.8, 36.0, 0.9)], [0.7, 0.6, 0.8])
+	streams["eclipse"] = _layer([_choir(2.0, 55.0), _rumble(1.8, 26.0)], [0.9, 0.6])
+	streams["eclipse_end"] = _layer([_shimmer(1.4), _tick(0.2, 300.0)], [0.8, 0.4])
+	streams["crown"] = _layer([_clank(1.2, 330.0), _choir(1.2, 98.0)], [0.7, 0.8])
+	streams["crown_break"] = _layer([_clank(0.8, 520.0), _boom(0.9, 50.0, 0.8), _shimmer(0.8)], [0.8, 0.8, 0.5])
+	streams["gale"] = _layer([_whoosh(1.6), _hiss(1.6), _rumble(1.4, 30.0)], [1.0, 0.6, 0.5])
+	streams["wave_horn"] = _layer([_voice(1.4, 73.0, false), _voice(1.4, 110.0, false), _rumble(1.2, 37.0)], [1.0, 0.6, 0.5])
 	# Long loops are synthesized off the main thread so startup stays fast on low-end phones.
 	_music_task = WorkerThreadPool.add_task(_build_loops)
 
@@ -282,6 +294,9 @@ func _build_loops() -> void:
 	var out = {}
 	out["music_battle"] = _music_loop(11025, 120.0, [0, 0, 3, -2], false)
 	out["music_menu"] = _music_loop(11025, 84.0, [0, -4, -2, -5], true)
+	# M008: the Rift Lich's own theme (dark, driving, a falling minor line) and the ending's triumphant march
+	out["music_lich"] = _music_loop(11025, 132.0, [0, 1, -2, -1, 0, 1, 3, -1], false)
+	out["music_ending"] = _march_loop(11025, 104.0)
 	for env in AMB_ENVS:
 		out["amb_" + env] = _ambient_loop(env)
 	if "--audio_timing" in OS.get_cmdline_user_args():
@@ -497,6 +512,35 @@ func _music_loop(rate: int, bpm: float, roots: Array, calm: bool) -> AudioStream
 	return _wav(d, rate, true)
 
 
+## M008 ending theme: a triumphant dwarven march - a major-key horn line over industrial percussion (kick on every
+## beat, anvil on 2 and 4, a snare roll into each phrase).
+func _march_loop(rate: int, bpm: float) -> AudioStreamWAV:
+	var beat = 60.0 / bpm
+	var melody = [0, 4, 7, 12, 11, 7, 9, 7, 5, 4, 2, 4, 7, 4, 0, -5]   # semitones over the root, one per beat
+	var dur = beat * melody.size()
+	var n = int(dur * rate)
+	var d = PackedFloat32Array()
+	d.resize(n)
+	var base = 110.0
+	var lp = 0.0
+	for i in n:
+		var t = float(i) / rate
+		var bi = int(t / beat) % melody.size()
+		var bt = fmod(t, beat)
+		var f = base * pow(2.0, float(melody[bi]) / 12.0)
+		var env = minf(1.0, bt * 30.0) * (0.75 + 0.25 * exp(-bt * 3.0))
+		var horn = (sin(TAU * f * t) * 0.5 + sin(TAU * f * 2.0 * t) * 0.22 + sin(TAU * f * 3.0 * t) * 0.1) * env * 0.42
+		var drone = sin(TAU * base * 0.5 * t) * 0.16 + sin(TAU * base * 0.75 * t) * 0.07
+		var kick = sin(TAU * (48.0 + 90.0 * exp(-bt * 30.0)) * bt) * exp(-bt * 9.0) * 0.55
+		var anvil = 0.0
+		if bi % 2 == 1:
+			anvil = (sin(TAU * 1310.0 * bt) * 0.5 + sin(TAU * 2210.0 * bt) * 0.3) * exp(-bt * 14.0) * 0.3
+		lp += (_noise() - lp) * 0.7
+		var roll = lp * 0.12 * (1.0 if bi % 8 == 7 else 0.0) * (0.5 + 0.5 * sin(TAU * 12.0 * t))
+		d[i] = (horn + drone + kick + anvil + roll) * 0.68
+	return _wav(d, rate, true)
+
+
 func _ambient_loop(env: String) -> AudioStreamWAV:
 	var rate = 11025
 	var dur = 6.0
@@ -564,6 +608,24 @@ func _ambient_loop(env: String) -> AudioStreamWAV:
 				# dusty wind over scrap, rusted plates creaking, a loose chain
 				var gt2 = fmod(t, 3.1)
 				extra = sin(TAU * (75.0 + gt2 * 14.0) * t) * exp(-gt2 * 2.5) * 0.06 + sin(TAU * 1100.0 * t) * exp(-fmod(t + 1.3, 2.2) * 35.0) * 0.04
+			# M008 Act V: the Black Rift
+			"waste":
+				# ash wind hissing over bone dunes, a dry rattle now and then
+				var at2 = fmod(t, 1.9)
+				extra = lp * 2.2 * (0.6 + 0.4 * sin(TAU * t / 3.0)) * 0.3 + sin(TAU * 1400.0 * t) * exp(-at2 * 40.0) * 0.03 * (1.0 if int(t / 1.9) % 2 == 0 else 0.0)
+			"rift":
+				# the rift's hum: a low beating drone with a glassy shimmer
+				extra = (sin(TAU * 41.0 * t) + sin(TAU * 43.5 * t)) * 0.08 + sin(TAU * (660.0 + 40.0 * sin(t * 0.9)) * t) * 0.02
+				wind *= 0.5
+			"citadel":
+				# distant choirs in the ruined halls, wind through broken windows
+				extra = (sin(TAU * 196.0 * t) + sin(TAU * 233.1 * t) * 0.8 + sin(TAU * 293.7 * t) * 0.6) * (0.5 + 0.5 * sin(TAU * t / 6.0)) * 0.025
+			"gate":
+				# gate chanting: a slow, low two-note chant pulsing under the rift hum
+				var ct3 = fmod(t, 1.5)
+				var nn = 98.0 if int(t / 1.5) % 2 == 0 else 87.3
+				extra = sin(TAU * nn * t) * (0.6 + 0.4 * sin(PI * ct3 / 1.5)) * 0.07 + (sin(TAU * 41.0 * t) + sin(TAU * 43.0 * t)) * 0.05
+				wind *= 0.6
 		d[i] = (wind * 2.0 + extra) * 0.5
 	return _wav(d, rate, true)
 

@@ -13,6 +13,9 @@ const SCENES := {
 	"settings": "res://scenes/settings.tscn",
 	"battle": "res://scenes/battle_screen.tscn",
 	"sandbox": "res://scenes/sandbox.tscn",
+	"ending": "res://scenes/ending.tscn",            # M008: the ending sequence, epilogue and credits
+	"last_stand": "res://scenes/last_stand.tscn",    # M008: Last Stand arena picker (endless mode)
+	"completion": "res://scenes/completion.tscn",    # M008: campaign completion page
 }
 const GROUND_SLOTS := 7
 const AIR_SLOTS := 4
@@ -21,6 +24,8 @@ const SLOT_COUNT := 12   # 7 ground + 4 air + 1 flexible. No hero slot.
 var profile: Dictionary = {}
 var selected_stage: String = "s001"
 var selected_heroic := false     # M007: the next battle is the Heroic version of selected_stage
+var selected_last_stand := ""     # M008: non-empty -> the next battle is a Last Stand run in this arena
+var ending_credits_only := false  # M008: Settings "replay ending" can jump straight to the credits
 var last_result: Dictionary = {}
 
 
@@ -292,6 +297,9 @@ func grant_stage_rewards(stage_id: String, battle_time: float, kills: int, stars
 	if rw.has("open_tier") and not tier_open(int(rw.open_tier)):
 		profile.open_tiers.append(int(rw.open_tier))
 		summary.tiers.append(int(rw.open_tier))
+	if first and rw.has("banner"):
+		grant_cosmetic("banners", String(rw.banner))   # M008: cosmetic banners at 140 and 150
+		summary["banner"] = String(rw.banner)
 	if stars.size() == 3:
 		var sr = record_stars(stage_id, stars, first)
 		summary["stars"] = sr.stars
@@ -447,3 +455,51 @@ func select_variant(unit_id: String, variant_id: String) -> void:
 func deploy_id(unit_id: String) -> String:
 	var v = selected_variant(unit_id)
 	return unit_id + ("@" + v if v != "" else "")
+
+
+# ------------------------------------------------------------------ M008 post-game, Last Stand, cosmetics
+## The Black Rift is sealed once the final stage has been cleared: the campaign shows "Rift Sealed", the Act V map
+## changes for good, and Last Stand is open regardless of where it would otherwise unlock.
+func rift_sealed() -> bool:
+	return is_cleared("s150")
+
+
+func last_stand_unlocked() -> bool:
+	return is_cleared("s060") or rift_sealed()
+
+
+## Cosmetic rewards only: banners and titles (never power, never Sparks).
+func grant_cosmetic(kind: String, id: String) -> bool:
+	var c: Dictionary = profile.cosmetics
+	var arr: Array = c.get(kind, [])
+	if id == "" or id in arr:
+		return false
+	arr.append(id)
+	c[kind] = arr
+	return true
+
+
+func note_units_used(ids: Array) -> void:
+	var used: Array = profile.units_used
+	for u in ids:
+		if not u in used:
+			used.append(u)
+
+
+## Records a finished Last Stand run; returns {"best": bool, "rewards": [cosmetic ids newly earned]}.
+func record_last_stand(arena: String, waves: int, kills: int, score: int) -> Dictionary:
+	var r: Dictionary = profile.last_stand.get(arena, {"best_wave": 0, "best_score": 0, "best_kills": 0, "runs": 0})
+	var best = score > int(r.best_score)
+	r.runs = int(r.runs) + 1
+	r.best_wave = maxi(int(r.best_wave), waves)
+	r.best_kills = maxi(int(r.best_kills), kills)
+	r.best_score = maxi(int(r.best_score), score)
+	profile.last_stand[arena] = r
+	profile.stats["last_stand_runs"] = int(profile.stats.get("last_stand_runs", 0)) + 1
+	var got: Array = []
+	for m in LastStand.MILESTONES:
+		if waves >= int(m.wave):
+			if grant_cosmetic(String(m.kind), String(m.id)):
+				got.append(String(m.id))
+	save()
+	return {"best": best, "rewards": got}

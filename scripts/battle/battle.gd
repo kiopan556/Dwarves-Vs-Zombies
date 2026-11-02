@@ -135,6 +135,7 @@ var _seen: Dictionary = {}
 # ---- M006: air war (altitude bands, flyer budget, escort), thermals and lightning
 const CORRUPTED_IDS := ["risen_copperback", "gravegun_tank", "cursed_ironclad", "possessed_drillwalker", "haunted_flying_machine", "infected_airbarge", "fallen_titan"]
 const AIR_CAP := 24                  # alive undead flyers, independent of the stage's max_alive
+const RAISE_CAP := 64                # M008: necromancers stop raising while this many units of their side are alive (floor-device cap)
 var stats_air_capped := 0
 var stats_air_peak := 0
 var escort_unit = null
@@ -178,6 +179,50 @@ var stats_titan_reclaims := 0
 var stats_vent_sweeps := 0
 var corpse_throws: Array = []        # Corpse Colossus: {x0, y0, x1, t, dur, dmg}
 var stats_corpse_hits := 0
+# M008 Act V: rift tears, eclipse, soul storm, obelisk ward (Rift) and the Act V boss phases
+var rift_rng := RandomNumberGenerator.new()   # seeded per stage: tear positions, wisp drift (gameplay, deterministic)
+var tear_def: Dictionary = {}
+var tear_t := 0.0
+var tears: Array = []                # {x, t, warn, open, hp, spill, pool, unit, seed}
+var eclipse_def: Dictionary = {}
+var eclipse_t := 0.0
+var eclipse_left := 0.0
+var eclipse_on := false
+var eclipse_k := 0.0                 # 0..1 visual darkness (presentation only)
+var _light_t := 0.0
+var light_sources: Array = []        # {x, y, r, side} (eclipse light pools, drawn by HazardLayer)
+var soul_def: Dictionary = {}
+var soul_t := 0.0
+var soul_boost := 1.0                # Rift Lich's last phase: the full storm
+var wisps: Array = []                # {unit, t, y, ph, speed, r, heal, dmg, shot}
+var _wisp_tick := 0.0
+var _rift_ward_t := 0.0
+var obelisk_links: Array = []        # [obelisk, warded unit] pairs (drawn faintly)
+var crowned = null                   # Hollow King: the crowned elite
+var sky_gale_t := 0.0                # Gravewing Sovereign: seconds of gale left (dwarven aircraft pushed back)
+var sky_pull_t := 0.0                # Gravewing Sovereign: seconds of drag left (dwarven aircraft pulled in)
+var lich_rift := 0.0                 # Rift Lich: 0..1 strength of the rift drawn behind the airborne Lich
+var last_stand: Dictionary = {}      # M008 Last Stand state (empty in the campaign)
+var stats_tears := 0
+var stats_tears_closed := 0
+var stats_tears_spilled := 0
+var stats_tear_spawns := 0
+var stats_eclipses := 0
+var stats_wisps := 0
+var stats_wisps_shot := 0
+var stats_wisp_dmg := 0.0
+var stats_wisp_heal := 0.0
+var stats_ward_ticks := 0
+var stats_crowns := 0
+var stats_crown_breaks := 0
+var stats_gales := 0
+var stats_pulls := 0
+var stats_lich_rises := 0
+var stats_lich_returns := 0
+var stats_lich_army := 0
+var track_unit_dmg := false          # M008 coverage sims: per-unit damage dealt (off in play)
+var dmg_by_unit: Dictionary = {}
+var deploy_counts: Dictionary = {}
 
 
 func _ready() -> void:
@@ -188,6 +233,7 @@ func setup(stage_def: Dictionary, loadout_ids: Array, opts: Dictionary = {}) -> 
 	stage = stage_def
 	sandbox = opts.get("sandbox", false)
 	rng.seed = int(opts.get("seed", stage.get("seed", 12345)))
+	rift_rng.seed = int(stage.get("seed", 12345)) + 4242
 	var low: bool = opts.get("low", false)
 	background = BattleBackground.new()
 	background.env = stage.get("env", "mountain_gate")
@@ -229,7 +275,7 @@ func setup(stage_def: Dictionary, loadout_ids: Array, opts: Dictionary = {}) -> 
 		enemy_base.max_hp = float(stage.enemy_base_hp)
 		enemy_base.hp = enemy_base.max_hp
 	if not sandbox and not opts.get("no_director", false):
-		director = WaveDirector.new()
+		director = LastStand.new() if stage.has("last_stand") else WaveDirector.new()   # M008 Last Stand: endless waves
 		director.setup(self, stage)
 
 
@@ -255,6 +301,8 @@ func spawn_unit(uid: String, side: int, pos: Vector2, free: bool = true) -> Unit
 	units_node.add_child(u)
 	units.append(u)
 	by_side[side].append(u)
+	if d.get("transient", false):
+		return u   # M008 hazard entity (rift tear, soul wisp): not an encountered enemy, not a support structure
 	if side == 1 and is_instance_valid(GameState) and not sandbox:
 		GameState.note_encountered(uid)
 	if side == 1 and not u.is_stronghold:
@@ -306,6 +354,7 @@ func deploy(uid: String) -> Unit:
 	cooldowns[uid] = float(d.get("cooldown", 5))
 	stats_deployed += 1
 	deploy_types[uid] = true
+	deploy_counts[uid] = int(deploy_counts.get(uid, 0)) + 1
 	Audio.play("deploy", pos.x, -4.0)
 	if rng.randf() < 0.5:
 		Audio.play("dwarf_voice", pos.x, -6.0, 0.2)
@@ -425,6 +474,7 @@ func step(dt: float) -> void:
 	_tick_strikes(dt)
 	_tick_air_war(dt)
 	_tick_foundry(dt)
+	Rift.tick(self, dt)
 	if dwarf_base != null:
 		min_base_frac = minf(min_base_frac, dwarf_base.hp / dwarf_base.max_hp)
 	_ambient_sounds(dt)
@@ -845,6 +895,8 @@ func damage(t: Unit, amount: float, dtype: String, src, ap: bool, bonus: Diction
 	m = maxf(m, Combat.MIN_DAMAGE_MULT)   # armor never reduces damage to zero
 	var dealt = t.take_damage(amount * m, src)
 	stats_dmg[1 - t.side] += dealt
+	if track_unit_dmg and src != null and is_instance_valid(src) and src.side == 0:
+		dmg_by_unit[src.id] = float(dmg_by_unit.get(src.id, 0.0)) + dealt
 	# M003 on-hit effects carried in the weapon's bonus dict
 	if t.alive and not t.is_static and t.cls != "boss":
 		if bonus.has("_slow"):
@@ -875,6 +927,12 @@ func on_unit_died(u: Unit) -> void:
 	var key = u.id + " <- " + (u.last_hit_by if u.last_hit_by != "" else "hazard/other")
 	death_log[key] = int(death_log.get(key, 0)) + 1
 	var undead = u.side == 1
+	if u.def.get("transient", false):
+		# M008 hazard entity shot down: a small bounty, a puff of soul-light, no kill credit toward challenges
+		gold = minf(9999.0, gold + float(u.def.get("bounty", 0)) * 0.6)
+		fx.raise(u.position + Vector2(0, -20))
+		fx.explosion(u.position + Vector2(0, -30 if u.domain == "ground" else 0), 0.5, "necro")
+		return
 	if u.is_stronghold:
 		fx.wreck(u.position + Vector2(0, -100), 3.0)
 		shake(14.0)
@@ -948,6 +1006,10 @@ func on_boss_spawned(b) -> void:
 func on_boss_died(_b) -> void:
 	boss_kill_t = time
 	citadel_sealed = false
+	lich_rift = 0.0
+	crowned = null
+	sky_gale_t = 0.0
+	sky_pull_t = 0.0
 	if enemy_base != null:
 		enemy_base.special = 0.0
 	fx.explosion(enemy_base.position + Vector2(-10, -130), 2.0, "fire")
@@ -1181,7 +1243,7 @@ func _boss_ability(u) -> bool:
 			continue
 		MechAbility.activate(u, self)
 		u.ability_cd = 0.0
-		u._acds[key] = time + float(abd.cooldown)
+		u._acds[key] = time + float(abd.cooldown) * float(u.get_meta("cd_mult", 1.0))   # M008: Rift Lich storm = faster casts
 		u._boss_gap = time + 2.5
 		alert.emit("%s: %s" % [String(u.def.get("name", "Boss")), String(abd.name)])
 		return true
@@ -1389,6 +1451,8 @@ func challenge_met(c: Dictionary) -> bool:
 			return escort_state == "delivered"
 		"no_reclaims":
 			return stats_reclaimed == 0
+		"no_spills":
+			return stats_tears > 0 and stats_tears_spilled == 0
 	return false
 
 

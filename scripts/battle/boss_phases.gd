@@ -16,6 +16,14 @@ extends RefCounted
 ##                  telegraphed sweep toward the dwarven line
 ##   corpse_throw   Corpse Colossus (M007): hurls corpses at the dwarven stronghold from range; at 25 % it
 ##                  disgorges corrupted war machines once
+##   crown_elite    The Hollow King (M008): crowns an elite of his court; while the crowned one lives the King takes
+##                  half damage and the undead around the crowned one are warded. Kill it to break the ward; he
+##                  crowns another after a pause (summoning a champion if no elite is near)
+##   storm_eye      Gravewing Sovereign (M008): the storm eye closes and gales sweep the sky, pushing dwarven aircraft
+##                  back and buffeting them; at 25 % she drags dwarven aircraft toward her wings
+##   rift_ascend    The Rift Lich (M008): the two-front finale. At 66 % it rises into the rift and fights from the
+##                  air (only high-reaching weapons can hit it) while its legion storms the stronghold through a
+##                  rift opened near the front; at 33 % it returns to the ground with the rift's full storm
 ## The data lives in the boss definition's "phase" dict (tools/gen_data.py BOSS_PHASES).
 
 
@@ -98,6 +106,12 @@ static func step(u, b, dt: float) -> void:
 				b.shake(6.0)
 				Audio.play("giant_roar", u.position.x, 4.0)
 				b.alert.emit(String(ph.get("machine_alert", "The Colossus disgorges a war machine!")))
+		"crown_elite":
+			_crown_step(u, b, ph, dt)
+		"storm_eye":
+			_storm_eye_step(u, b, ph, dt)
+		"rift_ascend":
+			_lich_step(u, b, ph, dt)
 		"storm_tyrant":
 			if u.perch_t > 0.0:
 				u.perch_t -= dt
@@ -141,6 +155,15 @@ static func _enter(u, b, ph: Dictionary) -> void:
 						break
 				if not have:
 					b.vents.append({"x": float(x), "next": 1e9, "glow": 0.0})
+		"crown_elite":
+			u.phase_t = 0.0
+			_crown(u, b, ph)
+		"storm_eye":
+			u.phase_t = 1.5
+			u.set_meta("pull_t", 2.0)
+			b.flash_t = 0.25
+		"rift_ascend":
+			_lich_rise(u, b, ph)
 		"storm_tyrant":
 			b.lightning_air_bias = float(ph.get("air_bias", 0.6))
 			if b.director != null:
@@ -310,3 +333,185 @@ static func _corpse_throw(u, b, ph: Dictionary) -> void:
 	b.fx.telegraph(Vector2(b.dwarf_base.position.x + 20.0, Combat.GROUND_Y), 70.0, warn, Color(0.6, 0.9, 0.3))
 	b.stats_corpse_throws += 1
 	Audio.play("giant_roar", u.position.x, -2.0)
+
+
+# ---------------------------------------------------------------- M008 Act V bosses
+## The Hollow King places his crown on an elite of his court (the healthiest near him, or a summoned champion).
+static func _crown(u, b, ph: Dictionary) -> void:
+	var best = null
+	var best_hp = -1.0
+	var elites: Array = ph.get("elites", [])
+	for e in b.by_side[1]:
+		if e.alive and e != u and e.id in elites and absf(e.position.x - u.position.x) < 900.0 and e.hp > best_hp:
+			best = e
+			best_hp = e.hp
+	if best == null:
+		best = b.spawn_unit(String(ph.get("summon", "ossuary_champion")), 1, Vector2(u.position.x - 70.0, 0), true)
+		if best != null:
+			b.stats_phase_spawns += 1
+	if best == null:
+		return
+	best.max_hp *= 1.5
+	best.hp = best.max_hp
+	best.set_meta("crowned", true)
+	b.crowned = best
+	b.stats_crowns += 1
+	b.fx.raise(best.aim_point() + Vector2(0, -20))
+	b.fx.raise(u.aim_point())
+	Audio.play("crown", best.position.x, 0.0)
+
+
+static func _crown_step(u, b, ph: Dictionary, _dt: float) -> void:
+	var c = b.crowned
+	if c != null and is_instance_valid(c) and c.alive:
+		# the King's ward holds while the crowned one lives; its court is warded around it
+		u.aura_dr = float(ph.get("king_dr", 0.5))
+		u.aura_dr_t = b.time + 0.4
+		var r = float(ph.get("aura_r", 200.0))
+		var adr = float(ph.get("aura_dr", 0.25))
+		for e in b.by_side[1]:
+			if e.alive and e != u and not e.is_static and absf(e.position.x - c.position.x) <= r:
+				if e.aura_dr_t <= b.time or e.aura_dr < adr:
+					e.aura_dr = adr
+				e.aura_dr_t = b.time + 0.4
+		return
+	if c != null:
+		# the crowned one fell: the ward breaks, the King is exposed until he crowns another
+		b.crowned = null
+		b.stats_crown_breaks += 1
+		u.phase_t = float(ph.get("recrown", 20.0))
+		u.aura_dr_t = -1.0
+		b.alert.emit(String(ph.get("break_alert", "The crown falls — the ward is broken!")))
+		b.fx.raise(u.aim_point())
+		Audio.play("crown_break", u.position.x, 2.0)
+		return
+	if u.phase_t <= 0.0 and u.stun_t <= 0.0:
+		_crown(u, b, ph)
+
+
+## Gravewing Sovereign: gales sweep the sky (dwarven aircraft pushed back and buffeted); at 25 % she drags them in.
+static func _storm_eye_step(u, b, ph: Dictionary, dt: float) -> void:
+	if b.sky_gale_t > 0.0:
+		b.sky_gale_t -= dt
+	elif u.phase_t <= 0.0:
+		u.phase_t = float(ph.get("gale_interval", 13.0))
+		b.sky_gale_t = float(ph.get("gale_time", 4.5))
+		b.stats_gales += 1
+		Audio.play("gale", u.position.x, -2.0)
+	var pulling = u.hp <= u.max_hp * float(ph.get("pull_at", 0.25))
+	if pulling and not u.has_meta("pull_said"):
+		u.set_meta("pull_said", true)
+		b.alert.emit(String(ph.get("pull_alert", "She drags your aircraft in!")))
+	if pulling:
+		if b.sky_pull_t > 0.0:
+			b.sky_pull_t -= dt
+		else:
+			var pt = float(u.get_meta("pull_t", 0.0)) - dt
+			if pt <= 0.0:
+				pt = float(ph.get("pull_interval", 11.0))
+				b.sky_pull_t = float(ph.get("pull_time", 3.0))
+				b.stats_pulls += 1
+				Audio.play("giant_roar", u.position.x, 2.0)
+			u.set_meta("pull_t", pt)
+	if b.sky_gale_t <= 0.0 and b.sky_pull_t <= 0.0:
+		return
+	var tick = fmod(b.time, 0.5) < dt
+	for d in b.by_side[0]:
+		if not d.alive or d.domain != "air":
+			continue
+		if b.sky_gale_t > 0.0:
+			d.position.x = maxf(Combat.DWARF_BASE_X + 20.0, d.position.x - float(ph.get("gale_push", 95.0)) * dt)
+			if tick:
+				d.take_damage(float(ph.get("gale_dps", 9.0)) * 0.5, u)
+		if b.sky_pull_t > 0.0 and d.position.distance_to(u.position) < 760.0:
+			d.position = d.position.move_toward(u.position + Vector2(-60.0, 30.0), float(ph.get("pull_speed", 85.0)) * dt)
+			if tick:
+				d.take_damage(float(ph.get("pull_dps", 14.0)) * 0.5, u)
+
+
+## The Rift Lich rises into the rift: shielded while rising, then airborne (high band) with no ground movement.
+static func _lich_rise(u, b, ph: Dictionary) -> void:
+	u.set_meta("lich_state", "rising")
+	u.set_meta("lich_t", float(ph.get("rise_time", 2.4)))
+	u.set_meta("ground_y", u.position.y)
+	u.shielded = true
+	u.aloft = true
+	u.phase_t = 3.0
+	b.stats_lich_rises += 1
+	b.flash_t = 0.35
+	b.shake(6.0)
+	Audio.play("rift_open", u.position.x, 4.0)
+
+
+static func _lich_step(u, b, ph: Dictionary, dt: float) -> void:
+	var state = String(u.get_meta("lich_state", "ground"))
+	var gy = float(u.get_meta("ground_y", Combat.GROUND_Y))
+	var air_y = Combat.GROUND_Y - float(ph.get("air_y", 210.0))
+	match state:
+		"rising":
+			var lt = float(u.get_meta("lich_t", 0.0)) - dt
+			u.set_meta("lich_t", lt)
+			var k = 1.0 - clampf(lt / float(ph.get("rise_time", 2.4)), 0.0, 1.0)
+			u.position.y = lerpf(gy, air_y, k * k * (3.0 - 2.0 * k))
+			b.lich_rift = k
+			if lt <= 0.0:
+				u.set_meta("lich_state", "aloft")
+				u.shielded = false
+				u.domain = "air"
+				u.band = 2
+				b.alert.emit(String(ph.get("alert", "The Lich rises into the rift!")))
+		"aloft":
+			u.position.y = air_y + sin(b.time * 1.3) * 6.0
+			b.lich_rift = 1.0
+			# the legion storms the stronghold through a rift opened near the dwarven front
+			if u.phase_t <= 0.0:
+				u.phase_t = float(ph.get("army_interval", 15.0))
+				var alive_army = 0
+				for e in u.phase_heralds:
+					if is_instance_valid(e) and e.alive:
+						alive_army += 1
+				if alive_army < int(ph.get("army_cap", 22)):
+					var front = b.front_x(0, null)
+					var x = clampf((float(front) if front != null else 700.0) + 360.0, 820.0, 1900.0)
+					b.fx.telegraph(Vector2(x, Combat.GROUND_Y), 60.0, 0.8, Color(0.72, 0.4, 1.0))
+					b.fx.explosion(Vector2(x, Combat.GROUND_Y - 40.0), 1.0, "necro")
+					var i = 0
+					for grp in ph.get("army", []):
+						for n in int(grp[1]):
+							var z = b.spawn_unit(String(grp[0]), 1, Vector2(x + 20.0 - i * 16.0, 0), true)
+							i += 1
+							if z != null:
+								u.phase_heralds.append(z)
+								b.stats_lich_army += 1
+								b.stats_phase_spawns += 1
+					Audio.play("rift_spill", x, 0.0)
+			if u.hp <= u.max_hp * float(ph.get("return_at", 0.33)):
+				u.set_meta("lich_state", "falling")
+				u.set_meta("lich_t", 1.6)
+				u.shielded = true
+				b.stats_lich_returns += 1
+		"falling":
+			var ft = float(u.get_meta("lich_t", 0.0)) - dt
+			u.set_meta("lich_t", ft)
+			var kf = clampf(ft / 1.6, 0.0, 1.0)
+			u.position.y = lerpf(gy, air_y, kf * kf)
+			b.lich_rift = maxf(0.6, kf)
+			if ft <= 0.0:
+				u.set_meta("lich_state", "ground")
+				u.position.y = gy
+				u.shielded = false
+				u.aloft = false
+				u.domain = "ground"
+				u.band = 1
+				b.lich_rift = 0.6
+				b.fx.dust(u.position, 2.8)
+				b.shake(9.0)
+				Audio.play("giant_roar", u.position.x, 5.0)
+				b.alert.emit(String(ph.get("return_alert", "The Lich returns with the full storm!")))
+				# the rift's full storm: soul wisps pour out, the legion and crow storms come faster
+				b.soul_boost = float(ph.get("storm_boost", 1.8))
+				if b.soul_def.is_empty():
+					Rift.set_souls(b, {"interval": 9.0, "wisps": 3, "radius": 58, "heal": 16, "damage": 14, "speed": 46, "hp": 90, "first": 1.0})
+				u.set_meta("cd_mult", float(ph.get("legion_cd", 0.6)))
+				for k2 in u._acds.keys():
+					u._acds[k2] = minf(float(u._acds[k2]), b.time + 2.0)

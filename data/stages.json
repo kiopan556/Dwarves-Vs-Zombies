@@ -989,45 +989,45 @@
     {
      "enemy": "rotter",
      "start": 2,
-     "interval": 4.76,
+     "interval": 4.92,
      "group": 3,
-     "interval_min": 3.33,
+     "interval_min": 3.44,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_runner",
      "start": 20,
-     "interval": 13.33,
+     "interval": 13.77,
      "group": 2,
-     "interval_min": 8.57,
+     "interval_min": 8.86,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "bone_archer",
      "start": 25,
-     "interval": 14.28,
+     "interval": 14.76,
      "group": 2,
-     "interval_min": 9.52,
+     "interval_min": 9.84,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "flesh_hulk",
      "start": 50,
-     "interval": 57.12,
+     "interval": 59.03,
      "group": 1,
-     "interval_min": 42.84,
+     "interval_min": 44.27,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "carrion_bat",
      "start": 30,
-     "interval": 19.04,
+     "interval": 19.68,
      "group": 2,
-     "interval_min": 12.38,
+     "interval_min": 12.79,
      "ramp": 0.97,
      "until": -1
     }
@@ -1076,7 +1076,7 @@
     "seconds": 480,
     "text": "Win within 8:00"
    },
-   "difficulty_budget": 107.0,
+   "difficulty_budget": 103.5,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -1409,54 +1409,54 @@
     {
      "enemy": "bone_shieldbearer",
      "start": 10,
-     "interval": 16.49,
+     "interval": 23.13,
      "group": 1,
-     "interval_min": 10.99,
+     "interval_min": 15.42,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "grave_knight",
      "start": 30,
-     "interval": 27.48,
+     "interval": 38.55,
      "group": 1,
-     "interval_min": 18.32,
+     "interval_min": 25.7,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "necromancer",
      "start": 40,
-     "interval": 41.22,
+     "interval": 57.82,
      "group": 1,
-     "interval_min": 31.14,
+     "interval_min": 43.68,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "bone_archer",
      "start": 12,
-     "interval": 10.99,
+     "interval": 15.42,
      "group": 2,
-     "interval_min": 7.33,
+     "interval_min": 10.28,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rotter",
      "start": 2,
-     "interval": 5.5,
+     "interval": 7.72,
      "group": 2,
-     "interval_min": 3.66,
+     "interval_min": 5.13,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "carrion_bat",
      "start": 25,
-     "interval": 16.49,
+     "interval": 23.13,
      "group": 3,
-     "interval_min": 10.99,
+     "interval_min": 15.42,
      "ramp": 0.97,
      "until": -1
     }
@@ -1514,7 +1514,7 @@
     "n": 20,
     "text": "Lose at most 20 units"
    },
-   "difficulty_budget": 108.2,
+   "difficulty_budget": 77.1,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -1734,54 +1734,54 @@
     {
      "enemy": "zombie_miner",
      "start": 8,
-     "interval": 9.81,
+     "interval": 9.94,
      "group": 2,
-     "interval_min": 6.24,
+     "interval_min": 6.32,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_runner",
      "start": 12,
-     "interval": 9.81,
+     "interval": 9.94,
      "group": 2,
-     "interval_min": 6.24,
+     "interval_min": 6.32,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "grave_crawler",
      "start": 20,
-     "interval": 12.49,
+     "interval": 12.65,
      "group": 3,
-     "interval_min": 8.03,
+     "interval_min": 8.13,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "necromancer",
      "start": 30,
-     "interval": 33.9,
+     "interval": 34.33,
      "group": 1,
-     "interval_min": 23.19,
+     "interval_min": 23.49,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rotter",
      "start": 2,
-     "interval": 4.46,
+     "interval": 4.52,
      "group": 3,
-     "interval_min": 2.85,
+     "interval_min": 2.89,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "carrion_bat",
      "start": 45,
-     "interval": 24.98,
+     "interval": 25.3,
      "group": 2,
-     "interval_min": 16.06,
+     "interval_min": 16.26,
      "ramp": 0.97,
      "until": -1
     }
@@ -1848,7 +1848,7 @@
     "seconds": 540,
     "text": "Win within 9:00"
    },
-   "difficulty_budget": 149.3,
+   "difficulty_budget": 147.3,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -3046,45 +3046,45 @@
     {
      "enemy": "blight_marauder",
      "start": 8,
-     "interval": 13.58,
+     "interval": 14.01,
      "group": 2,
-     "interval_min": 8.73,
+     "interval_min": 9.01,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "pestilent_soldier",
      "start": 3,
-     "interval": 8.73,
+     "interval": 9.01,
      "group": 2,
-     "interval_min": 5.82,
+     "interval_min": 6.0,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_sprayer",
      "start": 20,
-     "interval": 16.49,
+     "interval": 17.01,
      "group": 1,
-     "interval_min": 10.67,
+     "interval_min": 11.01,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "skeletal_vulture",
      "start": 25,
-     "interval": 16.49,
+     "interval": 17.01,
      "group": 2,
-     "interval_min": 10.67,
+     "interval_min": 11.01,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "grave_knight",
      "start": 50,
-     "interval": 32.98,
+     "interval": 34.02,
      "group": 1,
-     "interval_min": 23.28,
+     "interval_min": 24.01,
      "ramp": 0.97,
      "until": -1
     }
@@ -3149,7 +3149,7 @@
     "seconds": 540,
     "text": "Win within 9:00"
    },
-   "difficulty_budget": 114.1,
+   "difficulty_budget": 110.6,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -3846,45 +3846,45 @@
     {
      "enemy": "cursed_dwarf_thrall",
      "start": 6,
-     "interval": 11.64,
+     "interval": 12.13,
      "group": 2,
-     "interval_min": 7.76,
+     "interval_min": 8.09,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "crypt_halberdier",
      "start": 10,
-     "interval": 13.58,
+     "interval": 14.16,
      "group": 2,
-     "interval_min": 8.73,
+     "interval_min": 9.1,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "cinder_wraith",
      "start": 20,
-     "interval": 19.4,
+     "interval": 20.22,
      "group": 1,
-     "interval_min": 12.61,
+     "interval_min": 13.15,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "gravewing_stalker",
      "start": 30,
-     "interval": 23.28,
+     "interval": 24.27,
      "group": 1,
-     "interval_min": 14.55,
+     "interval_min": 15.17,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rusted_legionary",
      "start": 3,
-     "interval": 9.7,
+     "interval": 10.11,
      "group": 2,
-     "interval_min": 6.79,
+     "interval_min": 7.08,
      "ramp": 0.97,
      "until": -1
     }
@@ -3949,7 +3949,7 @@
     "n": 24,
     "text": "Lose at most 24 units"
    },
-   "difficulty_budget": 148.8,
+   "difficulty_budget": 142.8,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -6359,54 +6359,54 @@
     {
      "enemy": "blight_marauder",
      "start": 2,
-     "interval": 6.5,
+     "interval": 8.27,
      "group": 2,
-     "interval_min": 4.29,
+     "interval_min": 5.46,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "black_rot_infantry",
      "start": 10,
-     "interval": 12.35,
+     "interval": 15.7,
      "group": 1,
-     "interval_min": 8.12,
+     "interval_min": 10.33,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rot_launcher",
      "start": 45,
-     "interval": 55.0,
+     "interval": 69.94,
      "group": 1,
-     "interval_min": 40.0,
+     "interval_min": 50.87,
      "ramp": 0.97,
      "until": 480
     },
     {
      "enemy": "pestilent_soldier",
      "start": 25,
-     "interval": 16.0,
+     "interval": 20.35,
      "group": 1,
-     "interval_min": 11.0,
+     "interval_min": 13.99,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "bone_ram",
      "start": 60,
-     "interval": 60,
+     "interval": 76.3,
      "group": 1,
-     "interval_min": 42,
+     "interval_min": 53.41,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "skeletal_vulture",
      "start": 22,
-     "interval": 17,
+     "interval": 21.62,
      "group": 2,
-     "interval_min": 11,
+     "interval_min": 13.99,
      "ramp": 0.97,
      "until": -1
     }
@@ -6457,7 +6457,7 @@
     "frac": 0.65,
     "text": "Never let the stronghold drop below 65%"
    },
-   "difficulty_budget": 120.4,
+   "difficulty_budget": 94.6,
    "heroic": {
     "interval_mult": 0.92,
     "hp_mult": 1.05,
@@ -6509,54 +6509,54 @@
     {
      "enemy": "pestilent_soldier",
      "start": 2,
-     "interval": 6.5,
+     "interval": 7.97,
      "group": 2,
-     "interval_min": 4.29,
+     "interval_min": 5.26,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "carcass_devourer",
      "start": 10,
-     "interval": 12.35,
+     "interval": 15.15,
      "group": 1,
-     "interval_min": 8.12,
+     "interval_min": 9.95,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "black_rot_infantry",
      "start": 20,
-     "interval": 12.0,
+     "interval": 14.72,
      "group": 2,
-     "interval_min": 8.0,
+     "interval_min": 9.81,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_herald",
      "start": 30,
-     "interval": 15.0,
+     "interval": 18.39,
      "group": 1,
-     "interval_min": 10.0,
+     "interval_min": 12.27,
      "ramp": 0.97,
      "until": 540
     },
     {
      "enemy": "corpse_priest",
      "start": 50,
-     "interval": 40,
+     "interval": 49.06,
      "group": 1,
-     "interval_min": 28,
+     "interval_min": 34.34,
      "ramp": 0.97,
      "until": 540
     },
     {
      "enemy": "rift_crow",
      "start": 18,
-     "interval": 16,
+     "interval": 19.62,
      "group": 2,
-     "interval_min": 10,
+     "interval_min": 12.27,
      "ramp": 0.97,
      "until": -1
     }
@@ -6607,7 +6607,7 @@
     "seconds": 630,
     "text": "Win within 10:30"
    },
-   "difficulty_budget": 153.9,
+   "difficulty_budget": 125.5,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -6861,54 +6861,54 @@
     {
      "enemy": "shambler",
      "start": 2,
-     "interval": 5.71,
+     "interval": 5.98,
      "group": 3,
-     "interval_min": 3.77,
+     "interval_min": 3.95,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "pestilent_soldier",
      "start": 10,
-     "interval": 10.86,
+     "interval": 11.37,
      "group": 2,
-     "interval_min": 7.14,
+     "interval_min": 7.47,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "haunted_flying_machine",
      "start": 30,
-     "interval": 26,
+     "interval": 27.21,
      "group": 1,
-     "interval_min": 17,
+     "interval_min": 17.79,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "blight_bat",
      "start": 14,
-     "interval": 16,
+     "interval": 16.75,
      "group": 2,
-     "interval_min": 10,
+     "interval_min": 10.47,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "black_rot_infantry",
      "start": 24,
-     "interval": 13.33,
+     "interval": 13.95,
      "group": 2,
-     "interval_min": 8.89,
+     "interval_min": 9.3,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_sprayer",
      "start": 34,
-     "interval": 16.67,
+     "interval": 17.45,
      "group": 1,
-     "interval_min": 11.11,
+     "interval_min": 11.63,
      "ramp": 0.97,
      "until": 520
     }
@@ -7002,7 +7002,7 @@
     "kind": "no_air_losses",
     "text": "Lose no aircraft"
    },
-   "difficulty_budget": 144.9,
+   "difficulty_budget": 138.4,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -8135,54 +8135,54 @@
     {
      "enemy": "carcass_devourer",
      "start": 2,
-     "interval": 7.0,
+     "interval": 11.96,
      "group": 2,
-     "interval_min": 4.62,
+     "interval_min": 7.9,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "blight_marauder",
      "start": 10,
-     "interval": 13.3,
+     "interval": 22.72,
      "group": 1,
-     "interval_min": 8.75,
+     "interval_min": 14.95,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "black_rot_infantry",
      "start": 16,
-     "interval": 11.43,
+     "interval": 19.52,
      "group": 2,
-     "interval_min": 7.62,
+     "interval_min": 13.02,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rot_channeler",
      "start": 26,
-     "interval": 14.29,
+     "interval": 24.41,
      "group": 1,
-     "interval_min": 9.52,
+     "interval_min": 16.26,
      "ramp": 0.97,
      "until": 540
     },
     {
      "enemy": "grave_moth",
      "start": 18,
-     "interval": 16.84,
+     "interval": 28.77,
      "group": 2,
-     "interval_min": 10.53,
+     "interval_min": 17.99,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "blight_bat",
      "start": 33,
-     "interval": 25.26,
+     "interval": 43.16,
      "group": 1,
-     "interval_min": 15.79,
+     "interval_min": 26.97,
      "ramp": 0.97,
      "until": -1
     }
@@ -8258,27 +8258,23 @@
     "n": 30,
     "text": "Lose at most 30 units"
    },
-   "difficulty_budget": 156.9,
+   "difficulty_budget": 91.8,
    "heroic": {
-    "interval_mult": 0.85,
-    "hp_mult": 1.12,
+    "interval_mult": 0.92,
+    "hp_mult": 1.05,
     "ability_lead": 0.45,
     "event": {
-     "t": 210,
+     "t": 240,
      "spawn": [
       [
-       "stitchback_giant",
-       1
-      ],
-      [
        "carcass_devourer",
-       4
+       3
       ]
      ]
     },
     "structure": {
-     "enemy": "necrotic_beacon",
-     "x": 2120
+     "enemy": "cursed_barricade",
+     "x": 2150
     },
     "spark_bonus": 46
    },
@@ -8953,54 +8949,54 @@
     {
      "enemy": "pestilent_soldier",
      "start": 2,
-     "interval": 5.71,
+     "interval": 6.7,
      "group": 3,
-     "interval_min": 3.77,
+     "interval_min": 4.42,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "shambler",
      "start": 10,
-     "interval": 10.86,
+     "interval": 12.74,
      "group": 2,
-     "interval_min": 7.14,
+     "interval_min": 8.37,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "black_rot_infantry",
      "start": 24,
-     "interval": 14.12,
+     "interval": 16.56,
      "group": 2,
-     "interval_min": 9.41,
+     "interval_min": 11.04,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "funeral_bell_keeper",
      "start": 34,
-     "interval": 17.65,
+     "interval": 20.7,
      "group": 1,
-     "interval_min": 11.76,
+     "interval_min": 13.79,
      "ramp": 0.97,
      "until": 420
     },
     {
      "enemy": "grave_moth",
      "start": 18,
-     "interval": 16.0,
+     "interval": 18.77,
      "group": 2,
-     "interval_min": 10.0,
+     "interval_min": 11.73,
      "ramp": 0.97,
      "until": 600
     },
     {
      "enemy": "plague_harpy",
      "start": 33,
-     "interval": 24.0,
+     "interval": 28.15,
      "group": 1,
-     "interval_min": 15.0,
+     "interval_min": 17.59,
      "ramp": 0.97,
      "until": 600
     }
@@ -9072,7 +9068,7 @@
     "seconds": 660,
     "text": "Win within 11:00"
    },
-   "difficulty_budget": 187.0,
+   "difficulty_budget": 159.4,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -9813,36 +9809,36 @@
     {
      "enemy": "rusted_legionary",
      "start": 2,
-     "interval": 7.37,
+     "interval": 7.99,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 5.27,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "bone_vanguard",
      "start": 10,
-     "interval": 14.0,
+     "interval": 15.17,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 9.98,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "gravewing_stalker",
      "start": 10,
-     "interval": 12.17,
+     "interval": 13.19,
      "group": 2,
-     "interval_min": 7.83,
+     "interval_min": 8.49,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "skeletal_vulture",
      "start": 24,
-     "interval": 17.39,
+     "interval": 18.85,
      "group": 1,
-     "interval_min": 11.3,
+     "interval_min": 12.25,
      "ramp": 0.97,
      "until": -1
     }
@@ -9932,7 +9928,7 @@
     "kind": "no_air_losses",
     "text": "Lose no aircraft"
    },
-   "difficulty_budget": 126.8,
+   "difficulty_budget": 117.0,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -10370,54 +10366,54 @@
     {
      "enemy": "bone_vanguard",
      "start": 2,
-     "interval": 7.0,
+     "interval": 7.57,
      "group": 2,
-     "interval_min": 4.62,
+     "interval_min": 5.0,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rusted_legionary",
      "start": 10,
-     "interval": 13.3,
+     "interval": 14.38,
      "group": 1,
-     "interval_min": 8.75,
+     "interval_min": 9.46,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "hollow_guard",
      "start": 14,
-     "interval": 12.0,
+     "interval": 12.98,
      "group": 2,
-     "interval_min": 8.0,
+     "interval_min": 8.65,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "night_seer",
      "start": 24,
-     "interval": 15.0,
+     "interval": 16.22,
      "group": 1,
-     "interval_min": 10.0,
+     "interval_min": 10.81,
      "ramp": 0.97,
      "until": 520
     },
     {
      "enemy": "gravewing_stalker",
      "start": 20,
-     "interval": 16.84,
+     "interval": 18.21,
      "group": 2,
-     "interval_min": 10.53,
+     "interval_min": 11.39,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "ossuary_flier",
      "start": 35,
-     "interval": 25.26,
+     "interval": 27.32,
      "group": 1,
-     "interval_min": 15.79,
+     "interval_min": 17.08,
      "ramp": 0.97,
      "until": -1
     }
@@ -10503,7 +10499,7 @@
     "frac": 0.6,
     "text": "Never let the stronghold drop below 60%"
    },
-   "difficulty_budget": 188.8,
+   "difficulty_budget": 174.6,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -13467,36 +13463,36 @@
     {
      "enemy": "rusted_legionary",
      "start": 2,
-     "interval": 6.67,
+     "interval": 9.83,
      "group": 2,
-     "interval_min": 4.4,
+     "interval_min": 6.48,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "hollow_guard",
      "start": 10,
-     "interval": 12.67,
+     "interval": 18.67,
      "group": 1,
-     "interval_min": 8.33,
+     "interval_min": 12.27,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "bone_wyvern",
      "start": 20,
-     "interval": 26,
+     "interval": 38.31,
      "group": 2,
-     "interval_min": 17,
+     "interval_min": 25.05,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "gravewing_stalker",
      "start": 30,
-     "interval": 22,
+     "interval": 32.42,
      "group": 2,
-     "interval_min": 14,
+     "interval_min": 20.63,
      "ramp": 0.97,
      "until": -1
     }
@@ -13573,7 +13569,7 @@
     "kind": "no_air_losses",
     "text": "Lose no aircraft"
    },
-   "difficulty_budget": 150.3,
+   "difficulty_budget": 102.0,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -15319,45 +15315,45 @@
     {
      "enemy": "black_rot_infantry",
      "start": 2,
-     "interval": 7.37,
+     "interval": 10.03,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 6.61,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "hollow_guard",
      "start": 10,
-     "interval": 14.0,
+     "interval": 19.05,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 12.53,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "cursed_dwarf_thrall",
      "start": 16,
-     "interval": 14,
+     "interval": 19.05,
      "group": 2,
-     "interval_min": 9,
+     "interval_min": 12.25,
      "ramp": 0.97,
      "until": 500
     },
     {
      "enemy": "rotwing",
      "start": 24,
-     "interval": 18.82,
+     "interval": 25.61,
      "group": 2,
-     "interval_min": 11.76,
+     "interval_min": 16.0,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "banshee_wing",
      "start": 39,
-     "interval": 28.24,
+     "interval": 38.43,
      "group": 1,
-     "interval_min": 17.65,
+     "interval_min": 24.02,
      "ramp": 0.97,
      "until": -1
     }
@@ -15457,7 +15453,7 @@
     "text": "Lose at most 36 units"
    },
    "wrecks": true,
-   "difficulty_budget": 152.7,
+   "difficulty_budget": 112.2,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -15709,54 +15705,54 @@
     {
      "enemy": "black_rot_infantry",
      "start": 2,
-     "interval": 7.37,
+     "interval": 7.84,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 5.17,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "hollow_guard",
      "start": 10,
-     "interval": 14.0,
+     "interval": 14.89,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 9.8,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "dread_executioner",
      "start": 20,
-     "interval": 14.12,
+     "interval": 15.02,
      "group": 2,
-     "interval_min": 9.41,
+     "interval_min": 10.01,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "cinder_wraith",
      "start": 30,
-     "interval": 17.65,
+     "interval": 18.78,
      "group": 1,
-     "interval_min": 11.76,
+     "interval_min": 12.51,
      "ramp": 0.97,
      "until": 480
     },
     {
      "enemy": "banshee_wing",
      "start": 20,
-     "interval": 18.82,
+     "interval": 20.02,
      "group": 2,
-     "interval_min": 11.76,
+     "interval_min": 12.51,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rotwing",
      "start": 35,
-     "interval": 28.24,
+     "interval": 30.04,
      "group": 1,
-     "interval_min": 17.65,
+     "interval_min": 18.78,
      "ramp": 0.97,
      "until": -1
     }
@@ -15859,7 +15855,7 @@
     "text": "Win with at most 8 unit types deployed"
    },
    "wrecks": true,
-   "difficulty_budget": 191.9,
+   "difficulty_budget": 180.4,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -17360,54 +17356,54 @@
     {
      "enemy": "black_rot_infantry",
      "start": 2,
-     "interval": 7.37,
+     "interval": 9.68,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 6.38,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "hollow_guard",
      "start": 10,
-     "interval": 14.0,
+     "interval": 18.39,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 12.1,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "ash_hexer",
      "start": 30,
-     "interval": 28,
+     "interval": 36.78,
      "group": 1,
-     "interval_min": 19,
+     "interval_min": 24.96,
      "ramp": 0.97,
      "until": 420
     },
     {
      "enemy": "cinder_wraith",
      "start": 44,
-     "interval": 30,
+     "interval": 39.41,
      "group": 1,
-     "interval_min": 20,
+     "interval_min": 26.27,
      "ramp": 0.97,
      "until": 420
     },
     {
      "enemy": "banshee_wing",
      "start": 20,
-     "interval": 20.0,
+     "interval": 26.27,
      "group": 2,
-     "interval_min": 12.5,
+     "interval_min": 16.42,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "tomb_gargoyle",
      "start": 35,
-     "interval": 30.0,
+     "interval": 39.41,
      "group": 1,
-     "interval_min": 18.75,
+     "interval_min": 24.63,
      "ramp": 0.97,
      "until": -1
     }
@@ -17494,7 +17490,7 @@
     "text": "Lose at most 40 units"
    },
    "wrecks": true,
-   "difficulty_budget": 147.4,
+   "difficulty_budget": 112.2,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -17756,54 +17752,54 @@
     {
      "enemy": "black_rot_infantry",
      "start": 2,
-     "interval": 7.37,
+     "interval": 7.64,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 5.04,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_mauler",
      "start": 10,
-     "interval": 14.0,
+     "interval": 14.5,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 9.54,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "burrow_horror",
      "start": 30,
-     "interval": 32,
+     "interval": 33.15,
      "group": 1,
-     "interval_min": 22,
+     "interval_min": 22.79,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "possessed_drillwalker",
      "start": 70,
-     "interval": 58,
+     "interval": 60.09,
      "group": 1,
-     "interval_min": 42,
+     "interval_min": 43.51,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "tomb_gargoyle",
      "start": 22,
-     "interval": 20.0,
+     "interval": 20.72,
      "group": 2,
-     "interval_min": 12.5,
+     "interval_min": 12.95,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "rotwing",
      "start": 37,
-     "interval": 30.0,
+     "interval": 31.08,
      "group": 1,
-     "interval_min": 18.75,
+     "interval_min": 19.43,
      "ramp": 0.97,
      "until": -1
     }
@@ -17899,7 +17895,7 @@
     "text": "Win with at most 8 unit types deployed"
    },
    "wrecks": true,
-   "difficulty_budget": 155.9,
+   "difficulty_budget": 150.4,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -20716,54 +20712,54 @@
     {
      "enemy": "hollow_guard",
      "start": 2,
-     "interval": 7.37,
+     "interval": 8.63,
      "group": 2,
-     "interval_min": 4.86,
+     "interval_min": 5.69,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "plague_mauler",
      "start": 10,
-     "interval": 14.0,
+     "interval": 16.39,
      "group": 1,
-     "interval_min": 9.21,
+     "interval_min": 10.78,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "dread_executioner",
      "start": 20,
-     "interval": 16.22,
+     "interval": 18.99,
      "group": 2,
-     "interval_min": 10.81,
+     "interval_min": 12.65,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "cinder_wraith",
      "start": 30,
-     "interval": 20.27,
+     "interval": 23.73,
      "group": 1,
-     "interval_min": 13.51,
+     "interval_min": 15.81,
      "ramp": 0.97,
      "until": 440
     },
     {
      "enemy": "banshee_wing",
      "start": 20,
-     "interval": 20.0,
+     "interval": 23.41,
      "group": 2,
-     "interval_min": 12.5,
+     "interval_min": 14.63,
      "ramp": 0.97,
      "until": -1
     },
     {
      "enemy": "tomb_gargoyle",
      "start": 35,
-     "interval": 30.0,
+     "interval": 35.12,
      "group": 1,
-     "interval_min": 18.75,
+     "interval_min": 21.95,
      "ramp": 0.97,
      "until": -1
     }
@@ -20861,7 +20857,7 @@
     "text": "Never let the stronghold drop below 60%"
    },
    "wrecks": true,
-   "difficulty_budget": 205.2,
+   "difficulty_budget": 175.3,
    "heroic": {
     "interval_mult": 0.85,
     "hp_mult": 1.12,
@@ -21283,13 +21279,192 @@
    "tech_tier": "T5",
    "requires": "s120",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "necro_waste",
    "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 121",
-   "status": "planned"
+   "enemy_hp_mult": 2.8,
+   "name": "The Grey Waste",
+   "tagline": "Ash falls like snow on a land of bone. Out of it march soldiers who were never alive in this world.",
+   "enemy_base_hp": 8800,
+   "start_gold": 500,
+   "gold_rate": 27.15,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.59,
+     "group": 2,
+     "interval_min": 5.66,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 16.31,
+     "group": 1,
+     "interval_min": 10.73,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "night_seer",
+     "start": 34,
+     "interval": 31.59,
+     "group": 1,
+     "interval_min": 21.44,
+     "ramp": 0.97,
+     "until": 470
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 27.35,
+     "group": 2,
+     "interval_min": 17.09,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 41.02,
+     "group": 1,
+     "interval_min": 25.65,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       4
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 130,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "dread_executioner",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 250,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 340,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 240,
+    "unlock": [
+     "titan_maintenance_crew"
+    ]
+   },
+   "max_alive": 56,
+   "seed": 959199,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 44,
+    "text": "Lose at most 44 units"
+   },
+   "difficulty_budget": 122.5,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 84
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "cathedral_ghast",
+    "dread_executioner",
+    "night_seer",
+    "riftbound_legionary",
+    "walking_crypt"
+   ]
   },
   {
    "id": "s122",
@@ -21299,13 +21474,195 @@
    "tech_tier": "T5",
    "requires": "s121",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "rift_sky",
-   "theme": "colossus_march",
+   "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 122",
-   "status": "planned"
+   "enemy_hp_mult": 2.815,
+   "name": "Rift Scar",
+   "tagline": "The sky is cracked here, and the cracks are not empty. Close them before they open wide.",
+   "enemy_base_hp": 8860,
+   "start_gold": 504,
+   "gold_rate": 27.3,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 7.78,
+     "group": 2,
+     "interval_min": 5.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 10,
+     "interval": 14.78,
+     "group": 1,
+     "interval_min": 9.72,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 30,
+     "interval": 26,
+     "group": 1,
+     "interval_min": 18,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 20,
+     "interval": 23.53,
+     "group": 2,
+     "interval_min": 14.71,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 35,
+     "interval": 35.29,
+     "group": 1,
+     "interval_min": 22.06,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "rift_crow",
+       5
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "rift_tears",
+    "interval": 30,
+    "warn": 2.0,
+    "open": 6.0,
+    "hp": 380,
+    "spill": 3,
+    "x0": 900,
+    "x1": 2000,
+    "pool": [
+     "riftbound_legionary",
+     "black_rot_infantry",
+     "night_seer"
+    ]
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 243,
+    "unlock": [
+     "worldhammer_siege_tank"
+    ]
+   },
+   "max_alive": 56,
+   "seed": 967118,
+   "challenge": {
+    "kind": "no_spills",
+    "text": "Close every rift tear before it spills"
+   },
+   "difficulty_budget": 141.2,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 85
+   },
+   "enemy_roster": [
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "hollow_guard",
+    "ossuary_juggernaut",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s123",
@@ -21315,13 +21672,191 @@
    "tech_tier": "T5",
    "requires": "s122",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "ruined_citadel",
-   "theme": "fortress_sky",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 123",
-   "status": "planned"
+   "enemy_hp_mult": 2.83,
+   "name": "Bonecrown Approach",
+   "tagline": "The approach to the citadel is paved with crowns. The champions who wore them still stand guard.",
+   "enemy_base_hp": 8920,
+   "start_gold": 508,
+   "gold_rate": 27.45,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 7.89,
+     "group": 2,
+     "interval_min": 5.2,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 10,
+     "interval": 14.98,
+     "group": 1,
+     "interval_min": 9.85,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 24,
+     "interval": 18.43,
+     "group": 2,
+     "interval_min": 12.29,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_caller",
+     "start": 34,
+     "interval": 23.04,
+     "group": 1,
+     "interval_min": 15.36,
+     "ramp": 0.97,
+     "until": 440
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 24.57,
+     "group": 2,
+     "interval_min": 15.36,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 37,
+     "interval": 36.86,
+     "group": 1,
+     "interval_min": 23.04,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 180,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "ossuary_caller",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "ossuary_champion",
+       2
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_caller",
+       2
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 246,
+    "unlock": [
+     "royal_skyguard"
+    ]
+   },
+   "max_alive": 56,
+   "seed": 975037,
+   "challenge": {
+    "kind": "base_above",
+    "frac": 0.6,
+    "text": "Never let the stronghold drop below 60%"
+   },
+   "difficulty_budget": 176.9,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 86
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "hollow_guard",
+    "ossuary_caller",
+    "ossuary_champion",
+    "tomb_gargoyle"
+   ]
   },
   {
    "id": "s124",
@@ -21331,13 +21866,198 @@
    "tech_tier": "T5",
    "requires": "s123",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
    "theme": "endless_dead",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 124",
-   "status": "planned"
+   "enemy_hp_mult": 2.845,
+   "name": "Ashveil",
+   "tagline": "When the dead sun goes out, only the dwarves who carry their own light can see what is coming.",
+   "enemy_base_hp": 8980,
+   "start_gold": 512,
+   "gold_rate": 27.599999999999998,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.52,
+     "group": 2,
+     "interval_min": 5.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 16.19,
+     "group": 1,
+     "interval_min": 10.65,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "night_seer",
+     "start": 30,
+     "interval": 24,
+     "group": 1,
+     "interval_min": 16,
+     "ramp": 0.97,
+     "until": 470
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 48,
+     "interval": 30,
+     "group": 1,
+     "interval_min": 20,
+     "ramp": 0.97,
+     "until": 470
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 24.24,
+     "group": 2,
+     "interval_min": 15.15,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 37,
+     "interval": 36.36,
+     "group": 1,
+     "interval_min": 22.73,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       4
+      ],
+      [
+       "rift_crow",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "night_seer",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 290,
+     "spawn": [
+      [
+       "blackroot_abomination",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "spirit_binder",
+       2
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "blackroot_abomination",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "eclipse",
+    "interval": 58,
+    "duration": 16,
+    "first": 45,
+    "range_mult": 0.75
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 249,
+    "unlock": [
+     "iron_bastion_prime"
+    ]
+   },
+   "max_alive": 56,
+   "seed": 982956,
+   "challenge": {
+    "kind": "max_types",
+    "n": 8,
+    "text": "Win with at most 8 unit types deployed"
+   },
+   "difficulty_budget": 130.9,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "blackroot_abomination",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 87
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "blackroot_abomination",
+    "dread_executioner",
+    "night_seer",
+    "rift_crow",
+    "riftbound_legionary",
+    "spirit_binder"
+   ]
   },
   {
    "id": "s125",
@@ -21347,13 +22067,165 @@
    "tech_tier": "T5",
    "requires": "s124",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "twin_front_siege",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "fortress_sky",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 125",
-   "status": "planned"
+   "enemy_hp_mult": 2.86,
+   "name": "Sky Fracture",
+   "tagline": "Shards of land drift toward the rift, and serpents of rot coil between them.",
+   "enemy_base_hp": 9040,
+   "start_gold": 516,
+   "gold_rate": 27.75,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.75,
+     "group": 2,
+     "interval_min": 5.77,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 10,
+     "interval": 16.62,
+     "group": 1,
+     "interval_min": 10.94,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 14,
+     "interval": 25.93,
+     "group": 2,
+     "interval_min": 16.67,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 28,
+     "interval": 37.04,
+     "group": 1,
+     "interval_min": 24.07,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "necrotic_sky_serpent",
+     "start": 42,
+     "interval": 48.15,
+     "group": 1,
+     "interval_min": 31.48,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 150,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 280,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       4
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 251,
+    "unlock": [
+     "deepforge_titan"
+    ]
+   },
+   "max_alive": 57,
+   "seed": 990875,
+   "challenge": {
+    "kind": "no_air_losses",
+    "text": "Lose no aircraft"
+   },
+   "difficulty_budget": 106.2,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 88
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "hollow_guard",
+    "necrotic_sky_serpent",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s126",
@@ -21363,13 +22235,187 @@
    "tech_tier": "T5",
    "requires": "s125",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "final_gauntlet",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "twin_front_siege",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 126",
-   "status": "planned"
+   "enemy_hp_mult": 2.875,
+   "name": "Gate of Lanterns",
+   "tagline": "Lanterns of violet fire line the gate road. Every one of them feeds the dead that walk beneath it.",
+   "enemy_base_hp": 9100,
+   "start_gold": 520,
+   "gold_rate": 27.9,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.14,
+     "group": 2,
+     "interval_min": 5.37,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 15.47,
+     "group": 1,
+     "interval_min": 10.17,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "funeral_bell_keeper",
+     "start": 50,
+     "interval": 50,
+     "group": 1,
+     "interval_min": 36,
+     "ramp": 0.97,
+     "until": 360
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 24.24,
+     "group": 2,
+     "interval_min": 15.15,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 36.36,
+     "group": 1,
+     "interval_min": 22.73,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 180,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "funeral_bell_keeper",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       2
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "rift_obelisk",
+     "x": 1900
+    },
+    {
+     "enemy": "rift_obelisk",
+     "x": 2180
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 254,
+    "unlock": [
+     "stormforge_bomber"
+    ]
+   },
+   "max_alive": 57,
+   "seed": 998794,
+   "challenge": {
+    "kind": "kill_structures",
+    "text": "Destroy every undead support structure"
+   },
+   "difficulty_budget": 128.4,
+   "heroic": {
+    "interval_mult": 0.95,
+    "hp_mult": 1.03,
+    "ability_lead": 0.6,
+    "event": {
+     "t": 300,
+     "spawn": [
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 1640
+    },
+    "spark_bonus": 89
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "funeral_bell_keeper",
+    "grave_knight",
+    "rift_obelisk",
+    "riftbound_legionary",
+    "walking_crypt"
+   ]
   },
   {
    "id": "s127",
@@ -21379,13 +22425,205 @@
    "tech_tier": "T5",
    "requires": "s126",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "ruined_citadel",
-   "theme": "rift_storm",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 127",
-   "status": "planned"
+   "enemy_hp_mult": 2.89,
+   "name": "Citadel Outworks",
+   "tagline": "Wall above wall, the outworks climb toward the keep. The howitzers on top never stopped firing.",
+   "enemy_base_hp": 9160,
+   "start_gold": 524,
+   "gold_rate": 28.05,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 7.61,
+     "group": 2,
+     "interval_min": 5.02,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 14.46,
+     "group": 1,
+     "interval_min": 9.51,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_howitzer",
+     "start": 45,
+     "interval": 76.39,
+     "group": 1,
+     "interval_min": 55.56,
+     "ramp": 0.97,
+     "until": 420
+    },
+    {
+     "enemy": "grave_knight",
+     "start": 25,
+     "interval": 22.22,
+     "group": 1,
+     "interval_min": 15.28,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "tomb_gargoyle",
+       3
+      ],
+      [
+       "banshee_wing",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "grave_howitzer",
+       1
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 310,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_howitzer",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "cursed_barricade",
+     "x": 2120
+    },
+    {
+     "enemy": "cursed_barricade",
+     "x": 1880
+    },
+    {
+     "enemy": "wraith_beacon",
+     "x": 2260
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 257,
+    "unlock": [
+     "skyhammer_assault_craft"
+    ]
+   },
+   "max_alive": 57,
+   "seed": 1006713,
+   "challenge": {
+    "kind": "kill_structures",
+    "text": "Destroy every undead support structure"
+   },
+   "difficulty_budget": 152.8,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 1760
+    },
+    "spark_bonus": 90
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "cursed_barricade",
+    "grave_howitzer",
+    "grave_knight",
+    "hollow_guard",
+    "tomb_gargoyle",
+    "wraith_beacon"
+   ]
   },
   {
    "id": "s128",
@@ -21395,13 +22633,191 @@
    "tech_tier": "T5",
    "requires": "s127",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
-   "theme": "colossus_march",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
+   "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 128",
-   "status": "planned"
+   "enemy_hp_mult": 2.905,
+   "name": "Wailing Dunes",
+   "tagline": "The dunes are made of the dead, and the wind that crosses them is made of their souls.",
+   "enemy_base_hp": 9220,
+   "start_gold": 528,
+   "gold_rate": 28.2,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 7.78,
+     "group": 2,
+     "interval_min": 5.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 14.78,
+     "group": 1,
+     "interval_min": 9.72,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 36,
+     "interval": 28,
+     "group": 1,
+     "interval_min": 18,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "spirit_binder",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 290,
+     "spawn": [
+      [
+       "blackroot_abomination",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "soul_storm",
+    "interval": 11,
+    "wisps": 2,
+    "radius": 58,
+    "heal": 16,
+    "damage": 12,
+    "speed": 44,
+    "hp": 90
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 260,
+    "unlock": [
+     "brass_leviathan"
+    ]
+   },
+   "max_alive": 57,
+   "seed": 1014632,
+   "challenge": {
+    "kind": "base_above",
+    "frac": 0.6,
+    "text": "Never let the stronghold drop below 60%"
+   },
+   "difficulty_budget": 134.0,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "blackroot_abomination",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 91
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "blackroot_abomination",
+    "bone_wyvern",
+    "dread_executioner",
+    "riftbound_legionary",
+    "spirit_binder"
+   ]
   },
   {
    "id": "s129",
@@ -21411,13 +22827,211 @@
    "tech_tier": "T5",
    "requires": "s128",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "fortress_sky",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "ruined_citadel",
+   "theme": "final_gauntlet",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 129",
-   "status": "planned"
+   "enemy_hp_mult": 2.92,
+   "name": "Throne Road",
+   "tagline": "The last road to the Hollow Throne. The king's honour guard lines it, and every knight bows to no one.",
+   "enemy_base_hp": 9280,
+   "start_gold": 532,
+   "gold_rate": 28.349999999999998,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 7.95,
+     "group": 2,
+     "interval_min": 5.25,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 15.11,
+     "group": 1,
+     "interval_min": 9.94,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_knight",
+     "start": 40,
+     "interval": 48.28,
+     "group": 1,
+     "interval_min": 32.76,
+     "ramp": 0.97,
+     "until": 480
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 54,
+     "interval": 55.17,
+     "group": 1,
+     "interval_min": 37.93,
+     "ramp": 0.97,
+     "until": 480
+    },
+    {
+     "enemy": "dread_executioner",
+     "start": 68,
+     "interval": 62.07,
+     "group": 1,
+     "interval_min": 43.1,
+     "ramp": 0.97,
+     "until": 480
+    },
+    {
+     "enemy": "funeral_bell_keeper",
+     "start": 60,
+     "interval": 50,
+     "group": 1,
+     "interval_min": 36,
+     "ramp": 0.97,
+     "until": 360
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 320,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "dread_executioner",
+       2
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 263,
+    "unlock": [
+     "mountain_colossus"
+    ]
+   },
+   "max_alive": 58,
+   "seed": 1022551,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 46,
+    "text": "Lose at most 46 units"
+   },
+   "difficulty_budget": 154.3,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 92
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "dread_executioner",
+    "funeral_bell_keeper",
+    "grave_knight",
+    "hollow_guard",
+    "ossuary_champion",
+    "tomb_gargoyle"
+   ]
   },
   {
    "id": "s130",
@@ -21427,13 +23041,132 @@
    "tech_tier": "T5",
    "requires": "s129",
    "boss": "hollow_king",
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "endless_dead",
-   "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 130",
-   "status": "planned"
+   "implemented": true,
+   "milestone": "M008",
+   "env": "ruined_citadel",
+   "theme": "boss_hollow_king",
+   "victory": "kill_boss_then_destroy_citadel",
+   "enemy_hp_mult": 2.935,
+   "name": "Hall of the Hollow Crown",
+   "tagline": "The throne hall is open to the sky. On the throne sits a crown with nothing under it, and it rises.",
+   "enemy_base_hp": 10400,
+   "start_gold": 720,
+   "gold_rate": 28.5,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 3,
+     "interval": 15.29,
+     "group": 2,
+     "interval_min": 10.09,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 13,
+     "interval": 37.65,
+     "group": 1,
+     "interval_min": 24.85,
+     "ramp": 0.97,
+     "until": 680
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 23,
+     "interval": 35.29,
+     "group": 2,
+     "interval_min": 23.29,
+     "ramp": 0.97,
+     "until": 680
+    },
+    {
+     "enemy": "funeral_bell_keeper",
+     "start": 120,
+     "interval": 70,
+     "group": 1,
+     "interval_min": 50,
+     "ramp": 0.97,
+     "until": 330
+    }
+   ],
+   "events": [],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_knight",
+       2
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_champion",
+       2
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": {
+    "id": "hollow_king",
+    "t": 55
+   },
+   "rewards": {
+    "sparks": 480,
+    "unlock": [
+     "skyforge_dreadnought",
+     "kings_anvil"
+    ]
+   },
+   "max_alive": 58,
+   "seed": 1030470,
+   "challenge": {
+    "kind": "kill_boss_by",
+    "seconds": 600,
+    "text": "Slay the boss within 10:00 of its arrival"
+   },
+   "difficulty_budget": 61.5,
+   "heroic": {
+    "interval_mult": 0.92,
+    "hp_mult": 1.05,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 180,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "cursed_barricade",
+     "x": 2150
+    },
+    "spark_bonus": 168
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "funeral_bell_keeper",
+    "grave_knight",
+    "hollow_guard",
+    "ossuary_champion"
+   ]
   },
   {
    "id": "s131",
@@ -21443,13 +23176,185 @@
    "tech_tier": "T5",
    "requires": "s130",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "ruined_citadel",
-   "theme": "twin_front_siege",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 131",
-   "status": "planned"
+   "enemy_hp_mult": 2.95,
+   "name": "Riftfall",
+   "tagline": "The rift is falling apart, and pieces of it are falling here. Listen for the sky splitting.",
+   "enemy_base_hp": 9400,
+   "start_gold": 540,
+   "gold_rate": 28.65,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 9.62,
+     "group": 2,
+     "interval_min": 6.35,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 18.27,
+     "group": 1,
+     "interval_min": 12.02,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 20,
+     "interval": 25.81,
+     "group": 2,
+     "interval_min": 16.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 35,
+     "interval": 38.71,
+     "group": 1,
+     "interval_min": 24.19,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "rift_crow",
+       4
+      ],
+      [
+       "banshee_wing",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 320,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "rift_tears",
+    "interval": 17,
+    "warn": 1.5,
+    "open": 5.0,
+    "hp": 340,
+    "spill": 2,
+    "x0": 900,
+    "x1": 2000,
+    "pool": [
+     "riftbound_legionary",
+     "black_rot_infantry",
+     "night_seer"
+    ]
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 268,
+    "unlock": [
+     "arcwing_superiority_craft"
+    ]
+   },
+   "max_alive": 58,
+   "seed": 1038389,
+   "challenge": {
+    "kind": "no_spills",
+    "text": "Close every rift tear before it spills"
+   },
+   "difficulty_budget": 115.3,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 94
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "ossuary_juggernaut",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s132",
@@ -21459,13 +23364,183 @@
    "tech_tier": "T5",
    "requires": "s131",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
-   "theme": "final_gauntlet",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 132",
-   "status": "planned"
+   "enemy_hp_mult": 2.965,
+   "name": "The Walking Plague",
+   "tagline": "Something the size of a hill is walking out of the ash, and the ground rots where it steps.",
+   "enemy_base_hp": 9460,
+   "start_gold": 544,
+   "gold_rate": 28.8,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 7.95,
+     "group": 2,
+     "interval_min": 5.25,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "plague_mauler",
+     "start": 10,
+     "interval": 15.11,
+     "group": 1,
+     "interval_min": 9.94,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 40,
+     "interval": 30,
+     "group": 1,
+     "interval_min": 20,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "plague_mauler",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 330,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "plague_mauler",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 271,
+    "unlock": [
+     "dreadnought_landship"
+    ]
+   },
+   "max_alive": 58,
+   "seed": 1046308,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 46,
+    "text": "Lose at most 46 units"
+   },
+   "difficulty_budget": 126.6,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 95
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "dread_executioner",
+    "plague_colossus",
+    "plague_mauler",
+    "riftbound_legionary",
+    "spirit_binder"
+   ]
   },
   {
    "id": "s133",
@@ -21475,13 +23550,178 @@
    "tech_tier": "T5",
    "requires": "s132",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "rift_storm",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "fortress_sky",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 133",
-   "status": "planned"
+   "enemy_hp_mult": 2.98,
+   "name": "Shattered Sky Bridge",
+   "tagline": "A bridge of broken land over nothing. The sky above it is thick with wings.",
+   "enemy_base_hp": 9520,
+   "start_gold": 548,
+   "gold_rate": 28.95,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 8.93,
+     "group": 2,
+     "interval_min": 5.89,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 16.96,
+     "group": 1,
+     "interval_min": 11.16,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 12,
+     "interval": 17.95,
+     "group": 2,
+     "interval_min": 11.54,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 26,
+     "interval": 25.64,
+     "group": 1,
+     "interval_min": 16.67,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_drake",
+     "start": 40,
+     "interval": 33.33,
+     "group": 1,
+     "interval_min": 21.79,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 54,
+     "interval": 41.03,
+     "group": 1,
+     "interval_min": 26.92,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 180,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 274,
+    "unlock": [
+     "colossal_skybreaker"
+    ]
+   },
+   "max_alive": 59,
+   "seed": 1054227,
+   "challenge": {
+    "kind": "no_air_losses",
+    "text": "Lose no aircraft"
+   },
+   "difficulty_budget": 152.8,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 96
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "bone_drake",
+    "bone_wyvern",
+    "hollow_guard",
+    "necrotic_sky_serpent",
+    "ossuary_juggernaut",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s134",
@@ -21491,13 +23731,181 @@
    "tech_tier": "T5",
    "requires": "s133",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "colossus_march",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "twin_front_siege",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 134",
-   "status": "planned"
+   "enemy_hp_mult": 2.995,
+   "name": "Gate Wardens",
+   "tagline": "The wardens of the gate stand shield to shield, and the obelisks behind them hum with power.",
+   "enemy_base_hp": 9580,
+   "start_gold": 552,
+   "gold_rate": 29.099999999999998,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.33,
+     "group": 2,
+     "interval_min": 5.5,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 15.83,
+     "group": 1,
+     "interval_min": 10.42,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_conjurer",
+     "start": 60,
+     "interval": 44,
+     "group": 1,
+     "interval_min": 32,
+     "ramp": 0.97,
+     "until": 400
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       4
+      ],
+      [
+       "rift_crow",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       6
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       5
+      ],
+      [
+       "rift_conjurer",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       5
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "rift_obelisk",
+     "x": 2000
+    },
+    {
+     "enemy": "rift_obelisk",
+     "x": 2220
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 277,
+    "unlock": [
+     "hammerfall_goliath"
+    ]
+   },
+   "max_alive": 59,
+   "seed": 1062146,
+   "challenge": {
+    "kind": "kill_structures",
+    "text": "Destroy every undead support structure"
+   },
+   "difficulty_budget": 117.9,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "rift_conjurer",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 97
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "rift_conjurer",
+    "rift_crow",
+    "rift_obelisk",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s135",
@@ -21507,13 +23915,183 @@
    "tech_tier": "T5",
    "requires": "s134",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "ruined_citadel",
-   "theme": "fortress_sky",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 135",
-   "status": "planned"
+   "enemy_hp_mult": 3.01,
+   "name": "Maw Fields",
+   "tagline": "The fields are pocked with craters that breathe. One of them is getting up.",
+   "enemy_base_hp": 9640,
+   "start_gold": 556,
+   "gold_rate": 29.25,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 7.95,
+     "group": 2,
+     "interval_min": 5.25,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 10,
+     "interval": 15.11,
+     "group": 1,
+     "interval_min": 9.94,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "night_seer",
+     "start": 36,
+     "interval": 28,
+     "group": 1,
+     "interval_min": 18,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 330,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "hollow_guard",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 280,
+    "unlock": [
+     "mountain_ark"
+    ]
+   },
+   "max_alive": 59,
+   "seed": 1070065,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 48,
+    "text": "Lose at most 48 units"
+   },
+   "difficulty_budget": 128.8,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 98
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "cathedral_ghast",
+    "dread_executioner",
+    "hollow_guard",
+    "night_seer",
+    "rift_maw"
+   ]
   },
   {
    "id": "s136",
@@ -21523,13 +24101,174 @@
    "tech_tier": "T5",
    "requires": "s135",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
-   "theme": "endless_dead",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "fortress_sky",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 136",
-   "status": "planned"
+   "enemy_hp_mult": 3.025,
+   "name": "Sovereign's Shadow",
+   "tagline": "A shadow crosses the shards, too big for any cloud. Her heralds fly ahead of it.",
+   "enemy_base_hp": 9700,
+   "start_gold": 560,
+   "gold_rate": 29.4,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.93,
+     "group": 2,
+     "interval_min": 5.89,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 16.96,
+     "group": 1,
+     "interval_min": 11.16,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 12,
+     "interval": 25.93,
+     "group": 2,
+     "interval_min": 16.67,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_drake",
+     "start": 26,
+     "interval": 37.04,
+     "group": 1,
+     "interval_min": 24.07,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 40,
+     "interval": 48.15,
+     "group": 1,
+     "interval_min": 31.48,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 280,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 360,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "bone_drake",
+       1
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "bone_drake",
+       2
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "soul_turret",
+     "x": 2120
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 283,
+    "unlock": [
+     "embercore_titan"
+    ]
+   },
+   "max_alive": 59,
+   "seed": 1077984,
+   "challenge": {
+    "kind": "no_air_losses",
+    "text": "Lose no aircraft"
+   },
+   "difficulty_budget": 136.5,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2000
+    },
+    "spark_bonus": 99
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "necrotic_sky_serpent",
+    "riftbound_legionary",
+    "soul_turret"
+   ]
   },
   {
    "id": "s137",
@@ -21539,13 +24278,214 @@
    "tech_tier": "T5",
    "requires": "s136",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "twin_front_siege",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "ruined_citadel",
+   "theme": "endless_dead",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 137",
-   "status": "planned"
+   "enemy_hp_mult": 3.04,
+   "name": "The Drowned Crown",
+   "tagline": "The citadel sank into its own moat long ago. In the dark of the eclipse, its guns wake up.",
+   "enemy_base_hp": 9760,
+   "start_gold": 564,
+   "gold_rate": 29.55,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 7.95,
+     "group": 2,
+     "interval_min": 5.25,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 15.11,
+     "group": 1,
+     "interval_min": 9.94,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_howitzer",
+     "start": 50,
+     "interval": 68.75,
+     "group": 1,
+     "interval_min": 50.0,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 30,
+     "interval": 20.0,
+     "group": 1,
+     "interval_min": 13.75,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "night_seer",
+     "start": 40,
+     "interval": 30,
+     "group": 1,
+     "interval_min": 20,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 190,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "night_seer",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 320,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_howitzer",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "cursed_barricade",
+     "x": 2140
+    }
+   ],
+   "hazard": {
+    "kind": "eclipse",
+    "interval": 58,
+    "duration": 16,
+    "first": 45,
+    "range_mult": 0.75
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 286,
+    "unlock": [
+     "skyhammer_battleship"
+    ]
+   },
+   "max_alive": 60,
+   "seed": 1085903,
+   "challenge": {
+    "kind": "base_above",
+    "frac": 0.6,
+    "text": "Never let the stronghold drop below 60%"
+   },
+   "difficulty_budget": 165.7,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2020
+    },
+    "spark_bonus": 100
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "cursed_barricade",
+    "grave_howitzer",
+    "grave_knight",
+    "hollow_guard",
+    "night_seer",
+    "ossuary_champion",
+    "tomb_gargoyle"
+   ]
   },
   {
    "id": "s138",
@@ -21555,13 +24495,195 @@
    "tech_tier": "T5",
    "requires": "s137",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "final_gauntlet",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "twin_front_siege",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 138",
-   "status": "planned"
+   "enemy_hp_mult": 3.055,
+   "name": "Obelisk Line",
+   "tagline": "A line of obelisks and beacons stretches to the horizon. Break it, or the dead never stop coming.",
+   "enemy_base_hp": 9820,
+   "start_gold": 568,
+   "gold_rate": 29.7,
+   "tracks": [
+    {
+     "enemy": "riftbound_legionary",
+     "start": 2,
+     "interval": 8.14,
+     "group": 2,
+     "interval_min": 5.37,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 15.47,
+     "group": 1,
+     "interval_min": 10.17,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.81,
+     "group": 2,
+     "interval_min": 16.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 37,
+     "interval": 38.71,
+     "group": 1,
+     "interval_min": 24.19,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       4
+      ],
+      [
+       "rift_crow",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 190,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "rift_conjurer",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 310,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "rift_obelisk",
+     "x": 1780
+    },
+    {
+     "enemy": "rift_obelisk",
+     "x": 2040
+    },
+    {
+     "enemy": "rift_obelisk",
+     "x": 2260
+    },
+    {
+     "enemy": "wraith_beacon",
+     "x": 1920
+    },
+    {
+     "enemy": "wraith_beacon",
+     "x": 2160
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 288,
+    "unlock": [
+     "rune_citadel_airship"
+    ]
+   },
+   "max_alive": 60,
+   "seed": 1093822,
+   "challenge": {
+    "kind": "kill_structures",
+    "text": "Destroy every undead support structure"
+   },
+   "difficulty_budget": 135.3,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 1660
+    },
+    "spark_bonus": 101
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "grave_knight",
+    "rift_conjurer",
+    "rift_crow",
+    "rift_obelisk",
+    "riftbound_legionary",
+    "walking_crypt",
+    "wraith_beacon"
+   ]
   },
   {
    "id": "s139",
@@ -21571,13 +24693,217 @@
    "tech_tier": "T5",
    "requires": "s138",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "ruined_citadel",
-   "theme": "rift_storm",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
+   "theme": "endless_dead",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 139",
-   "status": "planned"
+   "enemy_hp_mult": 3.07,
+   "name": "Last Light of Stonehelm",
+   "tagline": "A messenger from Stonehelm: the home hold is besieged. Hold this ground and the siege breaks with you.",
+   "enemy_base_hp": 9880,
+   "start_gold": 900,
+   "gold_rate": 35.85,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 9.3,
+     "group": 2,
+     "interval_min": 6.4,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 15.12,
+     "group": 1,
+     "interval_min": 10.47,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "dread_executioner",
+     "start": 18,
+     "interval": 20.93,
+     "group": 1,
+     "interval_min": 14.53,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "night_seer",
+     "start": 20,
+     "interval": 20.93,
+     "group": 1,
+     "interval_min": 13.95,
+     "ramp": 0.97,
+     "until": 480
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 35,
+     "interval": 27.91,
+     "group": 1,
+     "interval_min": 18.6,
+     "ramp": 0.97,
+     "until": 480
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 18,
+     "interval": 20.93,
+     "group": 2,
+     "interval_min": 12.79,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 30,
+     "interval": 27.91,
+     "group": 1,
+     "interval_min": 17.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 90,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       6
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    {
+     "t": 180,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "dread_executioner",
+       4
+      ]
+     ]
+    },
+    {
+     "t": 270,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       4
+      ]
+     ]
+    },
+    {
+     "t": 360,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       5
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       4
+      ],
+      [
+       "bone_wyvern",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 291,
+    "unlock": [
+     "grand_forge_carrier"
+    ]
+   },
+   "max_alive": 60,
+   "seed": 1101741,
+   "challenge": {
+    "kind": "base_above",
+    "frac": 0.5,
+    "text": "Never let the stronghold drop below 50%"
+   },
+   "difficulty_budget": 166.1,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 102
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "cathedral_ghast",
+    "dread_executioner",
+    "night_seer",
+    "plague_colossus",
+    "riftbound_legionary",
+    "spirit_binder",
+    "walking_crypt"
+   ]
   },
   {
    "id": "s140",
@@ -21587,13 +24913,130 @@
    "tech_tier": "T5",
    "requires": "s139",
    "boss": "gravewing_sovereign",
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
-   "theme": "colossus_march",
-   "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 140",
-   "status": "planned"
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "boss_gravewing_sovereign",
+   "victory": "kill_boss_then_destroy_citadel",
+   "enemy_hp_mult": 3.085,
+   "name": "Eye of the Storm",
+   "tagline": "At the centre of the storm the air is still, and in the stillness something vast is circling.",
+   "enemy_base_hp": 10800,
+   "start_gold": 760,
+   "gold_rate": 30.0,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 3,
+     "interval": 13.0,
+     "group": 2,
+     "interval_min": 8.58,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 13,
+     "interval": 28.0,
+     "group": 1,
+     "interval_min": 18.48,
+     "ramp": 0.97,
+     "until": 680
+    },
+    {
+     "enemy": "hollow_guard",
+     "start": 23,
+     "interval": 34.0,
+     "group": 1,
+     "interval_min": 22.44,
+     "ramp": 0.97,
+     "until": 680
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 40,
+     "interval": 34,
+     "group": 1,
+     "interval_min": 22,
+     "ramp": 0.97,
+     "until": 560
+    }
+   ],
+   "events": [],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       2
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": {
+    "id": "gravewing_sovereign",
+    "t": 55
+   },
+   "rewards": {
+    "sparks": 540,
+    "unlock": [],
+    "banner": "storm_breaker"
+   },
+   "max_alive": 60,
+   "seed": 1109660,
+   "challenge": {
+    "kind": "kill_boss_by",
+    "seconds": 600,
+    "text": "Slay the boss within 10:00 of its arrival"
+   },
+   "difficulty_budget": 69.8,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 150,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 189
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "dread_executioner",
+    "hollow_guard",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s141",
@@ -21603,13 +25046,191 @@
    "tech_tier": "T5",
    "requires": "s140",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "fortress_sky",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 141",
-   "status": "planned"
+   "enemy_hp_mult": 3.1,
+   "name": "Edge of the Rift",
+   "tagline": "At the edge of the rift the world frays: souls blow out of it like smoke, and it tears wherever it likes.",
+   "enemy_base_hp": 10000,
+   "start_gold": 580,
+   "gold_rate": 30.15,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 9.62,
+     "group": 2,
+     "interval_min": 6.35,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 18.27,
+     "group": 1,
+     "interval_min": 12.02,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 26.23,
+     "group": 2,
+     "interval_min": 16.39,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 37,
+     "interval": 39.34,
+     "group": 1,
+     "interval_min": 24.59,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       4
+      ],
+      [
+       "rift_crow",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 320,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": [
+    {
+     "kind": "soul_storm",
+     "interval": 13,
+     "wisps": 2,
+     "radius": 58,
+     "heal": 16,
+     "damage": 12,
+     "speed": 44,
+     "hp": 90
+    },
+    {
+     "kind": "rift_tears",
+     "interval": 32,
+     "warn": 2.0,
+     "open": 6.0,
+     "hp": 380,
+     "spill": 3,
+     "x0": 900,
+     "x1": 2000,
+     "pool": [
+      "riftbound_legionary",
+      "grave_knight",
+      "spirit_binder"
+     ]
+    }
+   ],
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 297,
+    "unlock": []
+   },
+   "max_alive": 61,
+   "seed": 1117579,
+   "challenge": {
+    "kind": "no_spills",
+    "text": "Close every rift tear before it spills"
+   },
+   "difficulty_budget": 123.1,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 104
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "grave_knight",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s142",
@@ -21619,13 +25240,208 @@
    "tech_tier": "T5",
    "requires": "s141",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "endless_dead",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "necro_waste",
+   "theme": "final_gauntlet",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 142",
-   "status": "planned"
+   "enemy_hp_mult": 3.115,
+   "name": "The Unmade Legion",
+   "tagline": "Legionary, champion, executioner, knight: every soldier the dead ever made, unmade and remade for this.",
+   "enemy_base_hp": 10060,
+   "start_gold": 584,
+   "gold_rate": 30.3,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.33,
+     "group": 2,
+     "interval_min": 5.5,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 15.83,
+     "group": 1,
+     "interval_min": 10.42,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "dread_executioner",
+     "start": 30,
+     "interval": 32,
+     "group": 1,
+     "interval_min": 22,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 46,
+     "interval": 40,
+     "group": 1,
+     "interval_min": 28,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_knight",
+     "start": 60,
+     "interval": 44,
+     "group": 1,
+     "interval_min": 30,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_conjurer",
+     "start": 70,
+     "interval": 50,
+     "group": 1,
+     "interval_min": 36,
+     "ramp": 0.97,
+     "until": 420
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.81,
+     "group": 2,
+     "interval_min": 16.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 38.71,
+     "group": 1,
+     "interval_min": 24.19,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "dread_executioner",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       5
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       5
+      ],
+      [
+       "dread_executioner",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 300,
+    "unlock": []
+   },
+   "max_alive": 61,
+   "seed": 1125498,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 48,
+    "text": "Lose at most 48 units"
+   },
+   "difficulty_budget": 155.1,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "ossuary_champion",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 105
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "dread_executioner",
+    "grave_knight",
+    "ossuary_champion",
+    "rift_conjurer",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s143",
@@ -21635,13 +25451,175 @@
    "tech_tier": "T5",
    "requires": "s142",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "ruined_citadel",
-   "theme": "twin_front_siege",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "rift_sky",
+   "theme": "fortress_sky",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 143",
-   "status": "planned"
+   "enemy_hp_mult": 3.13,
+   "name": "Skyfortress Breach",
+   "tagline": "A fleet of rotting barges rides the rift winds toward the dwarven line. Meet it in the sky.",
+   "enemy_base_hp": 10120,
+   "start_gold": 588,
+   "gold_rate": 30.45,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 8.52,
+     "group": 2,
+     "interval_min": 5.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 16.19,
+     "group": 1,
+     "interval_min": 10.65,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 16,
+     "interval": 20,
+     "group": 2,
+     "interval_min": 13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 40,
+     "interval": 32,
+     "group": 1,
+     "interval_min": 22,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "necrotic_sky_serpent",
+     "start": 120,
+     "interval": 90,
+     "group": 1,
+     "interval_min": 70,
+     "ramp": 0.97,
+     "until": 480
+    }
+   ],
+   "events": [
+    {
+     "t": 120,
+     "spawn": [
+      [
+       "infected_airbarge",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 260,
+     "spawn": [
+      [
+       "infected_airbarge",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 380,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "infected_airbarge",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "rift_crow",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 303,
+    "unlock": []
+   },
+   "max_alive": 61,
+   "seed": 1133417,
+   "challenge": {
+    "kind": "no_air_losses",
+    "text": "Lose no aircraft"
+   },
+   "difficulty_budget": 116.0,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 106
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "hollow_guard",
+    "infected_airbarge",
+    "necrotic_sky_serpent",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s144",
@@ -21651,13 +25629,188 @@
    "tech_tier": "T5",
    "requires": "s143",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "realm_gate",
-   "theme": "final_gauntlet",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "ruined_citadel",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 144",
-   "status": "planned"
+   "enemy_hp_mult": 3.145,
+   "name": "Ossuary of Kings",
+   "tagline": "The undead kings are buried here, a thousand deep. Their chapels walk, and their champions answer the bells.",
+   "enemy_base_hp": 10180,
+   "start_gold": 592,
+   "gold_rate": 30.599999999999998,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 8.54,
+     "group": 2,
+     "interval_min": 5.63,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 10,
+     "interval": 16.22,
+     "group": 1,
+     "interval_min": 10.67,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_caller",
+     "start": 40,
+     "interval": 32,
+     "group": 1,
+     "interval_min": 22,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.0,
+     "group": 2,
+     "interval_min": 15.62,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 37,
+     "interval": 37.5,
+     "group": 1,
+     "interval_min": 23.44,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "ossuary_champion",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 300,
+     "spawn": [
+      [
+       "ossuary_champion",
+       2
+      ],
+      [
+       "ossuary_caller",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 380,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 306,
+    "unlock": []
+   },
+   "max_alive": 61,
+   "seed": 1141336,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 48,
+    "text": "Lose at most 48 units"
+   },
+   "difficulty_budget": 145.0,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 107
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "cathedral_ghast",
+    "hollow_guard",
+    "ossuary_caller",
+    "ossuary_champion",
+    "tomb_gargoyle"
+   ]
   },
   {
    "id": "s145",
@@ -21667,13 +25820,200 @@
    "tech_tier": "T5",
    "requires": "s144",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "necro_waste",
-   "theme": "rift_storm",
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "twin_front_siege",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 145",
-   "status": "planned"
+   "enemy_hp_mult": 3.16,
+   "name": "Rift Bastion",
+   "tagline": "The dead have fortified the last approach: walls, obelisks, turrets, guns. Take it apart.",
+   "enemy_base_hp": 10240,
+   "start_gold": 596,
+   "gold_rate": 30.75,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.33,
+     "group": 2,
+     "interval_min": 5.5,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 15.83,
+     "group": 1,
+     "interval_min": 10.42,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_howitzer",
+     "start": 70,
+     "interval": 70,
+     "group": 1,
+     "interval_min": 52,
+     "ramp": 0.97,
+     "until": 400
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.81,
+     "group": 2,
+     "interval_min": 16.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 37,
+     "interval": 38.71,
+     "group": 1,
+     "interval_min": 24.19,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_wyvern",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 200,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "rift_conjurer",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 320,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       2
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "bone_wyvern",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "rift_obelisk",
+     "x": 1960
+    },
+    {
+     "enemy": "rift_obelisk",
+     "x": 2200
+    },
+    {
+     "enemy": "wraith_beacon",
+     "x": 2080
+    },
+    {
+     "enemy": "cursed_barricade",
+     "x": 1820
+    }
+   ],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 308,
+    "unlock": []
+   },
+   "max_alive": 62,
+   "seed": 1149255,
+   "challenge": {
+    "kind": "kill_structures",
+    "text": "Destroy every undead support structure"
+   },
+   "difficulty_budget": 123.8,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "walking_crypt",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 1700
+    },
+    "spark_bonus": 108
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "cursed_barricade",
+    "grave_howitzer",
+    "grave_knight",
+    "rift_conjurer",
+    "rift_obelisk",
+    "riftbound_legionary",
+    "walking_crypt",
+    "wraith_beacon"
+   ]
   },
   {
    "id": "s146",
@@ -21683,13 +26023,185 @@
    "tech_tier": "T5",
    "requires": "s145",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "rift_sky",
-   "theme": "colossus_march",
+   "theme": "rift_storm",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 146",
-   "status": "planned"
+   "enemy_hp_mult": 3.175,
+   "name": "Storm of Souls",
+   "tagline": "The rift exhales, and the sky fills with the souls of everyone the dead ever took. Shoot them down.",
+   "enemy_base_hp": 10300,
+   "start_gold": 600,
+   "gold_rate": 30.9,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 8.93,
+     "group": 2,
+     "interval_min": 5.89,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 16.96,
+     "group": 1,
+     "interval_min": 11.16,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 40,
+     "interval": 30,
+     "group": 1,
+     "interval_min": 20,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 26.23,
+     "group": 2,
+     "interval_min": 16.39,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_drake",
+     "start": 37,
+     "interval": 39.34,
+     "group": 1,
+     "interval_min": 24.59,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 190,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "spirit_binder",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 310,
+     "spawn": [
+      [
+       "ossuary_juggernaut",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       3
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "riftbound_legionary",
+       4
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "soul_storm",
+    "interval": 8,
+    "wisps": 2,
+    "radius": 58,
+    "heal": 15,
+    "damage": 11,
+    "speed": 44,
+    "hp": 90
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 311,
+    "unlock": []
+   },
+   "max_alive": 62,
+   "seed": 1157174,
+   "challenge": {
+    "kind": "base_above",
+    "frac": 0.6,
+    "text": "Never let the stronghold drop below 60%"
+   },
+   "difficulty_budget": 126.4,
+   "heroic": {
+    "interval_mult": 0.95,
+    "hp_mult": 1.03,
+    "ability_lead": 0.8,
+    "event": {
+     "t": 240,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "cursed_barricade",
+     "x": 2390
+    },
+    "spark_bonus": 109
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "dread_executioner",
+    "ossuary_juggernaut",
+    "riftbound_legionary",
+    "spirit_binder"
+   ]
   },
   {
    "id": "s147",
@@ -21699,13 +26211,192 @@
    "tech_tier": "T5",
    "requires": "s146",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "ruined_citadel",
-   "theme": "fortress_sky",
+   "theme": "colossus_march",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 147",
-   "status": "planned"
+   "enemy_hp_mult": 3.19,
+   "name": "The Black Steps",
+   "tagline": "Two colossi climb the black steps side by side. Between them there is no room for anything else.",
+   "enemy_base_hp": 10360,
+   "start_gold": 604,
+   "gold_rate": 31.05,
+   "tracks": [
+    {
+     "enemy": "hollow_guard",
+     "start": 2,
+     "interval": 8.33,
+     "group": 2,
+     "interval_min": 5.5,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "black_rot_infantry",
+     "start": 10,
+     "interval": 15.83,
+     "group": 1,
+     "interval_min": 10.42,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_caller",
+     "start": 44,
+     "interval": 34,
+     "group": 1,
+     "interval_min": 24,
+     "ramp": 0.97,
+     "until": 460
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 22,
+     "interval": 25.81,
+     "group": 2,
+     "interval_min": 16.13,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "tomb_gargoyle",
+     "start": 37,
+     "interval": 38.71,
+     "group": 1,
+     "interval_min": 24.19,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "banshee_wing",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 160,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "hollow_guard",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 240,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    {
+     "t": 360,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "dread_executioner",
+       3
+      ],
+      [
+       "tomb_gargoyle",
+       3
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 314,
+    "unlock": []
+   },
+   "max_alive": 62,
+   "seed": 1165093,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 50,
+    "text": "Lose at most 50 units"
+   },
+   "difficulty_budget": 131.6,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 210,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 110
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "cathedral_ghast",
+    "dread_executioner",
+    "hollow_guard",
+    "ossuary_caller",
+    "ossuary_champion",
+    "plague_colossus",
+    "rift_maw",
+    "tomb_gargoyle"
+   ]
   },
   {
    "id": "s148",
@@ -21715,13 +26406,216 @@
    "tech_tier": "T5",
    "requires": "s147",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "realm_gate",
-   "theme": "endless_dead",
+   "theme": "twin_front_siege",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 148",
-   "status": "planned"
+   "enemy_hp_mult": 3.205,
+   "name": "Threshold",
+   "tagline": "The threshold of the undead realm. Whatever is on the other side is watching how you cross.",
+   "enemy_base_hp": 10420,
+   "start_gold": 608,
+   "gold_rate": 31.2,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 16.0,
+     "group": 2,
+     "interval_min": 11.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 26.0,
+     "group": 1,
+     "interval_min": 18.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "grave_knight",
+     "start": 18,
+     "interval": 36.0,
+     "group": 1,
+     "interval_min": 25.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "rift_conjurer",
+     "start": 20,
+     "interval": 36.0,
+     "group": 1,
+     "interval_min": 24.0,
+     "ramp": 0.97,
+     "until": 400
+    },
+    {
+     "enemy": "night_seer",
+     "start": 35,
+     "interval": 48.0,
+     "group": 1,
+     "interval_min": 32.0,
+     "ramp": 0.97,
+     "until": 400
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 18,
+     "interval": 36.0,
+     "group": 2,
+     "interval_min": 22.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 30,
+     "interval": 48.0,
+     "group": 1,
+     "interval_min": 30.0,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 170,
+     "spawn": [
+      [
+       "cathedral_ghast",
+       1
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 270,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       4
+      ]
+     ]
+    },
+    {
+     "t": 350,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_knight",
+       3
+      ],
+      [
+       "bone_wyvern",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "infected_airbarge",
+       1
+      ],
+      [
+       "hollow_guard",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [
+    {
+     "enemy": "rift_obelisk",
+     "x": 2240
+    }
+   ],
+   "hazard": {
+    "kind": "rift_tears",
+    "interval": 50,
+    "warn": 2.0,
+    "open": 6.0,
+    "hp": 380,
+    "spill": 3,
+    "x0": 1300,
+    "x1": 2000,
+    "pool": [
+     "riftbound_legionary",
+     "grave_knight",
+     "spirit_binder"
+    ]
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 317,
+    "unlock": []
+   },
+   "max_alive": 62,
+   "seed": 1173012,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 50,
+    "text": "Lose at most 50 units"
+   },
+   "difficulty_budget": 122.3,
+   "heroic": {
+    "interval_mult": 0.95,
+    "hp_mult": 1.03,
+    "ability_lead": 0.8,
+    "event": {
+     "t": 240,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "cursed_barricade",
+     "x": 2390
+    },
+    "spark_bonus": 111
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "cathedral_ghast",
+    "grave_knight",
+    "hollow_guard",
+    "infected_airbarge",
+    "necrotic_sky_serpent",
+    "night_seer",
+    "rift_conjurer",
+    "rift_maw",
+    "rift_obelisk",
+    "riftbound_legionary"
+   ]
   },
   {
    "id": "s149",
@@ -21731,13 +26625,211 @@
    "tech_tier": "T5",
    "requires": "s148",
    "boss": null,
-   "implemented": false,
-   "milestone": "M008+",
+   "implemented": true,
+   "milestone": "M008",
    "env": "necro_waste",
-   "theme": "twin_front_siege",
+   "theme": "final_gauntlet",
    "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 149",
-   "status": "planned"
+   "enemy_hp_mult": 3.22,
+   "name": "The Final Muster",
+   "tagline": "Everything the dead have left stands between the army and the gate. Everything the dwarves have stands against it.",
+   "enemy_base_hp": 10480,
+   "start_gold": 612,
+   "gold_rate": 31.349999999999998,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 2,
+     "interval": 16.0,
+     "group": 2,
+     "interval_min": 11.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 10,
+     "interval": 26.0,
+     "group": 1,
+     "interval_min": 18.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "ossuary_champion",
+     "start": 18,
+     "interval": 36.0,
+     "group": 1,
+     "interval_min": 25.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "spirit_binder",
+     "start": 20,
+     "interval": 36.0,
+     "group": 1,
+     "interval_min": 24.0,
+     "ramp": 0.97,
+     "until": 300
+    },
+    {
+     "enemy": "rift_conjurer",
+     "start": 35,
+     "interval": 48.0,
+     "group": 1,
+     "interval_min": 32.0,
+     "ramp": 0.97,
+     "until": 300
+    },
+    {
+     "enemy": "banshee_wing",
+     "start": 18,
+     "interval": 36.0,
+     "group": 2,
+     "interval_min": 22.0,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "bone_wyvern",
+     "start": 30,
+     "interval": 48.0,
+     "group": 1,
+     "interval_min": 30.0,
+     "ramp": 0.97,
+     "until": -1
+    }
+   ],
+   "events": [
+    {
+     "t": 150,
+     "spawn": [
+      [
+       "plague_colossus",
+       1
+      ],
+      [
+       "dread_executioner",
+       2
+      ]
+     ]
+    },
+    {
+     "t": 250,
+     "spawn": [
+      [
+       "necrotic_sky_serpent",
+       1
+      ],
+      [
+       "infected_airbarge",
+       1
+      ]
+     ]
+    },
+    {
+     "t": 350,
+     "spawn": [
+      [
+       "rift_maw",
+       1
+      ],
+      [
+       "grave_knight",
+       2
+      ]
+     ]
+    }
+   ],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "ossuary_champion",
+       3
+      ],
+      [
+       "bone_drake",
+       1
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "cursed_ironclad",
+       1
+      ],
+      [
+       "riftbound_legionary",
+       4
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": {
+    "kind": "soul_storm",
+    "interval": 14,
+    "wisps": 2,
+    "radius": 58,
+    "heal": 16,
+    "damage": 12,
+    "speed": 44,
+    "hp": 90
+   },
+   "boss_spawn": null,
+   "rewards": {
+    "sparks": 320,
+    "unlock": []
+   },
+   "max_alive": 62,
+   "seed": 1180931,
+   "challenge": {
+    "kind": "max_losses",
+    "n": 54,
+    "text": "Lose at most 54 units"
+   },
+   "difficulty_budget": 100.6,
+   "heroic": {
+    "interval_mult": 0.92,
+    "hp_mult": 1.05,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 240,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       3
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "cursed_barricade",
+     "x": 2150
+    },
+    "spark_bonus": 112
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_drake",
+    "bone_wyvern",
+    "cursed_ironclad",
+    "dread_executioner",
+    "grave_knight",
+    "infected_airbarge",
+    "necrotic_sky_serpent",
+    "ossuary_champion",
+    "plague_colossus",
+    "rift_conjurer",
+    "rift_maw",
+    "riftbound_legionary",
+    "spirit_binder"
+   ]
   },
   {
    "id": "s150",
@@ -21747,13 +26839,132 @@
    "tech_tier": "T5",
    "requires": "s149",
    "boss": "rift_lich",
-   "implemented": false,
-   "milestone": "M008+",
-   "env": "rift_sky",
-   "theme": "final_gauntlet",
-   "victory": "destroy_citadel",
-   "name": "The Black Rift \u2014 Stage 150",
-   "status": "planned"
+   "implemented": true,
+   "milestone": "M008",
+   "env": "realm_gate",
+   "theme": "boss_rift_lich",
+   "victory": "kill_boss_then_destroy_citadel",
+   "enemy_hp_mult": 3.235,
+   "name": "Into the Black Rift",
+   "tagline": "The gate stands open on the Black Rift. Its master steps out to meet the last army of the dwarves.",
+   "enemy_base_hp": 11200,
+   "start_gold": 800,
+   "gold_rate": 31.5,
+   "tracks": [
+    {
+     "enemy": "black_rot_infantry",
+     "start": 3,
+     "interval": 13.0,
+     "group": 2,
+     "interval_min": 8.58,
+     "ramp": 0.97,
+     "until": -1
+    },
+    {
+     "enemy": "riftbound_legionary",
+     "start": 13,
+     "interval": 26.0,
+     "group": 1,
+     "interval_min": 17.16,
+     "ramp": 0.97,
+     "until": 720
+    },
+    {
+     "enemy": "rift_crow",
+     "start": 23,
+     "interval": 22.0,
+     "group": 2,
+     "interval_min": 14.52,
+     "ramp": 0.97,
+     "until": 720
+    },
+    {
+     "enemy": "night_seer",
+     "start": 70,
+     "interval": 44,
+     "group": 1,
+     "interval_min": 30,
+     "ramp": 0.97,
+     "until": 580
+    }
+   ],
+   "events": [],
+   "triggers": [
+    {
+     "hp_below": 0.6,
+     "spawn": [
+      [
+       "grave_knight",
+       2
+      ],
+      [
+       "banshee_wing",
+       3
+      ]
+     ]
+    },
+    {
+     "hp_below": 0.3,
+     "spawn": [
+      [
+       "ossuary_champion",
+       2
+      ],
+      [
+       "bone_wyvern",
+       2
+      ]
+     ]
+    }
+   ],
+   "structures": [],
+   "hazard": null,
+   "boss_spawn": {
+    "id": "rift_lich",
+    "t": 60
+   },
+   "rewards": {
+    "sparks": 600,
+    "unlock": [],
+    "banner": "rift_sealer"
+   },
+   "max_alive": 62,
+   "seed": 1188850,
+   "challenge": {
+    "kind": "kill_boss_by",
+    "seconds": 720,
+    "text": "Slay the boss within 12:00 of its arrival"
+   },
+   "difficulty_budget": 67.7,
+   "heroic": {
+    "interval_mult": 0.85,
+    "hp_mult": 1.12,
+    "ability_lead": 0.45,
+    "event": {
+     "t": 150,
+     "spawn": [
+      [
+       "black_rot_infantry",
+       4
+      ]
+     ]
+    },
+    "structure": {
+     "enemy": "rift_obelisk",
+     "x": 2120
+    },
+    "spark_bonus": 210
+   },
+   "enemy_roster": [
+    "banshee_wing",
+    "black_rot_infantry",
+    "bone_wyvern",
+    "grave_knight",
+    "night_seer",
+    "ossuary_champion",
+    "rift_crow",
+    "riftbound_legionary"
+   ]
   }
  ]
 }

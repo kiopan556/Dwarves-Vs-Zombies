@@ -107,8 +107,17 @@ func _ready() -> void:
 	g.add_theme_constant_override("h_separation", 24)
 	pv.add_child(g)
 	g.add_child(UiKit.label("Reset campaign", 20))
-	reset_btn = UiKit.danger("Reset all progress", _reset, Vector2(360, 52), 18)
-	g.add_child(reset_btn)
+	var prow = HBoxContainer.new()
+	prow.add_theme_constant_override("separation", 10)
+	reset_btn = UiKit.danger("Reset all progress", _reset, Vector2(240, 52), 18)
+	prow.add_child(reset_btn)
+	# M008: replay the ending (and credits) once the Black Rift has been sealed
+	var rp = UiKit.button("Replay ending" if GameState.rift_sealed() else "Replay ending (seal the Rift first)", func():
+		GameState.ending_credits_only = false
+		GameState.goto("ending"), Vector2(240, 52), 16)
+	rp.disabled = not GameState.rift_sealed()
+	prow.add_child(rp)
+	g.add_child(prow)
 	var stats: Dictionary = GameState.profile.stats
 	v.add_child(UiKit.label("Victories %d · Defeats %d · Undead destroyed %d · Save: %s" % [int(stats.victories), int(stats.defeats), int(stats.kills), ProjectSettings.globalize_path(SaveManager.path)], 14, UiKit.TEXT_DIM, HORIZONTAL_ALIGNMENT_CENTER))
 	v.add_child(UiKit.label("Dwarves vs Zombies %s · Godot %s" % [ProjectSettings.get_setting("application/config/version"), Engine.get_version_info().string], 14, UiKit.TEXT_DIM, HORIZONTAL_ALIGNMENT_CENTER))

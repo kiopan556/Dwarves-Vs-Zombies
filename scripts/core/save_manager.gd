@@ -29,11 +29,17 @@ static func default_profile() -> Dictionary:
 		"tutorial_done": [],      # M005: guided stages (s001-s003) whose tutorial has finished
 		"acts_revealed": [1],     # M005: acts whose title cartouche has played on the Realm Map
 		"heroic": {},             # M007: stage_id -> {stars: [3 bools], clears, best_time} for Heroic clears (separate stars)
+		"last_stand": {},         # M008: arena_id -> {best_wave, best_score, best_kills, runs}
+		"cosmetics": {"banners": [], "titles": [], "banner": "", "title": ""},   # M008: cosmetic rewards only (never power)
+		"units_used": [],         # M008: dwarven unit ids ever deployed in a campaign battle (completion page)
+		"ending_seen": false,     # M008: the ending sequence has played at least once
+		"last_stand_day": {"day": "", "sparks": 0},   # M008: Last Stand gives no Sparks; kept so a future cap has a home
 		"settings": {"master": 0.8, "music": 0.6, "sfx": 0.8, "quality": "low" if OS.has_feature("mobile") else "high", "perf_patch": 1, "shake": true, "speed": 1.0, "mech_doctrine": "standard",
 			"tutorial": true, "hints": true, "motion": true,   # M006: motion = the unit motion layer (off = reduced motion)
 			"ui_sounds": false},   # M007: button tap sounds (off by default — the tap "cling" was removed)
 		"stats": {"battles": 0, "victories": 0, "defeats": 0, "kills": 0, "escorts": 0,   # M006: escorts = supply barges delivered
-			"salvaged": 0, "reclaimed": 0, "heroic_clears": 0},   # M007: wrecks salvaged / lost to reclamation, Heroic clears
+			"salvaged": 0, "reclaimed": 0, "heroic_clears": 0,   # M007: wrecks salvaged / lost to reclamation, Heroic clears
+			"tears_closed": 0, "wisps_shot": 0, "last_stand_runs": 0},   # M008
 	}
 
 
@@ -113,6 +119,24 @@ static func migrate(p: Dictionary) -> Dictionary:
 			p.heroic[hk] = {"stars": [true, false, false], "clears": 1, "best_time": 0.0}
 		else:
 			he["clears"] = int(he.get("clears", 1))
+	# M008: Last Stand records, cosmetics and the completion data (repair malformed entries)
+	if not (p.last_stand is Dictionary):
+		p.last_stand = {}
+	for ak in p.last_stand.keys():
+		var r = p.last_stand[ak]
+		if not (r is Dictionary):
+			p.last_stand[ak] = {"best_wave": 0, "best_score": 0, "best_kills": 0, "runs": 0}
+		else:
+			for f in ["best_wave", "best_score", "best_kills", "runs"]:
+				r[f] = int(r.get(f, 0))
+	if not (p.cosmetics is Dictionary):
+		p.cosmetics = d.cosmetics.duplicate(true)
+	for ck in d.cosmetics.keys():
+		if not p.cosmetics.has(ck):
+			p.cosmetics[ck] = d.cosmetics[ck]
+	if not (p.units_used is Array):
+		p.units_used = []
+	p.ending_seen = bool(p.ending_seen)
 	for name in p.loadouts.keys():
 		var arr: Array = p.loadouts[name]
 		while arr.size() < 12:

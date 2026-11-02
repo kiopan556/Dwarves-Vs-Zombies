@@ -23,6 +23,11 @@ func setup(b) -> void:
 	foundry_item.z_as_relative = false
 	foundry_item.z_index = -58
 	add_child(foundry_item)
+	rift_item = RiftPaint.new()
+	rift_item.battle = b
+	rift_item.z_as_relative = false
+	rift_item.z_index = -56
+	add_child(rift_item)
 	shadow_item = ShadowPaint.new()
 	shadow_item.battle = b
 	shadow_item.z_as_relative = false
@@ -53,6 +58,91 @@ class ShadowPaint extends Node2D:
 
 var shadow_item: ShadowPaint
 var foundry_item: FoundryPaint
+var rift_item: RiftPaint
+
+
+## M008 Act V under the units: rift tears (a crack of violet light while it splits, then a tall portal with a
+## swirl of motes and a spill-progress ring), the obelisk ward's faint threads, eclipse light pools on the ground,
+## and the rift column behind the airborne Rift Lich. DOT quads, arcs and short polylines only (batched).
+class RiftPaint extends Node2D:
+	var battle
+
+	func _draw() -> void:
+		if battle == null:
+			return
+		var vr: Rect2 = battle.view_rect
+		var gy = Combat.GROUND_Y
+		var tm: float = battle.time
+		var vio = Color(0.72, 0.4, 1.0)
+		# the Rift Lich's rift: a vertical wound in the sky behind it while it fights from the air
+		if battle.lich_rift > 0.01 and battle.boss != null and is_instance_valid(battle.boss):
+			var bx: float = battle.boss.position.x
+			var k: float = battle.lich_rift
+			for j in 9:
+				var yy = lerpf(40.0, gy - 30.0, float(j) / 8.0)
+				var ww = (26.0 + 18.0 * sin(tm * 2.0 + j * 0.9)) * k * (1.0 - absf(float(j) - 3.0) / 9.0)
+				draw_texture_rect(FxLayer.DOT, Rect2(bx - ww, yy - 40.0, ww * 2.0, 80.0), false, Color(0.45, 0.18, 0.7, 0.28 * k))
+			draw_line(Vector2(bx, 40.0), Vector2(bx + 6.0 * sin(tm * 3.0), gy - 60.0), Color(0.95, 0.85, 1.0, 0.7 * k), 3.0)
+		# eclipse: warm light pools on the ground under every light source (the area that keeps full range)
+		if battle.eclipse_k > 0.02:
+			for ls in battle.light_sources:
+				var lx: float = ls.x
+				var r: float = ls.r
+				if vr.size != Vector2.ZERO and (lx + r < vr.position.x or lx - r > vr.end.x):
+					continue
+				var warm = Color(1.0, 0.8, 0.4) if int(ls.side) == 0 else Color(0.6, 1.0, 0.6)
+				draw_texture_rect(FxLayer.DOT, Rect2(lx - r, gy - 16.0, r * 2.0, 34.0), false, Color(warm, 0.22 * battle.eclipse_k))
+				draw_arc(Vector2(lx, gy + 2.0), r, PI * 1.08, PI * 1.92, 20, Color(warm, 0.35 * battle.eclipse_k), 2.0)
+		# obelisk ward: faint violet threads from each obelisk to the units it shields
+		for pr in battle.obelisk_links:
+			var o = pr[0]
+			var e = pr[1]
+			if not is_instance_valid(o) or not is_instance_valid(e):
+				continue
+			var a: Vector2 = o.position + Vector2(0, -92)
+			var bpt: Vector2 = e.aim_point()
+			var mid = (a + bpt) * 0.5 + Vector2(0, -16.0 + 5.0 * sin(tm * 6.0 + e.serial))
+			draw_polyline(PackedVector2Array([a, mid, bpt]), Color(vio, 0.28), 1.5)
+		# rift tears
+		for tr in battle.tears:
+			var x: float = tr.x
+			if vr.size != Vector2.ZERO and (x < vr.position.x - 90.0 or x > vr.end.x + 90.0):
+				continue
+			var t: float = tr.t
+			var warn: float = tr.warn
+			if t < warn:
+				# the crack: a jagged violet line splitting upward from the ground, flickering faster as it opens
+				var k = t / maxf(0.01, warn)
+				var hgt = 20.0 + 90.0 * k
+				var pts = PackedVector2Array()
+				for j in 7:
+					var fy = float(j) / 6.0
+					pts.append(Vector2(x + (float((j * 37 + int(tr.seed)) % 13) - 6.0) * (0.4 + k), gy - hgt * fy))
+				var fl = 1.0 if int(t * (6.0 + k * 14.0)) % 2 == 0 else 0.55
+				draw_polyline(pts, Color(0.95, 0.85, 1.0, 0.9 * fl), 2.0 + 2.0 * k)
+				draw_texture_rect(FxLayer.DOT, Rect2(x - 30.0 - 20.0 * k, gy - hgt - 10.0, 60.0 + 40.0 * k, hgt + 24.0), false, Color(vio, 0.25 + 0.3 * k))
+			else:
+				var open_k = clampf((t - warn) / maxf(0.01, float(tr.open)), 0.0, 1.0)
+				var pulse = 0.5 + 0.5 * sin(tm * 6.0 + float(tr.seed))
+				# the portal: a tall lens of violet, darker at the core, with motes swirling in
+				var h2 = 120.0
+				var w2 = 26.0 + 4.0 * pulse
+				var lens = PackedVector2Array()
+				for j in 14:
+					var a2 = TAU * float(j) / 14.0
+					lens.append(Vector2(x + cos(a2) * w2, gy - h2 * 0.5 + sin(a2) * h2 * 0.5))
+				draw_colored_polygon(lens, Color(0.2, 0.06, 0.3, 0.85))
+				draw_polyline(lens + PackedVector2Array([lens[0]]), Color(0.9, 0.7, 1.0, 0.85), 2.5)
+				draw_texture_rect(FxLayer.DOT, Rect2(x - w2 * 2.2, gy - h2 - 20.0, w2 * 4.4, h2 + 40.0), false, Color(vio, 0.22 + 0.12 * pulse))
+				for j in 10:
+					var ph = fposmod(tm * 0.6 + float(j) * 0.1, 1.0)
+					var ang = tm * 2.0 + float(j) * 0.63
+					var rr = (1.0 - ph) * 54.0
+					var mp = Vector2(x, gy - h2 * 0.5) + Vector2(cos(ang) * rr * 0.6, sin(ang) * rr)
+					draw_texture_rect(FxLayer.DOT, Rect2(mp - Vector2(3, 3), Vector2(6, 6)), false, Color(0.9, 0.75, 1.0, 0.8 * ph))
+				# spill progress ring (the tear spills when it closes)
+				draw_arc(Vector2(x, gy - h2 - 22.0), 10.0, -PI * 0.5, -PI * 0.5 + TAU * open_k, 18, Color(1.0, 0.5, 0.85, 0.95), 3.0)
+				draw_arc(Vector2(x, gy - h2 - 22.0), 10.0, 0, TAU, 18, Color(0.2, 0.1, 0.25, 0.6), 1.0)
 
 
 ## M007 foundry hazards under the units: vent grates (glowing when about to erupt), the slag river, burst
@@ -153,6 +243,7 @@ func _draw() -> void:
 	_draw_thermals(vr)
 	_draw_bolts(vr)
 	_draw_foundry_over(vr)
+	_draw_rift_over(vr)
 	for c in battle.miasma_clouds:
 		var x: float = c.x
 		var r: float = c.r
@@ -286,6 +377,63 @@ func _draw_foundry_over(vr: Rect2) -> void:
 			draw_line(a, Vector2(a.x - 6.0, 40.0), Color(0.25, 0.23, 0.22), 2.0)
 		# telegraph shadow on the lane, darker as it falls
 		draw_texture_rect(FxLayer.DOT, Rect2(x2 - hl, gy - 8.0, hl * 2.0, 16.0), false, Color(0, 0, 0, 0.2 + 0.4 * clampf(t2 / warn, 0.0, 1.0)))
+
+
+## M008 over-unit Act V effects: soul wisp trails, the Hollow King's crown over the crowned elite, the Sovereign's
+## gales and drag vortex, and the eclipse's darkness (with warm halos over the light sources).
+func _draw_rift_over(vr: Rect2) -> void:
+	var tm: float = battle.time
+	for w in battle.wisps:
+		var u = w.unit
+		if u == null or not is_instance_valid(u) or not u.alive:
+			continue
+		var p: Vector2 = u.position
+		if vr.size != Vector2.ZERO and (p.x < vr.position.x - 60.0 or p.x > vr.end.x + 60.0):
+			continue
+		for j in 5:
+			var tp = p + Vector2(10.0 + j * 9.0, sin(tm * 3.0 + j * 0.8 + float(w.ph)) * 5.0)
+			var r = 9.0 - j * 1.4
+			draw_texture_rect(FxLayer.DOT, Rect2(tp - Vector2(r, r), Vector2(r, r) * 2.0), false, Color(0.62, 1.0, 0.86, 0.28 - j * 0.045))
+		draw_texture_rect(FxLayer.DOT, Rect2(p - Vector2(22, 22), Vector2(44, 44)), false, Color(0.55, 1.0, 0.8, 0.2))
+		# its reach on the ground below
+		draw_texture_rect(FxLayer.DOT, Rect2(p.x - float(w.r), Combat.GROUND_Y - 6.0, float(w.r) * 2.0, 12.0), false, Color(0.5, 1.0, 0.8, 0.08))
+	var c = battle.crowned
+	if c != null and is_instance_valid(c) and c.alive:
+		var cp: Vector2 = c.position + Vector2(0, -Painter.art_height(c.art) * c.art_scale - 18.0 + sin(tm * 3.0) * 3.0)
+		var gold = Color(1.0, 0.82, 0.3)
+		draw_texture_rect(FxLayer.DOT, Rect2(cp - Vector2(26, 20), Vector2(52, 40)), false, Color(0.75, 0.45, 1.0, 0.3))
+		draw_colored_polygon(PackedVector2Array([cp + Vector2(-12, 5), cp + Vector2(-12, -4), cp + Vector2(-7, 1), cp + Vector2(0, -9), cp + Vector2(7, 1), cp + Vector2(12, -4), cp + Vector2(12, 5)]), gold)
+		draw_line(cp + Vector2(-12, 5), cp + Vector2(12, 5), Color(0.5, 0.35, 0.1), 2.0)
+		draw_circle(cp + Vector2(0, -1), 2.2, Color(0.75, 0.4, 1.0))
+		draw_arc(Vector2(c.position.x, Combat.GROUND_Y + 2.0), 200.0, PI * 1.1, PI * 1.9, 24, Color(0.75, 0.45, 1.0, 0.3), 2.0)
+		var kb = battle.boss
+		if kb != null and is_instance_valid(kb) and kb.alive:
+			var a: Vector2 = kb.aim_point()
+			var mid = (a + cp) * 0.5 + Vector2(0, -40.0)
+			draw_polyline(PackedVector2Array([cp, mid, a]), Color(0.8, 0.55, 1.0, 0.35 + 0.15 * sin(tm * 5.0)), 2.0)
+	if battle.sky_gale_t > 0.0 and vr.size != Vector2.ZERO:
+		var gk = clampf(battle.sky_gale_t, 0.0, 1.0)
+		for j in 18:
+			var yy = 90.0 + float((j * 53) % 280)
+			var xx = vr.end.x - fposmod(tm * 900.0 + float(j) * 157.0, vr.size.x + 300.0)
+			draw_line(Vector2(xx, yy), Vector2(xx + 120.0, yy + 6.0), Color(0.85, 0.85, 1.0, 0.35 * gk), 2.0)
+	if battle.sky_pull_t > 0.0 and battle.boss != null and is_instance_valid(battle.boss):
+		var bp: Vector2 = battle.boss.position
+		for j in 4:
+			var rr = fposmod(260.0 - tm * 220.0 + j * 65.0, 260.0) + 30.0
+			draw_arc(bp, rr, tm * 2.0 + j, tm * 2.0 + j + PI * 1.3, 24, Color(0.7, 0.5, 0.95, 0.4 * (1.0 - rr / 300.0)), 3.0)
+	if battle.eclipse_k > 0.02 and vr.size != Vector2.ZERO:
+		var ek: float = battle.eclipse_k
+		draw_rect(Rect2(vr.position - Vector2(40, 40), vr.size + Vector2(80, 80)), Color(0.03, 0.01, 0.07, 0.56 * ek))
+		for ls in battle.light_sources:
+			var lx: float = ls.x
+			if lx < vr.position.x - 200.0 or lx > vr.end.x + 200.0:
+				continue
+			var warm = Color(1.0, 0.82, 0.45) if int(ls.side) == 0 else Color(0.55, 1.0, 0.55)
+			# the light pool rises from the ground under the source (a flying scout lights the lane below it)
+			draw_texture_rect(FxLayer.DOT, Rect2(lx - float(ls.r) * 0.8, Combat.GROUND_Y - 200.0, float(ls.r) * 1.6, 240.0), false, Color(warm, 0.18 * ek))
+			if float(ls.y) < Combat.GROUND_Y - 60.0:
+				draw_colored_polygon(PackedVector2Array([Vector2(lx - 8.0, float(ls.y) + 10.0), Vector2(lx + 8.0, float(ls.y) + 10.0), Vector2(lx + float(ls.r) * 0.5, Combat.GROUND_Y), Vector2(lx - float(ls.r) * 0.5, Combat.GROUND_Y)]), Color(warm, 0.07 * ek))
 
 
 ## M006 lightning: a flickering warning fork over the target, then the bolt and a screen flash.

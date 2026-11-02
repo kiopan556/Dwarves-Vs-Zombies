@@ -1714,5 +1714,15 @@
   "guns": 0,
   "cargo": true,
   "h": 86
+ },
+ "rift_tear": {
+  "fam": "prop",
+  "kind": "rift_tear",
+  "h": 96
+ },
+ "soul_wisp": {
+  "fam": "prop",
+  "kind": "soul_wisp",
+  "h": 26
  }
 }

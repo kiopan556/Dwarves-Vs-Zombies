@@ -27,6 +27,24 @@ func _ready() -> void:
 		for i in n:
 			await get_tree().process_frame
 		print("SCENE %s frame %.2f ms draw_calls=%d objects=%d" % [args.scene, (Time.get_ticks_usec() - t0) / 1000.0 / n, Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME), Performance.get_monitor(Performance.RENDER_TOTAL_OBJECTS_IN_FRAME)])
+		if args.has("layers"):
+			# M008: draw calls saved by hiding each subtree (3 levels deep) - where a screen's budget goes
+			var all_dc = Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+			var stack: Array = [[sc, 0]]
+			while not stack.is_empty():
+				var it = stack.pop_back()
+				var nd = it[0]
+				if nd is CanvasItem and nd.visible and nd != sc:
+					nd.visible = false
+					await get_tree().process_frame
+					await get_tree().process_frame
+					var saved = all_dc - Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+					nd.visible = true
+					if saved >= 40:
+						print("SUBTREE %s%s (%s) saves %d of %d" % ["  ".repeat(int(it[1])), nd.name, nd.get_class(), saved, all_dc])
+				if int(it[1]) < 4:
+					for c in nd.get_children():
+						stack.append([c, int(it[1]) + 1])
 		get_tree().quit()
 		return
 	if args.has("stage"):
@@ -261,4 +279,17 @@ func _bench_stage() -> void:
 	var total = Time.get_ticks_usec() - t_start
 	print("STAGEBENCH s%03d t=%.0fs units_on_screen=%d alive_now=%d peak_alive=%d | frame %.2f ms | logic %.2f ms | draw calls avg %d max %d" % [i, b.time, best_n,
 		b.alive_count(0) + b.alive_count(1), peak, total / 1000.0 / frames, logic_us / 1000.0 / frames, dc_sum / frames, dc_max])
+	if args.has("layers"):
+		# M008: draw calls with each battle layer hidden in turn (where the budget goes on a real stage)
+		await get_tree().process_frame
+		var all_dc = Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+		var cands: Array = b.get_children() + [inst.hud]
+		for n in cands:
+			if not (n is CanvasItem) or not n.visible:
+				continue
+			n.visible = false
+			await get_tree().process_frame
+			await get_tree().process_frame
+			print("LAYER -%s (%s) saves %d of %d" % [n.name, n.get_class(), all_dc - Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME), all_dc])
+			n.visible = true
 	get_tree().quit()

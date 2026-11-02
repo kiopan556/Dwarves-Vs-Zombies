@@ -30,6 +30,11 @@ const ENVS := {
 	"destroyed_forge": {"sky": ["160c0a", "4a1a12", "8a3418"], "far": "3a221c", "mid": "261814", "ground": "3a2e28", "kind": "destroyed_forge"},
 	"infested_factory": {"sky": ["141412", "2a2a26", "4a4a40"], "far": "2e2c28", "mid": "22201c", "ground": "38342c", "kind": "infested_factory"},
 	"mech_graveyard":  {"sky": ["3a2c22", "8a6a4a", "c8a272"], "far": "6a5444", "mid": "4a3a30", "ground": "3a3028", "kind": "mech_graveyard"},
+	# M008 Act V — the Black Rift: void black, rift violet, corpse-light green and bone white
+	"necro_waste":     {"sky": ["26252a", "59555a", "958c84"], "far": "8a8276", "mid": "4a4644", "ground": "4a4642", "kind": "necro_waste"},
+	"rift_sky":        {"sky": ["0e0820", "3a2264", "8a52aa"], "far": "3a2c48", "mid": "2a2034", "ground": "4a4252", "kind": "rift_sky"},
+	"ruined_citadel":  {"sky": ["1a1226", "4e3254", "a8645a"], "far": "1e1a24", "mid": "141218", "ground": "3a3638", "kind": "ruined_citadel"},
+	"realm_gate":      {"sky": ["06040c", "1c1030", "3a2050"], "far": "1a1424", "mid": "120e18", "ground": "2a2430", "kind": "realm_gate"},
 }
 ## Storm variant (stages with a lightning storm): the same sky pushed toward slate and violet.
 const STORM_SKY := ["1e2034", "4a4a6a", "8a86a0"]
@@ -42,13 +47,16 @@ func _ready() -> void:
 	z_index = -100
 	queue_redraw()
 	var e: Dictionary = ENVS.get(env, {})
-	if String(e.get("kind", "")) in ["plains", "broken_ridge", "airborne", "shattered_fort", "industrial_city", "destroyed_forge", "mech_graveyard"]:
+	if String(e.get("kind", "")) in ["plains", "broken_ridge", "airborne", "shattered_fort", "industrial_city", "destroyed_forge", "mech_graveyard",
+			"necro_waste", "rift_sky"]:
 		# M006: drifting cumulus on its own parallax layer (one batched draw; moving it costs nothing)
 		sky_layer = CloudLayer.new()
 		sky_layer.storm = storm
 		sky_layer.dense = String(e.kind) == "airborne"
 		sky_layer.overcast = String(e.kind) == "shattered_fort"
 		sky_layer.smog = String(e.kind) in ["industrial_city", "destroyed_forge", "mech_graveyard"]   # M007: drifting smoke
+		sky_layer.ash = String(e.kind) == "necro_waste"     # M008: ash storms over the bone dunes
+		sky_layer.rift = String(e.kind) == "rift_sky"       # M008: violet rift-cloud drifting toward the rift
 		add_child(sky_layer)
 		set_process(true)
 	else:
@@ -193,6 +201,14 @@ func _draw() -> void:
 			_infested_factory(W, far, midc)
 		"mech_graveyard":
 			_mech_graveyard(W, far, midc)
+		"necro_waste":
+			_necro_waste(W, far, midc)
+		"rift_sky":
+			_rift_sky(W, far, midc)
+		"ruined_citadel":
+			_ruined_citadel(W, far, midc)
+		"realm_gate":
+			_realm_gate(W, far, midc)
 	if storm and kind in ["plains", "broken_ridge", "airborne", "shattered_fort"]:
 		# storm light: everything behind the lane sinks into slate
 		draw_rect(Rect2(-200, -60, W + 200, Combat.GROUND_Y + 40), Color(0.12, 0.1, 0.22, 0.32))
@@ -200,6 +216,9 @@ func _draw() -> void:
 	var gc = Color(e.ground)
 	if kind == "airborne":
 		_causeway(W, gc)
+		return
+	if kind == "rift_sky":
+		_shard_causeway(W, gc)
 		return
 	draw_rect(Rect2(-200, Combat.GROUND_Y - 22, W + 200, 300), gc)
 	draw_rect(Rect2(-200, Combat.GROUND_Y - 24, W + 200, 4), gc.lightened(0.15))
@@ -258,6 +277,8 @@ func _draw() -> void:
 				draw_polyline(PackedVector2Array([p0, p0 + Vector2(30, 14), p0 + Vector2(64, 10), p0 + Vector2(90, 26)]), gc.darkened(0.35), 3.0)
 	if kind in ["industrial_city", "destroyed_forge", "infested_factory", "mech_graveyard"]:
 		_foundry_ground(W, gc, kind)
+	if kind in ["necro_waste", "ruined_citadel", "realm_gate"]:
+		_rift_ground(W, gc, kind)
 	if kind in ["cavern", "mine_mouth", "cavern_water", "fungal_mine"]:
 		draw_line(Vector2(-200, Combat.GROUND_Y + 30), Vector2(W, Combat.GROUND_Y + 30), Color(0.35, 0.33, 0.32), 3.0)
 		draw_line(Vector2(-200, Combat.GROUND_Y + 40), Vector2(W, Combat.GROUND_Y + 40), Color(0.35, 0.33, 0.32), 3.0)
@@ -563,7 +584,7 @@ func _broken_ridge(W: float, far: Color, midc: Color) -> void:
 			draw_texture_rect(FxLayer.DOT, Rect2(cx - cr, Combat.GROUND_Y - 26 - k * 12 - cr, cr * 2.0, cr * 1.5), false, Color(0.62, 0.6, 0.56))
 
 
-func _island(c: Vector2, w: float, top_col: Color, rock: Color, tower: bool, seed_v: int) -> void:
+func _island(c: Vector2, w: float, top_col: Color, rock: Color, tower: bool, seed_v: int, fall: Color = Color(0.85, 0.95, 1.0, 0.4)) -> void:
 	var r = RandomNumberGenerator.new()
 	r.seed = seed_v
 	# the rock: a lit upper band and a shadowed, tapering underside with jagged drips
@@ -601,8 +622,8 @@ func _island(c: Vector2, w: float, top_col: Color, rock: Color, tower: bool, see
 		draw_rect(Rect2(tx + w * 0.04, c.y - th * 0.35, w * 0.05, w * 0.07), Color(0.05, 0.05, 0.08, 0.8))
 	# a waterfall spilling off the edge into the cloud
 	var wx = c.x + w * 0.3
-	draw_line(Vector2(wx, c.y + 2), Vector2(wx + 3, c.y + w * 1.1), Color(0.85, 0.95, 1.0, 0.4), 5.0)
-	draw_line(Vector2(wx + 1, c.y + 2), Vector2(wx + 3, c.y + w * 0.9), Color(1, 1, 1, 0.6), 2.0)
+	draw_line(Vector2(wx, c.y + 2), Vector2(wx + 3, c.y + w * 1.1), fall, 5.0)
+	draw_line(Vector2(wx + 1, c.y + 2), Vector2(wx + 3, c.y + w * 0.9), Color(fall.lightened(0.4), minf(1.0, fall.a * 1.5)), 2.0)
 
 
 func _airborne(W: float, far: Color, midc: Color) -> void:
@@ -1020,6 +1041,352 @@ func _foundry_ground(W: float, gc: Color, kind: String) -> void:
 				Painter.cog(self, Vector2(gx2, Combat.GROUND_Y + 110), 30.0, Color(0.32, 0.24, 0.18), 10)
 
 
+# =============================================================== M008 Act V environments
+func _necro_waste(W: float, far: Color, midc: Color) -> void:
+	# a dead sun behind the ash; bone dunes; ribcage arches of something enormous; skull mounds
+	var sun = Vector2(W * 0.38, 150)
+	draw_circle(sun, 64, Color(0.85, 0.82, 0.74, 0.12))
+	draw_circle(sun, 42, Color(0.8, 0.78, 0.72, 0.4))
+	draw_circle(sun, 40, Color(0.36, 0.34, 0.33, 0.85))
+	draw_arc(sun, 41, 0, TAU, 40, Color(0.92, 0.9, 0.82, 0.55), 2.0)
+	# far bone dunes: long, smooth, pale swells
+	var r = RandomNumberGenerator.new()
+	r.seed = 5101
+	var dunes = PackedVector2Array([Vector2(-200, Combat.GROUND_Y)])
+	var x = -200.0
+	while x <= W + 60.0:
+		dunes.append(Vector2(x, Combat.GROUND_Y - 150.0 - 34.0 * sin(x * 0.0042 + 1.0) - 16.0 * sin(x * 0.011)))
+		x += 40.0
+	dunes.append(Vector2(W + 60, Combat.GROUND_Y))
+	draw_colored_polygon(dunes, far)
+	# ash streaks lying in the dune hollows
+	var streaks = PackedVector2Array()
+	for i in 40:
+		var sx = r.randf_range(-100, W)
+		var sy = Combat.GROUND_Y - 120.0 - 34.0 * sin(sx * 0.0042 + 1.0) - 16.0 * sin(sx * 0.011) + r.randf_range(0, 50)
+		streaks.append_array([Vector2(sx, sy), Vector2(sx + r.randf_range(30, 90), sy + r.randf_range(-3, 3))])
+	draw_multiline(streaks, far.lightened(0.12), 2.0)
+	# ribcage arches: pairs of huge curved ribs rising out of the dunes, with a spine along the top
+	var bone = Color("cfc6b2")
+	var bone_d = bone.darkened(0.35)
+	for rx in [380.0, 1260.0, 2120.0]:
+		var base_y = Combat.GROUND_Y - 70.0
+		var spine = PackedVector2Array()
+		for k in 7:
+			var cx = rx + k * 34.0
+			var h = 150.0 + 30.0 * sin(float(k) / 6.0 * PI)
+			var rib = PackedVector2Array()
+			for j in 10:
+				var f = float(j) / 9.0
+				rib.append(Vector2(cx - 40.0 * sin(f * PI) * 0.6 + f * 12.0, base_y - h * sin(f * PI * 0.5)))
+			draw_polyline(rib, bone_d, 9.0 - k * 0.3)
+			draw_polyline(rib, bone, 5.0 - k * 0.2)
+			spine.append(rib[rib.size() - 1])
+		draw_polyline(spine, bone_d, 10.0)
+		draw_polyline(spine, bone.darkened(0.1), 6.0)
+		for p in spine:
+			_disc(p, 6.0, 6.0, bone)
+	_layer(hash(env) + 4, Combat.GROUND_Y - 62.0, 9.0, 80.0, midc, 0.4)
+	# skull mounds and grave markers on the shelf behind the lane
+	for i in 14:
+		var mx = r.randf_range(-80, W)
+		var my = Combat.GROUND_Y - 30.0
+		_disc(Vector2(mx, my + 6), 34.0, 16.0, midc.lightened(0.06), 14, PI, TAU)
+		for k in 3:
+			var sp = Vector2(mx - 16 + k * 15, my - 2 - (k % 2) * 7)
+			_disc(sp, 6.0, 6.0, bone.darkened(0.15))
+			_disc(sp + Vector2(-2, 0), 1.6, 1.6, Color(0.1, 0.09, 0.08), 5)
+			_disc(sp + Vector2(2, 0), 1.6, 1.6, Color(0.1, 0.09, 0.08), 5)
+	for i in 10:
+		var gx = r.randf_range(-80, W)
+		var gy = Combat.GROUND_Y - 24.0
+		var lean = r.randf_range(-0.25, 0.25)
+		var up = Vector2(sin(lean), -cos(lean))
+		draw_line(Vector2(gx, gy), Vector2(gx, gy) + up * 30.0, Color(0.28, 0.25, 0.22), 4.0)
+		draw_line(Vector2(gx, gy) + up * 22.0 - Vector2(cos(lean), sin(lean)) * 9.0, Vector2(gx, gy) + up * 22.0 + Vector2(cos(lean), sin(lean)) * 9.0, Color(0.28, 0.25, 0.22), 4.0)
+	_flush_discs()
+
+
+func _rift_sky(W: float, far: Color, midc: Color) -> void:
+	# a violet sky cracked by glowing rifts; shards of land pulled toward the rift (the right)
+	var cracks = PackedVector2Array()
+	var glow = PackedVector2Array()
+	var r = RandomNumberGenerator.new()
+	r.seed = 5202
+	for i in 7:
+		var p = Vector2(r.randf_range(0, W), r.randf_range(30, 220))
+		for k in 6:
+			var q = p + Vector2(r.randf_range(30, 70), r.randf_range(-26, 26))
+			cracks.append_array([p, q])
+			if k % 2 == 0:
+				glow.append_array([p, q])
+			p = q
+	draw_multiline(glow, Color(0.75, 0.45, 1.0, 0.25), 9.0)
+	draw_multiline(cracks, Color(0.95, 0.85, 1.0, 0.75), 2.0)
+	# the rift's pull: faint streaks all running right
+	var streaks = PackedVector2Array()
+	for i in 30:
+		var sp = Vector2(r.randf_range(-100, W), r.randf_range(240, Combat.GROUND_Y - 120))
+		streaks.append_array([sp, sp + Vector2(r.randf_range(60, 140), r.randf_range(-6, 2))])
+	draw_multiline(streaks, Color(0.7, 0.5, 0.95, 0.12), 2.0)
+	# floating shards (dark rock with a violet underglow), tilted toward the rift
+	var isles = [[Vector2(260, 240), 140.0], [Vector2(700, 180), 80.0], [Vector2(1120, 260), 170.0], [Vector2(1580, 200), 90.0], [Vector2(1980, 250), 130.0], [Vector2(2400, 190), 100.0]]
+	for i in isles.size():
+		var c: Vector2 = isles[i][0]
+		var w: float = isles[i][1]
+		draw_texture_rect(FxLayer.DOT, Rect2(c.x - w * 0.6, c.y - w * 0.05, w * 1.2, w * 0.8), false, Color(0.7, 0.35, 1.0, 0.22))
+		_island(c, w, Color(0.32, 0.26, 0.36), far.darkened(0.1), i % 2 == 0, 5300 + i, Color(0.75, 0.5, 1.0, 0.3))
+	_layer(hash(env) + 4, Combat.GROUND_Y + 30.0, 10.0, 90.0, midc.darkened(0.1), 0.5)
+
+
+## The Act V shard causeway: a broken bridge of dark stone over nothing, rift light pouring up from below.
+func _shard_causeway(W: float, gc: Color) -> void:
+	draw_polygon(PackedVector2Array([Vector2(-200, Combat.GROUND_Y - 40), Vector2(W, Combat.GROUND_Y - 40), Vector2(W, Combat.GROUND_Y + 300), Vector2(-200, Combat.GROUND_Y + 300)]),
+		PackedColorArray([Color(0.5, 0.2, 0.75, 0.0), Color(0.5, 0.2, 0.75, 0.0), Color(0.75, 0.45, 1.0, 0.75), Color(0.75, 0.45, 1.0, 0.75)]))
+	var rock = Color(0.2, 0.17, 0.24)
+	var under = PackedVector2Array([Vector2(-200, Combat.GROUND_Y - 22)])
+	var r = RandomNumberGenerator.new()
+	r.seed = 5404
+	var x = -200.0
+	while x <= W:
+		under.append(Vector2(x, Combat.GROUND_Y + 30 + r.randf_range(10, 60) + 30.0 * absf(sin(x * 0.005))))
+		x += 50.0
+	under.append(Vector2(W, Combat.GROUND_Y - 22))
+	draw_colored_polygon(under, rock)
+	draw_rect(Rect2(-200, Combat.GROUND_Y - 22, W + 200, 30), gc)
+	draw_rect(Rect2(-200, Combat.GROUND_Y - 24, W + 200, 4), gc.lightened(0.2))
+	var joints = PackedVector2Array()
+	var px = -200.0
+	while px < W:
+		joints.append_array([Vector2(px, Combat.GROUND_Y - 20), Vector2(px + r.randf_range(-8, 8), Combat.GROUND_Y + 8)])
+		px += r.randf_range(30, 60)
+	draw_multiline(joints, gc.darkened(0.35), 2.0)
+	# glowing fissures in the stone and loose shards floating below the bridge
+	for i in 18:
+		var fx0 = r.randf_range(-100, W)
+		draw_line(Vector2(fx0, Combat.GROUND_Y + 2), Vector2(fx0 + r.randf_range(10, 30), Combat.GROUND_Y + 8), Color(0.85, 0.6, 1.0, 0.6), 2.0)
+	for i in 16:
+		var sp = Vector2(r.randf_range(-100, W), Combat.GROUND_Y + r.randf_range(110, 240))
+		var sw = r.randf_range(10, 28)
+		draw_colored_polygon(PackedVector2Array([sp + Vector2(-sw, 0), sp + Vector2(0, -sw * 0.4), sp + Vector2(sw, 0), sp + Vector2(0, sw * 0.9)]), rock.lightened(0.05))
+	draw_polygon(PackedVector2Array([Vector2(Combat.WORLD_W * 0.62, Combat.GROUND_Y - 22), Vector2(W, Combat.GROUND_Y - 22), Vector2(W, Combat.GROUND_Y + 8), Vector2(Combat.WORLD_W * 0.62, Combat.GROUND_Y + 8)]),
+		PackedColorArray([Color(0.45, 0.25, 0.6, 0.0), Color(0.45, 0.25, 0.6, 0.4), Color(0.45, 0.25, 0.6, 0.4), Color(0.45, 0.25, 0.6, 0.0)]))
+
+
+func _ruined_citadel(W: float, far: Color, midc: Color) -> void:
+	# bruised dusk; tiered black citadel walls climbing toward the right (far tiers hazy, near tiers black), spires,
+	# corpse-light windows, and dusk rim light along the battlements
+	draw_circle(Vector2(W * 0.2, 250), 90, Color(1.0, 0.55, 0.45, 0.08))
+	draw_circle(Vector2(W * 0.2, 250), 40, Color(1.0, 0.65, 0.5, 0.18))
+	var green = Color(0.45, 1.0, 0.55, 0.6)
+	var rim = Color(1.0, 0.55, 0.42, 0.55)
+	var r = RandomNumberGenerator.new()
+	r.seed = 5505
+	for tier in [2, 1, 0]:
+		var y0 = Combat.GROUND_Y - 130.0 - tier * 78.0
+		var x0 = 120.0 + tier * 480.0
+		var col = far.lerp(Color(0.32, 0.24, 0.36), tier * 0.33)
+		var wall = PackedVector2Array([Vector2(x0, Combat.GROUND_Y), Vector2(x0, y0)])
+		var cx = x0
+		var tops = PackedVector2Array()
+		while cx < W + 100.0:
+			wall.append(Vector2(cx, y0))
+			wall.append(Vector2(cx, y0 - 12))
+			wall.append(Vector2(cx + 14, y0 - 12))
+			wall.append(Vector2(cx + 14, y0))
+			tops.append_array([Vector2(cx, y0 - 12), Vector2(cx + 14, y0 - 12)])
+			cx += 28.0
+		wall.append(Vector2(W + 100, Combat.GROUND_Y))
+		draw_colored_polygon(wall, col)
+		draw_multiline(tops, Color(rim, 0.25 + 0.15 * (2 - tier)), 2.0)
+		# buttresses with pointed arches between them
+		var bx = x0 + 40.0
+		while bx < W:
+			draw_rect(Rect2(bx, y0 + 6, 18, Combat.GROUND_Y - y0), col.darkened(0.25))
+			draw_line(Vector2(bx, y0 + 6), Vector2(bx + 18, y0 + 6), Color(rim, 0.2), 2.0)
+			var ax = bx + 70.0
+			var ah = 44.0
+			draw_colored_polygon(PackedVector2Array([Vector2(ax - 20, y0 + 80), Vector2(ax - 20, y0 + 80 - ah * 0.6), Vector2(ax, y0 + 80 - ah), Vector2(ax + 20, y0 + 80 - ah * 0.6), Vector2(ax + 20, y0 + 80)]), col.darkened(0.45))
+			if r.randf() < 0.45:
+				draw_rect(Rect2(ax - 4, y0 + 52, 8, 16), green)
+			bx += 150.0
+		# spires
+		for k in 3:
+			var sx = x0 + 160 + k * 640 + tier * 90
+			if sx > W:
+				continue
+			var sh = 120.0 + tier * 40.0 + r.randf_range(0, 50)
+			draw_rect(Rect2(sx - 12, y0 - sh, 24, sh), col.darkened(0.1))
+			draw_line(Vector2(sx - 12, y0 - sh), Vector2(sx - 12, y0), Color(rim, 0.3), 2.0)
+			draw_colored_polygon(PackedVector2Array([Vector2(sx - 16, y0 - sh), Vector2(sx, y0 - sh - 70), Vector2(sx + 16, y0 - sh)]), col.darkened(0.2))
+			draw_line(Vector2(sx - 16, y0 - sh), Vector2(sx, y0 - sh - 70), Color(rim, 0.4), 2.0)
+			draw_rect(Rect2(sx - 3, y0 - sh + 22, 6, 12), green)
+	# broken courtyard walls in the middle distance
+	var mw = PackedVector2Array([Vector2(-200, Combat.GROUND_Y)])
+	var mx = -200.0
+	while mx < W + 50.0:
+		mw.append(Vector2(mx, Combat.GROUND_Y - 60.0 - r.randf_range(0, 40)))
+		mx += r.randf_range(30, 80)
+		if r.randf() < 0.25:
+			mw.append(Vector2(mx, Combat.GROUND_Y - 30.0))
+			mx += r.randf_range(40, 90)
+			mw.append(Vector2(mx, Combat.GROUND_Y - 30.0))
+	mw.append(Vector2(W + 50, Combat.GROUND_Y))
+	draw_colored_polygon(mw, midc)
+	# toppled statues of undead kings lying behind the lane: a crowned, robed figure on its side
+	var stone = Color(0.24, 0.22, 0.26)
+	for sx2 in [520.0, 1500.0, 2280.0]:
+		var sy = Combat.GROUND_Y - 38.0
+		draw_colored_polygon(PackedVector2Array([Vector2(sx2 - 90, sy + 14), Vector2(sx2 - 80, sy - 10), Vector2(sx2 + 40, sy - 18), Vector2(sx2 + 70, sy - 4), Vector2(sx2 + 60, sy + 14)]), stone)
+		draw_circle(Vector2(sx2 + 82, sy - 6), 16.0, stone.lightened(0.04))
+		draw_colored_polygon(PackedVector2Array([Vector2(sx2 + 96, sy - 20), Vector2(sx2 + 112, sy - 26), Vector2(sx2 + 104, sy - 14), Vector2(sx2 + 116, sy - 8), Vector2(sx2 + 98, sy + 4)]), Color(0.42, 0.36, 0.22))
+		draw_circle(Vector2(sx2 + 88, sy - 10), 2.5, Color(0.45, 1.0, 0.55, 0.6))
+		draw_line(Vector2(sx2 - 70, sy), Vector2(sx2 + 30, sy - 8), stone.darkened(0.4), 2.0)
+		draw_rect(Rect2(sx2 - 130, sy - 6, 30, 26), stone.darkened(0.1))
+
+
+func _realm_gate(W: float, far: Color, midc: Color) -> void:
+	# THE RIFT: a vast vertical tear in the sky over the gate, with the gate of bone and black iron before it
+	var rx = 1980.0
+	var vio = Color(0.72, 0.4, 1.0)
+	for k in 6:
+		var ww = 260.0 - k * 38.0
+		draw_texture_rect(FxLayer.DOT, Rect2(rx - ww, -40, ww * 2.0, Combat.GROUND_Y - 40), false, Color(vio, 0.1 + k * 0.035))
+	var tear = PackedVector2Array()
+	var edge_l = PackedVector2Array()
+	var edge_r = PackedVector2Array()
+	for j in 16:
+		var f = float(j) / 15.0
+		var y = lerpf(-40.0, Combat.GROUND_Y - 140.0, f)
+		var w = 70.0 * sin(f * PI) * (0.75 + 0.25 * sin(f * 9.0))
+		edge_l.append(Vector2(rx - w + sin(f * 17.0) * 8.0, y))
+		edge_r.append(Vector2(rx + w * 0.8 + sin(f * 13.0) * 8.0, y))
+	tear.append_array(edge_l)
+	var rev = edge_r.duplicate()
+	rev.reverse()
+	tear.append_array(rev)
+	draw_colored_polygon(tear, Color(0.92, 0.82, 1.0))
+	var inner = PackedVector2Array()
+	for p in tear:
+		inner.append(Vector2(rx + (p.x - rx) * 0.55, p.y))
+	draw_colored_polygon(inner, Color(0.2, 0.05, 0.28))
+	draw_polyline(edge_l, Color(1, 1, 1, 0.9), 3.0)
+	draw_polyline(edge_r, Color(1, 1, 1, 0.9), 3.0)
+	# far ranges in silhouette, rim-lit violet toward the rift
+	_layer(hash(env) + 1, Combat.GROUND_Y - 150.0, 18.0, 100.0, far)
+	# the gate: two bone pillars, an arch of ribs, a black iron portcullis half raised
+	var bone = Color("d6ccb6")
+	var iron = Color(0.08, 0.07, 0.1)
+	var gx0 = rx - 150.0
+	var gx1 = rx + 150.0
+	var gb = Combat.GROUND_Y - 40.0
+	for px in [gx0, gx1]:
+		draw_rect(Rect2(px - 26, gb - 260, 52, 260), bone.darkened(0.3))
+		draw_rect(Rect2(px - 20, gb - 260, 40, 260), bone.darkened(0.12))
+		for k in 7:
+			draw_line(Vector2(px - 22, gb - 30 - k * 34), Vector2(px + 22, gb - 36 - k * 34), bone.darkened(0.45), 3.0)
+		draw_circle(Vector2(px, gb - 276), 24.0, bone)
+		draw_circle(Vector2(px - 8, gb - 278), 5.0, Color(0.45, 1.0, 0.55, 0.9))
+		draw_circle(Vector2(px + 8, gb - 278), 5.0, Color(0.45, 1.0, 0.55, 0.9))
+	var arch = PackedVector2Array()
+	for j in 17:
+		var a = PI + PI * float(j) / 16.0
+		arch.append(Vector2(rx + cos(a) * 150.0, gb - 250.0 + sin(a) * 90.0))
+	draw_polyline(arch, bone.darkened(0.35), 16.0)
+	draw_polyline(arch, bone, 10.0)
+	for j in range(1, 16, 2):
+		draw_line(arch[j], arch[j] + (arch[j] - Vector2(rx, gb - 250.0)).normalized() * 30.0, bone.darkened(0.15), 6.0)
+	var bars = PackedVector2Array()
+	for k in 9:
+		var bx = gx0 + 30 + k * 30.0
+		bars.append_array([Vector2(bx, gb - 250), Vector2(bx, gb - 120)])
+	bars.append_array([Vector2(gx0 + 26, gb - 180), Vector2(gx1 - 26, gb - 180), Vector2(gx0 + 26, gb - 130), Vector2(gx1 - 26, gb - 130)])
+	draw_multiline(bars, iron, 6.0)
+	for k in 9:
+		var bx2 = gx0 + 30 + k * 30.0
+		draw_colored_polygon(PackedVector2Array([Vector2(bx2 - 5, gb - 120), Vector2(bx2, gb - 104), Vector2(bx2 + 5, gb - 120)]), iron)
+	_layer(hash(env) + 4, Combat.GROUND_Y - 56.0, 8.0, 80.0, midc, 0.4)
+	# sigil stones flanking the ritual ground
+	var r = RandomNumberGenerator.new()
+	r.seed = 5606
+	for i in 9:
+		var sx = 150.0 + i * 260.0 + r.randf_range(-30, 30)
+		var sy = Combat.GROUND_Y - 24.0
+		draw_colored_polygon(PackedVector2Array([Vector2(sx - 12, sy), Vector2(sx - 9, sy - 46), Vector2(sx + 2, sy - 54), Vector2(sx + 11, sy - 42), Vector2(sx + 12, sy)]), Color(0.16, 0.13, 0.2))
+		draw_circle(Vector2(sx, sy - 30), 4.0, Color(vio, 0.8))
+		draw_texture_rect(FxLayer.DOT, Rect2(sx - 16, sy - 46, 32, 32), false, Color(vio, 0.2))
+
+
+## Act V ground: ash with half-buried skulls (waste), cracked flagstones (citadel), glowing ritual sigils (gate).
+func _rift_ground(W: float, gc: Color, kind: String) -> void:
+	var r = RandomNumberGenerator.new()
+	r.seed = 5707
+	match kind:
+		"necro_waste":
+			for i in 50:
+				var sp = Vector2(r.randf_range(-100, W), r.randf_range(Combat.GROUND_Y + 20, Combat.GROUND_Y + 130))
+				draw_texture_rect(FxLayer.DOT, Rect2(sp - Vector2(16, 4), Vector2(32, 8)), false, gc.lightened(0.12))
+			for i in 22:
+				var skp = Vector2(r.randf_range(-100, W), r.randf_range(Combat.GROUND_Y + 28, Combat.GROUND_Y + 140))
+				_disc(skp, 7.0, 5.0, Color(0.8, 0.76, 0.66), 10, PI, TAU)   # half-buried
+				_disc(skp + Vector2(-2.5, -1.5), 1.4, 1.4, Color(0.12, 0.1, 0.1), 5)
+				_disc(skp + Vector2(2.5, -1.5), 1.4, 1.4, Color(0.12, 0.1, 0.1), 5)
+			_flush_discs()
+		"ruined_citadel":
+			var flags = PackedVector2Array()
+			var cx = -200.0
+			while cx < W:
+				for row in 3:
+					var yy = Combat.GROUND_Y + 24 + row * 30
+					flags.append_array([Vector2(cx + (row % 2) * 24, yy), Vector2(cx + (row % 2) * 24, yy + 28)])
+				cx += 48.0
+			for row2 in 4:
+				flags.append_array([Vector2(-200, Combat.GROUND_Y + 24 + row2 * 30), Vector2(W, Combat.GROUND_Y + 24 + row2 * 30)])
+			draw_multiline(flags, gc.darkened(0.3), 2.0)
+			for i in 14:
+				var cp = Vector2(r.randf_range(-100, W), r.randf_range(Combat.GROUND_Y + 30, Combat.GROUND_Y + 120))
+				draw_polyline(PackedVector2Array([cp, cp + Vector2(10, 6), cp + Vector2(18, 4), cp + Vector2(26, 12)]), gc.darkened(0.45), 1.5)
+		"realm_gate":
+			var vio = Color(0.72, 0.4, 1.0)
+			for i in 7:
+				var sc = Vector2(160.0 + i * 360.0 + r.randf_range(-40, 40), Combat.GROUND_Y + 80)
+				draw_arc(sc, 46, 0, TAU, 28, Color(vio, 0.45), 2.5)
+				draw_arc(sc, 34, 0, TAU, 24, Color(vio, 0.3), 1.5)
+				for k in 6:
+					var a = TAU * k / 6.0 + i
+					draw_line(sc + Vector2.from_angle(a) * 34.0, sc + Vector2.from_angle(a + 2.1) * 34.0, Color(vio, 0.35), 1.5)
+				draw_texture_rect(FxLayer.DOT, Rect2(sc - Vector2(60, 24), Vector2(120, 48)), false, Color(vio, 0.12))
+
+
+
+## M008 batching: many small discs (skulls, eye sockets, bone knobs) as ONE triangle array. Separate draw_circle
+## calls each cost a draw call on the GL Compatibility renderer; one array costs one.
+var _discs_pts := PackedVector2Array()
+var _discs_cols := PackedColorArray()
+var _discs_idx := PackedInt32Array()
+
+
+func _disc(c: Vector2, rx: float, ry: float, col: Color, seg: int = 8, a0: float = 0.0, a1: float = TAU) -> void:
+	var base = _discs_pts.size()
+	var full = absf(a1 - a0 - TAU) < 0.001
+	var n = seg if full else seg + 1
+	_discs_pts.append(c)
+	_discs_cols.append(col)
+	for k in n:
+		var a = a0 + (a1 - a0) * float(k) / float(seg)
+		_discs_pts.append(c + Vector2(cos(a) * rx, sin(a) * ry))
+		_discs_cols.append(col)
+	for k in seg:
+		_discs_idx.append_array([base, base + 1 + k, base + 1 + ((k + 1) % seg if full else k + 1)])
+
+
+func _flush_discs() -> void:
+	if not _discs_idx.is_empty():
+		RenderingServer.canvas_item_add_triangle_array(get_canvas_item(), _discs_idx, _discs_pts, _discs_cols)
+	_discs_pts = PackedVector2Array()
+	_discs_cols = PackedColorArray()
+	_discs_idx = PackedInt32Array()
+
 ## M006: drifting cumulus over the Act III skies on a parallax layer (moved, never redrawn).
 class CloudLayer extends Node2D:
 	var drift = 0.0
@@ -1027,6 +1394,8 @@ class CloudLayer extends Node2D:
 	var dense = false
 	var overcast = false
 	var smog = false          # M007: dark smoke drifting over the foundry-cities
+	var ash = false           # M008: pale ash storms over the necro waste
+	var rift = false          # M008: violet rift-cloud
 
 	func _draw() -> void:
 		var r = RandomNumberGenerator.new()
@@ -1042,6 +1411,12 @@ class CloudLayer extends Node2D:
 			if smog:
 				col = Color(0.1, 0.08, 0.07, 0.4)
 				cy = r.randf_range(40, 180)
+			if ash:
+				col = Color(0.72, 0.7, 0.66, 0.28)
+				cy = r.randf_range(120, 380)
+			if rift:
+				col = Color(0.42, 0.22, 0.6, 0.35)
+				cy = r.randf_range(50, 230)
 			for k in 6:
 				var px = cx + r.randf_range(-w * 0.45, w * 0.45)
 				var py = cy - r.randf_range(0, w * 0.3) * (1.0 - absf(px - cx) / w)

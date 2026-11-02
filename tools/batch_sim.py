@@ -34,9 +34,13 @@ def main():
     ap.add_argument("--jobs", type=int, default=2)
     ap.add_argument("--quality", default="")
     ap.add_argument("--heroic", action="store_true", help="M007: play the Heroic version of each stage")
+    ap.add_argument("--only", default="", help="M008: comma list of stages inside the range (re-runs after a fix)")
+    ap.add_argument("--merge", default="", help="M008: CSV to update in place with this run's rows (same stage+mode replaced)")
     args = ap.parse_args()
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     stages = list(range(args.a, args.b + 1))
+    if args.only:
+        stages = [int(x) for x in args.only.split(",") if x.strip()]
     # split by alternating stages so both processes get early and late (heavier) stages
     chunks = [stages[i::args.jobs] for i in range(args.jobs)]
     procs, logs = [], []
@@ -66,6 +70,16 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()) if rows else ["stage"])
         w.writeheader()
         w.writerows(rows)
+    if args.merge and os.path.exists(args.merge):
+        old = list(csv.DictReader(open(args.merge)))
+        keys = {(r["stage"], r["mode"]) for r in rows}
+        merged = [r for r in old if (int(r["stage"]), r["mode"]) not in keys] + rows
+        merged.sort(key=lambda r: (int(r["stage"]), r["mode"]))
+        with open(args.merge, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+            w.writeheader()
+            w.writerows(merged)
+        print("merged %d rows into %s" % (len(rows), args.merge))
     bad = [r for r in rows if not r["ok"]]
     print("%d runs, %d failed -> %s" % (len(rows), len(bad), args.out))
     for r in bad:

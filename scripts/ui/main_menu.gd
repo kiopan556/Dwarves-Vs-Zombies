@@ -36,7 +36,7 @@ func _ready() -> void:
 	var sp0 = Control.new()
 	sp0.custom_minimum_size = Vector2(0, 12)
 	cv.add_child(sp0)
-	cv.add_child(UiKit.banner("M007 — The Fallen Foundries", 18))
+	cv.add_child(UiKit.banner("M008 — The Black Rift", 18))
 	var sp = Control.new()
 	sp.custom_minimum_size = Vector2(0, 30)
 	left.add_child(sp)

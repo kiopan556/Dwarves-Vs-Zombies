@@ -35,11 +35,14 @@ const RUNE_AMBER := Color(1.0, 0.72, 0.3)
 ## V-crest over twin eye slits) — but forged by dwarves: a braided-beard faceplate grille, rivets and brass trim,
 ## steam intakes on the chest around a furnace core, runes, smokestacks. Every frame keeps its M002 silhouette
 ## identity (body type, weapons, back gear); the shared rig carries the new look.
+## M008 "Titanforge" overhaul: the heavier the class, the longer, thicker and straighter the legs (colossal frames
+## stand on pillars, not crouched stilts), the bigger the feet, and the head rides on a neck inside a gorget and
+## scales with the class (`head`), so a titan never reads as a box with a face pasted on its chest.
 const CLS := {
-	"light":    {"thigh": 23.0, "shin": 23.0, "leg_w": 10.5, "foot": 17.0, "torso_h": 38.0, "stride": 10.0, "bob": 2.4},
-	"medium":   {"thigh": 25.0, "shin": 25.0, "leg_w": 12.5, "foot": 19.0, "torso_h": 44.0, "stride": 9.0, "bob": 2.0},
-	"heavy":    {"thigh": 26.0, "shin": 26.0, "leg_w": 15.0, "foot": 22.0, "torso_h": 48.0, "stride": 8.0, "bob": 1.6},
-	"colossal": {"thigh": 27.0, "shin": 26.0, "leg_w": 17.0, "foot": 25.0, "torso_h": 52.0, "stride": 7.0, "bob": 1.3},
+	"light":    {"thigh": 23.0, "shin": 23.0, "leg_w": 10.5, "foot": 17.0, "torso_h": 38.0, "stride": 10.0, "bob": 2.4, "head": 1.0, "neck": 1.0},
+	"medium":   {"thigh": 26.0, "shin": 25.0, "leg_w": 13.0, "foot": 20.0, "torso_h": 44.0, "stride": 9.0, "bob": 2.0, "head": 1.08, "neck": 2.0},
+	"heavy":    {"thigh": 28.0, "shin": 27.0, "leg_w": 16.5, "foot": 24.0, "torso_h": 48.0, "stride": 8.0, "bob": 1.6, "head": 1.16, "neck": 3.0},
+	"colossal": {"thigh": 31.0, "shin": 29.0, "leg_w": 20.0, "foot": 30.0, "torso_h": 54.0, "stride": 7.5, "bob": 1.3, "head": 1.3, "neck": 4.5},
 }
 ## enamel for the two-tone panelling (the dwarven take on the white-and-colour mecha scheme)
 const ENAMEL := Color("d9d2bf")
@@ -89,7 +92,7 @@ const F := {
 	"siegebellow": {"cls": "heavy", "body": "chest", "tw": 42, "sw": 56, "head": "visor", "base": IRON_D, "trim": FORGE, "acc": BRASS,
 		"back": ["stacks2", "ammo_rack"], "front": {"w": "brace", "i": 0}, "back_arm": {"w": "loader_arm", "i": 0},
 		"mounts": [{"w": "siege_cannon", "i": 0, "at": "shoulder"}]},
-	"furnace_guardian": {"cls": "heavy", "body": "furnace", "tw": 48, "sw": 62, "head": "grille", "base": Color("4a3a32"), "trim": FORGE, "acc": COPPER,
+	"furnace_guardian": {"cls": "heavy", "body": "furnace", "tw": 44, "sw": 58, "head": "grille", "base": Color("4a3a32"), "trim": FORGE, "acc": COPPER,
 		"back": ["stacks3"], "front": {"w": "flamer", "i": 0}, "back_arm": {"w": "flamer", "i": 1}},
 	"siege_hammer_walker": {"cls": "heavy", "body": "chest", "tw": 42, "sw": 58, "head": "helm", "base": STEEL_D, "trim": YELLOW, "acc": IRON_D,
 		"back": ["stacks1", "pipes"], "front": {"w": "piston_hammer", "i": 0}, "back_arm": {"w": "brace", "i": 0}},
@@ -100,21 +103,21 @@ const F := {
 		"back": ["stacks2"], "front": {"w": "big_fist", "i": 0}, "back_arm": {"w": "big_fist", "i": 0, "alt": true}, "chest_gun": 1},
 	"shredder_walker": {"cls": "heavy", "body": "chest", "tw": 44, "sw": 62, "head": "visor", "base": GUNMETAL, "trim": BRASS, "acc": IRON_D,
 		"back": ["ammo_housing"], "front": {"w": "rotary", "i": 0}, "back_arm": {"w": "rotary", "i": 1}},
-	"riftshield_walker": {"cls": "heavy", "body": "fortress", "tw": 48, "sw": 62, "head": "grille", "base": STEEL_D, "trim": BRASS, "acc": RUNE_BLUE,
+	"riftshield_walker": {"cls": "heavy", "body": "fortress", "tw": 44, "sw": 58, "head": "grille", "base": STEEL_D, "trim": BRASS, "acc": RUNE_BLUE,
 		"back": ["emitter"], "front": {"w": "emitter_arm", "i": 0}, "back_arm": {"w": "fist", "i": 0}, "rune": RUNE_BLUE},
-	"deepforge_titan": {"cls": "colossal", "body": "fortress", "tw": 52, "sw": 70, "head": "crown_helm", "base": IRON, "trim": BRASS, "acc": BLUE,
+	"deepforge_titan": {"cls": "colossal", "body": "fortress", "tw": 46, "sw": 62, "head": "crown_helm", "base": IRON, "trim": BRASS, "acc": BLUE,
 		"back": ["stacks3", "furnace_core"], "front": {"w": "titan_cannon", "i": 0}, "back_arm": {"w": "fist", "i": 3},
 		"mounts": [{"w": "aa_twin", "i": 1, "at": "shoulder"}, {"w": "aa_twin", "i": 2, "at": "shoulder_b"}]},
-	"mountain_colossus": {"cls": "colossal", "body": "fortress", "tw": 60, "sw": 76, "head": "helm", "base": Color("5a5550"), "trim": BRASS, "acc": IRON_D,
+	"mountain_colossus": {"cls": "colossal", "body": "fortress", "tw": 50, "sw": 68, "head": "helm", "base": Color("5a5550"), "trim": BRASS, "acc": IRON_D, "stone": true,
 		"back": ["stacks3", "battlements"], "front": {"w": "big_fist", "i": 0}, "back_arm": {"w": "big_fist", "i": 0, "alt": true}},
-	"kings_anvil": {"cls": "colossal", "body": "chest", "tw": 50, "sw": 72, "head": "crown", "base": Color("3c4a6a"), "trim": BRASS, "acc": RED,
+	"kings_anvil": {"cls": "colossal", "body": "chest", "tw": 46, "sw": 64, "head": "crown", "base": Color("3c4a6a"), "trim": BRASS, "acc": RED, "mantle": true,
 		"back": ["stacks2", "banner"], "front": {"w": "axe2", "i": 0}, "two_hand": true, "rune": RUNE_AMBER},
-	"colossal_skybreaker": {"cls": "colossal", "body": "tower", "tw": 46, "sw": 64, "head": "visor", "base": BLUEGRAY, "trim": BRASS, "acc": GUNMETAL,
+	"colossal_skybreaker": {"cls": "colossal", "body": "tower", "tw": 42, "sw": 60, "head": "visor", "base": BLUEGRAY, "trim": BRASS, "acc": GUNMETAL,
 		"back": ["stabilizers"], "front": {"w": "bracer", "i": 0}, "back_arm": {"w": "bracer", "i": 0},
 		"mounts": [{"w": "aa_heavy", "i": 0, "at": "shoulder"}, {"w": "aa_heavy", "i": 1, "at": "top"}, {"w": "aa_heavy", "i": 2, "at": "shoulder_b"}]},
-	"hammerfall_goliath": {"cls": "colossal", "body": "chest", "tw": 54, "sw": 74, "head": "helm", "base": STEEL_D, "trim": YELLOW, "acc": IRON_D,
+	"hammerfall_goliath": {"cls": "colossal", "body": "chest", "tw": 48, "sw": 66, "head": "helm", "base": STEEL_D, "trim": YELLOW, "acc": IRON_D,
 		"back": ["stacks3", "pipes"], "front": {"w": "hammer2", "i": 0}, "two_hand": true, "big_pistons": true},
-	"embercore_titan": {"cls": "colossal", "body": "furnace", "tw": 54, "sw": 72, "head": "grille", "base": Color("3e2f28"), "trim": FORGE, "acc": COPPER,
+	"embercore_titan": {"cls": "colossal", "body": "furnace", "tw": 48, "sw": 64, "head": "grille", "base": Color("3e2f28"), "trim": FORGE, "acc": COPPER,
 		"back": ["stacks3", "vents"], "front": {"w": "flamer_big", "i": 0}, "back_arm": {"w": "fist", "i": 0},
 		"mounts": [{"w": "aa_twin", "i": 1, "at": "shoulder"}, {"w": "aa_twin", "i": 2, "at": "shoulder_b"}], "seams": true},
 }
@@ -313,11 +316,13 @@ static func draw_leg(ci: CanvasItem, hip: Vector2, foot: Vector2, c: Dictionary,
 	var lc = col.darkened(0.3) if far else col
 	var pan = panel_col(cfg).darkened(0.32) if far else panel_col(cfg)
 	var trim: Color = Color(cfg.trim).darkened(0.35) if far else Color(cfg.trim)
-	# thigh: an armoured plate with a light enamel panel down its front
+	# thigh: M008 a rounded armour cylinder on a hip ball joint, with a slim enamel stripe and a shadowed back
 	var td = (knee - hip).normalized()
 	var tn = td.orthogonal()
-	P.poly(ci, P.pts([hip + tn * w * 0.62, knee + tn * w * 0.48, knee - tn * w * 0.52, hip - tn * w * 0.6]), lc, 2.0)
-	P.poly(ci, P.pts([hip.lerp(knee, 0.12) + tn * w * 0.5, knee.lerp(hip, 0.2) + tn * w * 0.42, knee.lerp(hip, 0.2) + tn * w * 0.05, hip.lerp(knee, 0.12) + tn * w * 0.08]), pan, 0.0)
+	P.circ(ci, hip, w * 0.5, lc.darkened(0.2), 2.0)
+	P.poly(ci, P.pts([hip + tn * w * 0.6, hip.lerp(knee, 0.5) + tn * w * 0.64, knee + tn * w * 0.46, knee - tn * w * 0.5, hip.lerp(knee, 0.5) - tn * w * 0.62, hip - tn * w * 0.58]), lc, 2.0)
+	P.poly(ci, P.pts([hip.lerp(knee, 0.1) - tn * w * 0.56, hip.lerp(knee, 0.5) - tn * w * 0.6, knee.lerp(hip, 0.15) - tn * w * 0.46, knee.lerp(hip, 0.15) - tn * w * 0.22, hip.lerp(knee, 0.1) - tn * w * 0.3]), lc.darkened(0.18), 0.0)
+	P.poly(ci, P.pts([hip.lerp(knee, 0.14) + tn * w * 0.44, knee.lerp(hip, 0.22) + tn * w * 0.4, knee.lerp(hip, 0.22) + tn * w * 0.16, hip.lerp(knee, 0.14) + tn * w * 0.18]), pan, 0.0)
 	# shin: flared toward the ankle (heroic), with a vented front panel and a calf thruster
 	var sd = (foot - knee).normalized()
 	var sn = sd.orthogonal()
@@ -344,11 +349,12 @@ static func draw_leg(ci: CanvasItem, hip: Vector2, foot: Vector2, c: Dictionary,
 		ci.draw_line(hip + Vector2(-w * 0.4, 2), ankle + Vector2(-w * 0.6, 0), P.OUT, w * 0.35)
 		ci.draw_line(hip + Vector2(-w * 0.4, 2), ankle + Vector2(-w * 0.6, 0), BRASS, w * 0.25)
 	# knee guard: a pointed armour cap with a brass rim and a rune stud
-	var kf = knee + sn * w * 0.25
+	var kf = knee + sn * w * 0.2
 	var kup = -sd
-	P.poly(ci, P.pts([kf + kup * w * 0.62 - sn * w * 0.1, kf + kup * w * 0.4 + sn * w * 0.45, kf + sd * w * 0.3 + sn * w * 0.52, kf + sd * w * 0.62, kf + sd * w * 0.1 - sn * w * 0.3]), lc.lightened(0.06), 2.0)
-	ci.draw_line(kf + kup * w * 0.4 + sn * w * 0.45, kf + sd * w * 0.3 + sn * w * 0.52, trim, 1.6)
-	ci.draw_circle(kf + sn * w * 0.2, w * 0.12, (FORGE if not far else FORGE.darkened(0.5)) if not cfg.has("rune") else Color(cfg.rune, 0.9 if not far else 0.4))
+	var kg = w * 0.78   # M008: a tighter knee cop (the old plate swallowed the whole joint)
+	P.poly(ci, P.pts([kf + kup * kg * 0.62 - sn * kg * 0.1, kf + kup * kg * 0.4 + sn * kg * 0.45, kf + sd * kg * 0.3 + sn * kg * 0.52, kf + sd * kg * 0.62, kf + sd * kg * 0.1 - sn * kg * 0.3]), lc.lightened(0.06), 2.0)
+	ci.draw_line(kf + kup * kg * 0.4 + sn * kg * 0.45, kf + sd * kg * 0.3 + sn * kg * 0.52, trim, 1.6)
+	ci.draw_circle(kf + sn * kg * 0.2, w * 0.1, (FORGE if not far else FORGE.darkened(0.5)) if not cfg.has("rune") else Color(cfg.rune, 0.9 if not far else 0.4))
 	# sabaton: a big armoured foot with a toe cap and heel spur, rolled about the ankle (heel-toe walk)
 	var f: float = c.foot
 	var piv = foot + Vector2(0, -w * 0.3)
@@ -360,7 +366,7 @@ static func draw_leg(ci: CanvasItem, hip: Vector2, foot: Vector2, c: Dictionary,
 	P.poly(ci, P.pts(fpts), (IRON_D if not far else SOOT), 2.0)
 	# toe cap (enamel) and ankle guard
 	P.poly(ci, P.pts([piv + rx * Vector2(f * 0.2, w * 0.3 - w * 0.62), piv + rx * Vector2(f * 0.58, w * 0.3 - w * 0.3), piv + rx * Vector2(f * 0.74, w * 0.3 - 1.0), piv + rx * Vector2(f * 0.3, w * 0.3 - 1.0)]), pan.darkened(0.12), 1.2)
-	P.circ(ci, piv + rx * Vector2(-f * 0.08, -w * 0.12), w * 0.3, BRASS.darkened(0.25 if not far else 0.55), 1.2)
+	P.circ(ci, piv + rx * Vector2(-f * 0.1, -w * 0.18), w * 0.2, BRASS.darkened(0.25 if not far else 0.55), 1.2)
 	ci.draw_line(piv + rx * Vector2(-f * 0.5, w * 0.3 - 1.5), piv + rx * Vector2(f * 0.7, w * 0.3 - 1.5), BRASS.darkened(0.2 if not far else 0.5), 1.5)
 	# toe claws on the heavier frames
 	if String(cfg.get("cls", "")) in ["heavy", "colossal"]:
@@ -399,17 +405,19 @@ static func draw(ci: CanvasItem, art: String, a) -> void:
 	var fatk: float = atk_of(a, int(front.get("i", 0)))
 	var bodyp: Array = body_from(ffam, fatk, windup)
 	var heavy_k: float = {"light": 0.0, "medium": 0.3, "heavy": 0.6, "colossal": 0.9}.get(String(cfg.cls), 0.3)
-	var crouch: float = brace * 3.0 + (4.0 if stun else 0.0) + maxf(0.0, spring) * 3.5 + eng * (2.0 + heavy_k * 1.5) + float(bodyp[1])
+	var crouch: float = brace * 3.0 + (4.0 if stun else 0.0) + maxf(0.0, spring) * 3.5 + eng * (2.0 + heavy_k * 0.4) + float(bodyp[1]) * (1.0 - heavy_k * 0.4)
 	var jolt: float = -recoil * 4.0 - hurt * 2.0 - spring * 5.0
 	var lean: float = recoil * -0.07 + hurt * -0.04 + (0.06 if cfg.body == "lean" else 0.0) + sin(walk) * 0.02 * float(moving) - spring * 0.06 \
 		+ eng * 0.04 + float(bodyp[0]) * (1.0 - heavy_k * 0.35) + (0.18 if stun else 0.0)
 	if not moving and gag <= 0.0:
 		crouch += sin(t * TAU / 1.2) * 0.8     # idle: boiler breathing
-	var hip_h: float = (c.thigh + c.shin) * 0.9 + tall * 0.4
+	# M008: heavier frames stand straighter (less knee bend), so their legs read as load-bearing pillars
+	var straight: float = {"light": 0.9, "medium": 0.91, "heavy": 0.93, "colossal": 0.95}.get(String(cfg.cls), 0.9)
+	var hip_h: float = (c.thigh + c.shin) * straight + tall * 0.4
 	var hip = Vector2(sway + jolt * 0.4, -hip_h + bob + crouch)
 	# M006: pelvis roll - the hip over the swinging leg drops a little, the planted side rides high
 	var roll_h: float = sin(walk) * c.bob * 0.45 if moving else 0.0
-	var stance: float = 6.0 + brace * 4.0 + eng * (3.0 + heavy_k * 3.0)
+	var stance: float = 6.0 + heavy_k * 5.0 + brace * 4.0 + eng * (3.0 + heavy_k * 3.0)
 	var lift_h: float = {"light": 11.0, "medium": 10.0, "heavy": 9.0, "colossal": 8.0}.get(String(cfg.cls), 9.0)   # M006: a higher, heavier step
 	var cl: Dictionary = {"thigh": c.thigh + tall * 0.2, "shin": c.shin + tall * 0.2, "leg_w": c.leg_w, "foot": c.foot}
 	var f_far: Array = foot_pos(walk + PI, c.stride, lift_h, moving, -stance)
@@ -425,16 +433,19 @@ static func draw(ci: CanvasItem, art: String, a) -> void:
 	var top = hip + Vector2(lean * th, -th)
 	# M006: arms counter-swing against the legs while marching; shoulders dip with the weight
 	var swing_a: float = sin(walk) * (2.6 if cfg.cls in ["light", "medium"] else 1.8) if moving else 0.0
-	var sh_near = top + Vector2(4.0 - swing_a, 8.0 + absf(swing_a) * 0.3)
-	var sh_far = top + Vector2(-5.0 + swing_a * 0.8, 7.0 + absf(swing_a) * 0.25)
+	# M008: the shoulder joints sit at the sides of the chest (3/4 view), below the head - not in front of the face
+	var sh_near = top + Vector2(_sh_x(cfg, true) - swing_a, th * 0.15 + absf(swing_a) * 0.3)
+	var sh_far = top + Vector2(_sh_x(cfg, false) + swing_a * 0.8, th * 0.13 + absf(swing_a) * 0.25)
 	# --- far side: back gear, far leg, far arm
+	if cfg.get("mantle", false):
+		_mantle(ci, cfg, top, hip, t, moving)
 	_thrusters(ci, cfg, top, t, abil, moving, eng)
 	_back_gear(ci, cfg, hip, top, t, abil, hpf, moving)
 	draw_leg(ci, hip + Vector2(-4, -roll_h), f_far[0], cl, base, true, cfg, f_far[2])
 	if cfg.has("back_arm") and not cfg.get("two_hand", false):
 		_arm(ci, a, cfg, cfg.back_arm, sh_far, true, c)
 	# --- torso & head
-	_torso(ci, cfg, hip, top, th, t, abil, hpf)
+	_torso(ci, cfg, hip, top, th, t, abil, hpf, sh_far)
 	_head(ci, a, cfg, top, t, abil)
 	for m in cfg.get("mounts", []):
 		_mount(ci, a, cfg, m, top, sh_near, sh_far)
@@ -447,7 +458,7 @@ static func draw(ci: CanvasItem, art: String, a) -> void:
 	elif cfg.has("front"):
 		_arm(ci, a, cfg, cfg.front, sh_near, false, c)
 	# M007: the near pauldron sits over the arm root (the arm hangs out from under the armour)
-	_pauldron(ci, cfg, top, true, t, abil)
+	_pauldron(ci, cfg, sh_near, true, t, abil)
 	_damage_fx(ci, hpf, top, hip, t)
 	_kick_fx(ci, cfg, gag, gph, top, sh_near, th)
 	if moving:
@@ -499,7 +510,16 @@ static func _stomp_dust(ci: CanvasItem, f_near: Array, f_far: Array, cfg: Dictio
 
 
 # ================================================================== torso & head
-static func _torso(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, th: float, t: float, abil: float, hpf: float) -> void:
+## M008: shoulder joint x (relative to the top of the torso) - out at the chest's flank.
+static func _sh_x(cfg: Dictionary, near: bool) -> float:
+	var tw: float = cfg.tw
+	var body = String(cfg.body)
+	if body in ["work", "loader", "platform"]:
+		return 4.0 if near else -5.0
+	return tw * (0.3 if near else -0.26)
+
+
+static func _torso(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, th: float, t: float, abil: float, hpf: float, sh_far: Vector2 = Vector2.INF) -> void:
 	var tw: float = cfg.tw
 	var sw: float = cfg.sw
 	var base: Color = cfg.base
@@ -514,7 +534,7 @@ static func _torso(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, 
 		ci.draw_line(hip + Vector2(tw * sx - tw * 0.11, 12), hip + Vector2(tw * sx, 16), Color(cfg.trim), 1.4)
 		ci.draw_line(hip + Vector2(tw * sx + tw * 0.11, 12), hip + Vector2(tw * sx, 16), Color(cfg.trim), 1.4)
 	P.rivets(ci, hip + Vector2(-tw * 0.36, -2), hip + Vector2(tw * 0.42, -2), 5)
-	_pauldron(ci, cfg, top, false, t, abil)
+	_pauldron(ci, cfg, sh_far if sh_far != Vector2.INF else top + Vector2(-5.0, 7.0), false, t, abil)
 	# waist gear assembly (exposed, rotates with motion)
 	P.circ(ci, hip + Vector2(0, -2), tw * 0.22, IRON_D, 2.0)
 	for i in 6:
@@ -554,36 +574,101 @@ static func _torso(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, 
 			P.rivets(ci, Vector2(hip.x - tw * 0.5, hip.y - 4), Vector2(hip.x + tw * 0.55, hip.y - 4), 8)
 			ci.draw_line(Vector2(hip.x - tw * 0.5, top.y + th * 0.5), Vector2(hip.x + tw * 0.55, top.y + th * 0.5), trim, 2.5)
 		"tower":
-			P.poly(ci, P.pts([Vector2(hip.x - tw * 0.45, hip.y), Vector2(top.x - tw * 0.35, top.y + 2), Vector2(top.x + tw * 0.35, top.y + 2), Vector2(hip.x + tw * 0.45, hip.y)]), base, 2.5)
+			# M008: a flak tower: a tapered, ribbed shaft with a gallery ring at the top for the guns, portholes and
+			# a lit top plane; the left (far) face falls into shadow so the shaft reads round
+			_abdomen(ci, cfg, hip, top, th, 2)
+			var tp = [Vector2(hip.x - tw * 0.42, hip.y - th * 0.18), Vector2(top.x - tw * 0.36, top.y + 4), Vector2(top.x + tw * 0.4, top.y + 4), Vector2(hip.x + tw * 0.46, hip.y - th * 0.18)]
+			P.poly(ci, P.pts(tp), base, 2.5)
+			P.poly(ci, P.pts([tp[0], tp[1], Vector2(top.x - tw * 0.18, top.y + 4), Vector2(hip.x - tw * 0.22, hip.y - th * 0.18)]), base.darkened(0.2), 0.0)
+			P.poly(ci, P.pts([Vector2(top.x + tw * 0.06, top.y + 6), Vector2(top.x + tw * 0.22, top.y + 6), Vector2(hip.x + tw * 0.26, hip.y - th * 0.2), Vector2(hip.x + tw * 0.08, hip.y - th * 0.2)]), pan, 0.0)
 			for k in 4:
-				var yy2 = lerpf(top.y + 8.0, hip.y - 6.0, float(k) / 3.0)
-				ci.draw_line(Vector2(hip.x - tw * 0.4, yy2), Vector2(hip.x + tw * 0.4, yy2), base.darkened(0.25), 2.0)
-			P.rivets(ci, Vector2(top.x - tw * 0.3, top.y + 6), Vector2(top.x + tw * 0.3, top.y + 6), 6)
-			P.rrect(ci, Rect2(top.x - sw * 0.5, top.y + 4, sw, 9), IRON_D, 2.0, 3.0)
-		"fortress":
-			P.poly(ci, P.pts([Vector2(hip.x - tw * 0.55, hip.y + 2), Vector2(top.x - tw * 0.6, top.y + 4), Vector2(top.x + tw * 0.6, top.y + 4), Vector2(hip.x + tw * 0.55, hip.y + 2)]), base, 3.0)
-			# M007: enamel breastplate wings over the battlement chest
-			P.poly(ci, P.pts([Vector2(top.x - tw * 0.6, top.y + 4), Vector2(top.x - tw * 0.1, top.y + 4), Vector2(top.x - tw * 0.24, top.y + th * 0.3), Vector2(top.x - tw * 0.55, top.y + th * 0.22)]), pan, 1.5)
-			P.poly(ci, P.pts([Vector2(top.x + tw * 0.6, top.y + 4), Vector2(top.x + tw * 0.15, top.y + 4), Vector2(top.x + tw * 0.28, top.y + th * 0.3), Vector2(top.x + tw * 0.56, top.y + th * 0.22)]), pan, 1.5)
-			P.poly(ci, P.pts([Vector2(top.x - tw * 0.55, top.y + 8), Vector2(top.x + tw * 0.5, top.y + 8), Vector2(top.x + tw * 0.45, top.y + th * 0.35), Vector2(top.x - tw * 0.5, top.y + th * 0.35)]), base.lightened(0.12), 0.0)
+				var yy2 = lerpf(top.y + 14.0, hip.y - th * 0.22, float(k) / 3.0)
+				ci.draw_line(Vector2(lerpf(top.x - tw * 0.36, hip.x - tw * 0.42, float(k) / 3.0), yy2), Vector2(lerpf(top.x + tw * 0.4, hip.x + tw * 0.46, float(k) / 3.0), yy2), base.darkened(0.3), 2.0)
 			for k in 3:
-				var yy3 = top.y + th * (0.42 + k * 0.17)
-				ci.draw_line(Vector2(hip.x - tw * 0.52, yy3), Vector2(hip.x + tw * 0.52, yy3), base.darkened(0.3), 2.0)
-				P.rivets(ci, Vector2(hip.x - tw * 0.48, yy3 + 3), Vector2(hip.x + tw * 0.48, yy3 + 3), 7)
-			_insignia(ci, top + Vector2(tw * 0.1, th * 0.28), 7.0, cfg)
+				var pp = Vector2(lerpf(top.x, hip.x, 0.3 + k * 0.2) + tw * 0.28, lerpf(top.y, hip.y, 0.3 + k * 0.2))
+				P.circ(ci, pp, 3.0, BRASS, 1.2)
+				ci.draw_circle(pp, 1.8, Color(1.0, 0.75, 0.35, 0.9))
+			# the gallery ring the guns stand on
+			P.rrect(ci, Rect2(top.x - sw * 0.5, top.y + 2, sw, 9), IRON_D, 2.0, 3.0)
+			ci.draw_line(Vector2(top.x - sw * 0.48, top.y + 3), Vector2(top.x + sw * 0.48, top.y + 3), base.lightened(0.25), 2.0)
+			P.rivets(ci, Vector2(top.x - sw * 0.42, top.y + 7), Vector2(top.x + sw * 0.42, top.y + 7), 8)
+			_bridge(ci, cfg, top + Vector2(-tw * 0.06, th * 0.3), t)
+		"fortress":
+			# M008 "walking keep": a narrow armoured waist under a broad, chamfered keep-chest with a lit top plane, a
+			# shadowed far flank, a tall enamel shield plate down the centre, a barred furnace grate, lit arrow-slits
+			# and a commander's bridge window - not a flat riveted box
+			_abdomen(ci, cfg, hip, top, th, 3)
+			var kp = [Vector2(top.x - tw * 0.5, top.y + th * 0.66), Vector2(top.x - tw * 0.6, top.y + th * 0.2), Vector2(top.x - tw * 0.46, top.y - 1), Vector2(top.x + tw * 0.48, top.y - 2),
+				Vector2(top.x + tw * 0.64, top.y + th * 0.18), Vector2(top.x + tw * 0.54, top.y + th * 0.66), Vector2(top.x + tw * 0.04, top.y + th * 0.74)]
+			P.poly(ci, P.pts(kp), base, 3.0)
+			P.poly(ci, P.pts([kp[0], kp[1], kp[2], Vector2(top.x - tw * 0.3, top.y - 1), Vector2(top.x - tw * 0.36, top.y + th * 0.68)]), base.darkened(0.22), 0.0)
+			P.poly(ci, P.pts([kp[2], kp[3], kp[4], Vector2(top.x + tw * 0.5, top.y + th * 0.1), Vector2(top.x - tw * 0.5, top.y + th * 0.1)]), base.lightened(0.18), 0.0)
+			ci.draw_line(kp[1], kp[2], base.darkened(0.4), 1.5)
+			ci.draw_line(kp[4], kp[5], base.lightened(0.08), 1.5)
+			# the shield plate
+			var spl = [Vector2(top.x - tw * 0.16, top.y + th * 0.12), Vector2(top.x + tw * 0.24, top.y + th * 0.12), Vector2(top.x + tw * 0.22, top.y + th * 0.5), Vector2(top.x + tw * 0.04, top.y + th * 0.66), Vector2(top.x - tw * 0.14, top.y + th * 0.5)]
+			P.poly(ci, P.pts(spl), pan, 1.6)
+			ci.draw_polyline(P.pts([spl[2], spl[3], spl[4]]), trim, 2.0)
+			# barred furnace grate in the shield
+			var gc = Vector2(top.x + tw * 0.04, top.y + th * 0.36)
+			P.rrect(ci, Rect2(gc.x - tw * 0.11, gc.y - th * 0.1, tw * 0.22, th * 0.2), SOOT, 1.5, 2.0)
+			var fl = 0.6 + 0.3 * sin(t * 7.0) + abil * 0.7
+			var fire = Color(1.0, clampf(0.42 + 0.22 * fl, 0.0, 1.0), 0.1) if not cfg.has("rune") else Color(cfg.rune, 0.9)
+			ci.draw_rect(Rect2(gc.x - tw * 0.09, gc.y - th * 0.08, tw * 0.18, th * 0.16), fire)
+			for k in 4:
+				var bx = gc.x - tw * 0.09 + k * tw * 0.06
+				ci.draw_line(Vector2(bx, gc.y - th * 0.08), Vector2(bx, gc.y + th * 0.08), SOOT, 1.6)
+			if abil > 0.0:
+				P.glow(ci, gc, tw * 0.4, Color(fire, 0.6 * abil))
+			# arrow slits on the flanks
+			for sx in [-0.42, 0.42]:
+				for k in 2:
+					var sp = Vector2(top.x + tw * sx, top.y + th * (0.24 + k * 0.2))
+					ci.draw_rect(Rect2(sp.x - 1.5, sp.y - 4.0, 3.0, 8.0), Color(0.06, 0.05, 0.05))
+					ci.draw_rect(Rect2(sp.x - 0.8, sp.y - 3.0, 1.6, 6.0), Color(1.0, 0.72, 0.32, 0.85 if sx > 0.0 else 0.5))
+			P.rivets(ci, kp[1] + Vector2(3, 2), kp[0] + Vector2(3, -3), 4)
+			P.rivets(ci, kp[4] + Vector2(-3, 2), kp[5] + Vector2(-3, -3), 4)
+			ci.draw_line(Vector2(top.x - tw * 0.42, top.y + 2), Vector2(top.x + tw * 0.46, top.y + 1), trim, 2.5)
+			_insignia(ci, top + Vector2(tw * 0.04, th * 0.58), 4.0 + tw * 0.04, cfg)
 			if cfg.has("rune"):
 				var rk = 0.6 + 0.4 * sin(t * 3.0) + abil * 0.6
-				ci.draw_line(top + Vector2(-tw * 0.2, th * 0.5), top + Vector2(tw * 0.25, th * 0.5), Color(cfg.rune, 0.8 * minf(1.0, rk)), 2.5)
+				ci.draw_line(Vector2(top.x - tw * 0.12, top.y + th * 0.54), Vector2(top.x + tw * 0.2, top.y + th * 0.54), Color(cfg.rune, 0.8 * minf(1.0, rk)), 2.5)
+			if cfg.get("stone", false):
+				# the Mountain Colossus wears granite: masonry courses and rune-cut joints on the keep's flanks
+				var mas = PackedVector2Array()
+				for k in 4:
+					var my = top.y + th * (0.16 + k * 0.13)
+					mas.append_array([Vector2(top.x - tw * 0.55, my), Vector2(top.x - tw * 0.2, my), Vector2(top.x + tw * 0.28, my), Vector2(top.x + tw * 0.56, my)])
+					var jx = top.x - tw * (0.42 if k % 2 == 0 else 0.32)
+					mas.append_array([Vector2(jx, my), Vector2(jx, my + th * 0.13)])
+					var jx2 = top.x + tw * (0.4 if k % 2 == 0 else 0.48)
+					mas.append_array([Vector2(jx2, my), Vector2(jx2, my + th * 0.13)])
+				ci.draw_multiline(mas, base.darkened(0.35), 1.5)
+				ci.draw_circle(top + Vector2(-tw * 0.37, th * 0.36), 2.0, Color(RUNE_AMBER, 0.8))
+				ci.draw_circle(top + Vector2(tw * 0.44, th * 0.36), 2.0, Color(RUNE_AMBER, 0.8))
+			_bridge(ci, cfg, top + Vector2(-tw * 0.3, th * 0.1), t)
 		"furnace":
-			P.poly(ci, P.pts([Vector2(hip.x - tw * 0.5, hip.y), Vector2(top.x - tw * 0.55, top.y + 6), Vector2(top.x + tw * 0.5, top.y + 4), Vector2(hip.x + tw * 0.55, hip.y)]), base, 2.5)
-			_furnace_window(ci, hip.lerp(top, 0.5) + Vector2(tw * 0.05, 0), tw * 0.45, th * 0.3, t, abil)
+			# M008: a boiler-bellied furnace frame: a rounded boiler chest bulging forward on a short armoured waist,
+			# brass hoops, a great barred firebox mouth, a riveted crown collar and (on the Embercore) glowing seams
+			_abdomen(ci, cfg, hip, top, th, 2)
+			var bc = Vector2(top.x + tw * 0.05, top.y + th * 0.36)
+			P.ell(ci, bc, tw * 0.6, th * 0.42, base, 3.0)
+			P.poly(ci, P.ell_pts(bc + Vector2(-tw * 0.05, -th * 0.04), tw * 0.5, th * 0.34, 0.0, 16, PI * 1.05, PI * 1.7), base.lightened(0.18), 0.0)
+			P.poly(ci, P.ell_pts(bc, tw * 0.6, th * 0.42, 0.0, 14, PI * 0.55, PI * 1.0), base.darkened(0.2), 0.0)
 			for k in 3:
-				ci.draw_line(Vector2(top.x - tw * 0.45, top.y + 10 + k * 5), Vector2(top.x + tw * 0.4, top.y + 10 + k * 5), SOOT, 2.0)
+				var hx = bc.x - tw * 0.36 + k * tw * 0.36
+				var hh = th * 0.42 * sqrt(maxf(0.0, 1.0 - pow((hx - bc.x) / (tw * 0.6), 2.0)))
+				ci.draw_line(Vector2(hx, bc.y - hh + 1.0), Vector2(hx, bc.y + hh - 1.0), trim.darkened(0.15), 3.0)
+			# the firebox mouth
+			_furnace_window(ci, bc + Vector2(tw * 0.08, th * 0.06), tw * 0.42, th * 0.24, t, abil)
+			# crown collar with a short stack each side
+			P.rrect(ci, Rect2(top.x - tw * 0.42, top.y - 2, tw * 0.86, th * 0.1), base.darkened(0.15), 2.0, 3.0)
+			P.rivets(ci, Vector2(top.x - tw * 0.38, top.y + 1), Vector2(top.x + tw * 0.4, top.y + 1), 7)
 			if cfg.get("seams", false):
 				var sk = 0.55 + 0.45 * sin(t * 4.0) + abil
-				for s2 in [[-0.4, 0.2, -0.1, 0.9], [0.3, 0.15, 0.35, 0.8]]:
-					ci.draw_line(Vector2(hip.x + tw * s2[0], top.y + th * s2[1]), Vector2(hip.x + tw * s2[2], top.y + th * s2[3]), Color(1.0, 0.55, 0.15, minf(1.0, sk)), 2.5)
-			P.rivets(ci, Vector2(hip.x - tw * 0.45, hip.y - 4), Vector2(hip.x + tw * 0.48, hip.y - 4), 7)
+				for s2 in [[-0.42, 0.25, -0.2, 0.6], [0.3, 0.18, 0.44, 0.52], [-0.12, 0.62, 0.14, 0.72]]:
+					ci.draw_line(Vector2(top.x + tw * s2[0], top.y + th * s2[1]), Vector2(top.x + tw * s2[2], top.y + th * s2[3]), Color(1.0, 0.55, 0.15, minf(1.0, sk)), 2.5)
+			_bridge(ci, cfg, top + Vector2(-tw * 0.28, th * 0.14), t)
 		_:   # "chest" and "lean": M007 V-tapered heroic chest over a segmented, narrow waist
 			var lean_off = 6.0 if String(cfg.body) == "lean" else 0.0
 			# abdomen: stacked segment plates (the narrow waist)
@@ -595,8 +680,60 @@ static func _torso(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, 
 			# the chest block: broad at the shoulders, tapering hard to the waist
 			P.poly(ci, P.pts([Vector2(top.x - tw * 0.3, top.y + th * 0.62), Vector2(top.x - tw * 0.58, top.y + th * 0.18), Vector2(top.x - tw * 0.48, top.y + 2), Vector2(top.x - tw * 0.2, top.y - 3),
 				Vector2(top.x + tw * 0.4 + lean_off, top.y - 2), Vector2(top.x + tw * 0.62 + lean_off, top.y + th * 0.16), Vector2(top.x + tw * 0.4 + lean_off * 0.5, top.y + th * 0.6), Vector2(top.x + tw * 0.05, top.y + th * 0.68)]), base, 2.5)
+			# M008: a lit top plane and a shadowed far flank give the chest volume
+			P.poly(ci, P.pts([Vector2(top.x - tw * 0.48, top.y + 2), Vector2(top.x - tw * 0.2, top.y - 3), Vector2(top.x + tw * 0.4 + lean_off, top.y - 2), Vector2(top.x + tw * 0.5 + lean_off, top.y + th * 0.08), Vector2(top.x - tw * 0.5, top.y + th * 0.1)]), base.lightened(0.15), 0.0)
+			P.poly(ci, P.pts([Vector2(top.x - tw * 0.3, top.y + th * 0.62), Vector2(top.x - tw * 0.58, top.y + th * 0.18), Vector2(top.x - tw * 0.48, top.y + 2), Vector2(top.x - tw * 0.36, top.y + th * 0.2)]), base.darkened(0.2), 0.0)
 			_chest_front(ci, cfg, top, th, t, abil, lean_off)
+			_bridge(ci, cfg, top + Vector2(-tw * 0.3, th * 0.12), t)
 	# (the far pauldron is drawn before the chest; the near one over the near arm in draw())
+
+
+## M008: the King's Anvil's royal mantle - heavy blue cloth with a brass hem and the forge mark, hanging from the
+## shoulders behind the frame and swinging with the march.
+static func _mantle(ci: CanvasItem, cfg: Dictionary, top: Vector2, hip: Vector2, t: float, moving: bool) -> void:
+	var tw: float = cfg.tw
+	var sway = sin(t * (3.0 if moving else 1.2)) * (4.0 if moving else 1.5)
+	var cloth = Color("2a3f7a")
+	var a0 = top + Vector2(-tw * 0.5, 4.0)
+	var a1 = top + Vector2(tw * 0.1, 0.0)
+	var b0 = Vector2(hip.x - tw * 0.95 - sway * 1.5, hip.y + 18.0)
+	var b1 = Vector2(hip.x - tw * 0.3 - sway, hip.y + 26.0)
+	P.poly(ci, P.pts([a0, a1, b1, b1.lerp(b0, 0.5) + Vector2(0, 5), b0]), cloth.darkened(0.15), 2.0)
+	P.poly(ci, P.pts([a0 + Vector2(4, 4), a0.lerp(a1, 0.4) + Vector2(0, 4), b0.lerp(b1, 0.4) + Vector2(0, -4), b0 + Vector2(6, -4)]), cloth.lightened(0.08), 0.0)
+	ci.draw_polyline(P.pts([b0, b1.lerp(b0, 0.5) + Vector2(0, 5), b1]), BRASS, 2.5)
+	_insignia(ci, a0.lerp(b0, 0.55) + Vector2(tw * 0.12, 0.0), 5.0, cfg)
+
+
+## M008: the armoured waist under the big torsos - stacked segment plates narrowing toward the hips, with a
+## hydraulic strut each side (so a keep-sized chest visibly sits on a mechanism, not straight on the legs).
+static func _abdomen(ci: CanvasItem, cfg: Dictionary, hip: Vector2, top: Vector2, th: float, n: int) -> void:
+	var tw: float = cfg.tw
+	var base: Color = cfg.base
+	for k in n:
+		var ay = hip.y - 3.0 - k * th * 0.11
+		var aw = tw * (0.28 + k * 0.035)
+		var ax = lerpf(hip.x, top.x, 0.12 + k * 0.1)
+		P.rrect(ci, Rect2(ax - aw, ay - th * 0.11, aw * 2.0, th * 0.12), base.darkened(0.32 - k * 0.06), 1.5, 2.0)
+		ci.draw_line(Vector2(ax - aw * 0.8, ay - th * 0.03), Vector2(ax + aw * 0.8, ay - th * 0.03), Color(cfg.trim).darkened(0.3), 1.2)
+	for sx in [-0.34, 0.36]:
+		var pa = hip + Vector2(tw * sx, -2.0)
+		var pb = top.lerp(hip, 0.42) + Vector2(tw * sx * 1.2, 0.0)
+		ci.draw_line(pa, pb, P.OUT, 5.0)
+		ci.draw_line(pa, pa.lerp(pb, 0.5), STEEL_D, 3.0)
+		ci.draw_line(pa.lerp(pb, 0.5), pb, STEEL.lightened(0.2), 2.0)
+
+
+## M008: the commander's bridge on colossal frames - a lit, riveted window in the upper chest with the goggled
+## dwarven commander inside (the one charming detail on a deadly serious machine).
+static func _bridge(ci: CanvasItem, cfg: Dictionary, at: Vector2, t: float) -> void:
+	if String(cfg.cls) != "colossal":
+		return
+	P.rrect(ci, Rect2(at.x - 7.0, at.y - 5.0, 14.0, 10.0), BRASS.darkened(0.2), 1.5, 2.0)
+	ci.draw_rect(Rect2(at.x - 5.5, at.y - 3.5, 11.0, 7.0), Color(0.62, 0.78, 0.86, 0.95))
+	P.xf_push(ci, Transform2D(0.0, Vector2(0.2, 0.2), 0.0, at + Vector2(0.5 + sin(t * 0.7) * 0.6, 3.5)))
+	D.dwarf_head(ci, {"t": t, "state": "idle"}, Vector2.ZERO, {"beard": Color("a5532a"), "helmet": "goggle_cap", "helm_col": P.LEATHER})
+	P.xf_pop(ci)
+	ci.draw_line(Vector2(at.x - 5.5, at.y - 3.5), Vector2(at.x - 1.5, at.y - 3.5), Color(1, 1, 1, 0.55), 1.2)
 
 
 ## M007 chest front: enamel breast panels with twin steam intakes either side of a round furnace-core hatch,
@@ -633,9 +770,11 @@ static func _chest_front(ci: CanvasItem, cfg: Dictionary, top: Vector2, th: floa
 	_insignia(ci, top + Vector2(tw * 0.04, th * 0.56), 3.5 + tw * 0.05, cfg)
 
 
-## M007 pauldron: a big layered shoulder guard — three stacked plates swept up and out, enamel top plate,
-## trim edge, rivets and a rune stud (light frames get two plates).
-static func _pauldron(ci: CanvasItem, cfg: Dictionary, top: Vector2, near: bool, t: float, abil: float) -> void:
+## M007 pauldron, re-seated by M008 on the shoulder joint itself (it used to sit at the top of the chest, over the
+## face). Light/medium frames wear a chamfered block with layered lames; heavy and colossal frames wear a rounded
+## bastion pauldron: a domed shell with an enamel crown band, three overlapping lames, rivets, a swept fin, and on
+## fortress bodies a ring of crenellations like a tower top.
+static func _pauldron(ci: CanvasItem, cfg: Dictionary, sh: Vector2, near: bool, t: float, abil: float) -> void:
 	var sw: float = cfg.sw
 	var base: Color = cfg.base
 	var trim: Color = cfg.trim
@@ -644,28 +783,46 @@ static func _pauldron(ci: CanvasItem, cfg: Dictionary, top: Vector2, near: bool,
 		base = base.darkened(0.28)
 		trim = trim.darkened(0.35)
 		pan = pan.darkened(0.3)
-	# a boxy shoulder block over the joint: chamfered, with an enamel top bevel, layered lames below
-	var c = top + (Vector2(4.0, 8.0) if near else Vector2(-5.0, 7.0))
-	var r: float = sw * (0.17 if near else 0.15)
-	var heavy = String(cfg.cls) in ["heavy", "colossal"]
-	var lames = 1 if String(cfg.cls) == "light" else 2
-	for k in range(lames, 0, -1):
-		var ly = c.y + r * (0.55 + 0.32 * k)
-		var lx0 = c.x - r * (0.95 - 0.08 * k)
-		var lx1 = c.x + r * (1.0 - 0.1 * k)
-		P.poly(ci, P.pts([Vector2(lx0, ly - r * 0.3), Vector2(lx1, ly - r * 0.3), Vector2(lx1 + r * 0.06, ly + r * 0.08), Vector2(lx0 + r * 0.1, ly + r * 0.1)]), base.darkened(0.12 * k), 1.6)
-	var blk = [c + Vector2(-r * 0.95, r * 0.7), c + Vector2(-r * 1.0, -r * 0.55), c + Vector2(-r * 0.55, -r * 1.05), c + Vector2(r * 0.85, -r * 1.05), c + Vector2(r * 1.12, -r * 0.6), c + Vector2(r * 1.05, r * 0.7)]
-	P.poly(ci, P.pts(blk), base, 2.0)
-	# enamel top bevel and front face panel (two-tone blocking)
-	P.poly(ci, P.pts([c + Vector2(-r * 0.9, -r * 0.55), c + Vector2(-r * 0.5, -r * 0.95), c + Vector2(r * 0.8, -r * 0.95), c + Vector2(r * 1.02, -r * 0.58)]), pan, 1.0)
-	P.poly(ci, P.pts([c + Vector2(r * 0.2, -r * 0.42), c + Vector2(r * 0.92, -r * 0.42), c + Vector2(r * 0.9, r * 0.5), c + Vector2(r * 0.25, r * 0.5)]), pan.darkened(0.18), 0.0)
-	ci.draw_line(c + Vector2(-r * 0.92, r * 0.62), c + Vector2(r * 1.0, r * 0.62), trim, 2.0)
-	P.rivets(ci, c + Vector2(-r * 0.7, -r * 0.2), c + Vector2(-r * 0.7, r * 0.45), 2)
-	if heavy:
-		# a swept fin on the heavier frames' shoulders
-		P.poly(ci, P.pts([c + Vector2(-r * 0.2, -r * 1.0), c + Vector2(-r * 0.75, -r * 1.65), c + Vector2(r * 0.3, -r * 1.05)]), base.lightened(0.05), 1.4)
+	var cls = String(cfg.cls)
+	var heavy = cls in ["heavy", "colossal"]
+	var r: float = sw * (0.17 if near else 0.15) * (0.82 if heavy else 1.0)
+	var c = sh + Vector2(-r * 0.1, -r * (0.28 if not heavy else 0.5))
+	if not heavy:
+		var lames = 1 if cls == "light" else 2
+		for k in range(lames, 0, -1):
+			var ly = c.y + r * (0.55 + 0.32 * k)
+			var lx0 = c.x - r * (0.95 - 0.08 * k)
+			var lx1 = c.x + r * (1.0 - 0.1 * k)
+			P.poly(ci, P.pts([Vector2(lx0, ly - r * 0.3), Vector2(lx1, ly - r * 0.3), Vector2(lx1 + r * 0.06, ly + r * 0.08), Vector2(lx0 + r * 0.1, ly + r * 0.1)]), base.darkened(0.12 * k), 1.6)
+		var blk = [c + Vector2(-r * 0.95, r * 0.7), c + Vector2(-r * 1.0, -r * 0.55), c + Vector2(-r * 0.55, -r * 1.0), c + Vector2(r * 0.85, -r * 1.0), c + Vector2(r * 1.12, -r * 0.6), c + Vector2(r * 1.05, r * 0.7)]
+		P.poly(ci, P.pts(blk), base, 2.0)
+		P.poly(ci, P.pts([c + Vector2(-r * 0.9, -r * 0.55), c + Vector2(-r * 0.5, -r * 0.9), c + Vector2(r * 0.8, -r * 0.9), c + Vector2(r * 1.02, -r * 0.58)]), pan, 1.0)
+		ci.draw_line(c + Vector2(-r * 0.92, r * 0.62), c + Vector2(r * 1.0, r * 0.62), trim, 2.0)
+		P.rivets(ci, c + Vector2(-r * 0.7, -r * 0.2), c + Vector2(-r * 0.7, r * 0.45), 2)
+	else:
+		# M008 heavy / colossal: a broad, flattened shoulder cap tilted down toward the front (a pauldron, not a
+		# dome - a dome read as a second helmet), two curved lames under it, a raised ridge, trim rim and rivets
+		P.xf_push(ci, Transform2D(0.16, c))
+		for k in range(2, 0, -1):
+			var ly2 = r * (0.3 + 0.32 * k)
+			var w0 = r * (1.3 - 0.14 * k)
+			var lame = P.ell_pts(Vector2(r * 0.05, ly2 - r * 0.3), w0, r * 0.42, 0.0, 12, 0.0, PI)
+			lame.append(Vector2(-w0 + r * 0.05, ly2 - r * 0.3))
+			P.poly(ci, lame, base.darkened(0.12 + 0.1 * k), 1.6)
+		var shell = P.ell_pts(Vector2(0, r * 0.18), r * 1.42, r * 0.95, 0.0, 18, PI, TAU)
+		P.poly(ci, shell, base, 2.2)
+		P.poly(ci, P.ell_pts(Vector2(-r * 0.1, r * 0.1), r * 1.0, r * 0.62, 0.0, 14, PI * 1.1, PI * 1.62), base.lightened(0.16), 0.0)
+		# raised enamel ridge along the cap and the trim rim
+		P.poly(ci, P.pts([Vector2(-r * 0.9, -r * 0.42), Vector2(-r * 0.3, -r * 0.74), Vector2(r * 0.5, -r * 0.72), Vector2(r * 1.0, -r * 0.4), Vector2(r * 0.5, -r * 0.5), Vector2(-r * 0.3, -r * 0.52)]), pan, 1.0)
+		ci.draw_line(Vector2(-r * 1.4, r * 0.18), Vector2(r * 1.42, r * 0.18), trim, 2.2)
+		P.rivets(ci, Vector2(-r * 0.95, r * 0.02), Vector2(r * 0.95, r * 0.02), 4)
+		P.poly(ci, P.pts([Vector2(-r * 0.4, -r * 0.7), Vector2(-r * 1.1, -r * 1.35), Vector2(r * 0.25, -r * 0.78)]), base.lightened(0.06), 1.4)
+		if String(cfg.body) == "fortress" and not near:
+			for k in 3:
+				P.rect(ci, Rect2(-r * 0.7 + k * r * 0.52, -r * 1.0, r * 0.26, r * 0.26), base.darkened(0.05), 1.2)
+		P.xf_pop(ci)
 	if near:
-		var rc = c + Vector2(r * 0.57, r * 0.05)
+		var rc = c + Vector2(r * 0.5, r * 0.05) if not heavy else c + Vector2(r * 0.95, r * 0.25)
 		var rk = 0.55 + 0.35 * sin(t * 3.0) + abil * 0.5
 		ci.draw_circle(rc, r * 0.2, P.OUT)
 		ci.draw_circle(rc, r * 0.15, Color(cfg.rune, minf(1.0, rk)) if cfg.has("rune") else Color(FORGE, minf(1.0, rk * 0.9)))
@@ -723,7 +880,17 @@ static func _furnace_window(ci: CanvasItem, c: Vector2, w: float, h: float, t: f
 static func _head(ci: CanvasItem, a, cfg: Dictionary, top: Vector2, t: float, abil: float) -> void:
 	var eng: float = P.g(a, "engage", 0.0)
 	var dead: bool = P.g(a, "state", "") == "dead"
-	var hc = top + Vector2(6.0 + eng * 1.5 + sin(t * TAU / 1.2) * 1.2 * (1.0 - eng), -6.0 + (3.0 if P.g(a, "stun_t", 0.0) > 0.0 else 0.0))
+	# M008: the head rides on a neck above a gorget collar and scales with the frame class
+	var cc: Dictionary = CLS[cfg.cls]
+	var hs: float = cc.head
+	var tw: float = cfg.tw
+	var body = String(cfg.body)
+	var neck: float = float(cc.neck) if not body in ["work", "loader", "platform"] else 0.0
+	var hpos = top + Vector2(2.0 + tw * 0.05 + eng * 1.5 + sin(t * TAU / 1.2) * 1.2 * (1.0 - eng), -6.0 * hs - neck + (3.0 if P.g(a, "stun_t", 0.0) > 0.0 else 0.0))
+	if neck > 0.0:
+		_gorget(ci, cfg, top, hpos, hs)
+	P.xf_push(ci, Transform2D(0.0, Vector2(hs, hs), 0.0, hpos))
+	var hc = Vector2.ZERO
 	var lamp = Color(1.0, 0.9, 0.5) if not dead else Color(0.2, 0.18, 0.15)
 	var bright: float = (0.45 + eng * 0.45 + abil * 0.4) if not dead else 0.0
 	var eye = Color(1.0, 0.78, 0.3, 0.55 + bright * 0.45) if not cfg.has("rune") else Color(cfg.rune, 0.55 + bright * 0.45)
@@ -793,6 +960,23 @@ static func _head(ci: CanvasItem, a, cfg: Dictionary, top: Vector2, t: float, ab
 			_v_crest(ci, hc + Vector2(1, -11), 9.0, BRASS.darkened(0.05), trim)
 			_crest_gem(ci, hc + Vector2(1, -11), 2.0, eye, bright)
 			P.rivets(ci, hc + Vector2(-8, -9), hc + Vector2(-5, -10), 2)
+	P.xf_pop(ci)
+
+## M008 gorget: a collar of overlapping plates rising round the neck, so the head sits IN the body's armour
+## rather than floating over the chest; brass trim on the rim, a forge-light seam under the jaw.
+static func _gorget(ci: CanvasItem, cfg: Dictionary, top: Vector2, hpos: Vector2, hs: float) -> void:
+	var tw: float = cfg.tw
+	var base: Color = cfg.base
+	var trim: Color = cfg.trim
+	var w = 10.0 * hs + tw * 0.08
+	var y0 = top.y + 3.0
+	var y1 = hpos.y + 4.0 * hs
+	P.rect(ci, Rect2(hpos.x - 4.0 * hs, y1, 8.0 * hs, y0 - y1 + 2.0), IRON_D, 1.5)
+	P.poly(ci, P.pts([Vector2(hpos.x - w, y0), Vector2(hpos.x - w * 0.82, y1 + 4.0 * hs), Vector2(hpos.x - w * 0.3, y1 + 1.0 * hs), Vector2(hpos.x - w * 0.18, y0)]), base.darkened(0.12), 1.6)
+	P.poly(ci, P.pts([Vector2(hpos.x + w * 1.05, y0), Vector2(hpos.x + w * 0.88, y1 + 4.0 * hs), Vector2(hpos.x + w * 0.3, y1 + 1.0 * hs), Vector2(hpos.x + w * 0.18, y0)]), base.darkened(0.04), 1.6)
+	ci.draw_line(Vector2(hpos.x - w * 0.82, y1 + 4.0 * hs), Vector2(hpos.x - w * 0.3, y1 + 1.0 * hs), trim, 1.6)
+	ci.draw_line(Vector2(hpos.x + w * 0.88, y1 + 4.0 * hs), Vector2(hpos.x + w * 0.3, y1 + 1.0 * hs), trim, 1.6)
+	ci.draw_line(Vector2(hpos.x - w * 0.2, y0 - 1.0), Vector2(hpos.x + w * 0.2, y0 - 1.0), Color(1.0, 0.55, 0.2, 0.55) if not cfg.has("rune") else Color(cfg.rune, 0.6), 2.0)
 
 
 ## Twin eye slits (the mecha "eyes"), glowing when engaged.
@@ -974,7 +1158,9 @@ static func _arm(ci: CanvasItem, a, cfg: Dictionary, arm: Dictionary, sh: Vector
 				ci.draw_line(coil_hand.lerp(hit_hand, 0.25) + o, hit_hand - sd.normalized() * 6.0 + o, Color(1, 1, 1, 0.3 * sk), 2.5 - absf(float(j) - 1.0))
 	# upper arm + actuator
 	P.limb(ci, sh, elbow, aw, col)
-	P.circ(ci, sh, aw * 0.7, Color(cfg.trim).darkened(0.35 if far else 0.0), 1.5)
+	# M008: an iron ball joint with a trim ring (a solid trim-coloured disc read as a badge under the pauldron)
+	P.circ(ci, sh, aw * 0.62, IRON_D.darkened(0.2 if far else 0.0), 1.5)
+	ci.draw_arc(sh, aw * 0.45, 0, TAU, 14, Color(cfg.trim).darkened(0.35 if far else 0.1), 1.5)
 	var ad = (elbow - sh).normalized().orthogonal() * aw * 0.6
 	# the shoulder actuator piston visibly extends and compresses with the arm
 	var pist = clampf(0.5 + (upper_ang - 0.9) * 0.4, 0.15, 0.95)
@@ -1072,7 +1258,8 @@ static func _two_hand(ci: CanvasItem, a, cfg: Dictionary, sh_n: Vector2, sh_f: V
 	P.limb(ci, sh_f, grip, aw * 0.9, Color(cfg.base).darkened(0.3))
 	_weapon(ci, a, cfg, fam, grip, swing, atk, false, c, 0)
 	P.limb(ci, sh_n, grip, aw, cfg.base)
-	P.circ(ci, sh_n, aw * 0.7, cfg.trim, 1.5)
+	P.circ(ci, sh_n, aw * 0.62, IRON_D, 1.5)
+	ci.draw_arc(sh_n, aw * 0.45, 0, TAU, 14, Color(cfg.trim).darkened(0.1), 1.5)
 	# the head meets the ground: dust, chips and a shock ring
 	if int(tl[0]) == 2 or (int(tl[0]) == 3 and float(tl[1]) < 0.4):
 		var head = grip + Vector2.from_angle(swing) * (hl - 10.0)
@@ -1234,9 +1421,10 @@ static func _mount(ci: CanvasItem, a, cfg: Dictionary, m: Dictionary, top: Vecto
 	var at: Vector2
 	match String(m.at):
 		"shoulder":
-			at = top + Vector2(cfg.sw * 0.24, -2)
+			# M008: seated on the near pauldron, out beside the head (it used to sit across the face)
+			at = Vector2(top.x + cfg.sw * 0.34, sh_n.y - cfg.sw * 0.17)
 		"shoulder_b":
-			at = top + Vector2(-cfg.sw * 0.22, -4)
+			at = Vector2(top.x - cfg.sw * 0.3, sh_f.y - cfg.sw * 0.16)
 		_:
 			at = top + Vector2(-4, -10)
 	var aim = aim_of(a, i, -0.9)

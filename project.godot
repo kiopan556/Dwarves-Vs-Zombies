@@ -7,7 +7,7 @@ config_version=5
 
 config/name="Dwarves vs Zombies"
 config/description="2D air-and-ground tug-of-war strategy defense. One Kingdom. One Great Forge. Two Fronts. No Heroes."
-config/version="0.7.0-M007"
+config/version="0.8.0-M008"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"

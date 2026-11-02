@@ -1365,12 +1365,12 @@
    "act": 5,
    "identity": "Elite undead ruler and summoner",
    "implemented": true,
-   "milestone": "M003",
+   "milestone": "M005",
    "stats": {
     "cls": "boss",
     "domain": "ground",
     "role": "boss",
-    "hp": 28000,
+    "hp": 12000,
     "armor": "heavy",
     "speed": 14,
     "radius": 52,
@@ -1379,14 +1379,14 @@
     "behavior": "boss",
     "art": "hollow_king",
     "art_scale": 2.931,
-    "arm": 0.3,
+    "arm": 0.25,
     "blocks": true,
     "frontline": true,
     "weapons": [
      {
       "id": "hollow_blade",
       "range": 80,
-      "damage": 200,
+      "damage": 110.0,
       "dtype": "necro",
       "reload": 2.4,
       "targets": "ground",
@@ -1401,7 +1401,7 @@
      {
       "id": "king_bolt",
       "range": 380,
-      "damage": 50,
+      "damage": 25.0,
       "dtype": "necro",
       "reload": 1.8,
       "targets": "both",
@@ -1421,11 +1421,11 @@
       "name": "Royal Summons",
       "kind": "summon",
       "steam": 0,
-      "cooldown": 14,
+      "cooldown": 20,
       "windup": 1.2,
       "enemy": "ossuary_champion",
-      "count": 2,
-      "cap": 6
+      "count": 1,
+      "cap": 4
      },
      {
       "id": "hollow_crown",
@@ -1446,7 +1446,7 @@
       "cooldown": 24,
       "windup": 1.4,
       "radius": 240,
-      "damage": 160,
+      "damage": 120,
       "dtype": "necro",
       "stun": 1.5,
       "telegraph": true,
@@ -1458,26 +1458,40 @@
     "boss": {
      "seals_citadel": true,
      "support": {
-      "interval": 20,
-      "cap": 12,
+      "interval": 34,
+      "cap": 6,
       "waves": [
        [
         "hollow_guard",
-        2
+        1
        ],
        [
         "dread_executioner",
         1
-       ],
-       [
-        "crypt_hexer",
-        2
        ]
       ]
      },
-     "enrage_below": 0.35,
-     "enrage_mult": 1.35
-    }
+     "enrage_below": 0.3,
+     "enrage_mult": 1.3
+    },
+    "phase": {
+     "at": 0.5,
+     "kind": "crown_elite",
+     "elites": [
+      "ossuary_champion",
+      "grave_knight",
+      "dread_executioner",
+      "riftbound_legionary"
+     ],
+     "summon": "ossuary_champion",
+     "recrown": 20.0,
+     "king_dr": 0.5,
+     "aura_dr": 0.25,
+     "aura_r": 200.0,
+     "alert": "The Hollow King crowns a champion \u2014 kill the crowned one to break his ward!",
+     "break_alert": "The crowned champion falls \u2014 the King's ward is broken!"
+    },
+    "fixed_hp": true
    },
    "desc": "The undead ruler and summoner, guarded by champions.",
    "counter": "Break the champions, then focus the King when the ward falls."
@@ -1489,12 +1503,12 @@
    "act": 5,
    "identity": "Massive airborne undead creature",
    "implemented": true,
-   "milestone": "M003",
+   "milestone": "M005",
    "stats": {
     "cls": "boss",
     "domain": "air",
     "role": "boss",
-    "hp": 30000,
+    "hp": 26000,
     "armor": "flesh",
     "speed": 55,
     "radius": 70,
@@ -1503,14 +1517,14 @@
     "behavior": "boss_air",
     "art": "gravewing_sovereign",
     "art_scale": 3.404,
-    "arm": 0.3,
+    "arm": 0.25,
     "blocks": false,
     "frontline": true,
     "weapons": [
      {
       "id": "sovereign_screech",
       "range": 380,
-      "damage": 50,
+      "damage": 37.5,
       "dtype": "necro",
       "reload": 1.4,
       "targets": "both",
@@ -1534,7 +1548,7 @@
       "windup": 0.8,
       "enemy": "rotwing",
       "count": 4,
-      "cap": 10,
+      "cap": 8,
       "air": true
      },
      {
@@ -1545,7 +1559,7 @@
       "cooldown": 16,
       "windup": 1.2,
       "radius": 300,
-      "damage": 150,
+      "damage": 120,
       "dtype": "necro",
       "stun": 1.0,
       "telegraph": true,
@@ -1565,6 +1579,22 @@
      250
     ],
     "standoff": 170,
+    "phase": {
+     "at": 0.5,
+     "kind": "storm_eye",
+     "gale_interval": 13.0,
+     "gale_time": 4.5,
+     "gale_push": 95.0,
+     "gale_dps": 9.0,
+     "pull_at": 0.25,
+     "pull_interval": 11.0,
+     "pull_time": 3.0,
+     "pull_speed": 85.0,
+     "pull_dps": 14.0,
+     "alert": "The storm eye closes \u2014 gales sweep the sky!",
+     "pull_alert": "The Sovereign drags your aircraft into her wings!"
+    },
+    "fixed_hp": true,
     "band": "high"
    },
    "desc": "A sky-darkening winged sovereign.",
@@ -1577,12 +1607,12 @@
    "act": 5,
    "identity": "Final boss commanding a simultaneous ground and air assault",
    "implemented": true,
-   "milestone": "M003",
+   "milestone": "M005",
    "stats": {
     "cls": "boss",
     "domain": "ground",
     "role": "boss",
-    "hp": 34000,
+    "hp": 16000,
     "armor": "light",
     "speed": 14,
     "radius": 56,
@@ -1591,14 +1621,14 @@
     "behavior": "boss",
     "art": "rift_lich",
     "art_scale": 3.215,
-    "arm": 0.3,
+    "arm": 0.2,
     "blocks": true,
     "frontline": true,
     "weapons": [
      {
       "id": "lich_rift_beam",
       "range": 420,
-      "damage": 70,
+      "damage": 45.5,
       "dtype": "necro",
       "reload": 1.6,
       "targets": "both",
@@ -1614,7 +1644,7 @@
      {
       "id": "lich_lightning",
       "range": 360,
-      "damage": 40,
+      "damage": 26.0,
       "dtype": "shock",
       "reload": 2.4,
       "targets": "both",
@@ -1638,8 +1668,8 @@
       "cooldown": 12,
       "windup": 1.0,
       "enemy": "riftbound_legionary",
-      "count": 4,
-      "cap": 12
+      "count": 3,
+      "cap": 8
      },
      {
       "id": "rift_storm",
@@ -1661,7 +1691,7 @@
       "cooldown": 22,
       "windup": 1.6,
       "radius": 280,
-      "damage": 220,
+      "damage": 160,
       "dtype": "necro",
       "telegraph": true,
       "min_targets": 2
@@ -1683,26 +1713,50 @@
     "boss": {
      "seals_citadel": true,
      "support": {
-      "interval": 16,
-      "cap": 16,
+      "interval": 22,
+      "cap": 10,
       "waves": [
        [
         "riftbound_legionary",
-        2
+        1
        ],
        [
         "rift_crow",
-        4
-       ],
-       [
-        "night_seer",
-        1
+        3
        ]
       ]
      },
-     "enrage_below": 0.35,
-     "enrage_mult": 1.35
-    }
+     "enrage_below": 0.3,
+     "enrage_mult": 1.3
+    },
+    "phase": {
+     "at": 0.66,
+     "kind": "rift_ascend",
+     "rise_time": 2.4,
+     "air_y": 130.0,
+     "army_interval": 18.0,
+     "army": [
+      [
+       "riftbound_legionary",
+       2
+      ],
+      [
+       "black_rot_infantry",
+       3
+      ],
+      [
+       "grave_knight",
+       1
+      ]
+     ],
+     "army_cap": 14,
+     "return_at": 0.33,
+     "storm_boost": 1.8,
+     "legion_cd": 0.6,
+     "alert": "The Rift Lich rises into the rift \u2014 its legion storms your stronghold!",
+     "return_alert": "The Lich returns with the rift's full storm \u2014 win both fronts!"
+    },
+    "fixed_hp": true
    },
    "desc": "The final enemy: commands a ground legion and a sky storm at once.",
    "counter": "Everything you have, on both fronts."

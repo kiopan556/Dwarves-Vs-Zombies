@@ -60,6 +60,8 @@ func effective_range(u, battle) -> float:
 	var r = range_
 	if u.cls == "artillery" and u.side == 0 and battle.spotting_active:
 		r *= battle.spot_range_mult
+	if battle.eclipse_on:
+		r *= Rift.range_mult(battle, u, self)   # M008 eclipse: unlit ranged weapons see 25 % less far
 	return r
 
 

@@ -35,6 +35,14 @@ func _ready() -> void:
 	sp.tooltip_text = "Stages cleared · stars earned (of %d)" % (3 * n_impl)
 	bar.add_child(sp)
 	bar.add_child(UiKit.pill("spark", str(GameState.profile.sparks), UiKit.FORGE))
+	# M008 post-game: the campaign shows "Rift Sealed"; Last Stand and the completion page sit on the War Table
+	if GameState.rift_sealed():
+		var rs = UiKit.pill("crown", "Rift Sealed", Color("ffcf5a"))
+		rs.tooltip_text = "The Black Rift is sealed. Every stage stays replayable on Normal and Heroic."
+		bar.add_child(rs)
+		bar.add_child(UiKit.button("Completion", func(): GameState.goto("completion"), Vector2(150, 46), 16))
+	if GameState.last_stand_unlocked():
+		bar.add_child(UiKit.button("Last Stand", func(): GameState.goto("last_stand"), Vector2(150, 46), 16))
 	act_tabs = TabBar.new()
 	for a in 5:
 		var st = Registry.stage_by_index(a * 30 + 1)
@@ -353,6 +361,7 @@ func _show_detail(stage_id: String) -> void:
 	var start = UiKit.primary(("Deploy — Heroic" if heroic_on else "Deploy the Army") if avail else "Locked — clear the previous stage", func():
 		GameState.selected_stage = st.id
 		GameState.selected_heroic = heroic_on
+		GameState.selected_last_stand = ""
 		GameState.goto("battle"), Vector2(0, 64), 22)
 	start.disabled = not avail or lo_count == 0
 	actions.add_child(start)
@@ -425,6 +434,21 @@ class EnvPreview extends Control:
 		pts2.append(Vector2(w, h))
 		draw_colored_polygon(pts2, mid)
 		draw_rect(Rect2(0, h * 0.78, w, h * 0.22), Color(e.ground))
+		# M008 Act V signatures, so the four Black Rift lands read apart at thumbnail size
+		match env:
+			"necro_waste":
+				for k in 5:
+					draw_arc(Vector2(w * 0.3 + k * 12, h * 0.78), h * 0.4 - absf(k - 2.0) * 4.0, PI, PI * 1.55, 10, Color("cfc6b2"), 2.5)
+			"rift_sky":
+				draw_polyline(PackedVector2Array([Vector2(w * 0.1, h * 0.2), Vector2(w * 0.3, h * 0.28), Vector2(w * 0.42, h * 0.18), Vector2(w * 0.6, h * 0.3)]), Color(0.95, 0.85, 1.0, 0.85), 2.0)
+				draw_colored_polygon(PackedVector2Array([Vector2(w * 0.62, h * 0.4), Vector2(w * 0.82, h * 0.4), Vector2(w * 0.72, h * 0.6)]), Color(0.18, 0.14, 0.22))
+			"ruined_citadel":
+				for k in 6:
+					draw_rect(Rect2(w * 0.5 + k * w * 0.08, h * 0.28, w * 0.05, h * 0.5), Color(0.08, 0.06, 0.1))
+				draw_colored_polygon(PackedVector2Array([Vector2(w * 0.66, h * 0.28), Vector2(w * 0.7, h * 0.08), Vector2(w * 0.74, h * 0.28)]), Color(0.08, 0.06, 0.1))
+			"realm_gate":
+				draw_colored_polygon(PackedVector2Array([Vector2(w * 0.74, 0), Vector2(w * 0.8, h * 0.35), Vector2(w * 0.76, h * 0.7), Vector2(w * 0.72, h * 0.35)]), Color(0.95, 0.88, 1.0))
+				draw_circle(Vector2(w * 0.76, h * 0.35), h * 0.3, Color(0.6, 0.3, 0.9, 0.2))
 		if boss:
 			draw_circle(Vector2(w * 0.78, h * 0.42), h * 0.22, Color(0.6, 0.2, 0.5, 0.35))
 			UiKit.draw_glyph(self, "skull", Vector2(w * 0.78, h * 0.42), h * 0.16, Color(0.9, 0.8, 0.95), Color(0, 0, 0, 0.7))

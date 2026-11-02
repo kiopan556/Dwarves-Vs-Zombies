@@ -363,7 +363,7 @@
    "requires": [
     "blackpowder_drill"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -375,7 +375,7 @@
    "requires": [
     "blackpowder_drill"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -387,7 +387,7 @@
    "requires": [
     "blackpowder_drill"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -399,7 +399,7 @@
    "requires": [
     "blackpowder_drill"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -411,7 +411,7 @@
    "requires": [
     "blackpowder_drill"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -459,7 +459,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -471,7 +471,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -483,7 +483,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -495,7 +495,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -507,7 +507,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -519,7 +519,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -531,7 +531,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -543,7 +543,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -555,7 +555,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -567,7 +567,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -579,7 +579,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -591,7 +591,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -603,7 +603,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -615,7 +615,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -627,7 +627,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -639,7 +639,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -651,7 +651,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -663,7 +663,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -675,7 +675,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -687,7 +687,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -699,7 +699,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -711,7 +711,7 @@
    "requires": [
     "field_engineering"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -759,7 +759,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -771,7 +771,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -783,7 +783,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -795,7 +795,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -807,7 +807,7 @@
    "requires": [
     "age_of_steam"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -819,7 +819,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -831,7 +831,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -843,7 +843,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -855,7 +855,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -867,7 +867,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -879,7 +879,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -891,7 +891,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -903,7 +903,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -915,7 +915,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -927,7 +927,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -939,7 +939,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -971,7 +971,7 @@
    "requires": [
     "rifled_ordnance"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -983,7 +983,7 @@
    "requires": [
     "rifled_ordnance"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1007,7 +1007,7 @@
    "requires": [
     "rifled_ordnance"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1020,7 +1020,7 @@
     "age_of_steam",
     "heavy_gunnery"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1033,7 +1033,7 @@
     "age_of_steam",
     "heavy_gunnery"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1046,7 +1046,7 @@
     "age_of_steam",
     "heavy_gunnery"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1059,7 +1059,7 @@
     "age_of_steam",
     "heavy_gunnery"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1072,7 +1072,7 @@
     "age_of_steam",
     "heavy_gunnery"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1085,7 +1085,7 @@
     "age_of_iron",
     "heavy_artillery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1098,7 +1098,7 @@
     "age_of_iron",
     "heavy_artillery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1111,7 +1111,7 @@
     "age_of_iron",
     "heavy_artillery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1124,7 +1124,7 @@
     "age_of_iron",
     "heavy_artillery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1136,7 +1136,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1148,7 +1148,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1160,7 +1160,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1172,7 +1172,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1184,7 +1184,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1197,7 +1197,7 @@
     "coal_engines",
     "rifled_ordnance"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1209,7 +1209,7 @@
    "requires": [
     "coal_engines"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1235,7 +1235,7 @@
     "armored_engineering",
     "coal_engines"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1248,7 +1248,7 @@
     "age_of_steam",
     "armored_engineering"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1261,7 +1261,7 @@
     "age_of_steam",
     "armored_engineering"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1274,7 +1274,7 @@
     "age_of_steam",
     "armored_engineering"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1288,7 +1288,7 @@
     "armored_engineering",
     "anti_air_technology"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1300,7 +1300,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1312,7 +1312,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1326,7 +1326,7 @@
     "heavy_artillery",
     "armored_engineering"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1338,7 +1338,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1350,7 +1350,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1362,7 +1362,7 @@
    "requires": [
     "age_of_iron"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1376,7 +1376,7 @@
     "armored_engineering",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1390,7 +1390,7 @@
     "heavy_artillery",
     "armored_engineering"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1402,7 +1402,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1414,7 +1414,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1426,7 +1426,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1438,7 +1438,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1452,7 +1452,7 @@
     "armored_engineering",
     "anti_air_technology"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1464,7 +1464,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1478,7 +1478,7 @@
     "heavy_artillery",
     "armored_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1490,7 +1490,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1502,7 +1502,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1514,7 +1514,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1526,7 +1526,7 @@
    "requires": [
     "mechanical_frames"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1539,7 +1539,7 @@
     "age_of_steam",
     "boiler_walkers"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1552,7 +1552,7 @@
     "age_of_steam",
     "boiler_walkers"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1565,7 +1565,7 @@
     "age_of_steam",
     "boiler_walkers"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1578,7 +1578,7 @@
     "age_of_steam",
     "boiler_walkers"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1591,7 +1591,7 @@
     "age_of_steam",
     "boiler_walkers"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1619,7 +1619,7 @@
     "mechanical_frames",
     "anti_air_technology"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1632,7 +1632,7 @@
     "age_of_iron",
     "dedicated_war_frames"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1645,7 +1645,7 @@
     "age_of_iron",
     "dedicated_war_frames"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1671,7 +1671,7 @@
     "age_of_iron",
     "dedicated_war_frames"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1684,7 +1684,7 @@
     "age_of_iron",
     "dedicated_war_frames"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1697,7 +1697,7 @@
     "age_of_iron",
     "dedicated_war_frames"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -1710,7 +1710,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1723,7 +1723,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1736,7 +1736,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1749,7 +1749,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1764,7 +1764,7 @@
     "boiler_walkers",
     "anti_air_technology"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1777,7 +1777,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1790,7 +1790,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1803,7 +1803,7 @@
     "age_of_war_machines",
     "heavy_war_frames"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -1817,7 +1817,7 @@
     "colossal_mechanical_frames",
     "advanced_rune_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1831,7 +1831,7 @@
     "colossal_mechanical_frames",
     "advanced_rune_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1845,7 +1845,7 @@
     "colossal_mechanical_frames",
     "advanced_rune_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1859,7 +1859,7 @@
     "colossal_mechanical_frames",
     "anti_air_technology"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1873,7 +1873,7 @@
     "colossal_mechanical_frames",
     "advanced_rune_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1887,7 +1887,7 @@
     "colossal_mechanical_frames",
     "advanced_rune_engineering"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -1909,7 +1909,7 @@
    "requires": [
     "rotor_aeronautics"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1921,7 +1921,7 @@
    "requires": [
     "rotor_aeronautics"
    ],
-   "cost": 40,
+   "cost": 60,
    "implemented": true,
    "starting": false
   },
@@ -1934,7 +1934,7 @@
     "age_of_steam",
     "aerial_ordnance"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1947,7 +1947,7 @@
     "age_of_steam",
     "aerial_ordnance"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1960,7 +1960,7 @@
     "age_of_steam",
     "aerial_ordnance"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1973,7 +1973,7 @@
     "age_of_steam",
     "aerial_ordnance"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -1988,7 +1988,7 @@
     "rotor_aeronautics",
     "heavy_gunnery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2001,7 +2001,7 @@
     "age_of_iron",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2014,7 +2014,7 @@
     "age_of_iron",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2027,7 +2027,7 @@
     "age_of_iron",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2040,7 +2040,7 @@
     "age_of_iron",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2053,7 +2053,7 @@
     "age_of_iron",
     "aircraft_logistics"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2065,7 +2065,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2079,7 +2079,7 @@
     "aerial_ordnance",
     "heavy_gunnery"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2091,7 +2091,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2103,7 +2103,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2115,7 +2115,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2127,7 +2127,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2139,7 +2139,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2153,7 +2153,7 @@
     "aircraft_logistics",
     "heavy_artillery"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2165,7 +2165,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2178,7 +2178,7 @@
     "age_of_steam",
     "lift_gas_envelopes"
    ],
-   "cost": 70,
+   "cost": 110,
    "implemented": true,
    "starting": false
   },
@@ -2192,7 +2192,7 @@
     "airship_engineering",
     "heavy_gunnery"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2205,7 +2205,7 @@
     "age_of_iron",
     "airship_engineering"
    ],
-   "cost": 110,
+   "cost": 190,
    "implemented": true,
    "starting": false
   },
@@ -2217,7 +2217,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2229,7 +2229,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2243,7 +2243,7 @@
     "airship_engineering",
     "aircraft_logistics"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2255,7 +2255,7 @@
    "requires": [
     "age_of_war_machines"
    ],
-   "cost": 160,
+   "cost": 300,
    "implemented": true,
    "starting": false
   },
@@ -2267,7 +2267,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2279,7 +2279,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2291,7 +2291,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2303,7 +2303,7 @@
    "requires": [
     "age_of_colossi"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },
@@ -2317,7 +2317,7 @@
     "airship_engineering",
     "aircraft_logistics"
    ],
-   "cost": 230,
+   "cost": 500,
    "implemented": true,
    "starting": false
   },

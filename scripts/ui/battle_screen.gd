@@ -76,10 +76,11 @@ func _ready() -> void:
 	var amb = "mountain"
 	var env_id = String(stage.get("env", ""))
 	if env_id in ["dead_forest", "plague_marsh", "ruined_road", "corrupted_mine", "open_plains", "broken_ridge", "airborne_ruins", "shattered_fort",
-			"industrial_city", "destroyed_forge", "infested_factory", "mech_graveyard"]:
+			"industrial_city", "destroyed_forge", "infested_factory", "mech_graveyard", "necro_waste", "rift_sky", "ruined_citadel", "realm_gate"]:
 		amb = {"dead_forest": "forest", "plague_marsh": "marsh", "ruined_road": "road", "corrupted_mine": "fungal",
 			"open_plains": "plains", "broken_ridge": "highridge", "airborne_ruins": "cloudsea", "shattered_fort": "fort",
-			"industrial_city": "city", "destroyed_forge": "dead_forge", "infested_factory": "factory", "mech_graveyard": "graveyard"}[env_id]
+			"industrial_city": "city", "destroyed_forge": "dead_forge", "infested_factory": "factory", "mech_graveyard": "graveyard",
+			"necro_waste": "waste", "rift_sky": "rift", "ruined_citadel": "citadel", "realm_gate": "gate"}[env_id]
 	elif "mine" in env_id:
 		amb = "mine"
 	elif "foundry" in env_id:
@@ -93,6 +94,8 @@ func _ready() -> void:
 
 # overridable hooks (sandbox)
 func _stage_def() -> Dictionary:
+	if GameState.selected_last_stand != "":
+		return LastStand.stage_def(GameState.selected_last_stand)   # M008 endless mode
 	if GameState.selected_heroic and GameState.heroic_available(GameState.selected_stage):
 		return Registry.heroic_stage(GameState.selected_stage)   # M007 Heroic difficulty
 	return Registry.stage(GameState.selected_stage)
@@ -391,6 +394,9 @@ func _update_hud() -> void:
 	gold_l.text = "%d" % int(battle.gold) if not battle.infinite_gold else "∞"
 	steam_bar.set_value(battle.steam / Battle.STEAM_MAX)
 	time_l.text = "%d:%02d  ·  %d slain  ·  %s" % [int(battle.time) / 60, int(battle.time) % 60, battle.stats_kills, String(stage.get("name", "Sandbox"))]
+	if not battle.last_stand.is_empty() and battle.director is LastStand:
+		var ls: LastStand = battle.director
+		time_l.text = "WAVE %d  ·  %d slain  ·  score %d  ·  best %d" % [ls.wave, battle.stats_kills, ls.score(), int(GameState.profile.last_stand.get(String(battle.last_stand.arena), {}).get("best_score", 0))]
 	var mc = battle.mine_upgrade_cost()
 	mine_btn.setup_state("Lv%d" % battle.mine_level, ("%dg" % mc) if mc > 0 else "MAX", not (mc < 0 or battle.gold < mc), 0.0)
 	od_btn.setup_state("Overdrive", "%d steam" % int(Battle.OVERDRIVE_COST) if battle.overdrive_cd <= 0.0 else "%ds" % int(ceil(battle.overdrive_cd)), battle.can_overdrive(), battle.overdrive_cd / Battle.OVERDRIVE_CD)
@@ -410,8 +416,16 @@ func _update_hud() -> void:
 
 
 # =============================================================== M005 boss arrival
+var _intro_hold := INTRO_HOLD
+
+
 func _boss_intro(b) -> void:
 	Audio.play("boss_sting", -1, 0.0, 0.0)
+	# M008: the final boss gets its own theme and a longer, slower arrival
+	var lich = b != null and is_instance_valid(b) and String(b.id) == "rift_lich"
+	_intro_hold = INTRO_HOLD * (2.6 if lich else 1.0)
+	if lich:
+		Audio.play_music("lich")
 	_alert("%s approaches!" % String(b.def.get("name", "The boss")) if b != null and is_instance_valid(b) else "Something vast approaches!")
 	if is_sandbox or b == null or not is_instance_valid(b) or battle.over:
 		return
@@ -427,10 +441,12 @@ func _step_intro(delta: float) -> void:
 	var t = _intro_t
 	if t < INTRO_GO:
 		cam.position.x = lerpf(_intro_from, _intro_to, ease(t / INTRO_GO, -2.0))
-	elif t < INTRO_GO + INTRO_HOLD:
+	elif t < INTRO_GO + _intro_hold:
 		cam.position.x = _intro_to
-	elif t < INTRO_GO + INTRO_HOLD + INTRO_BACK:
-		cam.position.x = lerpf(_intro_to, _intro_from, ease((t - INTRO_GO - INTRO_HOLD) / INTRO_BACK, -2.0))
+		if _intro_hold > INTRO_HOLD and t > INTRO_GO + 0.8 and alert_l.text.find("Lich") < 0:
+			_alert("The Rift Lich steps out of the gate. Win on the ground AND in the sky.")
+	elif t < INTRO_GO + _intro_hold + INTRO_BACK:
+		cam.position.x = lerpf(_intro_to, _intro_from, ease((t - INTRO_GO - _intro_hold) / INTRO_BACK, -2.0))
 	else:
 		_end_intro()
 
@@ -548,7 +564,13 @@ func _on_end(won: bool) -> void:
 	if not is_inside_tree():
 		return
 	var summary = {}
+	if not battle.last_stand.is_empty():
+		_last_stand_result()
+		return
 	if not is_sandbox:
+		GameState.note_units_used(battle.deploy_types.keys())
+		GameState.profile.stats["tears_closed"] = int(GameState.profile.stats.get("tears_closed", 0)) + battle.stats_tears_closed
+		GameState.profile.stats["wisps_shot"] = int(GameState.profile.stats.get("wisps_shot", 0)) + battle.stats_wisps_shot
 		if won:
 			if battle.heroic:
 				summary = GameState.grant_heroic_rewards(stage.id, battle.time, battle.stats_kills, battle.stars_earned())
@@ -601,6 +623,13 @@ func _on_end(won: bool) -> void:
 	if is_sandbox:
 		h.add_child(UiKit.primary("Restart", func(): get_tree().reload_current_scene(), Vector2(170, 58)))
 		h.add_child(UiKit.button("Menu", func(): GameState.goto("menu"), Vector2(160, 56)))
+		return
+	# M008: clearing the final stage for the first time rolls straight into the ending
+	if won and String(stage.get("id", "")) == "s150" and not battle.heroic:
+		sl.text = "The Rift Lich is destroyed. The Black Rift begins to close."
+		h.add_child(UiKit.primary("The Rift Closes ▶", func():
+			GameState.ending_credits_only = false
+			GameState.goto("ending"), Vector2(240, 58)))
 		return
 	h.add_child(UiKit.button("Retry", func(): get_tree().reload_current_scene(), Vector2(140, 56)))
 	h.add_child(UiKit.button("Campaign", func(): GameState.goto("campaign"), Vector2(150, 56)))
@@ -903,3 +932,38 @@ class Minimap extends Control:
 			Painter.cog(self, Vector2(wx, gy - 9.0), 4.5, Color(0.5, 1.0, 0.55) if chan else Color(0.9, 0.75, 0.45), 6)
 		var vr: Rect2 = battle.view_rect
 		draw_rect(Rect2(vr.position.x * sx, 1, vr.size.x * sx, size.y - 2), UiKit.BRASS_L, false, 1.5)
+
+
+# =============================================================== M008 Last Stand
+func _last_stand_result() -> void:
+	var ls: LastStand = battle.director
+	var arena = String(battle.last_stand.arena)
+	var waves = ls.waves_survived()
+	var sc = ls.score()
+	var res = GameState.record_last_stand(arena, waves, battle.stats_kills, sc)
+	var v = _overlay_panel("THE LINE BREAKS", UiKit.BRASS_L)
+	v.add_child(UiKit.label("Stonehelm will sing of this stand: %d waves held." % waves if waves > 0 else "The dead broke through before the first wave was held.", 18, UiKit.TEXT, HORIZONTAL_ALIGNMENT_CENTER))
+	var grid = GridContainer.new()
+	grid.columns = 4
+	grid.add_theme_constant_override("h_separation", 22)
+	v.add_child(grid)
+	_stat(grid, "shield", "Waves held", str(waves))
+	_stat(grid, "skull", "Undead destroyed", str(battle.stats_kills), UiKit.UNDEAD)
+	_stat(grid, "star", "Score", str(sc), UiKit.FORGE)
+	var best: Dictionary = GameState.profile.last_stand.get(arena, {})
+	_stat(grid, "map", "Best here", str(int(best.get("best_score", sc))))
+	if res.best:
+		v.add_child(UiKit.label("A new best for %s!" % LastStand.arena(arena).name, 18, UiKit.GOOD, HORIZONTAL_ALIGNMENT_CENTER))
+	for rid in res.rewards:
+		v.add_child(UiKit.label("Earned: %s" % String(rid).replace("_", " ").capitalize(), 17, UiKit.BRASS_L, HORIZONTAL_ALIGNMENT_CENTER))
+	var h = HBoxContainer.new()
+	h.add_theme_constant_override("separation", 10)
+	h.alignment = BoxContainer.ALIGNMENT_CENTER
+	v.add_child(h)
+	h.add_child(UiKit.primary("Stand Again", func(): get_tree().reload_current_scene(), Vector2(190, 58)))
+	h.add_child(UiKit.button("Arenas", func():
+		GameState.selected_last_stand = ""
+		GameState.goto("last_stand"), Vector2(150, 56)))
+	h.add_child(UiKit.button("Forge", func():
+		GameState.selected_last_stand = ""
+		GameState.goto("menu"), Vector2(140, 56)))

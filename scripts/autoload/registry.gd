@@ -87,7 +87,7 @@ func combat_def(id: String) -> Dictionary:
 	if aux.has(id):
 		var ax: Dictionary = aux[id].duplicate(true)
 		ax["id"] = id
-		ax["faction"] = "dwarf"
+		ax["faction"] = String(ax.get("faction", "dwarf"))
 		return ax
 	var variant = ""
 	if "@" in id:

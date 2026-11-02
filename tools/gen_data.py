@@ -23,6 +23,7 @@ import act1b_data
 import act2_data
 import act3_data
 import act4_data
+import act5_data
 import stage_kit
 from stage_kit import ch
 
@@ -489,6 +490,20 @@ BOSS_PHASES = {
                             machines=[["gravegun_tank", 1], ["risen_copperback", 1]],
                             alert="The Colossus hurls the dead at your stronghold!",
                             machine_alert="The Colossus disgorges a corrupted war machine!"),
+    # M008: Act V bosses
+    "hollow_king": dict(at=0.5, kind="crown_elite", elites=["ossuary_champion", "grave_knight", "dread_executioner", "riftbound_legionary"],
+                        summon="ossuary_champion", recrown=20.0, king_dr=0.5, aura_dr=0.25, aura_r=200.0,
+                        alert="The Hollow King crowns a champion — kill the crowned one to break his ward!",
+                        break_alert="The crowned champion falls — the King's ward is broken!"),
+    "gravewing_sovereign": dict(at=0.5, kind="storm_eye", gale_interval=13.0, gale_time=4.5, gale_push=95.0, gale_dps=9.0,
+                                pull_at=0.25, pull_interval=11.0, pull_time=3.0, pull_speed=85.0, pull_dps=14.0,
+                                alert="The storm eye closes — gales sweep the sky!",
+                                pull_alert="The Sovereign drags your aircraft into her wings!"),
+    "rift_lich": dict(at=0.66, kind="rift_ascend", rise_time=2.4, air_y=130.0, army_interval=18.0,
+                      army=[["riftbound_legionary", 2], ["black_rot_infantry", 3], ["grave_knight", 1]], army_cap=14,
+                      return_at=0.33, storm_boost=1.8, legion_cd=0.6,
+                      alert="The Rift Lich rises into the rift — its legion storms your stronghold!",
+                      return_alert="The Lich returns with the rift's full storm — win both fronts!"),
     "gravewing_matriarch": dict(at=0.5, kind="perch", perch_time=8.0, interval=26.0, nest_x=2250,
                                 wake=[["blight_bat", 5], ["skeletal_vulture", 2]], alert="The Matriarch lands on her nest — hit her from the ground!"),
 }
@@ -515,6 +530,18 @@ BOSS_EXTRAS = {
     "ashen_forge_tyrant": dict(fixed_hp=True, hp=13000, arm=0.2, weapon_damage={"ashen_hammer": 0.7, "slag_volley": 0.6}),
     "corpse_colossus": dict(fixed_hp=True, hp=15000, arm=0.2, weapon_damage={"colossus_slam": 0.7},
                             ability_tune={"disgorge_horde": {"count": 5, "cap": 14}, "siege_slam": {"damage": 140}}),
+    # M008: Act V bosses ignore the per-stage HP multiplier (x2.9-3.2 by 130-150); prompt numbers 28,000 / 30,000 /
+    # 34,000 would be 80,000-110,000 in battle. Tuned with the auto-commander and the scripted counter runs (report).
+    "hollow_king": dict(fixed_hp=True, hp=12000, arm=0.25, weapon_damage={"hollow_blade": 0.55, "king_bolt": 0.5},
+                        ability_tune={"royal_summons": {"cap": 4, "count": 1, "cooldown": 20}, "kings_doom": {"damage": 120}},
+                        boss={"seals_citadel": True, "support": {"interval": 34, "cap": 6, "waves": [["hollow_guard", 1], ["dread_executioner", 1]]},
+                              "enrage_below": 0.3, "enrage_mult": 1.3}),
+    "gravewing_sovereign": dict(fixed_hp=True, hp=26000, arm=0.25, weapon_damage={"sovereign_screech": 0.75},
+                                ability_tune={"sovereign_brood": {"cap": 8}, "wing_storm": {"damage": 120}}),
+    "rift_lich": dict(fixed_hp=True, hp=16000, arm=0.2, weapon_damage={"lich_rift_beam": 0.65, "lich_lightning": 0.65},
+                      ability_tune={"rift_legion": {"cap": 8, "count": 3}, "annihilate": {"damage": 160}},
+                      boss={"seals_citadel": True, "support": {"interval": 22, "cap": 10, "waves": [["riftbound_legionary", 1], ["rift_crow", 3]]},
+                            "enrage_below": 0.3, "enrage_mult": 1.3}),
 }
 
 # M007 Heroic: stages whose default Heroic block the auto-commander could not win (stalemates and early collapses
@@ -531,6 +558,17 @@ for _n, _m in ((14, "grave_knight"), (29, "bone_shieldbearer"), (50, "pestilent_
 HEROIC_GENTLE[50]["ability_lead"] = 0.8
 HEROIC_GENTLE[50]["hp_mult"] = 1.0
 HEROIC_GENTLE[50]["structure"] = dict(enemy="cursed_barricade", x=2420)
+# M008 full-campaign Heroic sweep: 051 (its normal waves were eased by the curve pass, and the Heroic block then
+# timed out) and five Act V stages the commander lost on Heroic get the gentle block
+for _n in (51, 126, 130, 146, 148, 149):
+    HEROIC_GENTLE[_n] = _GENTLE()
+# ... and three that still fell with it get the minimal block (like 014/029/071)
+for _n in (126, 146, 148):
+    HEROIC_GENTLE[_n] = dict(interval_mult=0.95, hp_mult=1.03, ability_lead=0.8, structure=dict(enemy="cursed_barricade", x=2390))
+# 126 (black-rot masses under obelisk wards): Heroic mostly by design - waves only x0.95, a third
+# rift obelisk planted further forward (the ward covers more of the line) and slightly tougher undead
+HEROIC_GENTLE[126] = dict(interval_mult=0.95, hp_mult=1.03, ability_lead=0.6, structure=dict(enemy="rift_obelisk", x=1640),
+                          event=dict(t=300, spawn=[["grave_knight", 2]]))
 
 # M007 wreck reclamation: who salvages (dwarves) and who reclaims (undead corruptors)
 SALVAGERS = {"salvage_crew", "armored_recovery_team", "heavy_recovery_crawler", "field_mechanic"}
@@ -611,7 +649,21 @@ def budget(st):
     for tr in st["tracks"]:
         avg_int = (tr["interval"] + tr["interval_min"]) / 2
         b += threat(tr["enemy"]) * tr["group"] * (60.0 / avg_int)
+    # M008: rift tears spawn enemies too - their spills count toward the budget (as if no tear were ever closed)
+    hz = st.get("hazard")
+    for h in (hz if isinstance(hz, list) else [hz] if hz else []):
+        if h.get("kind") == "rift_tears":
+            pool = h.get("pool", [])
+            avg = sum(threat(e) for e in pool) / max(1, len(pool))
+            b += avg * float(h["spill"]) * 60.0 / float(h["interval"])
     return round(b, 1)
+
+
+RESEARCH_COST = [0, 60, 110, 190, 300, 500]
+# units no act ever hands out as a blueprint: research-only by design, kept cheap (master prompt §9)
+CURVE_FIXES = []
+RESEARCH_ONLY = {"ammunition_porter", "bayonet_fusilier", "boiler_tender", "grapeshot_culverin", "powder_loader", "salvage_crew",
+                 "shotgun_breacher", "steamwheel_apc", "ironclad_walker", "shieldframe"}
 
 
 def build():
@@ -734,8 +786,8 @@ def build():
                   milestone="M001" if n <= 15 else "M003" if n <= 30 else ("M002" if n <= 30 else f"M{min(8, 2 + act)}+".replace("M", "M00") if False else "M008+"),
                   env=envs[local % len(envs)], theme=ACT_THEMES[act][local % len(ACT_THEMES[act])],
                   victory="destroy_citadel")
-        if n <= 120:
-            a = AUTHORED[n - 1] if n <= 15 else (act1b_data.ACT1B[n - 16] if n <= 30 else (act2_data.ACT2[n - 31] if n <= 60 else (act3_data.ACT3[n - 61] if n <= 90 else act4_data.ACT4[n - 91])))
+        if n <= 150:
+            a = AUTHORED[n - 1] if n <= 15 else (act1b_data.ACT1B[n - 16] if n <= 30 else (act2_data.ACT2[n - 31] if n <= 60 else (act3_data.ACT3[n - 61] if n <= 90 else (act4_data.ACT4[n - 91] if n <= 120 else act5_data.ACT5[n - 121]))))
             if 5 <= n <= 30:   # later Act I stages press harder (tuned with the auto-commander sims); Act II is authored at its own pace
                 k = 1.0 - 0.012 * (n - 4) if n <= 15 else 0.97   # 016-030 are authored at their own pace
                 for tr in a["tracks"]:
@@ -748,11 +800,13 @@ def build():
                       hazard=a.get("hazard"), boss_spawn=a.get("boss"), rewards=a["rewards"], max_alive=a.get("max_alive", 34 + n * 2),
                       seed=1000 + n * 7919, challenge=a.get("challenge") or ACT1_CHALLENGES[n - 1])
             if n > 30:
-                st["milestone"] = "M005" if n <= 60 else ("M006" if n <= 90 else "M007")
-            if n > 90:
+                st["milestone"] = "M005" if n <= 60 else ("M006" if n <= 90 else ("M007" if n <= 120 else "M008"))
+            if 90 < n <= 120:
                 st["wrecks"] = True   # M007: destroyed dwarven machines leave wrecks the undead can reclaim
             if a.get("escort"):
                 st["escort"] = a["escort"]
+            if a.get("gold_bonus"):
+                st["gold_rate"] = round(st["gold_rate"] + float(a["gold_bonus"]), 2)   # M008: holding battles pay more
             if a.get("boss"):
                 st["victory"] = "kill_boss_then_destroy_citadel"
             st["difficulty_budget"] = budget(st)
@@ -766,6 +820,76 @@ def build():
             st["status"] = "planned"
         stages.append(st)
     assert len(stages) == 150
+    # M008 full-campaign difficulty curve: no regular stage more than ~30 % above the mean budget of its two regular
+    # neighbours (boss stages and act finales/exams are exempt). A spiking stage's track intervals are stretched
+    # just enough to bring it to 1.3x (one pass over the original budgets; each change is printed and reported).
+    base_b = [s.get("difficulty_budget", 0.0) for s in stages]
+    for i, s in enumerate(stages):
+        if not s.get("implemented") or s.get("boss") or i == 0 or any(k in str(s.get("theme", "")) for k in ("finale", "combined_assault", "final_gauntlet")):
+            continue
+        nb = [base_b[j] for j in (i - 1, i + 1) if 0 <= j < len(stages) and not stages[j].get("boss") and stages[j].get("implemented")]
+        if not nb:
+            continue
+        target = 1.3 * sum(nb) / len(nb)
+        if base_b[i] > target * 1.005:
+            f = base_b[i] / target
+            for tr in s["tracks"]:
+                tr["interval"] = round(tr["interval"] * f, 2)
+                tr["interval_min"] = round(tr["interval_min"] * f, 2)
+            s["difficulty_budget"] = budget(s)
+            if i >= 15:
+                ov = (act1b_data.ACT1B + act2_data.ACT2 + act3_data.ACT3 + act4_data.ACT4 + act5_data.ACT5)[i - 15].get("heroic") or HEROIC_GENTLE.get(i + 1)
+                s["heroic"] = stage_kit.heroic_block(s, ov, {u["id"]: u for u in undead})
+            CURVE_FIXES.append((s["index"], round(base_b[i], 1), s["difficulty_budget"], round(f, 3)))
+    # ... and a relief stage after every boss: the stage after a boss gets at most 90 % of the budget of the stage
+    # before it (never below its act's band floor), by the same interval stretch
+    for i, s in enumerate(stages):
+        if i < 2 or not s.get("implemented") or s.get("boss") or not stages[i - 1].get("boss"):
+            continue
+        lo = stage_kit.ACT_BANDS.get(int(s["act"]), (0, 1e9))[0] * 1.02
+        target = max(lo, 0.9 * stages[i - 2]["difficulty_budget"])
+        before = s["difficulty_budget"]
+        if before <= target * 1.005:
+            continue
+        f_total = 1.0
+        for _ in range(4):   # the budget is not exactly linear in the intervals: converge in a few steps
+            if s["difficulty_budget"] <= target * 1.005:
+                break
+            f = s["difficulty_budget"] / target
+            f_total *= f
+            for tr in s["tracks"]:
+                tr["interval"] = round(tr["interval"] * f, 2)
+                tr["interval_min"] = round(tr["interval_min"] * f, 2)
+            s["difficulty_budget"] = budget(s)
+        if i >= 15:
+            ov = (act1b_data.ACT1B + act2_data.ACT2 + act3_data.ACT3 + act4_data.ACT4 + act5_data.ACT5)[i - 15].get("heroic") or HEROIC_GENTLE.get(i + 1)
+            s["heroic"] = stage_kit.heroic_block(s, ov, {u["id"]: u for u in undead})
+        CURVE_FIXES.append((s["index"], round(before, 1), s["difficulty_budget"], round(f_total, 3)))
+    # a relief stage can leave the stage after it standing out: one more spike pass on the final budgets
+    for i, s in enumerate(stages):
+        if not s.get("implemented") or s.get("boss") or i == 0 or not stages[i - 1].get("implemented") or stages[i - 1].get("boss") \
+                or not (i >= 2 and stages[i - 2].get("boss")) or any(k in str(s.get("theme", "")) for k in ("finale", "combined_assault", "final_gauntlet")):
+            continue
+        nb = [stages[j]["difficulty_budget"] for j in (i - 1, i + 1) if 0 <= j < len(stages) and not stages[j].get("boss") and stages[j].get("implemented")]
+        target = 1.3 * sum(nb) / len(nb)
+        before = s["difficulty_budget"]
+        f_total = 1.0
+        for _ in range(4):
+            if s["difficulty_budget"] <= target * 1.005:
+                break
+            f = s["difficulty_budget"] / target
+            f_total *= f
+            for tr in s["tracks"]:
+                tr["interval"] = round(tr["interval"] * f, 2)
+                tr["interval_min"] = round(tr["interval_min"] * f, 2)
+            s["difficulty_budget"] = budget(s)
+        if f_total > 1.0:
+            if i >= 15:
+                ov = (act1b_data.ACT1B + act2_data.ACT2 + act3_data.ACT3 + act4_data.ACT4 + act5_data.ACT5)[i - 15].get("heroic") or HEROIC_GENTLE.get(i + 1)
+                s["heroic"] = stage_kit.heroic_block(s, ov, {u["id"]: u for u in undead})
+            CURVE_FIXES.append((s["index"], round(before, 1), s["difficulty_budget"], round(f_total, 3)))
+    for cf in CURVE_FIXES:
+        print("curve: s%03d budget %.1f -> %.1f (track intervals x%.3f)" % cf)
     # M005 stage validator (stage_kit): ids, until on ranged/artillery tracks, alive cap, budget band,
     # both fronts, boss spawn, hazard fields, challenge objective, tagline
     boss_domains = {b["id"]: {"domain": (b.get("stats") or {}).get("domain", "ground")} for b in bosses}
@@ -844,7 +968,12 @@ def build():
             cost = 0
         else:
             prereq = list(dict.fromkeys(tier_gate[t] + branch_gate.get((d["branch"], t), []) + cross.get(d["id"], [])))
-            cost = [0, 40, 70, 110, 160, 230][t]
+            # M008 full-campaign balance: blueprints hand out 144 of the 160 units, so at the old prices
+            # (40/70/110/160/230) a player could research the whole roster by stage ~125 and Sparks stopped
+            # mattering. New prices make Sparks alone buy every tier gate and early access to a chosen part of the
+            # roster, but not all of it, by 150 (full-roster research comes from replays and Heroic payouts).
+            # Research-only units (never a blueprint) keep their old, cheap prices.
+            cost = RESEARCH_COST[t] if d["id"] not in RESEARCH_ONLY else [0, 40, 70, 110, 160, 230][t]
         unit_nodes.append(dict(id=f"unit_{d['id']}", unit=d["id"], tier=t, branch=d["branch"], requires=prereq,
                                cost=cost, implemented=d["implemented"], starting=(t == 0)))
     for uid, (tier, e) in MECHS.items():

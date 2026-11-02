@@ -90,7 +90,7 @@ DWARVES = [
       desc="Throws satchel charges that tear apart barricades, spires and armored dead."),
     D("longrifle_scout", 1, "infantry", "ranged", 60, "flesh", 40, 55, 5, [rifle(360, 26, 2.6, id="longrifle", priority="support")], inf("longrifle", GREEN, "cap"),
       desc="Long-barrelled rifle out-ranges every early undead shooter; picks off casters and archers."),
-    D("bayonet_fusilier", 1, "infantry", "ranged", 110, "light", 38, 50, 4, [rifle(220, 15, 1.8, id="fusil"), melee(14, 1.0, id="bayonet")], inf("bayonet", BLUE, "kettle"),
+    D("bayonet_fusilier", 1, "infantry", "ranged", 130, "light", 38, 50, 4, [rifle(220, 18, 1.8, id="fusil"), melee(16, 1.0, id="bayonet")], inf("bayonet", BLUE, "kettle"),
       desc="Rifle at range, bayonet up close. Doesn't panic when the front arrives."),
     D("shotgun_breacher", 1, "infantry", "ranged", 120, "light", 38, 55, 5, [cone(15, 105, 1.9, 5, id="breaching_gun")], inf("shotgun", BROWN, "kettle"),
       desc="Short double-barrel scatterguns: five pellets of grapeshot into the horde (and low-diving bats)."),
@@ -185,7 +185,7 @@ DWARVES = [
       repair=dict(rate=70, range=210, pool=5000, classes=["walker", "vehicle"]), desc="Specialist crews for war frames: the fastest walker repairs in the Holds (still capped per machine)."),
     # ---------------- C · artillery & AA
     D("portable_mortar", 1, "artillery", "artillery", 120, "light", 30, 80, 8, [arc(36, 360, 3.6, 46, id="light_mortar", min_range=120)], dict(fam="gun", barrel="mortar", crew=1, coat=BROWN)),
-    D("grapeshot_culverin", 1, "artillery", "artillery", 160, "light", 26, 85, 8, [cone(11, 160, 2.4, 6, id="grapeshot", targets="ground")], dict(fam="gun", barrel="culverin", crew=1, coat=RED), rear_offset=70),
+    D("grapeshot_culverin", 1, "artillery", "artillery", 160, "light", 26, 85, 8, [cone(14, 160, 2.4, 6, id="grapeshot", targets="ground")], dict(fam="gun", barrel="culverin", crew=1, coat=RED), rear_offset=70),
     D("skyhook_rocket_rack", 1, "artillery", "artillery", 120, "light", 28, 85, 8, [W(id="sky_rockets", range=400, damage=16, dtype="flak", reload=2.6, targets="air", priority="air", proj="flak", splash=34, burst=3, burst_gap=0.15, mount=[16, -28], arc=[-178, 20])], dict(fam="gun", barrel="rocket_rack", crew=1, coat=GREEN, aim_up=True)),
     D("steam_mortar", 2, "artillery", "artillery", 170, "light", 26, 110, 10, [arc(44, 420, 3.4, 52, id="steam_mortar", min_range=130)], dict(fam="gun", barrel="mortar_big", crew=1, coat=GREY, boiler=True), steam=10),
     D("heavy_bombard", 2, "artillery", "artillery", 220, "light", 22, 130, 11, [shell(70, 470, 4.6, 46, id="bombard", priority="structure", bonus={"structure": 1.6})], dict(fam="gun", barrel="bombard", crew=2, coat=BROWN)),
@@ -280,6 +280,14 @@ AUX = {
     "supply_barge": dict(cls="airship", domain="air", hp=2600, armor="machine", speed=20, radius=48, behavior="escort", art="supply_barge",
                          blocks=False, weapons=[], name="Supply Barge", band="mid", altitude=[210, 220],
                          kit=dict(fam="ship", len=150, coat="6e5a3e", guns=0, cargo=True, h=86)),
+    # M008 Act V hazard entities (undead side, never deployable, never counted as support structures or kills toward
+    # challenges): a rift tear (HP from the stage hazard; destroy it before it spills) and a soul wisp (shot down by flak)
+    "rift_tear": dict(cls="structure", domain="ground", hp=380, armor="structure", speed=0, radius=18, behavior="structure", art="rift_tear",
+                      blocks=False, static=True, weapons=[], name="Rift Tear", faction="undead", transient=True, bounty=12, threat=4,
+                      kit=dict(fam="prop", kind="rift_tear", h=96)),
+    "soul_wisp": dict(cls="flyer", domain="air", hp=90, armor="light", speed=0, radius=12, behavior="structure", art="soul_wisp",
+                      blocks=False, static=True, weapons=[], name="Soul Wisp", faction="undead", transient=True, bounty=4, threat=2,
+                      band="mid", altitude=[96, 120], kit=dict(fam="prop", kind="soul_wisp", h=26)),
 }
 
 

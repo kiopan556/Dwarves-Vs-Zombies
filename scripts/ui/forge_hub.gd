@@ -22,6 +22,7 @@ const STATIONS := [
 	{"key": "sandbox", "name": "Assembly Bay", "sub": "Proving Grounds (Test Sandbox)", "x": 1860.0, "y": 150.0},
 	{"key": "compendium", "name": "Hall of Records", "sub": "Unit Compendium", "x": 2280.0, "y": 260.0},
 	{"key": "settings", "name": "Pressure Valves", "sub": "Settings", "x": 2500.0, "y": 470.0},
+	{"key": "last_stand", "name": "The Last Stand", "sub": "Endless Mode", "x": 1580.0, "y": 400.0},   # M008 (after 060)
 ]
 
 
@@ -38,6 +39,8 @@ func _ready() -> void:
 	plaques.size = Vector2(WORLD_W, 720)
 	add_child(plaques)
 	for st in STATIONS:
+		if st.key == "last_stand" and not GameState.last_stand_unlocked():
+			continue
 		plaques.add_child(_plaque(st))
 	_top_bar()
 	_nav_bar()
@@ -67,7 +70,7 @@ func _spawn_life() -> void:
 	sprites[4].anim.state = "move"
 
 
-const STATION_GLYPH := {"campaign": "map", "loadout": "shield", "forge": "hammer", "sandbox": "gear", "compendium": "book", "settings": "valve"}
+const STATION_GLYPH := {"campaign": "map", "loadout": "shield", "forge": "hammer", "sandbox": "gear", "compendium": "book", "settings": "valve", "last_stand": "sword"}
 
 
 ## Engraved brass station plaque hanging in the forge: glyph medallion, name and subtitle.
@@ -143,6 +146,8 @@ func _nav_bar() -> void:
 	nav.add_theme_constant_override("separation", 6)
 	add_child(nav)
 	for st in STATIONS:
+		if st.key == "last_stand" and not GameState.last_stand_unlocked():
+			continue
 		var x: float = st.x
 		var b = UiKit.button("", func(): target_scroll = x - get_viewport_rect().size.x * 0.5, Vector2(150, 50), 15)
 		var row = HBoxContainer.new()

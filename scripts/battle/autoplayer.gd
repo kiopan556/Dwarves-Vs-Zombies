@@ -31,6 +31,11 @@ var generic := true
 ## as a real player would. Off for Acts I-III, so their sims are unchanged.
 var saver := false
 var _last_heavy_t := 0.0
+## M008: Act V armies hold 900-2,500 Gold T5 machines. The saver alone kept buying its cheapest "heavy" (a 570-Gold
+## rune cannon, a 610-Gold bulwark) the moment it could, so it never fielded a tank, a flak array or a titan. With
+## `rotate` (Act V sims only) it saves for the heavy type it has fewest of when the front is not urgent, as a
+## player rotating through their army would. Acts I-IV sims are unchanged.
+var rotate := false
 
 
 func _generic(b: Battle, roles: Array, desc: bool = false) -> Array:
@@ -175,9 +180,25 @@ func step(b: Battle, dt: float) -> void:
 		var heavy: Array = []
 		for uid in b.loadout:
 			var d = Registry.combat_def(uid)
-			if float(d.get("gold", 0)) >= 450.0 and d.get("domain", "ground") == "ground" and not d.get("salvages", false):
+			# M008: repair crews are never the "heavy" it saves for (the T5 Titan Maintenance Crew costs 580 Gold);
+			# no Act IV army carries a repair unit over 450 Gold, so Act IV sims are unchanged
+			if float(d.get("gold", 0)) >= 450.0 and d.get("domain", "ground") == "ground" and not d.get("salvages", false) \
+					and String(Registry.entry(uid).get("role", "")) != "repair_support":
 				heavy.append(uid)
 		heavy.sort_custom(func(x, y): return int(cnt.get(x, 0)) < int(cnt.get(y, 0)))
+		if rotate and not urgent and not heavy.is_empty() and b.time > 30.0:
+			# the machine it has fewest of, among those it can afford within ~25 s of income
+			var inc = (b.gold_rate + Battle.MINE_BONUS * b.mine_level) * 25.0
+			var soon = heavy.filter(func(x): return float(Registry.combat_def(x).get("gold", 0)) - b.gold <= inc)
+			if not soon.is_empty():
+				var want: String = soon[0]
+				var why_w = b.can_deploy(want)
+				if why_w == "":
+					b.deploy(want)
+					_last_heavy_t = b.time
+					return
+				if why_w.begins_with("Need"):
+					return   # saving for it
 		for uid in heavy:
 			if b.can_deploy(uid) == "":
 				b.deploy(uid)

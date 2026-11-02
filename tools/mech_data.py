@@ -30,7 +30,7 @@ W = lambda **k: k
 SPEC = [
     ("miner_rig", "Miner Rig", "light", 1, 620, .10, 48, 28, 340, 10, "G"),
     ("boiler_stomper", "Boiler Stomper", "light", 2, 800, .15, 41, 38, 500, 14, "G"),
-    ("drillwalker", "Drillwalker", "light", 2, 900, .20, 43, 30, 610, 16, "G"),
+    ("drillwalker", "Drillwalker", "light", 2, 1100, .25, 43, 30, 610, 16, "G"),   # M008 coverage buff: HP 900 -> 1100, ARM .20 -> .25
     ("steam_loader", "Steam Loader", "light", 2, 1100, .25, 34, 32, 650, 18, "G"),
     ("piston_brawler", "Piston Brawler", "light", 2, 780, .15, 55, 30, 620, 17, "G"),
     ("copper_sentinel", "Copper Sentinel", "light", 2, 1040, .25, 32, 175, 760, 20, "G"),

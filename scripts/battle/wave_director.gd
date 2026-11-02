@@ -44,6 +44,12 @@ func setup(b, stage_def: Dictionary) -> void:
 				Foundry.set_slag(battle, h)
 			"steam_leak":
 				Foundry.set_steam(battle, h)
+			"rift_tears":   # M008 Act V hazards: set up once, run by Rift every step
+				Rift.set_tears(battle, h)
+			"eclipse":
+				Rift.set_eclipse(battle, h)
+			"soul_storm":
+				Rift.set_souls(battle, h)
 	hazard_t = hazard_ts[0] if not hazard_ts.is_empty() else 0.0
 	for s in st.get("structures", []):
 		battle.spawn_unit(s.enemy, 1, Vector2(float(s.x), 0), true)
@@ -139,7 +145,7 @@ func _hazard_one(dt: float) -> void:
 				hazard_t = 0.0
 				var x = rng.randf_range(Combat.UNDEAD_BASE_X - 260.0, Combat.UNDEAD_BASE_X - 120.0)
 				battle.add_miasma(x, float(hazard.radius) * (1.0 + (hazard_boost - 1.0) * 0.35), float(hazard.dps) * hazard_boost, float(hazard.duration), float(hazard.speed))
-		"bog", "thermals", "furnace_vents", "slag_flow", "steam_leak":
+		"bog", "thermals", "furnace_vents", "slag_flow", "steam_leak", "rift_tears", "eclipse", "soul_storm":
 			pass   # static mire patches / thermal columns: set up once, applied by Battle every step
 		"lightning_storm":
 			if hazard_t >= float(hazard.interval):

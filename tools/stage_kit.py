@@ -146,6 +146,18 @@ def corrupted_column(machines, escort, k=1.0, start=40):
     return _part(tracks=tr)
 
 
+def obelisk_belt(xs, beacons=()):
+    """M008: a belt of rift obelisks (they zap and ward the undead around them: -15 % damage taken) with
+    optional wraith beacons; artillery and air strikes that break the belt open the line."""
+    return _part(structures=[dict(enemy="rift_obelisk", x=x) for x in xs] + [dict(enemy="wraith_beacon", x=x) for x in beacons])
+
+
+def honour_guard(elites, k=1.0, start=30, until=-1):
+    """M008: a column of elite infantry in strict rotation (one type after another, never a crowd of one kind)."""
+    tr = [R(e, start + i * 14, _iv(28 + i * 4, k), 1, _iv(19 + i * 3, k), until=until) for i, e in enumerate(elites)]
+    return _part(tracks=tr)
+
+
 def trigger_waves(*trigs):
     return _part(triggers=list(trigs))
 
@@ -185,6 +197,7 @@ CHALLENGES = {
     "kill_boss_by": (["seconds"], "Slay the boss within {mm} of its arrival"),
     "escort": ([], "Bring the supply barge safely across"),
     "no_reclaims": ([], "Let the undead reclaim no wreck"),
+    "no_spills": ([], "Close every rift tear before it spills"),
 }
 
 
@@ -207,10 +220,12 @@ HAZARD_KINDS = {"furnace_vents": ["vents", "interval", "damage", "radius"], "sla
                 "steam_leak": ["pipes", "radius", "dps", "regen"],
                 "rockfall": ["interval", "damage", "radius"], "gale": ["interval", "duration", "strength"],
                 "miasma": ["interval", "duration", "dps", "radius", "speed"], "bog": ["spots", "width", "slow"],
-                "thermals": ["columns", "width"], "lightning_storm": ["interval", "damage", "radius"]}
+                "thermals": ["columns", "width"], "lightning_storm": ["interval", "damage", "radius"],
+                "rift_tears": ["interval", "warn", "hp", "spill", "pool"], "eclipse": ["interval", "duration"],
+                "soul_storm": ["interval", "wisps", "heal", "damage", "hp"]}
 ESCORT_FIELDS = ["t", "hp", "speed", "alt", "x0", "x1"]
 # difficulty budget band per act (threat-weighted spawns per minute; boss stages are exempt)
-ACT_BANDS = {1: (35.0, 200.0), 2: (90.0, 260.0), 3: (100.0, 320.0), 4: (110.0, 380.0), 5: (140.0, 440.0)}
+ACT_BANDS = {1: (35.0, 200.0), 2: (90.0, 260.0), 3: (100.0, 320.0), 4: (110.0, 380.0), 5: (100.0, 440.0)}
 
 
 def validate(stages, undead_by_id, boss_ids, max_alive_cap=64, legacy_until_upto=30, warns=None):

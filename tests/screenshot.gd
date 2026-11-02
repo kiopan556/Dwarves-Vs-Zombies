@@ -203,6 +203,8 @@ func _ready() -> void:
 			inst.add_child(m)
 		"battle":
 			GameState.selected_stage = "s%03d" % int(args.get("stage", "1"))
+			if args.has("last_stand"):
+				GameState.selected_last_stand = String(args.last_stand)   # M008 Last Stand screenshots
 			if args.has("stage_loadout"):
 				GameState.profile.loadouts["Preset I"] = ["shieldbearer", "ironhold_rifleman", "light_field_cannon", "flak_crew", "organ_gun", "grenadier", "miner_rig", "dwarven_flying_machine", "scout_gyro", "", "", "brasshound_armored_car"]
 			inst = load("res://scenes/battle_screen.tscn").instantiate()
@@ -256,6 +258,36 @@ func _ready() -> void:
 				inst.guide.dismiss()
 			inst.battle.step(1.0 / 30.0)
 			t += 1.0 / 30.0
+		# M008 scenario hooks: force an eclipse, open a rift tear, release soul wisps, jump a Last Stand to a wave
+		if args.has("ls_wave") and inst.battle.director is LastStand:
+			var lsd: LastStand = inst.battle.director
+			lsd.wave = int(args.ls_wave) - 1
+			lsd.state = "gap"
+			lsd.wave_t = 0.0
+			inst.battle.stats_kills = int(args.get("ls_kills", "900"))
+			for k in int(args.get("ls_after", "900")):
+				ai.step(inst.battle, 1.0 / 30.0)
+				inst.battle.step(1.0 / 30.0)
+		if args.has("eclipse"):
+			if inst.battle.eclipse_def.is_empty():
+				Rift.set_eclipse(inst.battle, {"interval": 999, "duration": 30, "range_mult": 0.75})
+			inst.battle.eclipse_t = 0.0
+			if args.has("scout"):
+				inst.battle.spawn_unit("rune_sight_scout", 0, Vector2(float(args.scout), 320), true)
+			for k in 70:
+				inst.battle.step(1.0 / 30.0)
+		if args.has("tear_now"):
+			if inst.battle.tear_def.is_empty():
+				Rift.set_tears(inst.battle, {"interval": 999, "warn": 2.0, "open": 6.0, "hp": 400, "spill": 3, "pool": ["riftbound_legionary"], "first": 999})
+			Rift.open_tear(inst.battle, float(args.tear_now))
+			for k in int(args.get("tear_steps", "90")):
+				inst.battle.step(1.0 / 30.0)
+		if args.has("wisps_now"):
+			var sd = {"interval": 999, "wisps": 1, "radius": 58, "heal": 16, "damage": 12, "speed": 44, "hp": 90}
+			for k in 4:
+				Rift.spawn_wisp(inst.battle, float(args.wisps_now) + k * 90.0, sd)
+			for k in 20:
+				inst.battle.step(1.0 / 30.0)
 		# M006 scenario hooks for screenshots / clips
 		if args.has("boss_hp") and inst.battle.boss != null and is_instance_valid(inst.battle.boss):
 			inst.battle.boss.hp = inst.battle.boss.max_hp * float(args.boss_hp)
@@ -345,6 +377,10 @@ func _ready() -> void:
 		SaveManager.wipe()
 		get_tree().quit()
 		return
+	if shot == "ending" and args.has("ending_part"):
+		inst._go(String(args.ending_part))
+		for k in int(args.get("ending_frames", "60")):
+			await get_tree().process_frame
 	if shot == "loadout" and args.has("item"):
 		inst._unit_pressed(args.item)
 	for i in int(args.get("frames", "20")):

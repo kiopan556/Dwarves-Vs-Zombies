@@ -456,7 +456,7 @@
    "implemented": true,
    "milestone": "M003",
    "stats": {
-    "hp": 121,
+    "hp": 143,
     "armor": "light",
     "speed": 38,
     "radius": 11,
@@ -469,7 +469,7 @@
      {
       "id": "fusil",
       "range": 220,
-      "damage": 16.5,
+      "damage": 19.8,
       "dtype": "pierce",
       "reload": 1.8,
       "targets": "ground",
@@ -483,7 +483,7 @@
      {
       "id": "bayonet",
       "range": 26,
-      "damage": 15.4,
+      "damage": 17.6,
       "dtype": "melee",
       "reload": 1.0,
       "targets": "ground",
@@ -3356,7 +3356,7 @@
      {
       "id": "grapeshot",
       "range": 160,
-      "damage": 12.1,
+      "damage": 15.4,
       "dtype": "pierce",
       "reload": 2.4,
       "targets": "ground",
@@ -6248,8 +6248,8 @@
    "stats": {
     "mech_id": "mech_drillwalker",
     "mech_class": "light",
-    "hp": 675,
-    "arm": 0.2,
+    "hp": 825,
+    "arm": 0.25,
     "armor": "mech",
     "speed": 31.0,
     "radius": 22,
@@ -6305,8 +6305,8 @@
     "weakness": "Poor swarm clearing, no anti-air, needs contact.",
     "targets_spec": "G",
     "spec_stats": {
-     "hp": 900,
-     "arm": 0.2,
+     "hp": 1100,
+     "arm": 0.25,
      "spd": 43,
      "rng": 30,
      "gold": 610,
@@ -11512,6 +11512,47 @@
    "altitude": [
     210,
     220
+   ]
+  },
+  "rift_tear": {
+   "cls": "structure",
+   "domain": "ground",
+   "hp": 380,
+   "armor": "structure",
+   "speed": 0,
+   "radius": 18,
+   "behavior": "structure",
+   "art": "rift_tear",
+   "blocks": false,
+   "static": true,
+   "weapons": [],
+   "name": "Rift Tear",
+   "faction": "undead",
+   "transient": true,
+   "bounty": 12,
+   "threat": 4
+  },
+  "soul_wisp": {
+   "cls": "flyer",
+   "domain": "air",
+   "hp": 90,
+   "armor": "light",
+   "speed": 0,
+   "radius": 12,
+   "behavior": "structure",
+   "art": "soul_wisp",
+   "blocks": false,
+   "static": true,
+   "weapons": [],
+   "name": "Soul Wisp",
+   "faction": "undead",
+   "transient": true,
+   "bounty": 4,
+   "threat": 2,
+   "band": "mid",
+   "altitude": [
+    96,
+    120
    ]
   }
  }

@@ -1,4 +1,4 @@
-# Dwarves vs Zombies — M007 "The Fallen Foundries" (on M006c, M006b, M006, M005, M004, M003, M002b, M002 and M001)
+# Dwarves vs Zombies — M008 "The Black Rift" (content-complete; on M007, M006c, M006b, M006, M005, M004, M003, M002b, M002 and M001)
 
 2D side-view, real-time, air-and-ground tug-of-war strategy defense.
 Godot 4.3 (GL Compatibility renderer) · GDScript · Android-first, desktop for development.
@@ -13,6 +13,22 @@ Godot 4.3 (GL Compatibility renderer) · GDScript · Android-first, desktop for 
 
 Desktop controls: click/tap cards to deploy, drag the battlefield (or A/D, ←/→, mouse wheel) to pan,
 Space/P/Esc to pause. On Android, touch does the same (touch drag pans; cards are 88×104 px).
+
+## What is new in M008 (0.8.0) — the campaign is complete
+
+| Area | Status |
+|---|---|
+| Campaign | **Act V, stages 121–150** ("The Black Rift"): 30 authored stages in four new environments (`necro_waste`, `rift_sky`, `ruined_citadel`, `realm_gate`); bosses **The Hollow King** (130), **Gravewing Sovereign** (140), **The Rift Lich** (150, a two-front finale). All 150 stages are now playable |
+| Hazards | `rift_tears` (seeded portals: a 2 s crack, then a target with HP that spills a group unless destroyed), `eclipse` (ranged weapons on both sides lose 25 % range unless lit by a scout, spotter or night seer), `soul_storm` (drifting wisps heal the undead and burn dwarves; flak shoots them down); rift obelisks ward the undead around them (−15 % damage) |
+| Bosses | The Hollow King crowns an elite at 50 % (half damage until the crowned one dies, then he re-crowns); the Gravewing Sovereign's storm eye closes (gales push your aircraft back) and at 25 % she drags them in; the Rift Lich rises into the rift at 66 % (only high-reaching weapons hit it while its legion storms your line) and returns at 33 % with the full storm. Own music for the Lich and a longer arrival |
+| Ending | An in-engine, skippable ending (~80 s): the rift collapses, the banners go up on the gate, the army marches home over the clean Realm Map of all five acts, and a rifleman's hat lands on a rescued dwarf. Epilogue card (one line per act), forged-brass credits over the Great Forge, "Rift Sealed" post-game, a completion page, Settings → Replay ending |
+| Last Stand | Endless survival mode (after stage 060): four arenas, rising waves built from the stage toolkit, a defeated boss every 10th wave, local best scores, cosmetic banners/titles only (no Sparks) |
+| Balance | Full-campaign pass: research prices reworked so Sparks buy every tier but not the whole roster by 150; the difficulty curve smoothed (12 spikes eased, a relief stage after every boss; only the Act I finale 015 and the combined-assault exam 087 stay > 30 % above their neighbours, on purpose); 1–150 swept on Normal and Heroic; a 160-unit coverage sweep; `build/campaign_balance.csv` + `docs/screenshots/m008_balance.png` |
+| War frames | **"Titanforge" overhaul**, aimed at the wide T5 colossi: pauldrons moved onto the shoulder joints (they used to sit over the face), heads on a neck inside a gorget and scaled by class, longer, thicker, straighter legs with hip ball joints, and new colossal torsos — a "walking keep" (Deepforge Titan, Mountain Colossus in granite), a boiler-bellied furnace (Embercore), a ribbed flak tower (Skybreaker) — plus a commander's bridge window on every colossus and a royal mantle on the King's Anvil |
+| Performance | Label text now uses a thin outline instead of a drop shadow (the shadow cost one draw call per glyph): every screen and the battle HUD got cheaper (Realm Map 520 → 137 draw calls); the necro-waste backdrop batches its skulls (stage 149: 646 → 357). Necromancers stop raising at 64 alive undead |
+| Realm Map | Act V landmarks (bone-dune ribcage, floating rift shards, tiered black keep, sigil stones), boss set pieces (throne hall, storm eye, the gate), the Black Rift as the map's final vista, warm light pushing into the dark as you clear stages, and a "rift sealed" dawn after 150 |
+
+See `docs/IMPLEMENTATION_REPORT_M008.md`.
 
 ## What is new in M007 (0.7.0)
 

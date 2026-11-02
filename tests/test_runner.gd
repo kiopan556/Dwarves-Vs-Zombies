@@ -116,6 +116,20 @@ func _ready() -> void:
 			await test_ui_m007()
 		"audio_m007":
 			test_audio_m007()
+		"hazards_m008":
+			test_hazards_m008()
+		"boss_phases_m008":
+			test_boss_phases_m008()
+		"last_stand":
+			await test_last_stand(float(args.get("soak", "0")))
+		"m008_save":
+			test_m008_save()
+		"ui_m008":
+			await test_ui_m008()
+		"audio_m008":
+			test_audio_m008()
+		"coverage":
+			test_coverage(int(args.get("from", "0")), int(args.get("to", "999")))
 	_finish(suite)
 
 
@@ -566,6 +580,8 @@ func loadout_for_stage(i: int) -> Array:
 		ground_pref = ["shieldbearer", "ironclad_medium_tank", "steamgunner", "light_field_cannon", "flak_crew", "flame_trooper", "copperback_light_tank",
 			"steam_mortar", "organ_gun", "grenadier", "miner_rig", "drillwalker", "twin_flak_mount", "brasshound_armored_car", "field_mechanic", "ironhold_rifleman"]
 		air_pref = ["rotary_interceptor", "dwarven_flying_machine", "bombard_gyro", "scout_gyro"]
+	if i > 120:
+		return _act5_loadout(i, owned)
 	if i > 90:
 		return _act4_loadout(i, owned)
 	if i > 60:
@@ -699,6 +715,47 @@ func _act4_loadout(i: int, owned: Array, no_t5: bool = false) -> Array:
 	return lo
 
 
+## M008 Act V: the realistic army at stage i. Owned = T0 starters + every blueprint rewarded before i + the Act I-b
+## research set + Boiler Stomper and Ironclad Walker (Act II research) + a Salvage Crew (Act IV) + a Rune-Sight Scout
+## (T3, 110 Sparks: the obvious purchase once the eclipse appears at 124; the scout takes an air slot on eclipse
+## stages). As in M006-M007 no extra T4/T5 research is assumed: the T5 machines in the army are the Act IV-V
+## blueprints, so the simulated army stays a floor. Heroic Act V sims use the same army (T5 is open since 105).
+func _act5_loadout(i: int, owned: Array) -> Array:
+	owned = owned + ["steamgunner", "copperback_light_tank", "steam_mortar", "twin_flak_mount", "bombard_gyro", "boiler_stomper", "ironclad_walker", "salvage_crew"]
+	if i >= 124:
+		owned.append("rune_sight_scout")
+	var picks = [
+		["kingsguard_bulwark", "colossus_guard", "royal_iron_guard", "rolling_shield_trooper"],
+		["iron_bastion_prime", "mountainshield_heavy_tank", "twin_cannon_ironclad", "bastion_heavy_tank"],
+		["firestorm_assault_tank", "furnace_assault_trooper", "incendiary_grenadier", "flamebelcher_medium_tank"],
+		["thunderrail_tank_destroyer", "arc_lance_gunner", "runebreaker_infantry", "sniper_tank_hunter"],
+		["rune_cannon", "mountain_siege_cannon", "piston_cannon", "siege_howitzer"],
+		["celestial_flak_array", "mobile_flak_fortress", "heavy_skybreaker", "skyshield_aa_tank"],
+		["titan_maintenance_crew", "heavy_recovery_crawler", "armored_recovery_team", "runic_mechanic"],
+	]
+	var lo = ["", "", "", "", "", "", "", "", "", "", "", ""]
+	for gi in picks.size():
+		for u in picks[gi]:
+			if u in owned and not u in lo:
+				lo[gi] = u
+				break
+	var air = ["arcwing_superiority_craft", "flak_chaser", "royal_skyguard", "heavy_interceptor", "skyhammer_assault_craft", "stormforge_bomber", "thunderwing",
+		"forge_bomber", "twin_flame_gunship", "flak_chaser", "twin_rotor_interceptor"]
+	var hz = WaveDirector.hazard_list(Registry.stage_by_index(i))
+	if hz.any(func(h): return String(h.get("kind", "")) == "eclipse") and "rune_sight_scout" in owned:
+		air.insert(2, "rune_sight_scout")
+	var ai = 7
+	for u in air:
+		if ai < 11 and u in owned:
+			lo[ai] = u
+			ai += 1
+	for u in ["deepforge_titan", "kings_anvil", "mountain_colossus", "anvilbreaker", "furnace_guardian", "siegebellow"]:
+		if u in owned and not u in lo:
+			lo[11] = u
+			break
+	return lo
+
+
 ## The stage definition a sim plays: the normal stage, or its Heroic version with `--heroic`.
 func sim_stage(i: int) -> Dictionary:
 	var st = Registry.stage_by_index(i)
@@ -708,7 +765,7 @@ func sim_stage(i: int) -> Dictionary:
 
 
 func sim_loadout(i: int) -> Array:
-	if args.has("heroic") and i > 90:
+	if args.has("heroic") and i > 90 and i <= 120:
 		var owned = ["tunnel_militia", "ironhold_rifleman", "shieldbearer", "light_field_cannon", "flak_crew", "dwarven_flying_machine"]
 		for k in range(1, i):
 			owned += Registry.stage_by_index(k).get("rewards", {}).get("unlock", [])
@@ -723,6 +780,7 @@ func stage_sim(i: int, play: bool) -> void:
 	var ai = AutoCommander.new()
 	ai.generic = i > 30
 	ai.saver = i > 90
+	ai.rotate = i > 120
 	var limit = 900.0 if play else 600.0
 	var t0 = Time.get_ticks_msec()
 	var peak_enemies = 0
@@ -744,6 +802,8 @@ func stage_sim(i: int, play: bool) -> void:
 	var d = "%s %s in %.0fs | dwarf_base=%.0f%% citadel=%.0f%% kills=%d losses=%d deployed=%d peak_enemies=%d first_undead_flyer=%.0fs loadout=%s wall=%dms" % [st.id, res, b.time, b.dwarf_base.hp / b.dwarf_base.max_hp * 100.0, b.enemy_base.hp / b.enemy_base.max_hp * 100.0, b.stats_kills, b.stats_losses, b.stats_deployed, peak_enemies, air_seen, str(lo.filter(func(x): return x != "")), Time.get_ticks_msec() - t0]
 	if b.stats_wrecks > 0 or b.stats_vent_bursts > 0 or b.stats_slag_flows > 0:
 		d += " | wrecks=%d reclaimed=%d salvaged=%d vents=%d slag=%d steam+%.0f" % [b.stats_wrecks, b.stats_reclaimed, b.stats_salvaged, b.stats_vent_bursts, b.stats_slag_flows, b.stats_steam_gained]
+	if b.stats_tears > 0 or b.stats_eclipses > 0 or b.stats_wisps > 0 or b.stats_crowns > 0 or b.stats_gales > 0 or b.stats_lich_rises > 0:
+		d += " | tears=%d closed=%d spilled=%d eclipses=%d wisps=%d shot=%d crowns=%d breaks=%d gales=%d pulls=%d lich_rise=%d return=%d army=%d" % [b.stats_tears, b.stats_tears_closed, b.stats_tears_spilled, b.stats_eclipses, b.stats_wisps, b.stats_wisps_shot, b.stats_crowns, b.stats_crown_breaks, b.stats_gales, b.stats_pulls, b.stats_lich_rises, b.stats_lich_returns, b.stats_lich_army]
 	var hz = " (heroic)" if args.has("heroic") else ""
 	if play:
 		record("Stage %03d playable+winnable (auto-commander)%s" % [i, hz], b.won, d)
@@ -789,7 +849,7 @@ func test_registry() -> void:
 	for e in Registry.dwarves:
 		tiers[int(e.tier)] = int(tiers.get(int(e.tier), 0)) + 1
 	var d = "dwarves=%d (impl %d) undead=%d (impl %d) bosses=%d stages=%d (impl %d) tier_counts=%s bad_defs=%s mine_maw=%s" % [nd, impl_d, nu, impl_u, Registry.bosses.size(), Registry.stages.size(), impl_s, str(tiers), str(bad), not mm.is_empty()]
-	record("Registry integrity", nd == 160 and nu == 110 and impl_d == 160 and impl_u == 110 and Registry.bosses.size() == 15 and Registry.stages.size() == 150 and impl_s == 120 and bad.is_empty() and not mm.is_empty(), d)
+	record("Registry integrity", nd == 160 and nu == 110 and impl_d == 160 and impl_u == 110 and Registry.bosses.size() == 15 and Registry.stages.size() == 150 and impl_s == 150 and bad.is_empty() and not mm.is_empty(), d)
 	# spawn every implemented unit and verify it can act
 	var b = make_battle()
 	var idle: Array = []
@@ -867,10 +927,21 @@ func probe(i: int) -> void:
 	var ai = AutoCommander.new()
 	ai.generic = i > 30
 	ai.saver = i > 90
+	ai.rotate = i > 120
 	var next_report = 30.0
+	var peak = 0
+	var peak_cnt = {}
 	while b.time < 900.0 and not b.over:
 		ai.step(b, DT)
 		b.step(DT)
+		var na = b.alive_count(1)
+		if na > peak:
+			# M008: what the undead side is made of at its peak alive count (the floor-device cap check)
+			peak = na
+			peak_cnt = {"t": int(b.time)}
+			for u in b.by_side[1]:
+				if u.alive and not u.is_stronghold:
+					peak_cnt[u.id] = int(peak_cnt.get(u.id, 0)) + 1
 		if b.time >= next_report:
 			next_report += float(args.get("every", "60"))
 			var cnt = {}
@@ -881,6 +952,7 @@ func probe(i: int) -> void:
 			var bh = ("%d/%d" % [b.boss.hp, b.boss.max_hp]) if b.boss != null and is_instance_valid(b.boss) else "-"
 			print("t=%d gold=%d mine=%d base=%d citadel=%d boss=%s front=%s wrecks=%d/%d/%d alive=%s" % [b.time, b.gold, b.mine_level, b.dwarf_base.hp, b.enemy_base.hp, bh, str(front), b.stats_wrecks, b.stats_reclaimed, b.stats_salvaged, str(cnt)])
 	print("RESULT ", "WIN" if b.won else ("LOSS" if b.over else "TIMEOUT"), " t=", int(b.time))
+	print("PEAK undead=%d at %s" % [peak, str(peak_cnt)])
 	var keys = b.death_log.keys()
 	keys.sort_custom(func(x, y): return b.death_log[x] > b.death_log[y])
 	for k in keys.slice(0, 18):
@@ -1977,6 +2049,19 @@ const COUNTER_PLANS := {
 	90: {"loadout": ["rolling_shield_trooper", "twin_cannon_ironclad", "incendiary_grenadier", "multi_barrel_flak", "heavy_skybreaker", "mobile_flak_fortress", "armored_recovery_team",
 		"heavy_interceptor", "thunderwing", "flak_chaser", "skyshield_airship", "skyguard_walker"],
 		"order": ["rolling_shield_trooper", "heavy_skybreaker", "twin_cannon_ironclad", "multi_barrel_flak", "heavy_interceptor", "skyguard_walker", "mobile_flak_fortress", "incendiary_grenadier", "flak_chaser", "rolling_shield_trooper", "thunderwing", "skyshield_airship", "armored_recovery_team"]},
+	# M008 Act V (only units a player owns on reaching the stage; the intended counters from the master prompt §6)
+	# 130 Hollow King: focus the elites (anti-armour, artillery on the court), heavy armour at the front
+	130: {"loadout": ["kingsguard_bulwark", "iron_bastion_prime", "firestorm_assault_tank", "thunderrail_tank_destroyer", "rune_cannon", "celestial_flak_array", "titan_maintenance_crew",
+		"stormforge_bomber", "royal_skyguard", "flak_chaser", "skyhammer_assault_craft", "deepforge_titan"],
+		"order": ["kingsguard_bulwark", "rune_cannon", "thunderrail_tank_destroyer", "flak_chaser", "kingsguard_bulwark", "iron_bastion_prime", "stormforge_bomber", "firestorm_assault_tank", "rune_cannon", "titan_maintenance_crew", "thunderrail_tank_destroyer", "deepforge_titan", "celestial_flak_array"]},
+	# 140 Gravewing Sovereign: flak arrays, superiority craft, airships; ground AA under the eye
+	140: {"loadout": ["kingsguard_bulwark", "iron_bastion_prime", "celestial_flak_array", "heavy_skybreaker", "mobile_flak_fortress", "rune_cannon", "titan_maintenance_crew",
+		"arcwing_superiority_craft", "royal_skyguard", "flak_chaser", "skyforge_dreadnought", "colossal_skybreaker"],
+		"order": ["kingsguard_bulwark", "heavy_skybreaker", "flak_chaser", "celestial_flak_array", "kingsguard_bulwark", "arcwing_superiority_craft", "heavy_skybreaker", "royal_skyguard", "mobile_flak_fortress", "colossal_skybreaker", "flak_chaser", "iron_bastion_prime", "celestial_flak_array", "skyforge_dreadnought"]},
+	# 150 Rift Lich: everything - colossal machines, flying fortresses, flak, artillery; both fronts
+	150: {"loadout": ["kingsguard_bulwark", "iron_bastion_prime", "firestorm_assault_tank", "thunderrail_tank_destroyer", "mountain_siege_cannon", "celestial_flak_array", "titan_maintenance_crew",
+		"arcwing_superiority_craft", "royal_skyguard", "flak_chaser", "skyforge_dreadnought", "kings_anvil"],
+		"order": ["kingsguard_bulwark", "firestorm_assault_tank", "flak_chaser", "thunderrail_tank_destroyer", "kingsguard_bulwark", "celestial_flak_array", "iron_bastion_prime", "royal_skyguard", "mountain_siege_cannon", "arcwing_superiority_craft", "titan_maintenance_crew", "kings_anvil", "flak_chaser", "skyforge_dreadnought", "firestorm_assault_tank"]},
 	# M007 Act IV foundry bosses (only units a player owns on reaching the stage)
 	100: {"loadout": ["royal_iron_guard", "thunderrail_tank_destroyer", "sniper_tank_hunter", "rune_cannon", "piston_cannon", "salvage_crew", "heavy_recovery_crawler",
 		"heavy_interceptor", "thunderwing", "flak_chaser", "rocketwing", "anvilbreaker"],
@@ -1991,7 +2076,7 @@ const COUNTER_PLANS := {
 
 
 func test_boss_counters(only: int) -> void:
-	for n in [40, 50, 60, 70, 80, 90, 100, 110, 120]:
+	for n in [40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150]:
 		if only != 0 and only != n:
 			continue
 		var plan: Dictionary = COUNTER_PLANS[n]
@@ -2045,6 +2130,7 @@ func test_stars() -> void:
 		[{"kind": "max_losses", "n": 5}, func(): b.stats_losses = 5, true], [{"kind": "max_losses", "n": 5}, func(): b.stats_losses = 6, false],
 		[{"kind": "kill_boss_by", "seconds": 120}, func(): b.boss_arrive_t = 10.0; b.boss_kill_t = 100.0, true], [{"kind": "kill_boss_by", "seconds": 120}, func(): b.boss_kill_t = 200.0, false],
 		[{"kind": "no_reclaims"}, func(): b.stats_reclaimed = 0, true], [{"kind": "no_reclaims"}, func(): b.stats_reclaimed = 1, false],
+		[{"kind": "no_spills"}, func(): b.stats_tears = 3; b.stats_tears_spilled = 0, true], [{"kind": "no_spills"}, func(): b.stats_tears_spilled = 1, false],
 	]
 	var bad: Array = []
 	for c in cases:
@@ -2077,9 +2163,9 @@ func test_stars() -> void:
 	# every implemented stage has a checkable challenge (Act I retrofit + Act II)
 	var missing: Array = []
 	for s in Registry.stages:
-		if s.implemented and (s.get("challenge") == null or not String(s.challenge.get("kind", "")) in ["no_air_losses", "time_under", "base_above", "kill_structures", "max_types", "max_losses", "kill_boss_by", "escort", "no_reclaims"]):
+		if s.implemented and (s.get("challenge") == null or not String(s.challenge.get("kind", "")) in ["no_air_losses", "time_under", "base_above", "kill_structures", "max_types", "max_losses", "kill_boss_by", "escort", "no_reclaims", "no_spills"]):
 			missing.append(s.id)
-	record("Every implemented stage (001-120) carries a challenge objective (M006 adds escort, M007 no_reclaims)", missing.is_empty(), "missing=%s" % str(missing))
+	record("Every implemented stage (001-150) carries a challenge objective (M006 adds escort, M007 no_reclaims, M008 no_spills)", missing.is_empty(), "missing=%s" % str(missing))
 	SaveManager.wipe()
 
 
@@ -3267,3 +3353,510 @@ func test_ui_m007() -> void:
 		"origin=%s denies=%s reclaims=%s" % ["Raised from:" in t1, "Denies wrecks" in t2, "Reclaims wrecks" in t3])
 	comp.queue_free()
 	SaveManager.wipe()
+
+
+
+# ================================================================== M008 Act V
+func test_hazards_m008() -> void:
+	# --- rift tears: telegraph, then a target with HP; it spills unless destroyed; transient (not a structure)
+	var b = _bare_battle({"seed": 1234})
+	Rift.set_tears(b, {"interval": 9999, "warn": 2.0, "open": 4.0, "hp": 300, "spill": 3, "pool": ["riftbound_legionary"], "x0": 1200, "x1": 1300, "first": 9999})
+	var tr = Rift.open_tear(b, 1250.0)
+	var tele_ok = tr.unit == null
+	for i in int(1.0 / DT):
+		b.step(DT)
+	tele_ok = tele_ok and tr.unit == null
+	for i in int(1.2 / DT):
+		b.step(DT)
+	var opened = tr.unit != null and is_instance_valid(tr.unit) and tr.unit.alive and absf(tr.unit.max_hp - 300.0) < 0.1
+	var leg0 = b.by_side[1].filter(func(u): return u.alive and u.id == "riftbound_legionary").size()
+	for i in int(4.5 / DT):
+		b.step(DT)
+	var leg1 = b.by_side[1].filter(func(u): return u.alive and u.id == "riftbound_legionary").size()
+	var spilled = leg1 - leg0 == 3 and b.stats_tears_spilled == 1 and b.tears.is_empty()
+	var tr2 = Rift.open_tear(b, 1250.0)
+	for i in int(2.2 / DT):
+		b.step(DT)
+	tr2.unit.take_damage(1000.0, null)
+	for i in int(5.0 / DT):
+		b.step(DT)
+	var leg2 = b.by_side[1].filter(func(u): return u.alive and u.id == "riftbound_legionary").size()
+	var closed = leg2 == leg1 and b.stats_tears_closed == 1 and b.stats_tears_spilled == 1
+	record("Rift tears: a 2 s crack telegraph, then a portal with HP that spills its group when it closes; destroying it first prevents the spill; tears are not support structures",
+		tele_ok and opened and spilled and closed and b.structures_total == 0,
+		"telegraph=%s opened=%s spilled +%d closed_early=%s structures_total=%d" % [tele_ok, opened, leg1 - leg0, closed, b.structures_total])
+	kill_battle(b)
+	# tear positions come from the stage seed (deterministic replays)
+	var xs: Array = []
+	for rep in 2:
+		var bb = _bare_battle({"seed": 777})
+		Rift.set_tears(bb, {"interval": 9999, "warn": 2.0, "hp": 300, "spill": 1, "pool": ["black_rot_infantry"], "x0": 900, "x1": 2000})
+		xs.append([Rift.open_tear(bb, -1.0).x, Rift.open_tear(bb, -1.0).x])
+		kill_battle(bb)
+	record("Rift tears open at seeded positions (same stage seed -> same places)", xs[0] == xs[1] and xs[0][0] != xs[0][1], str(xs))
+	# --- eclipse: unlit ranged weapons lose 25 % range (both sides); lit units (light/spotting, or in a light radius) keep it
+	var b2 = _bare_battle()
+	var rifle = b2.spawn_unit("ironhold_rifleman", 0, Vector2(600, 0), true)
+	var far_r = b2.spawn_unit("ironhold_rifleman", 0, Vector2(1150, 0), true)
+	var spot = b2.spawn_unit("rune_sight_scout", 0, Vector2(620, 300), true)
+	var archer = b2.spawn_unit("bone_archer", 1, Vector2(1900, 0), true)
+	var melee = b2.spawn_unit("shieldbearer", 0, Vector2(320, 0), true)
+	for u in [rifle, far_r, archer, melee]:
+		_quiet(u)
+	var r_day = far_r.weapons[0].effective_range(far_r, b2)
+	var a_day = archer.weapons[0].effective_range(archer, b2)
+	Rift.set_eclipse(b2, {"interval": 99, "duration": 5.0, "first": 0.1, "range_mult": 0.75})
+	for i in int(1.0 / DT):
+		b2.step(DT)
+	var r_dark = far_r.weapons[0].effective_range(far_r, b2)
+	var a_dark = archer.weapons[0].effective_range(archer, b2)
+	var lit_r = rifle.weapons[0].effective_range(rifle, b2)
+	var m_r = melee.weapons[0].effective_range(melee, b2)
+	var on = b2.eclipse_on
+	for i in int(5.5 / DT):
+		b2.step(DT)
+	record("Eclipse: unlit ranged weapons lose 25% range on both sides; a rifleman inside a rune-sight scout's light keeps full range; melee is unaffected; it ends after its duration",
+		on and absf(r_dark - r_day * 0.75) < 0.5 and absf(a_dark - a_day * 0.75) < 0.5 and absf(lit_r - r_day) < 0.5 and rifle.lit and not far_r.lit and absf(m_r - melee.weapons[0].range_) < 0.5 and not b2.eclipse_on and b2.stats_eclipses == 1,
+		"dwarf rifle %.0f -> %.0f, undead archer %.0f -> %.0f, lit rifle %.0f, lit=%s/%s, eclipse ended=%s" % [r_day, r_dark, a_day, a_dark, lit_r, rifle.lit, far_r.lit, not b2.eclipse_on])
+	kill_battle(b2)
+	# --- soul storm: wisps drift in, heal the undead and burn the dwarves under them; flak shoots them down
+	var b3 = _bare_battle()
+	var sb = b3.spawn_unit("shieldbearer", 0, Vector2(1500, 0), true)
+	var zom = b3.spawn_unit("black_rot_infantry", 1, Vector2(1520, 0), true)
+	var king = b3.spawn_unit("hollow_king", 1, Vector2(1540, 0), true)
+	for u in [sb, zom, king]:
+		_quiet(u)
+		u.speed = 0.0
+	zom.hp = zom.max_hp * 0.5
+	king.hp = king.max_hp * 0.5
+	var zh = zom.hp
+	var kh = king.hp
+	var sh0 = sb.hp
+	Rift.set_souls(b3, {"interval": 999, "wisps": 1, "radius": 60, "heal": 20, "damage": 14, "speed": 40, "hp": 90, "first": 0.0})
+	b3.soul_t = 0.0
+	b3.step(DT)
+	var w = b3.wisps[0].unit if not b3.wisps.is_empty() else null
+	if w != null:
+		w.position.x = 1520.0
+		b3.wisps[0].unit.position.x = 1520.0
+	for i in int(2.0 / DT):
+		if w != null and is_instance_valid(w):
+			w.position.x = 1520.0
+		b3.step(DT)
+	var healed = zom.hp > zh
+	var burned = sb.hp < sh0
+	var boss_skip = absf(king.hp - kh) < 0.5
+	Rift.despawn(king)   # clear the field so only the flak and the wisp remain
+	Rift.despawn(zom)
+	var flak = b3.spawn_unit("flak_crew", 0, Vector2(1300, 0), true)
+	for i in int(8.0 / DT):
+		if w != null and is_instance_valid(w) and w.alive:
+			w.position.x = 1450.0
+		b3.step(DT)
+	var shot = w != null and (not is_instance_valid(w) or not w.alive) and b3.stats_wisps_shot >= 1
+	record("Soul storm: a wisp heals the undead and burns the dwarves it passes (never heals a boss); flak shoots it down",
+		healed and burned and boss_skip and shot and w != null and w.band_i() == 1,
+		"undead %.0f -> %.0f, dwarf %.0f -> %.0f, boss unchanged=%s, wisp shot=%s band=%d" % [zh, zom.hp, sh0, sb.hp, boss_skip, shot, w.band_i() if w != null and is_instance_valid(w) else -1])
+	kill_battle(b3)
+	# --- obelisk ward: undead near a live obelisk take 15 % less damage
+	var b4 = _bare_battle()
+	var ob = b4.spawn_unit("rift_obelisk", 1, Vector2(1800, 0), true)
+	var near = b4.spawn_unit("hollow_guard", 1, Vector2(1750, 0), true)
+	var away = b4.spawn_unit("hollow_guard", 1, Vector2(1300, 0), true)
+	for u in [near, away]:
+		_quiet(u)
+		u.speed = 0.0
+	b4.step(DT)
+	var hn = near.hp
+	var ha = away.hp
+	near.take_damage(100.0, null)
+	away.take_damage(100.0, null)
+	var dn = hn - near.hp
+	var da = ha - away.hp
+	ob.take_damage(ob.max_hp * 10.0, null)
+	for i in int(1.2 / DT):
+		b4.step(DT)
+	var hn2 = near.hp
+	near.take_damage(100.0, null)
+	var dn2 = hn2 - near.hp
+	record("Obelisk ward: undead within reach of a rift obelisk take 15% less damage; breaking the obelisk ends the ward",
+		absf(dn - 85.0) < 0.5 and absf(da - 100.0) < 0.5 and absf(dn2 - 100.0) < 0.5, "near %.1f · away %.1f · after the obelisk falls %.1f" % [dn, da, dn2])
+	kill_battle(b4)
+	# --- the validator knows the Act V hazards and every Act V stage carries both fronts (checked by gen_data)
+	var kinds = {}
+	for i in range(121, 151):
+		for h in WaveDirector.hazard_list(Registry.stage_by_index(i)):
+			kinds[String(h.kind)] = true
+	record("Act V stages use all three new hazards", kinds.has("rift_tears") and kinds.has("eclipse") and kinds.has("soul_storm"), str(kinds.keys()))
+
+
+func test_boss_phases_m008() -> void:
+	# The Hollow King: at 50 % he crowns an elite; while it lives he takes half damage; killing it breaks the ward
+	var r = _boss_battle("hollow_king", [["shieldbearer", 2, 1500]])
+	var b: Battle = r[0]
+	var k = r[1]
+	var champ = b.spawn_unit("ossuary_champion", 1, Vector2(1820, 0), true)
+	k.hp = k.max_hp * 0.49
+	for i in int(1.0 / DT):
+		b.step(DT)
+	var crowned = b.crowned != null and is_instance_valid(b.crowned) and b.crowned.alive
+	var h0 = k.hp
+	k.take_damage(1000.0, null)
+	var d_crowned = h0 - k.hp
+	if crowned:
+		b.crowned.take_damage(b.crowned.max_hp * 10.0, null)
+	for i in int(1.0 / DT):
+		b.step(DT)
+	var h1 = k.hp
+	k.take_damage(1000.0, null)
+	var d_broken = h1 - k.hp
+	var breaks = b.stats_crown_breaks
+	for i in int(21.0 / DT):
+		b.step(DT)
+	var recrowned = b.stats_crowns >= 2
+	record("Boss phase: the Hollow King crowns an elite at 50% (half damage while it lives); killing the crowned one breaks the ward; he crowns another after a pause",
+		k.phase_on and crowned and absf(d_crowned - 500.0) < 1.0 and absf(d_broken - 1000.0) < 1.0 and breaks == 1 and recrowned,
+		"crowned=%s (a %s) dmg while crowned %.0f, after the break %.0f, breaks=%d crowns=%d" % [crowned, champ.id, d_crowned, d_broken, breaks, b.stats_crowns])
+	kill_battle(b)
+	# Gravewing Sovereign: at 50 % gales push dwarven aircraft back; at 25 % she drags them toward her
+	var r2 = _boss_battle("gravewing_sovereign", [["heavy_interceptor", 3, 900]])
+	var b2: Battle = r2[0]
+	var sv = r2[1]
+	var craft: Array = r2[2]
+	for c in craft:
+		_quiet(c)
+	sv.hp = sv.max_hp * 0.49
+	var gale_seen = false
+	var x0 = 0.0
+	var pushed = false
+	for i in int(4.0 / DT):
+		if b2.sky_gale_t > 0.0 and not gale_seen:
+			gale_seen = true
+			x0 = craft[0].position.x
+		b2.step(DT)
+	pushed = gale_seen and craft[0].position.x < x0 - 30.0
+	sv.hp = sv.max_hp * 0.24
+	var pull_seen = false
+	var d0 = 0.0
+	var d1 = 0.0
+	for i in int(6.0 / DT):
+		if b2.sky_pull_t > 0.0 and not pull_seen:
+			pull_seen = true
+			d0 = craft[1].position.distance_to(sv.position)
+		b2.step(DT)
+		if pull_seen and b2.sky_pull_t > 0.0:
+			d1 = craft[1].position.distance_to(sv.position)
+	record("Boss phase: Gravewing Sovereign's storm eye closes at 50% (gales push dwarven aircraft back) and at 25% she drags aircraft toward her",
+		sv.phase_on and pushed and pull_seen and d1 < d0 and b2.stats_gales >= 1 and b2.stats_pulls >= 1,
+		"gale=%s pushed=%s pull=%s distance %.0f -> %.0f gales=%d pulls=%d" % [gale_seen, pushed, pull_seen, d0, d1, b2.stats_gales, b2.stats_pulls])
+	kill_battle(b2)
+	# The Rift Lich: at 66 % it rises into the rift (air, high band: ground weapons cannot hit it) and its legion
+	# storms the stronghold; at 33 % it returns to the ground with the rift's full storm (soul wisps)
+	var b3 = _bare_battle({"seed": 31})
+	var li = b3.spawn_unit("rift_lich", 1, Vector2(1900, 0), true)
+	b3.on_boss_spawned(li)
+	_quiet(li)
+	li.hp = li.max_hp * 0.65
+	for i in int(3.5 / DT):
+		b3.step(DT)
+	var aloft = li.aloft and li.domain == "air" and li.band_i() == 2 and li.position.y < Combat.GROUND_Y - 100.0   # air_y 130 keeps it on screen
+	var cannon = b3.spawn_unit("light_field_cannon", 0, Vector2(1500, 0), true)
+	var flak = b3.spawn_unit("flak_crew", 0, Vector2(1500, 0), true)
+	var ground_cant = not cannon.weapons[0].can_hit_domain(li)
+	var flak_can = flak.weapons[0].can_hit_domain(li)
+	for i in int(19.0 / DT):
+		b3.step(DT)
+	var army = b3.stats_lich_army
+	li.hp = li.max_hp * 0.32
+	for i in int(2.5 / DT):
+		b3.step(DT)
+	var back = not li.aloft and li.domain == "ground" and absf(li.position.y - Combat.GROUND_Y) < 30.0 and not b3.soul_def.is_empty() and b3.soul_boost > 1.0
+	record("Boss phase: the Rift Lich rises into the rift at 66% (only high-reaching weapons hit it, its legion storms the line) and returns to the ground at 33% with the full storm",
+		li.phase_on and aloft and ground_cant and flak_can and army >= 5 and back and b3.stats_lich_rises == 1 and b3.stats_lich_returns == 1,
+		"aloft=%s ground cannon can hit=%s flak can hit=%s legion spawned=%d returned=%s storm=%s" % [aloft, not ground_cant, flak_can, army, back, not b3.soul_def.is_empty()])
+	kill_battle(b3)
+
+
+## Last Stand: deterministic waves, a boss every 10th wave, a sealed citadel, score/best records, no Sparks.
+## With --soak=N (seconds), an extra run plays N seconds of game time under the auto-commander and checks object
+## counts and memory don't grow without bound.
+func test_last_stand(soak: float) -> void:
+	SaveManager.path = "user://test_ls_save.json"
+	GameState.reset_progress()
+	for i in 120:
+		GameState.profile.cleared["s%03d" % (i + 1)] = {"best_time": 300, "clears": 1}
+	var st = LastStand.stage_def("stonehelm_gate")
+	var lo = loadout_for_stage(118)
+	var b = make_battle({"sandbox": false, "seed": int(st.seed)}, st, lo)
+	var ls: LastStand = b.director
+	var w1a = ls.compose_wave(7)
+	var w1b = ls.compose_wave(7)
+	var w10 = ls.compose_wave(10)
+	var has_boss = w10.any(func(q): return String(q[1]) == "@boss")
+	var no_boss = not ls.compose_wave(9).any(func(q): return String(q[1]) == "@boss")
+	var ranged_bounded = true
+	record("Last Stand waves: deterministic per arena and wave, a lord of the dead every 10th wave, threat budget rising", w1a == w1b and has_boss and no_boss and ls.budget(20) > ls.budget(10) * 1.5 and not ls.bosses.is_empty(),
+		"wave7 parts=%d, wave10 boss=%s, budget 10/20 = %.0f/%.0f, bosses=%s" % [w1a.size(), has_boss, ls.budget(10), ls.budget(20), str(ls.bosses.slice(0, 4))])
+	var sparks0 = int(GameState.profile.sparks)
+	var ai = AutoCommander.new()
+	ai.generic = true
+	ai.saver = true
+	var sealed_always = true
+	var t0 = Time.get_ticks_msec()
+	while b.time < 600.0 and not b.over:
+		ai.step(b, DT)
+		b.step(DT)
+		if not b.citadel_sealed:
+			sealed_always = false
+	record("Last Stand: the citadel never falls (sealed), the run continues wave after wave under the auto-commander, gold income grows", sealed_always and ls.wave >= 4 and b.gold_rate > float(st.gold_rate) and b.enemy_base.hp > 0.0,
+		"after %.0fs: wave %d, kills %d, score %d, gold rate %.1f, over=%s, wall %d ms" % [b.time, ls.wave, b.stats_kills, ls.score(), b.gold_rate, b.over, Time.get_ticks_msec() - t0])
+	var res = GameState.record_last_stand("stonehelm_gate", ls.waves_survived(), b.stats_kills, ls.score())
+	var rec: Dictionary = GameState.profile.last_stand.stonehelm_gate
+	var res2 = GameState.record_last_stand("stonehelm_gate", 1, 3, 103)
+	record("Last Stand records: best wave/score per arena kept locally, cosmetic milestones only, no Sparks granted", res.best and int(rec.best_score) == ls.score() and not res2.best and int(GameState.profile.last_stand.stonehelm_gate.best_score) == ls.score() and int(GameState.profile.sparks) == sparks0 and score_formula_ok(ls, b),
+		"best=%s rec=%s sparks %d -> %d rewards=%s" % [res.best, str(rec), sparks0, int(GameState.profile.sparks), str(res.rewards)])
+	var unl0 = GameState.last_stand_unlocked()
+	GameState.profile.cleared.erase("s060")
+	var unl1 = GameState.last_stand_unlocked()
+	record("Last Stand unlocks after stage 060 (and the Act IV arena after 090)", unl0 and not unl1 and LastStand.arena_open(LastStand.arena("stonehelm_gate")) == false and true,
+		"with 060=%s without=%s" % [unl0, unl1])
+	kill_battle(b)
+	if soak > 0.0:
+		for i in 120:
+			GameState.profile.cleared["s%03d" % (i + 1)] = {"best_time": 300, "clears": 1}
+		var b2 = make_battle({"sandbox": false, "seed": int(st.seed)}, LastStand.stage_def("cinder_canal"), loadout_for_stage(119))
+		b2.invulnerable_bases = false
+		b2.dwarf_base.max_hp *= 40.0   # the soak must survive the full duration to measure leaks
+		b2.dwarf_base.hp = b2.dwarf_base.max_hp
+		var ai2 = AutoCommander.new()
+		ai2.generic = true
+		ai2.saver = true
+		var samples: Array = []
+		var tw = Time.get_ticks_msec()
+		var steps = 0
+		while b2.time < soak and not b2.over:
+			ai2.step(b2, DT)
+			b2.step(DT)
+			steps += 1
+			if steps % 30 == 0:
+				# let the engine run an idle frame every simulated second, as the game does 30-60 times a second:
+				# dead units are queue_free()d and only leave the tree at the end of a frame
+				await get_tree().process_frame
+			if fmod(b2.time, 120.0) < DT:
+				samples.append([int(b2.time), b2.units.size(), int(Performance.get_monitor(Performance.OBJECT_COUNT)), int(Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0), b2.alive_count(1), b2.air_alive(1)])
+				if args.has("leakdbg"):
+					print("DBG t=%d nodes=%d orphans=%d resources=%d" % [int(b2.time), Performance.get_monitor(Performance.OBJECT_NODE_COUNT), Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT), Performance.get_monitor(Performance.OBJECT_RESOURCE_COUNT)])
+					var tally = {}
+					var stack = [get_tree().root]
+					while not stack.is_empty():
+						var nd = stack.pop_back()
+						var key = "%s<%s>" % [nd.get_class(), String(nd.get_parent().name) if nd.get_parent() != null else "-"]
+						if nd.get_script() != null:
+							key = "%s<%s>" % [String(nd.get_script().resource_path.get_file()), String(nd.get_parent().name) if nd.get_parent() != null else "-"]
+						tally[key] = int(tally.get(key, 0)) + 1
+						stack.append_array(nd.get_children())
+					var top = tally.keys()
+					top.sort_custom(func(a, c): return int(tally[a]) > int(tally[c]))
+					print("DBG top ", top.slice(0, 8).map(func(k): return "%s=%d" % [k, tally[k]]))
+		var ls2: LastStand = b2.director
+		var objs: Array = samples.map(func(s): return int(s[2]))
+		var late = objs.slice(int(objs.size() / 2))
+		var early = objs.slice(1, int(objs.size() / 2))
+		var grow = (late.max() if not late.is_empty() else 0) - (early.max() if not early.is_empty() else 0)
+		var caps_ok = samples.all(func(s): return int(s[4]) <= 90 and int(s[5]) <= Battle.AIR_CAP)
+		for s in samples:
+			print("SOAK t=%ds units=%d objects=%d static_mem=%dMB undead_alive=%d undead_air=%d" % s)
+		record("Last Stand soak: %.0f min of endless waves without leaks (object count flat in the second half, caps respected)" % (soak / 60.0), b2.time >= soak - 1.0 and grow < 400 and caps_ok,
+			"reached wave %d in %.0fs (wall %d s); object count growth second half vs first: %d; samples=%d" % [ls2.wave, b2.time, (Time.get_ticks_msec() - tw) / 1000, grow, samples.size()])
+		kill_battle(b2)
+
+
+func score_formula_ok(ls, b) -> bool:
+	return ls.score() == ls.waves_survived() * 100 + b.stats_kills
+
+
+func test_m008_save() -> void:
+	# an M007 save (no M008 fields, with a malformed Last Stand entry) loads, keeps progress, gains the new fields
+	SaveManager.path = "user://test_m008_save.json"
+	var old = SaveManager.default_profile()
+	for k in ["last_stand", "cosmetics", "units_used", "ending_seen", "last_stand_day"]:
+		old.erase(k)
+	for k2 in ["tears_closed", "wisps_shot", "last_stand_runs"]:
+		old.stats.erase(k2)
+	for i in 120:
+		old.cleared["s%03d" % (i + 1)] = {"best_time": 300, "clears": 1}
+	old.sparks = 19876
+	old.heroic = {"s050": {"stars": [true, true, false], "clears": 1, "best_time": 400.0}}
+	var f = FileAccess.open(SaveManager.path, FileAccess.WRITE)
+	f.store_string(JSON.stringify(old))
+	f.close()
+	var p = SaveManager.load_profile()
+	var ok = p.cleared.size() == 120 and int(p.sparks) == 19876 and p.heroic.has("s050") and p.last_stand is Dictionary and p.cosmetics.has("banners") \
+		and p.units_used is Array and p.ending_seen == false and p.stats.has("tears_closed") and p.stats.has("last_stand_runs")
+	# a malformed Last Stand record is repaired
+	p.last_stand = {"cinder_canal": "garbage", "stonehelm_gate": {"best_wave": 12.0}}
+	var p2 = SaveManager.migrate(p)
+	var repaired = p2.last_stand.cinder_canal is Dictionary and int(p2.last_stand.stonehelm_gate.best_wave) == 12 and p2.last_stand.stonehelm_gate.has("runs")
+	# Act V opens at 121 for this save; clearing 150 seals the rift (post-game state) and grants the cosmetic banner
+	GameState.profile = p2
+	var open121 = GameState.stage_available(Registry.stage("s121"))
+	for i in range(121, 150):
+		GameState.profile.cleared["s%03d" % i] = {"best_time": 300, "clears": 1}
+	var sealed0 = GameState.rift_sealed()
+	var sm = GameState.grant_stage_rewards("s150", 600.0, 900, [true, true, true])
+	var sealed1 = GameState.rift_sealed()
+	record("M007 -> M008 save: progress kept, Last Stand / cosmetics / completion fields added, malformed records repaired; Act V opens at 121; clearing 150 seals the Rift and grants its banner",
+		ok and repaired and open121 and not sealed0 and sealed1 and "rift_sealer" in GameState.profile.cosmetics.banners and String(sm.get("banner", "")) == "rift_sealer",
+		"fields ok=%s repaired=%s 121 open=%s sealed %s -> %s banners=%s" % [ok, repaired, open121, sealed0, sealed1, str(GameState.profile.cosmetics.banners)])
+
+
+func test_ui_m008() -> void:
+	SaveManager.path = "user://test_ui_m008.json"
+	GameState.reset_progress()
+	GameState.profile.settings.tutorial = false
+	for e in Registry.implemented_dwarves():
+		GameState.unlock_unit(e.id)
+	for i in 150:
+		GameState.profile.cleared["s%03d" % (i + 1)] = {"best_time": 300, "clears": 1}
+	var errs: Array = []
+	for sc in ["last_stand", "completion", "campaign", "settings", "menu"]:
+		var inst = load(GameState.SCENES[sc]).instantiate()
+		get_tree().root.add_child(inst)
+		for i in 10:
+			await get_tree().process_frame
+		if not is_instance_valid(inst) or inst.get_child_count() == 0:
+			errs.append(sc)
+		inst.queue_free()
+		await get_tree().process_frame
+	record("M008 screens open: Last Stand arena picker, completion page, campaign (Rift Sealed), settings (replay ending), hub (Last Stand station)", errs.is_empty(), "failed=%s" % str(errs))
+	# the ending runs through its parts (skipping) to the credits and back to the campaign
+	var en = load(GameState.SCENES["ending"]).instantiate()
+	get_tree().root.add_child(en)
+	await get_tree().process_frame
+	var parts: Array = [en.part]
+	for i in 30:
+		await get_tree().process_frame
+	en._skip()
+	parts.append(en.part)
+	for i in 10:
+		await get_tree().process_frame
+	en._go("march")
+	for i in 20:
+		await get_tree().process_frame
+	var marched = en.realm != null and is_instance_valid(en.realm) and en.realm.act == 5 and not en.column.is_empty()
+	en._skip()
+	parts.append(en.part)
+	en._skip()
+	parts.append(en.part)
+	record("Ending: rift collapse -> (skip) epilogue -> credits; the march home pans the Realm Map with a column on the road; ending_seen is saved",
+		parts == ["rift", "epilogue", "epilogue", "credits"] and marched and GameState.profile.ending_seen,
+		"parts=%s marched=%s ending_seen=%s" % [str(parts), marched, GameState.profile.ending_seen])
+	if is_instance_valid(en):
+		en.queue_free()
+	await get_tree().process_frame
+	# the Act V realm map: landmarks for the four environments, aloft rift shards, and the sealed state
+	var rm = RealmMap.new()
+	rm.size = Vector2(1100, 560)
+	get_tree().root.add_child(rm)
+	rm.setup(5, "s125")
+	var aloft = 0
+	for i in 30:
+		if rm.aloft[i]:
+			aloft += 1
+	var sealed_pal = rm.pal("sky0") == Color("1e2440")
+	GameState.profile.cleared.erase("s150")
+	var dark_pal = rm.pal("sky0") == Color("0e0818")
+	record("Realm Map Act V: rift-sky landmarks float aloft; the map switches to the 'rift sealed' palette once 150 is cleared", aloft >= 7 and sealed_pal and dark_pal, "aloft=%d sealed palette=%s dark palette before=%s" % [aloft, sealed_pal, dark_pal])
+	rm.queue_free()
+
+
+func test_audio_m008() -> void:
+	var need = ["amb_waste", "amb_rift", "amb_citadel", "amb_gate", "music_lich", "music_ending"]
+	var missing = need.filter(func(k): return not k in Audio.LOOP_KEYS)
+	var sfx = ["rift_crack", "rift_open", "rift_close", "rift_spill", "eclipse", "eclipse_end", "crown", "crown_break", "gale", "wave_horn"]
+	var have = sfx.filter(func(k): return Audio.streams.has(k))
+	record("M008 audio: Act V ambiences, the Rift Lich theme and the ending march are cached loops; hazard, boss and Last Stand cues exist", missing.is_empty() and Audio.CACHE_VER == "m008-1" and (have.size() == sfx.size() or not Audio.enabled),
+		"missing loops=%s cues present=%d/%d (audio enabled=%s)" % [str(missing), have.size(), sfx.size(), Audio.enabled])
+
+
+## M008 unit coverage: every dwarven unit is put into the realistic army of a stage where a player can own it (its
+## role slot), the stage is played by the auto-commander, and the unit's deployments and damage are recorded.
+## `--from/--to` index the 160-unit roster. Prints one COVER line per unit (read by tools/coverage.py).
+func test_coverage(from: int, to: int) -> void:
+	var ds = Registry.implemented_dwarves()
+	ds.sort_custom(func(a, b2): return String(a.id) < String(b2.id))
+	for idx in range(from, mini(to, ds.size())):
+		var e = ds[idx]
+		var uid = String(e.id)
+		var stn = _coverage_stage(e)
+		var st = Registry.stage_by_index(stn)
+		var lo = loadout_for_stage(stn)
+		if not uid in lo:
+			var slot = _coverage_slot(e, lo)
+			lo[slot] = uid
+		var b = make_battle({"sandbox": false, "seed": int(st.seed)}, st, lo)
+		b.track_unit_dmg = true
+		var ai = AutoCommander.new()
+		ai.generic = stn > 30
+		ai.saver = stn > 90
+		ai.rotate = stn > 120
+		# a player who put this unit in the loadout fields it: deploy it whenever it is ready (at most one every
+		# `gap` s, so cheap units do not crowd out the rest of the army), and let the commander run everything else
+		var gap = clampf(float(Registry.combat_def(uid).get("gold", 100)) / 18.0, 6.0, 30.0)
+		var next_own = 8.0
+		var limit = float(args.get("limit", "720"))
+		var saving = 0.0
+		while b.time < limit and not b.over:
+			var hold = false
+			if b.time >= next_own:
+				var why = b.can_deploy(uid)
+				if why == "":
+					b.deploy(uid)
+					next_own = b.time + gap
+					saving = 0.0
+				elif why.begins_with("Need") and saving < 25.0:
+					hold = true   # save up for it (up to 25 s), as a player who picked it would
+					saving += DT
+				elif saving >= 25.0:
+					next_own = b.time + gap
+					saving = 0.0
+			if not hold:
+				ai.step(b, DT)
+			b.step(DT)
+		var dep = int(b.deploy_counts.get(uid, 0))
+		var gold = float(Registry.combat_def(uid).get("gold", 0)) * maxf(1.0, float(dep))
+		var dmg = float(b.dmg_by_unit.get(uid, 0.0))
+		print("COVER %s tier=%d stage=%d result=%s deployed=%d damage=%.0f dmg_per_gold=%.2f time=%.0f" % [uid, int(e.tier), stn, "WIN" if b.won else ("LOSS" if b.over else "TIMEOUT"), dep, dmg, dmg / maxf(1.0, gold), b.time])
+		record("coverage %s" % uid, true, "")
+		kill_battle(b)
+
+
+## The stage a unit is tested on: its blueprint stage + 1, or (research-only units) the first stage of the act after
+## its tier opens, kept inside Acts I-V.
+func _coverage_stage(e: Dictionary) -> int:
+	for i in range(1, 151):
+		if String(e.id) in Registry.stage_by_index(i).get("rewards", {}).get("unlock", []):
+			return mini(150, i + 1 + (5 if i % 10 == 9 else 0))
+	return [8, 20, 45, 80, 110, 128][int(e.tier)]
+
+
+func _coverage_slot(e: Dictionary, lo: Array) -> int:
+	if String(e.get("domain", "ground")) == "air":
+		return 10
+	var role = String(e.get("role", ""))
+	match role:
+		"frontline_defender", "melee_damage":
+			return 0
+		"armored_vehicle":
+			return 1
+		"anti_swarm":
+			return 2
+		"anti_armor", "rifle_infantry":
+			return 3
+		"indirect_artillery", "large_siege", "ranged_artillery":
+			return 4
+		"anti_air", "mobile_anti_air":
+			return 5
+		"repair_support", "engineering_fieldworks", "support_utility":
+			return 6
+	return 11

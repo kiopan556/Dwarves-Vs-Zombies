@@ -150,6 +150,10 @@ var _wreck_seek_t := 0.0
 var raised_from_wreck := false
 var is_reclaimer := false
 var is_salvager := false
+var lit := false                   # M008 eclipse: carries light or stands in a light source's radius
+var aura_dr := 0.0                 # M008: damage reduction from an aura (obelisk ward, Hollow King's crown)
+var aura_dr_t := -1.0              # battle time the aura expires
+var aloft := false                 # M008 Rift Lich: risen into the rift (fights from the air, no ground movement)
 var weak_core_t := 0.0             # Fallen Titan: plates torn away, core exposed (+25 % damage taken)
 
 
@@ -779,7 +783,7 @@ func _necromancer(dt: float) -> void:
 			var n = 0
 			var corpses: Array = battle.corpses_near(position, float(rd.get("range", 200)))
 			for c in corpses:
-				if n >= int(rd.get("count", 2)) or raised.size() >= int(rd.get("cap", 6)):
+				if n >= int(rd.get("count", 2)) or raised.size() >= int(rd.get("cap", 6)) or battle.alive_count(side) >= Battle.RAISE_CAP:
 					break
 				var z = battle.spawn_unit(rd.get("enemy", "rotter"), side, Vector2(c.pos.x, 0), true)
 				if z != null:
@@ -793,7 +797,9 @@ func _necromancer(dt: float) -> void:
 			special = 0.0
 		return
 	if mode_t >= float(rd.get("interval", 7.0)) and raised.size() < int(rd.get("cap", 6)):
-		if not battle.corpses_near(position, float(rd.get("range", 200))).is_empty():
+		if battle.alive_count(side) >= Battle.RAISE_CAP:
+			mode_t = 0.0   # the field is full: wait a full interval before trying again
+		elif not battle.corpses_near(position, float(rd.get("range", 200))).is_empty():
 			mode = "casting"
 			mode_t = 0.0
 			Audio.play("necro_magic", position.x, -4.0)
@@ -1003,6 +1009,8 @@ func take_damage(amount: float, _from) -> float:
 	var dr = buff_add("dr")
 	if dr > 0.0:
 		amount *= maxf(0.25, 1.0 - dr)
+	if aura_dr_t > battle.time:
+		amount *= 1.0 - aura_dr
 	hp -= amount
 	if _from != null and is_instance_valid(_from):
 		last_hit_by = _from.id
@@ -1380,6 +1388,8 @@ func _tick_mech_timers(dt: float) -> void:
 
 func _mech(dt: float) -> void:
 	MechAbility.step(self, battle, dt)
+	if aloft:
+		return   # M008: the Rift Lich hangs in the rift and fights from there
 	if charge_left > 0.0:
 		MechAbility.charge_step(self, battle, dt)
 		return

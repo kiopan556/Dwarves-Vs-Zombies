@@ -32,6 +32,12 @@ const TEXT := {
 	"haz_slag_flow": "Slag creeps across the lane — it burns and slows the ground; aircraft fly over it.",
 	"haz_steam_leak": "A burst pipe refills your Steam while a machine stands in it — but it scalds everyone inside.",
 	"haz_rockfall_gantry": "Girders groan before they fall — clear the shadow on the lane.",
+	# M008 Act V
+	"haz_rift_tears": "A tear spills the dead when it closes — shoot it shut first; artillery reaches it anywhere.",
+	"haz_eclipse": "In the eclipse only lit units see far — scouts and spotters carry light for the units around them.",
+	"haz_soul_storm": "Soul wisps heal the dead and burn your line — flak and anti-air shoot them down.",
+	"obelisk": "Rift obelisks shield the dead around them — break the obelisks to break the ward.",
+	"colossus": "A colossus can take a whole army's fire — hold it with heavy armour while every gun focuses it.",
 }
 
 const BAND_NAMES := ["low", "mid", "high"]
@@ -73,6 +79,10 @@ static func tag_for(uid: String) -> String:
 		return "corrupted"
 	if st.get("reclaims", false):
 		return "reclaimer"
+	if uid == "rift_obelisk":
+		return "obelisk"
+	if st.get("giant_class", "") == "colossus":
+		return "colossus"
 	if st.get("static", false):
 		if st.has("aura"):
 			return "beacon"
@@ -156,4 +166,7 @@ const HAZARD_DESC := {
 	"furnace_vents": "Fixed vents glow, then erupt with fire in turn — ground units on both sides; machines take half.",
 	"slag_flow": "A molten river creeps across part of the lane from time to time, burning and slowing ground units.",
 	"steam_leak": "A burst pipe: your machines standing in it refill Steam Pressure, but everyone inside is scalded.",
+	"rift_tears": "Rifts crack open at random along the lane, then spill a handful of the dead — unless you destroy the tear first.",
+	"eclipse": "From time to time the dead sun goes out: ranged weapons on both sides lose a quarter of their reach, except near a light.",
+	"soul_storm": "Soul wisps drift out of the rift: they heal the undead they pass and burn the dwarves below. Flak brings them down.",
 }

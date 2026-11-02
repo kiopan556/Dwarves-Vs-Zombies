@@ -46,7 +46,8 @@ Each hazard has a drawer pill and description, a first-encounter hint, sounds, a
 | **Gravewing Sovereign** (140) | Sovereign's Brood, Wing Storm | At 50 % the **storm eye closes**: every 13 s gales sweep the sky for 4.5 s, pushing dwarven aircraft back (95 px/s) and buffeting them. At 25 % she **drags dwarven aircraft toward her** every 11 s (3 s, 85 px/s, crushing damage). Wind streaks and a contracting vortex show both. | Flak arrays, superiority craft, airships; ground AA under the eye |
 | **The Rift Lich** (150) | Rift Legion, Rift Storm, Annihilate, Lich Ward | **Two-front finale.** Phase 1 on the ground with its legion. At 66 % it **rises into the rift** (shielded for 2.4 s, then airborne in the high band: only flak, AA artillery, interceptors and airships reach it) while its legion storms the stronghold through a rift opened 360 px ahead of the dwarven front every 18 s. At 33 % it **returns to the ground with the rift's full storm**: soul wisps pour out (×1.8), and its casts come 40 % faster. The player has to win both fronts. | Everything: colossal machines, flying fortresses, flak, artillery |
 
-All three get the M005 arrival pan and boss sting; the Rift Lich has **its own music** (`music_lich`) and a 2.6× longer
+Fixed HP: Hollow King 12,000, Gravewing Sovereign 26,000, Rift Lich 16,000 (not the prompt's 28,000 / 30,000 / 34,000;
+see §7.1). All three get the M005 arrival pan and boss sting; the Rift Lich has **its own music** (`music_lich`) and a 2.6× longer
 arrival hold with a caption.
 
 ### 1.4 Battle environments (`BattleBackground`)
